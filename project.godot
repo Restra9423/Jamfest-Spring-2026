@@ -14,6 +14,15 @@ config/name="Jamfest 2026"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[file_customization]
+
+folder_colors={
+"res://Art/": "red",
+"res://Levels/": "yellow",
+"res://Prefabs/": "green",
+"res://Sound/": "blue"
+}
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
