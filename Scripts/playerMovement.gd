@@ -6,13 +6,12 @@ var points = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	get_tree().quit()
+	pass
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(health < 1):
-		#end game
-		pass
+		get_tree().quit()
 	else:
 		var x = Input.get_axis("Left", "Right")
 		var y = Input.get_axis("Up", "Down")
@@ -23,6 +22,9 @@ func _process(delta: float) -> void:
 		move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	health - 1
+	health -= 1
 	#create obvious visual indicator
 	#make ui update for health
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	health -= 1

@@ -43,3 +43,11 @@ shape = SubResource("RectangleShape2D_iyqwk")
 
 [node name="Bullet" parent="." unique_id=1184620307 instance=ExtResource("2_47q4h")]
 position = Vector2(94, 1)
+collision_mask = 2
+
+[node name="Bullet" parent="Bullet" unique_id=979420319 instance=ExtResource("2_47q4h")]
+position = Vector2(94, 1)
+collision_mask = 2
+
+[node name="Bullet" parent="Bullet/Bullet" unique_id=1242972258 instance=ExtResource("2_47q4h")]
+position = Vector2(94, -1)
