@@ -1,30 +1,41 @@
 extends CharacterBody2D
-var speed = 500
+var speed = 650
+var acceleration = 18
+var friction = 12
 var direction = Vector2.ZERO
 var health = 3
 var points = 0
+var iFramesActive = false
+@onready var iFrames : Timer = $iFrames
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if(health < 1):
 		get_tree().quit()
 	else:
-		var x = Input.get_axis("Left", "Right")
-		var y = Input.get_axis("Up", "Down")
-		direction.x = x
-		direction.y = y
-		#direction = direction.normalized()
-		velocity = direction * speed
+		direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
+		var lerpWeight = delta * (acceleration if direction else friction)
+		velocity = lerp(velocity, direction * speed, lerpWeight)
 		move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	health -= 1
+	hurt()
 	#create obvious visual indicator
 	#make ui update for health
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	health -= 1
+	hurt()
+
+func hurt():
+	if(!iFramesActive):
+		iFrames.start()
+		health -= 1
+		iFramesActive = true
+		print("hit")
+	else:
+		pass
+
+func _on_i_frames_timeout() -> void:
+	iFramesActive = false
