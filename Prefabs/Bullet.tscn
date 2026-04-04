@@ -17,9 +17,13 @@ texture = ExtResource("1_62lvt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1696189687]
 shape = SubResource("CircleShape2D_62lvt")
 
+[node name="StartTimer" type="Timer" parent="." unique_id=820223275]
+autostart = true
+
 [node name="DestroyTimer" type="Timer" parent="." unique_id=1871037056]
-wait_time = 4.0
+wait_time = 10.0
 autostart = true
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
