@@ -10,7 +10,7 @@ func _process (delta):
 	translate(moveDir * speed * delta)
 
 func _on_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	queue_free()
 
 func _on_destroy_timer_timeout() -> void:
 	queue_free()
