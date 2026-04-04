@@ -2,6 +2,7 @@ extends Area2D
 
 @export var speed : float = 200.0
 @export var ownerGroup : String
+@export var isParryable : bool
 @onready var destroyTimer : Timer = $DestroyTimer
 
 var moveDir : Vector2
