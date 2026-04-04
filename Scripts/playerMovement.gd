@@ -1,23 +1,28 @@
 extends CharacterBody2D
 var speed = 500
 var direction = Vector2.ZERO
+var health = 3
 var points = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	get_tree().quit()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var x = Input.get_axis("Left", "Right")
-	var y = Input.get_axis("Up", "Down")
-	direction.x = x
-	print(x)
-	direction.y = y
-	print(y)
-	#direction = direction.normalized()
-	velocity = direction * speed
-	move_and_slide()
+	if(health < 1):
+		#end game
+		pass
+	else:
+		var x = Input.get_axis("Left", "Right")
+		var y = Input.get_axis("Up", "Down")
+		direction.x = x
+		direction.y = y
+		#direction = direction.normalized()
+		velocity = direction * speed
+		move_and_slide()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	points -= 100
+	health - 1
+	#create obvious visual indicator
+	#make ui update for health
