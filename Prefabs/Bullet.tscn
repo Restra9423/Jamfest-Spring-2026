@@ -1,3 +1,24 @@
 [gd_scene format=3 uid="uid://cnip621aht0tq"]
 
-[node name="Bullet" type="Node2D" unique_id=1184620307]
+[ext_resource type="Texture2D" uid="uid://b7820rikjy6fo" path="res://Art/soyegg.webp" id="1_62lvt"]
+[ext_resource type="Script" uid="uid://coh2yb5bluxi1" path="res://Scripts/bullet.gd" id="1_pv5ng"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
+
+[node name="Bullet" type="Area2D" unique_id=979420319]
+collision_layer = 4
+script = ExtResource("1_pv5ng")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=183161725]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_62lvt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1696189687]
+shape = SubResource("CircleShape2D_62lvt")
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1871037056]
+wait_time = 4.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
