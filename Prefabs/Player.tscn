@@ -1,17 +1,26 @@
-[gd_scene load_steps=4 format=3 uid="uid://bpt5xrqt3jw1h"]
+[gd_scene format=3 uid="uid://bpt5xrqt3jw1h"]
 
 [ext_resource type="Texture2D" uid="uid://dkoiqnalnn0sh" path="res://Art/placeholderChar.png" id="1_um8lo"]
 [ext_resource type="Script" uid="uid://dpyrp55kf2kuf" path="res://Scripts/playerMovement.gd" id="1_x3d5u"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4ynan"]
-size = Vector2(78, 80)
+size = Vector2(40, 40)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" unique_id=740572060]
 script = ExtResource("1_x3d5u")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=253707334]
 shape = SubResource("RectangleShape2D_4ynan")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.1, 0.1)
+[node name="Area2D" type="Area2D" parent="." unique_id=1864975116]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=265086082]
+shape = SubResource("RectangleShape2D_4ynan")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619647646]
+scale = Vector2(0.05, 0.05)
 texture = ExtResource("1_um8lo")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

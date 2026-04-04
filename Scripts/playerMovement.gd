@@ -1,6 +1,7 @@
 extends CharacterBody2D
 var speed = 500
 var direction = Vector2.ZERO
+var points = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,3 +18,6 @@ func _process(delta: float) -> void:
 	#direction = direction.normalized()
 	velocity = direction * speed
 	move_and_slide()
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	points -= 100
