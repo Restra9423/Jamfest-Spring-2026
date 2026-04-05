@@ -4,12 +4,12 @@ var acceleration = 18
 var friction = 12
 var direction = Vector2.ZERO
 
-var health = 3
+var health = 4
 var points = 0
 
-var health3
-var health2
-var health1
+@export var health3: Node2D
+@export var health2: Node2D
+@export var health1: Node2D
 
 var iFramesActive = false
 @onready var iFrames : Timer = $iFrames
@@ -91,12 +91,12 @@ func hurt():
 		iFrames.start()
 		health -= 1
 		match health:
-			3:
-				print("param3 is 3!")
 			2:
-				print("param3 is not 3!")
+				health3.visible = false
+				print("heath 3 not visible")
 			1:
-				print("param3 is not 3!")
+				health2.visible = false
+				print("heath 2 not visible")
 		iFramesActive = true
 		print("hit")
 

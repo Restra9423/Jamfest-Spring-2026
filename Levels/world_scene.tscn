@@ -25,8 +25,11 @@ size = Vector2(1, 1920)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=583817535]
 
-[node name="Player" parent="." unique_id=696695548 node_paths=PackedStringArray("scoreCounter") instance=ExtResource("1_8oma2")]
+[node name="Player" parent="." unique_id=696695548 node_paths=PackedStringArray("health3", "health2", "health1", "scoreCounter") instance=ExtResource("1_8oma2")]
 slide_on_ceiling = false
+health3 = NodePath("../HeathBar3")
+health2 = NodePath("../HeathBar2")
+health1 = NodePath("../HeathBar1")
 scoreCounter = NodePath("../ScoreCounter")
 
 [node name="PatternSpawner" parent="." unique_id=680363320 instance=ExtResource("2_47q4h")]
@@ -65,15 +68,15 @@ texture = ExtResource("4_iyqwk")
 stream = ExtResource("5_v2hpu")
 autoplay = true
 
+[node name="HeathBar3" type="Sprite2D" parent="." unique_id=1316957443]
+position = Vector2(-794, 832)
+scale = Vector2(0.099999994, 0.099999994)
+texture = ExtResource("7_fcaoe")
+
 [node name="HeathBar2" type="Sprite2D" parent="." unique_id=1423403472]
 position = Vector2(-794, 832)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("6_42d7d")
-
-[node name="HeathBar3" type="Sprite2D" parent="." unique_id=1316957443]
-position = Vector2(-794, 832)
-scale = Vector2(0.1, 0.1)
-texture = ExtResource("7_fcaoe")
 
 [node name="HeathBar1" type="Sprite2D" parent="." unique_id=2044029295]
 position = Vector2(-794, 832)
