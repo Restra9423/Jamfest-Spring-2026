@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://djiitpxgsp02t" path="res://Prefabs/PatternSpawner.tscn" id="2_47q4h"]
 [ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/ScoreCounter.tscn" id="3_gajq0"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="4_iyqwk"]
+[ext_resource type="AudioStream" uid="uid://dorjumjotuvsm" path="res://Sound/Music/BulletHellSong.wav" id="5_v2hpu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oma2"]
 size = Vector2(1918, 1)
@@ -56,3 +57,7 @@ offset_bottom = -679.0
 [node name="Background" type="Sprite2D" parent="." unique_id=203242074]
 z_index = -5
 texture = ExtResource("4_iyqwk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=378901101]
+stream = ExtResource("5_v2hpu")
+autoplay = true
