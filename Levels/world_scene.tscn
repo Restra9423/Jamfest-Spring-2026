@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7scnx8hupynl"]
 
 [ext_resource type="PackedScene" uid="uid://bpt5xrqt3jw1h" path="res://Prefabs/Player.tscn" id="1_8oma2"]
-[ext_resource type="PackedScene" uid="uid://cryd88wwyigoj" path="res://Prefabs/Bullet Patterns/parry_circle_pattern_1.tscn" id="2_47q4h"]
+[ext_resource type="PackedScene" uid="uid://djiitpxgsp02t" path="res://Prefabs/PatternSpawner.tscn" id="2_47q4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oma2"]
 size = Vector2(1918, 1)
@@ -20,6 +20,8 @@ size = Vector2(1, 1920)
 [node name="Camera2D" type="Camera2D" parent="." unique_id=583817535]
 
 [node name="Player" parent="." unique_id=696695548 instance=ExtResource("1_8oma2")]
+
+[node name="PatternSpawner" parent="." unique_id=680363320 instance=ExtResource("2_47q4h")]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=2010764611]
 collision_layer = 4
@@ -40,5 +42,3 @@ shape = SubResource("RectangleShape2D_gajq0")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=182072331]
 position = Vector2(959.5, 0)
 shape = SubResource("RectangleShape2D_iyqwk")
-
-[node name="ParryCirclePattern1" parent="." unique_id=448704251 instance=ExtResource("2_47q4h")]

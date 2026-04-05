@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://djiitpxgsp02t"]
+
+[ext_resource type="Script" uid="uid://0bb3mt2iso4l" path="res://Scripts/patternSpawner.gd" id="1_2sovd"]
+
+[node name="PatternSpawner" type="Node2D" unique_id=680363320]
+script = ExtResource("1_2sovd")
+
+[node name="WaveTimer" type="Timer" parent="." unique_id=869479075]
+wait_time = 5.0
+autostart = true
+
+[connection signal="timeout" from="WaveTimer" to="." method="_on_wave_timer_timeout"]
