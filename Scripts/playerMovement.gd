@@ -14,6 +14,8 @@ var parried = false
 @onready var parryLength : Timer = $ParryLength
 var onCooldown = false
 @onready var parryCooldown : Timer = $ParryCooldown
+var hitMaybe = false
+@onready var parryAfter : Timer = $ParryAfter
 
 var avgMouseMove = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
 var lastMousePos = Vector2.ZERO
@@ -42,18 +44,27 @@ func _process(delta: float) -> void:
 	if(Input.is_action_just_pressed("Parry") && !onCooldown):
 		parryLength.start()
 		parrying = true
+	if(hitMaybe && parryAfter.time_left == 0):
+		hitMaybe = false
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(parrying && area.isParryable):
-		
 		parry(area.pointValue)
 		area.setParried()
-		# makee a post button press window too
 	else:
-		hurt()
+		parryAfter.start()
+		hitMaybe = true
+		await get_tree().create_timer(.1).timeout
+		if(hitMaybe):
+			hurt()
+			area.queue_free()
+		elif(area.isParryable):
+			parry(area.pointValue)
+			area.setParried()
+		hitMaybe = false
 
 func parry(pointValue: int):
 	parried = true

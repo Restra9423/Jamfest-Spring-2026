@@ -47,9 +47,6 @@ func _process (delta):
 	if (timeToStart):
 		translate(moveDir * speed * delta)
 
-func _on_body_entered(_body: Node2D) -> void:
-	queue_free()
-
 func _on_start_timer_timeout() -> void:
 	timeToStart = true
 

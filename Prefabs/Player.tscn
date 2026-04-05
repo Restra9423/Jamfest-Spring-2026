@@ -43,7 +43,10 @@ scale = Vector2(0.14733924, 0.082646795)
 texture = ExtResource("2_b43ah")
 
 [node name="ParryLength" type="Timer" parent="." unique_id=402431534]
-wait_time = 0.25
+wait_time = 0.1
+
+[node name="ParryAfter" type="Timer" parent="." unique_id=488479843]
+wait_time = 0.1
 
 [node name="ParryCooldown" type="Timer" parent="." unique_id=1991926870]
 
@@ -53,5 +56,6 @@ wait_time = 0.5
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="ParryLength" to="." method="_on_parry_timer_timeout"]
+[connection signal="timeout" from="ParryAfter" to="." method="_on_parry_after_timeout"]
 [connection signal="timeout" from="ParryCooldown" to="." method="_on_parry_cooldown_timeout"]
 [connection signal="timeout" from="iFrames" to="." method="_on_i_frames_timeout"]
