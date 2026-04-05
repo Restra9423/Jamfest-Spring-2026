@@ -7,18 +7,24 @@ var health = 3
 var points = 0
 var iFramesActive = false
 @onready var iFrames : Timer = $iFrames
+var lastMousePos = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
+@onready var parryPivot : Node2D = $ParryPivot
 
 func _ready() -> void:
-	pass
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 func _process(delta: float) -> void:
 	if(health < 1):
 		get_tree().quit()
-	else:
-		direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
-		var lerpWeight = delta * (acceleration if direction else friction)
-		velocity = lerp(velocity, direction * speed, lerpWeight)
-		move_and_slide()
+	direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
+	var lerpWeight = delta * (acceleration if direction else friction)
+	velocity = lerp(velocity, direction * speed, lerpWeight)
+	move_and_slide()
+	
+	var parryDir = (lastMousePos[0]+lastMousePos[1]+lastMousePos[2])/3
+	parryPivot.rotation = lerp(velocity,parryDir.normalized(),lerpWeight).angle()
+	lastMousePos.append(get_global_mouse_position())
+	lastMousePos.pop_front()
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	hurt()
