@@ -3,13 +3,22 @@ var speed = 650
 var acceleration = 18
 var friction = 12
 var direction = Vector2.ZERO
+
 var health = 3
 var points = 0
+
 var iFramesActive = false
 @onready var iFrames : Timer = $iFrames
+var parrying = false
+var parried = false
+@onready var parryLength : Timer = $ParryLength
+var onCooldown = false
+@onready var parryCooldown : Timer = $ParryCooldown
+
 var avgMouseMove = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
 var lastMousePos = Vector2.ZERO
 @onready var parryPivot : Node2D = $ParryPivot
+
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
@@ -28,23 +37,40 @@ func _process(delta: float) -> void:
 		avgMouseMove.append(get_global_mouse_position() - lastMousePos)
 		avgMouseMove.pop_front()
 	lastMousePos = get_global_mouse_position()
+	
+	if(Input.is_action_just_pressed("Parry") && !onCooldown):
+		parryLength.start()
+		parrying = true
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	hurt()
-	#create obvious visual indicator
-	#make ui update for health
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	hurt()
+	if(parrying && area.isParryable):
+		parry()
+	else:
+		hurt()
 
+func parry():
+	parried = true
+	parryCooldown.start()
+	
 func hurt():
 	if(!iFramesActive):
 		iFrames.start()
 		health -= 1
 		iFramesActive = true
 		print("hit")
-	else:
-		pass
+		#create obvious visual indicator
+		#make ui update for health
+
 
 func _on_i_frames_timeout() -> void:
 	iFramesActive = false
+func _on_parry_length_timeout() -> void:
+	parrying = false
+	if(!parried):
+		parryCooldown.wait_time = 2
+func _on_parry_cooldown_timeout() -> void:
+	if(parryCooldown.wait_time == 2):
+		parryCooldown.wait_time = 1

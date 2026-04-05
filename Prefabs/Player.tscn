@@ -4,12 +4,8 @@
 [ext_resource type="Script" uid="uid://dpyrp55kf2kuf" path="res://Scripts/playerMovement.gd" id="1_x3d5u"]
 [ext_resource type="Texture2D" uid="uid://bshfvwq4ehk6u" path="res://Art/placeeholderParry.png" id="2_b43ah"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ynan"]
-size = Vector2(40, 40)
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x3d5u"]
-radius = 27.0
-height = 54.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_b43ah"]
+radius = 40.024994
 
 [node name="Player" type="CharacterBody2D" unique_id=740572060]
 collision_layer = 2
@@ -17,36 +13,45 @@ collision_mask = 4
 script = ExtResource("1_x3d5u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=253707334]
-shape = SubResource("RectangleShape2D_4ynan")
+shape = SubResource("CircleShape2D_b43ah")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1864975116]
 collision_layer = 2
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=265086082]
-shape = SubResource("RectangleShape2D_4ynan")
+shape = SubResource("CircleShape2D_b43ah")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1619647646]
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_um8lo")
 
 [node name="ParryPivot" type="Node2D" parent="." unique_id=124132662]
 
 [node name="ParryWindow" type="Area2D" parent="ParryPivot" unique_id=1913466391]
-position = Vector2(35, 0)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ParryPivot/ParryWindow" unique_id=2063770486]
-shape = SubResource("CapsuleShape2D_x3d5u")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParryPivot/ParryWindow" unique_id=1551865631]
+position = Vector2(-63.201996, 13)
+scale = Vector2(3.5382335, 3.301938)
+polygon = PackedVector2Array(17.868294, -3.9370818, 36.947998, -23.016787, 40.88508, -17.868294, 43.913605, -11.205541, 44.822163, -3.9370818, 43.913605, 3.331377, 40.88508, 10.296984, 36.947998, 15.142622)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParryPivot" unique_id=566237161]
 z_index = 1
-position = Vector2(35, 0)
-scale = Vector2(0.07, 0.07)
+position = Vector2(61.92806, -3.1445637e-09)
+rotation = 1.5707964
+scale = Vector2(0.14733924, 0.082646795)
 texture = ExtResource("2_b43ah")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1619647646]
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_um8lo")
+[node name="ParryLength" type="Timer" parent="." unique_id=402431534]
+wait_time = 0.25
+
+[node name="ParryCooldown" type="Timer" parent="." unique_id=1991926870]
 
 [node name="iFrames" type="Timer" parent="." unique_id=1050345811]
 wait_time = 0.5
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="ParryLength" to="." method="_on_parry_timer_timeout"]
+[connection signal="timeout" from="ParryCooldown" to="." method="_on_parry_cooldown_timeout"]
 [connection signal="timeout" from="iFrames" to="." method="_on_i_frames_timeout"]
