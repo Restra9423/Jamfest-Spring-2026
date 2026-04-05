@@ -54,7 +54,7 @@ scale = Vector2(0.3, 0.2)
 texture = ExtResource("4_shmu5")
 
 [node name="ParryLength" type="Timer" parent="." unique_id=402431534]
-wait_time = 0.1
+wait_time = 0.3
 one_shot = true
 
 [node name="ParryAfter" type="Timer" parent="." unique_id=488479843]
