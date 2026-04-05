@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://coh2yb5bluxi1" path="res://Scripts/bullet.gd" id="1_pv5ng"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
+radius = 19.697716
 
 [node name="Bullet" type="Area2D" unique_id=979420319]
 collision_layer = 4
@@ -11,7 +12,7 @@ collision_mask = 2
 script = ExtResource("1_pv5ng")
 
 [node name="Sprite" type="Sprite2D" parent="." unique_id=183161725]
-scale = Vector2(0.2, 0.2)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("1_62lvt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1696189687]

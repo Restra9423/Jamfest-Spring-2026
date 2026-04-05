@@ -28,3 +28,7 @@ func _on_start_timer_timeout() -> void:
 
 func _on_destroy_timer_timeout() -> void:
 	queue_free()
+
+func setParried():
+	speed *= -2
+	remove_child($CollisionShape2D)

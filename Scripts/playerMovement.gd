@@ -48,12 +48,15 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(parrying && area.isParryable):
 		parry()
+		area.setParried()
+		makee a post button press window too
 	else:
 		hurt()
 
 func parry():
 	parried = true
 	parryCooldown.start()
+	print("parry")
 	
 func hurt():
 	if(!iFramesActive):
@@ -63,7 +66,6 @@ func hurt():
 		print("hit")
 		#create obvious visual indicator
 		#make ui update for health
-
 
 func _on_i_frames_timeout() -> void:
 	iFramesActive = false
