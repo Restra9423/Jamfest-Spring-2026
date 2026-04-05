@@ -1,0 +1,129 @@
+[gd_scene format=3 uid="uid://c8ii6g7jho1n2"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/bulletPattern.gd" id="1_fbyf7"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullet.tscn" id="2_y1rr1"]
+
+[node name="UnparryCirclePattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_fbyf7")
+
+[node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("2_y1rr1")]
+position = Vector2(2562, -2228)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet5" parent="." unique_id=247807751 instance=ExtResource("2_y1rr1")]
+position = Vector2(2662, -2328)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet2" parent="." unique_id=658920638 instance=ExtResource("2_y1rr1")]
+position = Vector2(2462, -2128)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet3" parent="." unique_id=197878993 instance=ExtResource("2_y1rr1")]
+position = Vector2(2262, -1928)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet4" parent="." unique_id=836309892 instance=ExtResource("2_y1rr1")]
+position = Vector2(2362, -2028)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet6" parent="." unique_id=227825232 instance=ExtResource("2_y1rr1")]
+position = Vector2(2638, -3154)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet7" parent="." unique_id=1295017018 instance=ExtResource("2_y1rr1")]
+position = Vector2(2738, -3254)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet8" parent="." unique_id=94899913 instance=ExtResource("2_y1rr1")]
+position = Vector2(2538, -3054)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet9" parent="." unique_id=771154789 instance=ExtResource("2_y1rr1")]
+position = Vector2(2338, -2854)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet10" parent="." unique_id=1821272010 instance=ExtResource("2_y1rr1")]
+position = Vector2(2438, -2954)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet11" parent="." unique_id=654818697 instance=ExtResource("2_y1rr1")]
+position = Vector2(1725, -1975)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet12" parent="." unique_id=788104572 instance=ExtResource("2_y1rr1")]
+position = Vector2(1825, -2075)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet13" parent="." unique_id=2005115657 instance=ExtResource("2_y1rr1")]
+position = Vector2(1625, -1875)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet14" parent="." unique_id=1070001626 instance=ExtResource("2_y1rr1")]
+position = Vector2(1425, -1675)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet15" parent="." unique_id=2086993274 instance=ExtResource("2_y1rr1")]
+position = Vector2(1525, -1775)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet16" parent="." unique_id=215060738 instance=ExtResource("2_y1rr1")]
+position = Vector2(1750, -2927)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet17" parent="." unique_id=922788980 instance=ExtResource("2_y1rr1")]
+position = Vector2(1850, -3027)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet18" parent="." unique_id=1509681582 instance=ExtResource("2_y1rr1")]
+position = Vector2(1650, -2827)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet19" parent="." unique_id=227713375 instance=ExtResource("2_y1rr1")]
+position = Vector2(1450, -2627)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[node name="Bullet20" parent="." unique_id=1017899669 instance=ExtResource("2_y1rr1")]
+position = Vector2(1550, -2727)
+speed = 600.0
+angle = 135.0
+timeToDestroy = 20.0
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

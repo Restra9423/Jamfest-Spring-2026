@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_ng644"]
 [ext_resource type="Script" uid="uid://cnews4yryjkpt" path="res://UI/credits.gd" id="2_uuuvy"]
-[ext_resource type="Texture2D" uid="uid://bpry10hway2wd" path="res://icon.svg" id="3_kk2ga"]
+[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="3_kk2ga"]
 
 [node name="Credits" type="Control" unique_id=564746374]
 layout_mode = 3
@@ -23,25 +23,96 @@ offset_bottom = 596.0
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=273996225]
 layout_mode = 2
+theme_override_font_sizes/font_size = 100
 text = "Credits"
+horizontal_alignment = 1
 
-[node name="template" type="HBoxContainer" parent="VBoxContainer" unique_id=806704547]
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=818544369]
 layout_mode = 2
 
-[node name="name" type="Label" parent="VBoxContainer/template" unique_id=193803719]
+[node name="Jonathan" type="HBoxContainer" parent="VBoxContainer" unique_id=806704547]
 layout_mode = 2
-text = "Developer Name"
+alignment = 1
 
-[node name="separator" type="Label" parent="VBoxContainer/template" unique_id=1063103898]
+[node name="name" type="Label" parent="VBoxContainer/Jonathan" unique_id=193803719]
+layout_mode = 2
+text = "Jonathan Seek"
+
+[node name="separator" type="Label" parent="VBoxContainer/Jonathan" unique_id=1063103898]
 layout_mode = 2
 text = "-"
 
-[node name="role" type="Label" parent="VBoxContainer/template" unique_id=221395028]
+[node name="role" type="Label" parent="VBoxContainer/Jonathan" unique_id=221395028]
 layout_mode = 2
-text = "Developer Role"
+text = "Programmer"
+
+[node name="Jordan" type="HBoxContainer" parent="VBoxContainer" unique_id=1871781349]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="VBoxContainer/Jordan" unique_id=33160209]
+layout_mode = 2
+text = "Jordan McGill"
+
+[node name="separator" type="Label" parent="VBoxContainer/Jordan" unique_id=1271807445]
+layout_mode = 2
+text = "-"
+
+[node name="role" type="Label" parent="VBoxContainer/Jordan" unique_id=181765288]
+layout_mode = 2
+text = "Programmer"
+
+[node name="Josh" type="HBoxContainer" parent="VBoxContainer" unique_id=975500931]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="VBoxContainer/Josh" unique_id=490586560]
+layout_mode = 2
+text = "Joshua Sime"
+
+[node name="separator" type="Label" parent="VBoxContainer/Josh" unique_id=193572245]
+layout_mode = 2
+text = "-"
+
+[node name="role" type="Label" parent="VBoxContainer/Josh" unique_id=654012452]
+layout_mode = 2
+text = "Environment Artist"
+
+[node name="Finch" type="HBoxContainer" parent="VBoxContainer" unique_id=1648015927]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="VBoxContainer/Finch" unique_id=126205020]
+layout_mode = 2
+text = "Charlotte Spear"
+
+[node name="separator" type="Label" parent="VBoxContainer/Finch" unique_id=1014768962]
+layout_mode = 2
+text = "-"
+
+[node name="role" type="Label" parent="VBoxContainer/Finch" unique_id=1519883558]
+layout_mode = 2
+text = "Character Artist"
+
+[node name="Nathan" type="HBoxContainer" parent="VBoxContainer" unique_id=1306001730]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="VBoxContainer/Nathan" unique_id=907733708]
+layout_mode = 2
+text = "Nathan Caruso"
+
+[node name="separator" type="Label" parent="VBoxContainer/Nathan" unique_id=1879731616]
+layout_mode = 2
+text = "-"
+
+[node name="role" type="Label" parent="VBoxContainer/Nathan" unique_id=214781380]
+layout_mode = 2
+text = "Pattern Designer & SFX/Music"
 
 [node name="max" type="HBoxContainer" parent="VBoxContainer" unique_id=1752789347]
 layout_mode = 2
+alignment = 1
 
 [node name="name" type="Label" parent="VBoxContainer/max" unique_id=261757585]
 layout_mode = 2
@@ -55,14 +126,26 @@ text = "-"
 layout_mode = 2
 text = "Godot Assistance"
 
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1739131903]
+layout_mode = 2
+
 [node name="backButton" type="Button" parent="VBoxContainer" unique_id=57105475]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Back To Title"
+icon_alignment = 1
 
-[node name="Icon" type="Sprite2D" parent="." unique_id=1147272050]
-position = Vector2(1312.0001, 1306)
-scale = Vector2(6.3576756, 6.3576756)
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=581658310]
+layout_mode = 0
+offset_left = 552.5
+offset_top = 702.0
+offset_right = 592.5
+offset_bottom = 742.0
+alignment = 1
+
+[node name="Background" type="Sprite2D" parent="BoxContainer" unique_id=49087058]
+z_index = -5
+position = Vector2(404.5, 260)
 texture = ExtResource("3_kk2ga")
 
 [connection signal="pressed" from="VBoxContainer/backButton" to="." method="_on_back_button_pressed"]
