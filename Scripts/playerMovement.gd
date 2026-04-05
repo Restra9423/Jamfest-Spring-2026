@@ -7,6 +7,10 @@ var direction = Vector2.ZERO
 var health = 100
 var points = 0
 
+var health3
+var health2
+var health1
+
 var iFramesActive = false
 @onready var iFrames : Timer = $iFrames
 var parrying = false
@@ -86,6 +90,13 @@ func hurt():
 	if(!iFramesActive):
 		iFrames.start()
 		health -= 1
+		match health:
+			3:
+				print("param3 is 3!")
+			2:
+				print("param3 is not 3!")
+			1:
+				print("param3 is not 3!")
 		iFramesActive = true
 		print("hit")
 
