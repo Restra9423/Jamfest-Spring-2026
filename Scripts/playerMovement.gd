@@ -19,13 +19,14 @@ var avgMouseMove = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
 var lastMousePos = Vector2.ZERO
 @onready var parryPivot : Node2D = $ParryPivot
 
+@export var scoreCounter: Control
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 
 func _process(delta: float) -> void:
 	if(health < 1):
-		get_tree().quit()
+		get_tree().change_scene_to_file("res://UI/title.tscn")
 	direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
 	var lerpWeight = delta * (acceleration if direction else friction)
 	velocity = lerp(velocity, direction * speed, lerpWeight)
@@ -47,15 +48,17 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(parrying && area.isParryable):
-		parry()
+		
+		parry(area.pointValue)
 		area.setParried()
-		makee a post button press window too
+		# makee a post button press window too
 	else:
 		hurt()
 
-func parry():
+func parry(pointValue: int):
 	parried = true
 	parryCooldown.start()
+	scoreCounter.incrementScore(pointValue)
 	print("parry")
 	
 func hurt():

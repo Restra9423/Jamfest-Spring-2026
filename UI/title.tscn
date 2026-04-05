@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://jkbycmyymtjq"]
+
+[ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_2itqh"]
+[ext_resource type="Script" uid="uid://djusunur2dvlt" path="res://UI/title.gd" id="2_pa5mj"]
+
+[node name="TitleScreen" type="Control" unique_id=966666377]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_2itqh")
+script = ExtResource("2_pa5mj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=2028029127]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -91.0
+offset_top = -29.5
+offset_right = 91.0
+offset_bottom = 29.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=1584414685]
+layout_mode = 2
+text = "awesome fucking game"
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1343386419]
+layout_mode = 2
+text = "Start"
+
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1251620939]
+layout_mode = 2
+text = "Credits"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1560069852]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

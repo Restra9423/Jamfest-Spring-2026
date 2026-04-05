@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7820rikjy6fo"
-path="res://.godot/imported/soyegg.webp-e53bcd74aab738e81f37f5c1b842093d.ctex"
+uid="uid://bq0catt3fg3do"
+path="res://.godot/imported/YellowCircleBullet.png-e737dde69f9ce9a0a0ff0c5dbaa3afff.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/soyegg.webp"
-dest_files=["res://.godot/imported/soyegg.webp-e53bcd74aab738e81f37f5c1b842093d.ctex"]
+source_file="res://Art/Bullets/YellowCircleBullet.png"
+dest_files=["res://.godot/imported/YellowCircleBullet.png-e737dde69f9ce9a0a0ff0c5dbaa3afff.ctex"]
 
 [params]
 

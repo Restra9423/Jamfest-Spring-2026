@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Jamfest 2026"
-run/main_scene="uid://b7scnx8hupynl"
+run/main_scene="uid://jkbycmyymtjq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -33,7 +33,8 @@ folder_colors={
 "res://Levels/": "yellow",
 "res://Prefabs/": "green",
 "res://Scripts/": "teal",
-"res://Sound/": "blue"
+"res://Sound/": "blue",
+"res://UI/": "purple"
 }
 
 [input]

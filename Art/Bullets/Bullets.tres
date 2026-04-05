@@ -1,0 +1,56 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dylvvniktxl21"]
+
+[ext_resource type="Texture2D" uid="uid://bimlvymmfpn2k" path="res://Art/Bullets/BlueCircleBullet.png" id="1_rfvle"]
+[ext_resource type="Texture2D" uid="uid://bixiqcp6i76r8" path="res://Art/Bullets/RedCircleBullet.png" id="2_8pdw1"]
+[ext_resource type="Texture2D" uid="uid://bq0catt3fg3do" path="res://Art/Bullets/YellowCircleBullet.png" id="3_61fnc"]
+[ext_resource type="Texture2D" uid="uid://2fbd5fe1r6ee" path="res://Art/Bullets/BlueStarBullet.png" id="4_xj40j"]
+[ext_resource type="Texture2D" uid="uid://p6etnjv3s6pu" path="res://Art/Bullets/RedStarBullet.png" id="5_xk5jr"]
+[ext_resource type="Texture2D" uid="uid://cu8nnii2tngqe" path="res://Art/Bullets/YellowStarBullet.png" id="6_gqhj7"]
+[ext_resource type="Texture2D" uid="uid://dt36hog3o1kjh" path="res://Art/Bullets/BlueTriangleBullet.png" id="7_h0l7l"]
+[ext_resource type="Texture2D" uid="uid://ceedekwndyac0" path="res://Art/Bullets/RedTriangleBullet.png" id="8_eb0ij"]
+[ext_resource type="Texture2D" uid="uid://b6pxg4pykh68u" path="res://Art/Bullets/YellowTriangleBullet.png" id="9_7ao64"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_rfvle")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8pdw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_61fnc")
+}],
+"loop": false,
+"name": &"circle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_xj40j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xk5jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gqhj7")
+}],
+"loop": false,
+"name": &"star",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_h0l7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eb0ij")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_7ao64")
+}],
+"loop": true,
+"name": &"triangle",
+"speed": 5.0
+}]

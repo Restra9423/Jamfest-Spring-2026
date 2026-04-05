@@ -1,3 +1,4 @@
+class_name Bullet
 extends Area2D
 
 @export var speed : float = 200.0
@@ -5,9 +6,18 @@ extends Area2D
 @export var ownerGroup : String
 @export var isParryable : bool
 @export var timeToDestroy : float
+@export var pointValue: int = 100
+@export var mySprite: AnimatedSprite2D
 @onready var destroyTimer : Timer = $DestroyTimer
 @onready var startTimer : Timer = $StartTimer
 @onready var moveDir : Vector2
+
+enum BulletShapes{
+	CIRCLE,
+	STAR,
+	TRIANGLE
+}
+var myShape: BulletShapes = BulletShapes.CIRCLE
 
 var timeToStart : bool = false
 
@@ -16,11 +26,28 @@ func _ready():
 	destroyTimer.wait_time = timeToDestroy
 	destroyTimer.start()
 
+func initializeSprite(shape: BulletShapes):
+	match shape:
+		BulletShapes.CIRCLE:
+			mySprite.animation="circle"
+		BulletShapes.STAR:
+			mySprite.animation="star"
+		BulletShapes.TRIANGLE:
+			mySprite.animation="triangle"
+	match isParryable:
+		true:
+			# Become blue
+			mySprite.frame = 0
+		false:
+			# Become red
+			mySprite.frame = 1
+
+
 func _process (delta):
 	if (timeToStart):
 		translate(moveDir * speed * delta)
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	queue_free()
 
 func _on_start_timer_timeout() -> void:
@@ -30,5 +57,6 @@ func _on_destroy_timer_timeout() -> void:
 	queue_free()
 
 func setParried():
+	mySprite.frame = 2
 	speed *= -2
 	remove_child($CollisionShape2D)

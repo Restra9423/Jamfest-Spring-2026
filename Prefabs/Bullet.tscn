@@ -1,21 +1,24 @@
 [gd_scene format=3 uid="uid://cnip621aht0tq"]
 
-[ext_resource type="Texture2D" uid="uid://b7820rikjy6fo" path="res://Art/soyegg.webp" id="1_62lvt"]
 [ext_resource type="Script" uid="uid://coh2yb5bluxi1" path="res://Scripts/bullet.gd" id="1_pv5ng"]
+[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_pv5ng"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
-radius = 19.697716
+radius = 27.073973
 
-[node name="Bullet" type="Area2D" unique_id=979420319]
+[node name="Bullet" type="Area2D" unique_id=979420319 node_paths=PackedStringArray("mySprite")]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("1_pv5ng")
+mySprite = NodePath("Sprite")
 
-[node name="Sprite" type="Sprite2D" parent="." unique_id=183161725]
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1309506250]
 scale = Vector2(0.4, 0.4)
-texture = ExtResource("1_62lvt")
+sprite_frames = ExtResource("2_pv5ng")
+animation = &"circle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1696189687]
+position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_62lvt")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=820223275]
@@ -25,7 +28,5 @@ autostart = true
 wait_time = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
-[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
-[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

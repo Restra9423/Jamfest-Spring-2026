@@ -12,7 +12,7 @@ var patternList = [parryCirclePattern1, unparryCirclePattern1]
 # Increase bullet speed and decrease time between waves over time
 func _on_wave_timer_timeout() -> void:
 	totalWaves += 1
-	var currentWave = patternList[randi() % (patternList.size() - 1)].instantiate()
+	var currentWave = patternList[randi_range(0, patternList.size()-1)].instantiate()
 	add_child(currentWave)
 	waveTimer.wait_time *= 0.99
 	
