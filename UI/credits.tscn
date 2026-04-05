@@ -2,6 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_ng644"]
 [ext_resource type="Script" uid="uid://cnews4yryjkpt" path="res://UI/credits.gd" id="2_uuuvy"]
+[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="3_kk2ga"]
 
 [node name="Credits" type="Control" unique_id=564746374]
 layout_mode = 3
@@ -133,5 +134,18 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Back To Title"
 icon_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=581658310]
+layout_mode = 0
+offset_left = 552.5
+offset_top = 702.0
+offset_right = 592.5
+offset_bottom = 742.0
+alignment = 1
+
+[node name="Background" type="Sprite2D" parent="BoxContainer" unique_id=49087058]
+z_index = -5
+position = Vector2(404.5, 260)
+texture = ExtResource("3_kk2ga")
 
 [connection signal="pressed" from="VBoxContainer/backButton" to="." method="_on_back_button_pressed"]

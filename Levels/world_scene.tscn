@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bpt5xrqt3jw1h" path="res://Prefabs/Player.tscn" id="1_8oma2"]
 [ext_resource type="PackedScene" uid="uid://djiitpxgsp02t" path="res://Prefabs/PatternSpawner.tscn" id="2_47q4h"]
 [ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/ScoreCounter.tscn" id="3_gajq0"]
+[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="4_iyqwk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oma2"]
 size = Vector2(1918, 1)
@@ -51,3 +52,7 @@ offset_left = -958.0
 offset_top = -954.0
 offset_right = -513.0
 offset_bottom = -679.0
+
+[node name="Background" type="Sprite2D" parent="." unique_id=203242074]
+z_index = -5
+texture = ExtResource("4_iyqwk")
