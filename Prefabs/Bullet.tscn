@@ -22,10 +22,11 @@ position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_62lvt")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=820223275]
+wait_time = 0.1
 autostart = true
 
 [node name="DestroyTimer" type="Timer" parent="." unique_id=1871037056]
-wait_time = 10.0
+wait_time = 20.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
