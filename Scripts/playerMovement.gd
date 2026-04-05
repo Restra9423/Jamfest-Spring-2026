@@ -49,6 +49,7 @@ func _process(delta: float) -> void:
 		parrySprite.texture = load("res://Art/WhiteShield.png")
 	
 	var parryDir = (avgMouseMove[0]+avgMouseMove[1]+avgMouseMove[2])/3
+	
 	if(get_global_mouse_position() - lastMousePos != Vector2.ZERO):
 		parryPivot.rotation = lerp(Vector2.ZERO,parryDir.normalized(),lerpWeight).angle()
 		avgMouseMove.append(get_global_mouse_position() - lastMousePos)
@@ -59,10 +60,8 @@ func _process(delta: float) -> void:
 		parryLength.start()
 		parrying = true
 		print("parry clicked")
-	if(hitMaybe && parryAfter.time_left == 0):
-		hitMaybe = false
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
+func _on_area_2d_body_entered(_body: Node2D) -> void:
 	hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
@@ -72,14 +71,14 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if(hitMaybe):
 		hurt()
 		area.queue_free()
-	elif(area.isParryable):
+	elif(parrying && area.isParryable):
 		parry(area.pointValue)
 		area.setParried()
 	hitMaybe = false
 
 func _on_parry_window_area_entered(area: Area2D) -> void:
 	print("bunger")
-	if(area.isParryable):
+	if(parrying && area.isParryable):
 		parry(area.pointValue)
 		area.setParried()
 
@@ -103,6 +102,7 @@ func hurt():
 
 func _on_i_frames_timeout() -> void:
 	iFramesActive = false
+
 func _on_parry_timer_timeout() -> void:
 	parrying = false
 	parryCooldown.start()
@@ -110,6 +110,11 @@ func _on_parry_timer_timeout() -> void:
 	print("parry end")
 	if(!parried):
 		parryCooldown.wait_time = 2
+
+func _on_parry_after_timeout() -> void:
+	if(hitMaybe):
+		hitMaybe = false
+
 func _on_parry_cooldown_timeout() -> void:
 	if(parryCooldown.wait_time == 2):
 		parryCooldown.wait_time = 1
