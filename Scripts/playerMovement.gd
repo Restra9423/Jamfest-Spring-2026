@@ -4,7 +4,7 @@ var acceleration = 18
 var friction = 12
 var direction = Vector2.ZERO
 
-var health = 100
+var health = 3
 var points = 0
 
 var health3
