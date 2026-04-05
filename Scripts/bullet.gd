@@ -4,6 +4,7 @@ extends Area2D
 @export_range(0, 360) var angle : float
 @export var ownerGroup : String
 @export var isParryable : bool
+@export var timeToDestroy : float
 @onready var destroyTimer : Timer = $DestroyTimer
 @onready var startTimer : Timer = $StartTimer
 @onready var moveDir : Vector2
@@ -12,6 +13,8 @@ var timeToStart : bool = false
 
 func _ready():
 	moveDir = Vector2.RIGHT.rotated(deg_to_rad(angle))
+	destroyTimer.wait_time = timeToDestroy
+	destroyTimer.start()
 
 func _process (delta):
 	if (timeToStart):

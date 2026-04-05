@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://byfa1uba8npsy"]
-
-[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullet.tscn" id="1_3mqx0"]
-
-[node name="ParryCirclePattern1" type="Node2D" unique_id=2044333389]
-
-[node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("1_3mqx0")]
-position = Vector2(-227, -175)
