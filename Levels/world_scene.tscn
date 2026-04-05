@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://b7scnx8hupynl"]
 
 [ext_resource type="PackedScene" uid="uid://bpt5xrqt3jw1h" path="res://Prefabs/Player.tscn" id="1_8oma2"]
-[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullet.tscn" id="2_47q4h"]
+[ext_resource type="PackedScene" uid="uid://cryd88wwyigoj" path="res://Prefabs/Bullet Patterns/parry_circle_pattern_1.tscn" id="2_47q4h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oma2"]
 size = Vector2(1918, 1)
@@ -10,10 +10,10 @@ size = Vector2(1918, 1)
 size = Vector2(1918, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gajq0"]
-size = Vector2(1, 1078)
+size = Vector2(1, 1920)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iyqwk"]
-size = Vector2(1, 1078)
+size = Vector2(1, 1920)
 
 [node name="WorldScene" type="Node2D" unique_id=1086633574]
 
@@ -26,11 +26,11 @@ collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=77773270]
-position = Vector2(0, -539.5)
+position = Vector2(0, -959.5)
 shape = SubResource("RectangleShape2D_8oma2")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=2093084918]
-position = Vector2(0, 539.5)
+position = Vector2(0, 959.5)
 shape = SubResource("RectangleShape2D_47q4h")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=1991003146]
@@ -41,14 +41,4 @@ shape = SubResource("RectangleShape2D_gajq0")
 position = Vector2(959.5, 0)
 shape = SubResource("RectangleShape2D_iyqwk")
 
-[node name="Bullet" parent="." unique_id=1184620307 instance=ExtResource("2_47q4h")]
-position = Vector2(94, 1)
-
-[node name="Bullet2" parent="." unique_id=979420319 instance=ExtResource("2_47q4h")]
-position = Vector2(188, 2)
-
-[node name="Bullet3" parent="." unique_id=1242972258 instance=ExtResource("2_47q4h")]
-position = Vector2(282, 1)
-
-[node name="Bullet4" parent="." unique_id=1677407390 instance=ExtResource("2_47q4h")]
-position = Vector2(564, 2)
+[node name="ParryCirclePattern1" parent="." unique_id=448704251 instance=ExtResource("2_47q4h")]
