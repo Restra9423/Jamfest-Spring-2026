@@ -5,6 +5,9 @@
 [ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/ScoreCounter.tscn" id="3_gajq0"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="4_iyqwk"]
 [ext_resource type="AudioStream" uid="uid://dorjumjotuvsm" path="res://Sound/Music/BulletHellSong.wav" id="5_v2hpu"]
+[ext_resource type="Texture2D" uid="uid://cplw44st4q4vj" path="res://Art/HeathBar2.png" id="6_42d7d"]
+[ext_resource type="Texture2D" uid="uid://hjvphaxd5iyy" path="res://Art/HeathBar3.png" id="7_fcaoe"]
+[ext_resource type="Texture2D" uid="uid://b4bcn08hdr3ho" path="res://Art/HeathBar1.png" id="8_syw1v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8oma2"]
 size = Vector2(1918, 1)
@@ -61,3 +64,18 @@ texture = ExtResource("4_iyqwk")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=378901101]
 stream = ExtResource("5_v2hpu")
 autoplay = true
+
+[node name="HeathBar2" type="Sprite2D" parent="." unique_id=1423403472]
+position = Vector2(-794, 832)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("6_42d7d")
+
+[node name="HeathBar3" type="Sprite2D" parent="." unique_id=1316957443]
+position = Vector2(-794, 832)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("7_fcaoe")
+
+[node name="HeathBar1" type="Sprite2D" parent="." unique_id=2044029295]
+position = Vector2(-794, 832)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("8_syw1v")
