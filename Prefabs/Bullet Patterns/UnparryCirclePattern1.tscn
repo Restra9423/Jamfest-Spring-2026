@@ -18,7 +18,7 @@ angle = 150.0
 timeToDestroy = 8.5
 
 [node name="Bullet3" parent="." unique_id=197878993 instance=ExtResource("2_hvytg")]
-position = Vector2(749.99994, -1299.0382)
+position = Vector2(751, -1299)
 angle = 120.0
 timeToDestroy = 8.5
 
