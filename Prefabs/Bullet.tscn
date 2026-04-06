@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://coh2yb5bluxi1" path="res://Scripts/bullet.gd" id="1_pv5ng"]
 [ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_pv5ng"]
+[ext_resource type="AudioStream" uid="uid://bmj4xygtjoeub" path="res://Sound/SFX/ParryPing8Bit_SFX.wav" id="3_ossmt"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
 radius = 27.073973
@@ -27,6 +28,9 @@ autostart = true
 
 [node name="DestroyTimer" type="Timer" parent="." unique_id=1871037056]
 wait_time = 20.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1496543967]
+stream = ExtResource("3_ossmt")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
