@@ -12,6 +12,10 @@ extends Area2D
 @onready var startTimer : Timer = $StartTimer
 @onready var moveDir : Vector2
 
+@onready var sfx = $AudioStreamPlayer
+var parry_sound = preload("res://Sound/SFX/ParryPing8Bit_SFX.wav")
+
+
 enum BulletShapes{
 	CIRCLE,
 	STAR,
@@ -56,4 +60,6 @@ func _on_destroy_timer_timeout() -> void:
 func setParried():
 	mySprite.frame = 2
 	speed *= -2
+	sfx.stream = parry_sound
+	sfx.play()
 	remove_child($CollisionShape2D)

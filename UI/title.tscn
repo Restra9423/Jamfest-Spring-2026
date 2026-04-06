@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="3_jgd3k"]
 [ext_resource type="AudioStream" uid="uid://dorjumjotuvsm" path="res://Sound/Music/BulletHellSong.wav" id="4_s15np"]
 
-[node name="TitleScreen" type="Control" unique_id=966666377]
+[node name="TitleScreen" type="Control" unique_id=966666377 node_paths=PackedStringArray("sfx")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_2itqh")
 script = ExtResource("2_pa5mj")
+sfx = NodePath("AudioStreamPlayer/SFXAudioStreamPlayer")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=1933558376]
 layout_mode = 0
@@ -63,6 +64,8 @@ text = "Quit"
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1044587399]
 stream = ExtResource("4_s15np")
 autoplay = true
+
+[node name="SFXAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=1868793945]
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
