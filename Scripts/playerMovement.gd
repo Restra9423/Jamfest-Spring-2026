@@ -19,7 +19,6 @@ var parried = false
 var onCooldown = false
 @onready var parryCooldown : Timer = $ParryCooldown
 var hitMaybe = false
-@onready var parryAfter : Timer = $ParryAfter
 @onready var parryWindow : Area2D = $ParryPivot/ParryWindow
 
 var avgMouseMove = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
@@ -65,13 +64,11 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	hitMaybe = true
-	parryAfter.start()
-	await parryAfter.timeout
-	if(hitMaybe):
+	if(!parrying):
+		print("i was hit")
 		hurt()
 		area.queue_free()
-	elif(parrying && area.isParryable):
+	elif(area.isParryable):
 		parry(area.pointValue)
 		area.setParried()
 	hitMaybe = false
@@ -110,10 +107,6 @@ func _on_parry_timer_timeout() -> void:
 	print("parry end")
 	if(!parried):
 		parryCooldown.wait_time = 2
-
-func _on_parry_after_timeout() -> void:
-	if(hitMaybe):
-		hitMaybe = false
 
 func _on_parry_cooldown_timeout() -> void:
 	if(parryCooldown.wait_time == 2):
