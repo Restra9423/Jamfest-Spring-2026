@@ -63,9 +63,11 @@ text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1044587399]
 stream = ExtResource("4_s15np")
+volume_db = -5.0
 autoplay = true
 
 [node name="SFXAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=1868793945]
+volume_db = 7.0
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]

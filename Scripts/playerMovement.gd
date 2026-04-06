@@ -11,6 +11,12 @@ var points = 0
 @export var health2: Node2D
 @export var health1: Node2D
 
+@onready var sfx = $AudioStreamPlayer
+var parryhit_sound = preload("res://Sound/SFX/ParryPing8Bit_SFX.wav")
+var parrymiss_sound = preload("res://Sound/SFX/Swing8Bit_SFX.wav")
+var takedamage_sound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
+
+
 var iFramesActive = false
 @onready var iFrames : Timer = $iFrames
 var parrying = false
@@ -71,6 +77,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	elif(area.isParryable):
 		parry(area.pointValue)
 		area.setParried()
+		
 	hitMaybe = false
 
 func _on_parry_window_area_entered(area: Area2D) -> void:
@@ -80,6 +87,8 @@ func _on_parry_window_area_entered(area: Area2D) -> void:
 		area.setParried()
 
 func parry(pointValue: int):
+	sfx.stream = parryhit_sound
+	sfx.play()
 	scoreCounter.incrementScore(pointValue)
 	print("parry")
 	
@@ -87,6 +96,8 @@ func hurt():
 	if(!iFramesActive):
 		iFrames.start()
 		health -= 1
+		sfx.stream = takedamage_sound
+		sfx.play()
 		match health:
 			2:
 				health3.visible = false
@@ -106,6 +117,8 @@ func _on_parry_timer_timeout() -> void:
 	onCooldown = true
 	print("parry end")
 	if(!parried):
+		sfx.stream = parrymiss_sound
+		sfx.play()
 		parryCooldown.wait_time = 2
 
 func _on_parry_cooldown_timeout() -> void:

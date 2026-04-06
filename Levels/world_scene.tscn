@@ -66,6 +66,7 @@ texture = ExtResource("4_iyqwk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=378901101]
 stream = ExtResource("5_v2hpu")
+volume_db = -5.778
 autoplay = true
 
 [node name="HeathBar3" type="Sprite2D" parent="." unique_id=1316957443]
