@@ -33,6 +33,7 @@ var parried = false
 #input initialization
 @onready var parryPivot : Node2D = $ParryPivot
 @onready var parryZone : Area2D = $ParryPivot/ParryZone
+var rawMouseInput = Vector2.ZERO
 var mouseInput = Vector2.ZERO
 var aimInput = Vector2.ZERO
 
@@ -60,7 +61,9 @@ func _process(delta: float) -> void:
 	
 	#get input
 	moveInput = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
-	aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
+	print("Axis is ", Input.get_axis("AimLeft", "AimRight"))
+	if(rawMouseInput.length() >= 5.0):
+		mouseInput = rawMouseInput.normalized()
 	if(aimInput != Vector2.ZERO):
 		parryDir = aimInput
 	else:
@@ -155,4 +158,4 @@ func _on_parry_cooldown_timeout() -> void:
 #input functions
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
-		mouseInput = event.get_relative()
+		rawMouseInput = event.get_relative()
