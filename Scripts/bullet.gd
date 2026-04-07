@@ -11,7 +11,7 @@ extends Area2D
 @onready var destroyTimer : Timer = $DestroyTimer
 @onready var startTimer : Timer = $StartTimer
 @onready var moveDir : Vector2
-
+@onready var parriedBullet : bool = false
 
 enum BulletShapes{
 	CIRCLE,
@@ -54,7 +54,14 @@ func _on_start_timer_timeout() -> void:
 func _on_destroy_timer_timeout() -> void:
 	queue_free()
 
-func setParried():
+func setParried(parriedDir: Vector2):
 	mySprite.frame = 2
-	speed *= -2
-	remove_child($CollisionShape2D)
+	speed *= 2
+	moveDir *= -1
+	moveDir = (moveDir + (parriedDir.normalized() * 1.5)).normalized()
+	parriedBullet = true
+
+func _on_area_entered(area: Area2D) -> void:
+	if(area.is_in_group("bullets")):
+		if(parriedBullet && !area.isParryable && !area.parriedBullet):
+			area.setParried(moveDir)

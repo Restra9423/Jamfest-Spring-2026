@@ -24,7 +24,6 @@ var parried = false
 @onready var parryLength : Timer = $ParryLength
 var onCooldown = false
 @onready var parryCooldown : Timer = $ParryCooldown
-var hitMaybe = false
 @onready var parryWindow : Area2D = $ParryPivot/ParryWindow
 
 var avgMouseMove = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
@@ -37,6 +36,7 @@ var aimDir = Vector2.ZERO
 @onready var parrySprite : Sprite2D = $ParryPivot/Sprite2D
 
 var mouseInput = Vector2.ZERO
+var parryDir = Vector2.ZERO
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
@@ -57,7 +57,7 @@ func _process(delta: float) -> void:
 		parrySprite.texture = load("res://Art/WhiteShield.png")
 		
 	var aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
-	var parryDir = mouseInput + aimInput
+	parryDir = mouseInput + aimInput
 	
 	if((get_global_mouse_position() - lastMousePos != Vector2.ZERO) || (aimInput != Vector2.ZERO)):
 		parryPivot.rotation = lerp(Vector2.ZERO,parryDir,1).angle()
@@ -74,21 +74,15 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if(area.isParryable && parrying):
-		parry(area.pointValue)
-		area.setParried()
-	else:
-		print("i was hit")
-		hurt()
-		area.queue_free()
-		
-	hitMaybe = false
+	print("i was hit")
+	hurt()
+	area.queue_free()
 
 func _on_parry_window_area_entered(area: Area2D) -> void:
 	print("bunger")
 	if(parrying && area.isParryable):
 		parry(area.pointValue)
-		area.setParried()
+		area.setParried(parryDir)
 		parryLength.wait_time = parryLength.time_left + 0.05
 		parryLength.start()
 

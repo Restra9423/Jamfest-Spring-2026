@@ -41,6 +41,10 @@ folder_colors={
 "res://UI/": "purple"
 }
 
+[global_group]
+
+bullets=""
+
 [input]
 
 Up={
