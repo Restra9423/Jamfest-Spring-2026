@@ -14,6 +14,11 @@ func _on_restart_pressed() -> void:
 	sfx.play()
 	get_tree().change_scene_to_file("res://Levels/world_scene.tscn")
 
+func _on_main_menu_pressed() -> void:
+	sfx.stream = click_sound
+	sfx.play()
+	get_tree().change_scene_to_file("res://UI/title.tscn")
+
 func _on_quit_pressed() -> void:
 	sfx.stream = click_sound
 	sfx.play()

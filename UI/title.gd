@@ -10,8 +10,6 @@ func _on_start_pressed() -> void:
 	sfx.stream = click_sound
 	sfx.play()
 	get_tree().change_scene_to_file("res://Levels/world_scene.tscn")
-	
-
 
 func _on_credits_pressed() -> void:
 	sfx.stream = click_sound

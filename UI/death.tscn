@@ -59,6 +59,10 @@ horizontal_alignment = 1
 layout_mode = 2
 text = "Restart"
 
+[node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=388200324]
+layout_mode = 2
+text = "Main Menu"
+
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1429858335]
 layout_mode = 2
 text = "Quit"
@@ -72,4 +76,5 @@ autoplay = true
 volume_db = 7.0
 
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

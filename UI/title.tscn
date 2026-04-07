@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://djusunur2dvlt" path="res://UI/title.gd" id="2_pa5mj"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="3_jgd3k"]
 [ext_resource type="AudioStream" uid="uid://dorjumjotuvsm" path="res://Sound/Music/BulletHellSong.wav" id="4_s15np"]
+[ext_resource type="AudioStream" uid="uid://do7422yy4tlnt" path="res://Sound/SFX/UISelect8Bit_SFX.wav" id="5_cb2bp"]
 
 [node name="TitleScreen" type="Control" unique_id=966666377 node_paths=PackedStringArray("sfx")]
 layout_mode = 3
@@ -67,6 +68,7 @@ volume_db = -5.0
 autoplay = true
 
 [node name="SFXAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=1868793945]
+stream = ExtResource("5_cb2bp")
 volume_db = 7.0
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
