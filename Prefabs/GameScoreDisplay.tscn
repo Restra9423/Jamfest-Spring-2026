@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dx1wp8ft46jae"]
 
-[ext_resource type="Script" uid="uid://bibltxsa0n26g" path="res://Scripts/scoreCounter.gd" id="1_0b146"]
+[ext_resource type="Script" uid="uid://o10x46h3o3pp" path="res://Scripts/scoreManager.gd" id="1_g5j4s"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y3as1"]
 font_size = 64
@@ -8,12 +8,13 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_0b146"]
 font_size = 48
 
-[node name="ScoreCounter" type="Panel" unique_id=1229586716]
+[node name="ScoreCounter" type="Panel" unique_id=1229586716 node_paths=PackedStringArray("scoreDisplay")]
 offset_left = 128.0
 offset_top = 128.0
 offset_right = 573.0
 offset_bottom = 403.0
-script = ExtResource("1_0b146")
+script = ExtResource("1_g5j4s")
+scoreDisplay = NodePath("ScoreDisplay")
 
 [node name="ScoreDisplay" type="Label" parent="." unique_id=2121244486]
 layout_mode = 1
