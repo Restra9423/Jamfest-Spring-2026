@@ -12,6 +12,7 @@ extends Area2D
 @onready var startTimer : Timer = $StartTimer
 @onready var moveDir : Vector2
 @onready var parriedBullet : bool = false
+@onready var visibleOnScreen : VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 enum BulletShapes{
 	CIRCLE,
@@ -74,3 +75,8 @@ func _on_area_entered(area: Area2D) -> void:
 					area.setParried(abs(area.moveDir * moveDir))
 				else:
 					area.setParried(Vector2(abs(area.moveDir.x * moveDir.x), -(abs(area.moveDir.y * moveDir.y))))
+
+
+func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	if (parriedBullet):
+		queue_free()

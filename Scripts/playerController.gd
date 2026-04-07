@@ -97,11 +97,19 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_parry_zone_area_entered(area: Area2D) -> void:
 	print("bullet in parry zone")
-	if(parryLength.time_left > 0 && area.isParryable):
+	if(parryLength.time_left > 0 && area.isParryable && !area.parriedBullet):
 		parry(area.pointValue)
 		area.setParried(parryDir)
 		parryLength.wait_time = parryLength.time_left + 0.05
 		parryLength.start()
+	else:
+		get_tree().create_timer(0.5).timeout
+		if (is_instance_valid(area)):
+			if(parryLength.time_left > 0 && area.isParryable && parryZone.overlaps_area(area) && !area.parriedBullet):
+				parry(area.pointValue)
+				area.setParried(parryDir)
+				parryLength.wait_time = parryLength.time_left + 0.05
+				parryLength.start()
 
 
 
@@ -109,6 +117,7 @@ func _on_parry_zone_area_entered(area: Area2D) -> void:
 func parry(pointValue: int):
 	print("parry function called")
 	parried = true
+	parryLength.set_wait_time(parryLength.time_left + 0.2)
 	sfx.stream = parryhit_sound
 	sfx.play()
 	ScoreCounter.incrementScore(pointValue)
