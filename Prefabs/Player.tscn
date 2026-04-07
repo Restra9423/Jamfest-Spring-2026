@@ -37,11 +37,11 @@ frame_progress = 0.37488028
 
 [node name="ParryPivot" type="Node2D" parent="." unique_id=124132662]
 
-[node name="ParryWindow" type="Area2D" parent="ParryPivot" unique_id=1913466391]
+[node name="ParryZone" type="Area2D" parent="ParryPivot" unique_id=1913466391]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParryPivot/ParryWindow" unique_id=1551865631]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParryPivot/ParryZone" unique_id=1551865631]
 position = Vector2(-63.201996, 13)
 scale = Vector2(3.5382335, 3.301938)
 polygon = PackedVector2Array(39.624855, -8.479868, 37.36384, -16.656883, 32.55918, -19.685408, 37.081215, -22.713932, 42.168495, -20.291113, 45.56002, -12.719802, 46.69053, -3.9370816, 45.56002, 4.845639, 42.168495, 13.022655, 37.081215, 15.445474, 32.55918, 12.416949, 37.36384, 9.388425, 39.624855, 0.9085572)
@@ -69,7 +69,6 @@ volume_db = 7.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="area_entered" from="ParryPivot/ParryWindow" to="." method="_on_parry_window_area_entered"]
-[connection signal="timeout" from="ParryLength" to="." method="_on_parry_timer_timeout"]
+[connection signal="area_entered" from="ParryPivot/ParryZone" to="." method="_on_parry_zone_area_entered"]
+[connection signal="timeout" from="ParryLength" to="." method="_on_parry_length_timeout"]
 [connection signal="timeout" from="ParryCooldown" to="." method="_on_parry_cooldown_timeout"]
-[connection signal="timeout" from="iFrames" to="." method="_on_i_frames_timeout"]

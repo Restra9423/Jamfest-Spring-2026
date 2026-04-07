@@ -1,101 +1,118 @@
 extends CharacterBody2D
-var speed = 650
-var acceleration = 18
-var friction = 12
-var direction = Vector2.ZERO
 
-var health = 3
-var points = 0
-
+#asset references
 @export var health3: Node2D
 @export var health2: Node2D
 @export var health1: Node2D
-
 @onready var sfx = $AudioStreamPlayer
 @onready var playerSprite = $Area2D/AnimatedSprite2D
+@onready var parrySprite : Sprite2D = $ParryPivot/Sprite2D
 var parryhit_sound = preload("res://Sound/SFX/ParryPing8Bit_SFX.wav")
 var parrymiss_sound = preload("res://Sound/SFX/Swing8Bit_SFX.wav")
 var takedamage_sound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
 
-var iFramesActive = false
+#timers references
 @onready var iFrames : Timer = $iFrames
-var parrying = false
-var parried = false
 @onready var parryLength : Timer = $ParryLength
-var onCooldown = false
 @onready var parryCooldown : Timer = $ParryCooldown
-@onready var parryWindow : Area2D = $ParryPivot/ParryWindow
 
-var avgMouseMove = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
-var lastMousePos = Vector2.ZERO
+
+
+#movement variables
+var speed = 650
+var acceleration = 18
+var friction = 12
+var moveInput = Vector2.ZERO
+
+#status variables
+var health = 3
+var points = 0
+var parryDir = Vector2.ZERO
+var parried = false
+
+#input initialization
 @onready var parryPivot : Node2D = $ParryPivot
-var aimDir = Vector2.ZERO
+@onready var parryZone : Area2D = $ParryPivot/ParryZone
+var mouseInput = Vector2.ZERO
+var aimInput = Vector2.ZERO
 
+#score
 @export var scoreManager : Panel
 
-@onready var parrySprite : Sprite2D = $ParryPivot/Sprite2D
 
-var mouseInput = Vector2.ZERO
-var parryDir = Vector2.ZERO
 
+#start and update functions
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 
 func _process(delta: float) -> void:
+	#death state check
 	if(health < 1):
 		get_tree().change_scene_to_file("res://UI/death.tscn")
-	direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
-	var lerpWeight = delta * (acceleration if direction else friction)
-	velocity = lerp(velocity, direction * speed, lerpWeight)
-	move_and_slide()
 	
-	if(parrying):
+	#parry state check
+	if(parryLength.time_left > 0):
 		parrySprite.texture = load("res://Art/OrangeShield.png")
-	elif(onCooldown):
+	elif(parryCooldown.time_left > 0):
 		parrySprite.texture = load("res://Art/PurpleShield.png")
 	else:
 		parrySprite.texture = load("res://Art/WhiteShield.png")
-		
-	var aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
-	parryDir = mouseInput + aimInput
 	
-	if((get_global_mouse_position() - lastMousePos != Vector2.ZERO) || (aimInput != Vector2.ZERO)):
+	#get input
+	moveInput = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
+	aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
+	if(aimInput != Vector2.ZERO):
+		parryDir = aimInput
+	else:
+		parryDir = mouseInput
+	
+	#move player
+	var lerpWeight = delta * (acceleration if moveInput else friction)
+	velocity = lerp(velocity, moveInput * speed, lerpWeight)
+	move_and_slide()
+	
+	#move parry zone
+	if(parryDir != Vector2.ZERO):
 		parryPivot.rotation = lerp(Vector2.ZERO,parryDir,1).angle()
-		avgMouseMove.append(get_global_mouse_position() - lastMousePos)
-		avgMouseMove.pop_front()
-	lastMousePos = get_global_mouse_position()
 	
-	if(Input.is_action_just_pressed("Parry") && !onCooldown):
-		parryLength.start()
-		parrying = true
+	#parry check
+	if(Input.is_action_just_pressed("Parry") && parryCooldown.time_left == 0):
 		print("parry clicked")
+		parryLength.start()
 
+
+
+#collision functions
 func _on_area_2d_body_entered(_body: Node2D) -> void:
 	hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("i was hit")
+	print("bullet collision")
 	hurt()
 	area.queue_free()
 
-func _on_parry_window_area_entered(area: Area2D) -> void:
-	print("bunger")
-	if(parrying && area.isParryable):
+func _on_parry_zone_area_entered(area: Area2D) -> void:
+	print("bullet in parry zone")
+	if(parryLength.time_left > 0 && area.isParryable):
 		parry(area.pointValue)
 		area.setParried(parryDir)
 		parryLength.wait_time = parryLength.time_left + 0.05
 		parryLength.start()
 
+
+
+#custom functions
 func parry(pointValue: int):
+	print("parry function called")
+	parried = true
 	sfx.stream = parryhit_sound
 	sfx.play()
-	parried = true
 	ScoreCounter.incrementScore(pointValue)
 	scoreManager.updateScore()
-	print("parry")
 	
 func hurt():
-	if(!iFramesActive):
+	print("hurt function called")
+	if(!iFrames.time_left > 0):
 		iFrames.start()
 		health -= 1
 		blink()
@@ -108,34 +125,34 @@ func hurt():
 			1:
 				health2.visible = false
 				print("heath 2 not visible")
-		iFramesActive = true
-		print("hit")
 
-func _on_i_frames_timeout() -> void:
-	iFramesActive = false
+func blink():
+	print("blink function called")
+	while(iFrames.time_left > 0):
+		playerSprite.visible = !playerSprite.visible
+		await get_tree().create_timer(0.1).timeout
+	playerSprite.visible = true
 
-func _on_parry_timer_timeout() -> void:
+
+
+#timer functions
+func _on_parry_length_timeout() -> void:
+	print("parry timer ended")
 	if(!parried):
 		sfx.stream = parrymiss_sound
 		sfx.play()
 		parryCooldown.wait_time = 2
 	parryCooldown.start()
-	parrying = false
-	onCooldown = true
-	print("parry end")
 
 func _on_parry_cooldown_timeout() -> void:
+	print("parry cooldown ended")
 	if(parryCooldown.wait_time == 2):
 		parryCooldown.wait_time = 1
-	onCooldown = false
 	parryLength.wait_time = 0.3
 
+
+
+#input functions
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouseInput = event.get_relative()
-
-func blink():
-	while(iFrames.time_left > 0):
-		playerSprite.visible = !playerSprite.visible
-		await get_tree().create_timer(0.1).timeout
-	playerSprite.visible = true
