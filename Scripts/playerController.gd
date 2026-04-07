@@ -4,7 +4,7 @@ var acceleration = 18
 var friction = 12
 var direction = Vector2.ZERO
 
-var health = 4
+var health = 3
 var points = 0
 
 @export var health3: Node2D
@@ -73,13 +73,13 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 	hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if(!parrying):
+	if(area.isParryable && parrying):
+		parry(area.pointValue)
+		area.setParried()
+	else:
 		print("i was hit")
 		hurt()
 		area.queue_free()
-	elif(area.isParryable):
-		parry(area.pointValue)
-		area.setParried()
 		
 	hitMaybe = false
 
