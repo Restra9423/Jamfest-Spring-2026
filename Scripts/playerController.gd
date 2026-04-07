@@ -16,8 +16,6 @@ var takedamage_sound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
 @onready var parryLength : Timer = $ParryLength
 @onready var parryCooldown : Timer = $ParryCooldown
 
-
-
 #movement variables
 var speed = 650
 var acceleration = 18
@@ -41,10 +39,9 @@ var aimInput = Vector2.ZERO
 @export var scoreManager : Panel
 
 
-
 #start and update functions
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _process(delta: float) -> void:
 	#death state check
@@ -87,13 +84,13 @@ func _process(delta: float) -> void:
 
 #collision functions
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	if (!_body.isParried):
 		hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("bullet collision")
-	hurt()
-	area.queue_free()
+	if (!area.parriedBullet):
+		hurt()
+		area.queue_free()
 
 func _on_parry_zone_area_entered(area: Area2D) -> void:
 	print("bullet in parry zone")
