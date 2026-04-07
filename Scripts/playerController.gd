@@ -87,7 +87,8 @@ func _process(delta: float) -> void:
 
 #collision functions
 func _on_area_2d_body_entered(_body: Node2D) -> void:
-	hurt()
+	if (!_body.isParried):
+		hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	print("bullet collision")
