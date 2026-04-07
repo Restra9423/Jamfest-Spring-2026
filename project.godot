@@ -14,10 +14,11 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 [application]
 
-config/name="Jamfest 2026"
+config/name="Oops! All Parrys"
+config/version="1.2"
 run/main_scene="uid://jkbycmyymtjq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://nqgc21jyfpj"
 
 [autoload]
 
