@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://bpt5xrqt3jw1h"]
+
+[ext_resource type="Texture2D" uid="uid://dkoiqnalnn0sh" path="res://Art/placeholderChar.png" id="1_um8lo"]
+[ext_resource type="Script" uid="uid://dpyrp55kf2kuf" path="res://Scripts/playerController.gd" id="1_x3d5u"]
+[ext_resource type="SpriteFrames" uid="uid://dr87lchxpvjjf" path="res://Art/CharAnim.tres" id="3_shmu5"]
+[ext_resource type="Texture2D" uid="uid://cv05qqpjql5dn" path="res://Art/WhiteShield.png" id="4_shmu5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b43ah"]
+radius = 43.011627
+
+[node name="Player" type="CharacterBody2D" unique_id=740572060]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("1_x3d5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=253707334]
+shape = SubResource("CircleShape2D_b43ah")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1864975116]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=265086082]
+shape = SubResource("CircleShape2D_b43ah")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D" unique_id=1619647646]
+visible = false
+scale = Vector2(0.09, 0.09)
+texture = ExtResource("1_um8lo")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1417169753]
+position = Vector2(2.75, 0)
+scale = Vector2(0.075, 0.075)
+sprite_frames = ExtResource("3_shmu5")
+autoplay = "default"
+frame_progress = 0.37488028
+
+[node name="ParryPivot" type="Node2D" parent="." unique_id=124132662]
+
+[node name="ParryWindow" type="Area2D" parent="ParryPivot" unique_id=1913466391]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="ParryPivot/ParryWindow" unique_id=1551865631]
+position = Vector2(-63.201996, 13)
+scale = Vector2(3.5382335, 3.301938)
+polygon = PackedVector2Array(39.624855, -8.479868, 37.36384, -16.656883, 32.55918, -19.685408, 37.081215, -22.713932, 42.168495, -20.291113, 45.56002, -12.719802, 46.69053, -3.9370816, 45.56002, 4.845639, 42.168495, 13.022655, 37.081215, 15.445474, 32.55918, 12.416949, 37.36384, 9.388425, 39.624855, 0.9085572)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParryPivot" unique_id=566237161]
+z_index = 1
+position = Vector2(75.635, 0)
+rotation = 1.5707964
+scale = Vector2(0.3, 0.2)
+texture = ExtResource("4_shmu5")
+
+[node name="ParryLength" type="Timer" parent="." unique_id=402431534]
+wait_time = 0.3
+one_shot = true
+
+[node name="ParryCooldown" type="Timer" parent="." unique_id=1991926870]
+one_shot = true
+
+[node name="iFrames" type="Timer" parent="." unique_id=1050345811]
+wait_time = 0.5
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1841536472]
+volume_db = 7.0
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="area_entered" from="ParryPivot/ParryWindow" to="." method="_on_parry_window_area_entered"]
+[connection signal="timeout" from="ParryLength" to="." method="_on_parry_timer_timeout"]
+[connection signal="timeout" from="ParryCooldown" to="." method="_on_parry_cooldown_timeout"]
+[connection signal="timeout" from="iFrames" to="." method="_on_i_frames_timeout"]

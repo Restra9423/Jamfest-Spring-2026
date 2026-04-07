@@ -12,6 +12,7 @@ var points = 0
 @export var health1: Node2D
 
 @onready var sfx = $AudioStreamPlayer
+@onready var playerSprite = $Area2D/AnimatedSprite2D
 var parryhit_sound = preload("res://Sound/SFX/ParryPing8Bit_SFX.wav")
 var parrymiss_sound = preload("res://Sound/SFX/Swing8Bit_SFX.wav")
 var takedamage_sound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
@@ -103,6 +104,7 @@ func hurt():
 	if(!iFramesActive):
 		iFrames.start()
 		health -= 1
+		blink()
 		sfx.stream = takedamage_sound
 		sfx.play()
 		match health:
@@ -137,3 +139,9 @@ func _on_parry_cooldown_timeout() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		mouseInput = event.get_relative()
+
+func blink():
+	while(iFrames.time_left > 0):
+		playerSprite.visible = !playerSprite.visible
+		await get_tree().create_timer(0.1).timeout
+	playerSprite.visible = true
