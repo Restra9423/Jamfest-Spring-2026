@@ -9,6 +9,7 @@ func _ready() -> void:
 	scoreDisplay.text = str(ScoreCounter.currentScore)
 
 func _on_restart_pressed() -> void:
+	ScoreCounter.currentScore = 0
 	sfx.stream = click_sound
 	sfx.play()
 	get_tree().change_scene_to_file("res://Levels/world_scene.tscn")
