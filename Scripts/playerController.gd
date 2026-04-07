@@ -26,6 +26,7 @@ var moveInput = Vector2.ZERO
 var health = 3
 var points = 0
 var parryDir = Vector2.ZERO
+var parrying = false
 var parried = false
 
 #input initialization
@@ -76,7 +77,7 @@ func _process(delta: float) -> void:
 	
 	#parry check
 	if(Input.is_action_just_pressed("Parry") && parryCooldown.time_left == 0):
-		print("parry clicked")
+		parrying = true
 		parryLength.start()
 
 
@@ -91,24 +92,19 @@ func _on_parry_zone_area_entered(area: Area2D) -> void:
 	if(parryLength.time_left > 0 && area.isParryable && !area.parriedBullet):
 		parry(area.pointValue)
 		area.setParried(parryDir)
-		parryLength.wait_time = parryLength.time_left + 0.05
-		parryLength.start()
 	else:
-		get_tree().create_timer(0.5).timeout
+		await get_tree().create_timer(0.5).timeout
 		if (is_instance_valid(area)):
 			if(parryLength.time_left > 0 && area.isParryable && parryZone.overlaps_area(area) && !area.parriedBullet):
 				parry(area.pointValue)
 				area.setParried(parryDir)
-				parryLength.wait_time = parryLength.time_left + 0.05
-				parryLength.start()
 
 
 
 #custom functions
 func parry(pointValue: int):
-	print("parry function called")
 	parried = true
-	parryLength.set_wait_time(parryLength.time_left + 0.2)
+	parryLength.set_wait_time(parryLength.time_left + 0.35)
 	sfx.stream = parryhit_sound
 	sfx.play()
 	ScoreCounter.incrementScore(pointValue)
@@ -119,6 +115,11 @@ func hurt():
 	if(!iFrames.time_left > 0):
 		iFrames.start()
 		health -= 1
+		parryLength.stop()
+		parryLength.wait_time = parryLength.wait_time
+		parryLength.timeout.emit()
+		ScoreCounter.resetCombo()
+		scoreManager.updateCombo()
 		blink()
 		sfx.stream = takedamage_sound
 		sfx.play()
@@ -131,7 +132,6 @@ func hurt():
 				print("heath 2 not visible")
 
 func blink():
-	print("blink function called")
 	while(iFrames.time_left > 0):
 		playerSprite.visible = !playerSprite.visible
 		await get_tree().create_timer(0.1).timeout
@@ -141,20 +141,27 @@ func blink():
 
 #timer functions
 func _on_parry_length_timeout() -> void:
-	print("parry timer ended")
-	if(!parried):
+	if(parryLength.wait_time != 0.3):
+		parryLength.wait_time = 0.3
+	if(!parrying):
+		parryCooldown.wait_time = 0.3
+	elif (!parried):
 		sfx.stream = parrymiss_sound
 		sfx.play()
 		parryCooldown.wait_time = 2
+		ScoreCounter.resetCombo()
+		scoreManager.updateCombo()
 	else:
 		parried = false
+		ScoreCounter.incrementCombo()
+		scoreManager.updateCombo()
+	
+	parrying = false
 	parryCooldown.start()
 
 func _on_parry_cooldown_timeout() -> void:
-	print("parry cooldown ended")
-	if(parryCooldown.wait_time == 2):
+	if(parryCooldown.wait_time != 1):
 		parryCooldown.wait_time = 1
-	parryLength.wait_time = 0.3
 
 
 

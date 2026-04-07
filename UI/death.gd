@@ -6,10 +6,11 @@ var click_sound = preload("res://Sound/SFX/UISelect8Bit_SFX.wav")
 var death_sound = preload("res://Sound/SFX/ExplosionDeath8Bit_SFX.wav")
 
 func _ready() -> void:
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	scoreDisplay.text = str(ScoreCounter.currentScore)
 	sfx.stream = death_sound
 	sfx.play()
+	await get_tree().create_timer(0.2).timeout
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_restart_pressed() -> void:
 	ScoreCounter.currentScore = 0

@@ -23,8 +23,7 @@ scoreManager = NodePath("../ScoreCounter")
 
 [node name="PatternSpawner" parent="." unique_id=680363320 instance=ExtResource("2_47q4h")]
 
-[node name="LevelBounds" parent="." unique_id=1305599879 node_paths=PackedStringArray("player") instance=ExtResource("3_fcaoe")]
-player = NodePath("../Player")
+[node name="LevelBounds" parent="." unique_id=1305599879 instance=ExtResource("3_fcaoe")]
 
 [node name="ScoreCounter" parent="." unique_id=791273218 instance=ExtResource("3_gajq0")]
 offset_left = -958.0
