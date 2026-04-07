@@ -63,5 +63,14 @@ func setParried(parriedDir: Vector2):
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("bullets")):
-		if(parriedBullet && !area.isParryable && !area.parriedBullet):
-			area.setParried(moveDir)
+		if(parriedBullet && isParryable && !area.isParryable && !area.parriedBullet):
+			if (area.moveDir.x > moveDir.x):
+				if (area.moveDir.y > moveDir.y):
+					area.setParried(-(abs(area.moveDir * moveDir)))
+				else:
+					area.setParried(Vector2(-(abs(area.moveDir.x * moveDir.x)), abs(area.moveDir.y * moveDir.y)))
+			else:
+				if (area.moveDir.y < moveDir.y):
+					area.setParried(abs(area.moveDir * moveDir))
+				else:
+					area.setParried(Vector2(abs(area.moveDir.x * moveDir.x), -(abs(area.moveDir.y * moveDir.y))))
