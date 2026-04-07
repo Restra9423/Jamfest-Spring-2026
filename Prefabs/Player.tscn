@@ -13,6 +13,9 @@ collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_x3d5u")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=756021141]
+shape = SubResource("CircleShape2D_b43ah")
+
 [node name="Area2D" type="Area2D" parent="." unique_id=1864975116]
 collision_layer = 2
 collision_mask = 4
