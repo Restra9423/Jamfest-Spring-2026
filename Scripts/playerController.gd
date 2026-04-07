@@ -16,7 +16,6 @@ var parryhit_sound = preload("res://Sound/SFX/ParryPing8Bit_SFX.wav")
 var parrymiss_sound = preload("res://Sound/SFX/Swing8Bit_SFX.wav")
 var takedamage_sound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
 
-
 var iFramesActive = false
 @onready var iFrames : Timer = $iFrames
 var parrying = false
@@ -30,10 +29,13 @@ var hitMaybe = false
 var avgMouseMove = [Vector2.ZERO, Vector2.ZERO, Vector2.ZERO]
 var lastMousePos = Vector2.ZERO
 @onready var parryPivot : Node2D = $ParryPivot
+var aimDir = Vector2.ZERO
 
 @export var scoreCounter: Control
 
 @onready var parrySprite : Sprite2D = $ParryPivot/Sprite2D
+
+var mouseInput = Vector2.ZERO
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
@@ -52,11 +54,12 @@ func _process(delta: float) -> void:
 		parrySprite.texture = load("res://Art/PurpleShield.png")
 	else:
 		parrySprite.texture = load("res://Art/WhiteShield.png")
+		
+	var aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
+	var parryDir = mouseInput + aimInput
 	
-	var parryDir = (avgMouseMove[0]+avgMouseMove[1]+avgMouseMove[2])/3
-	
-	if(get_global_mouse_position() - lastMousePos != Vector2.ZERO):
-		parryPivot.rotation = lerp(Vector2.ZERO,parryDir.normalized(),lerpWeight).angle()
+	if((get_global_mouse_position() - lastMousePos != Vector2.ZERO) || (aimInput != Vector2.ZERO)):
+		parryPivot.rotation = lerp(Vector2.ZERO,parryDir,1).angle()
 		avgMouseMove.append(get_global_mouse_position() - lastMousePos)
 		avgMouseMove.pop_front()
 	lastMousePos = get_global_mouse_position()
@@ -85,11 +88,14 @@ func _on_parry_window_area_entered(area: Area2D) -> void:
 	if(parrying && area.isParryable):
 		parry(area.pointValue)
 		area.setParried()
+		parryLength.wait_time = parryLength.time_left + 0.05
+		parryLength.start()
 
 func parry(pointValue: int):
 	sfx.stream = parryhit_sound
 	sfx.play()
 	scoreCounter.incrementScore(pointValue)
+	parried = true
 	print("parry")
 	
 func hurt():
@@ -112,16 +118,21 @@ func _on_i_frames_timeout() -> void:
 	iFramesActive = false
 
 func _on_parry_timer_timeout() -> void:
-	parrying = false
-	parryCooldown.start()
-	onCooldown = true
-	print("parry end")
 	if(!parried):
 		sfx.stream = parrymiss_sound
 		sfx.play()
 		parryCooldown.wait_time = 2
+	parryCooldown.start()
+	parrying = false
+	onCooldown = true
+	print("parry end")
 
 func _on_parry_cooldown_timeout() -> void:
 	if(parryCooldown.wait_time == 2):
 		parryCooldown.wait_time = 1
 	onCooldown = false
+	parryLength.wait_time = 0.3
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		mouseInput = event.get_relative()
