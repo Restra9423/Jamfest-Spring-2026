@@ -1,8 +1,9 @@
 extends Node
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass
+
+@onready var damageBounds : Area2D = $DamageBounds
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	for body in damageBounds.get_overlapping_bodies():
+		if body.is_in_group("Player"):
+			body.hurt()

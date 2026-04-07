@@ -58,7 +58,6 @@ func _process(delta: float) -> void:
 	
 	#get input
 	moveInput = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
-	print("Axis is ", Input.get_axis("AimLeft", "AimRight"))
 	if(rawMouseInput.length() >= 5.0):
 		mouseInput = rawMouseInput.normalized()
 	if(aimInput != Vector2.ZERO):
@@ -87,13 +86,11 @@ func _on_area_2d_body_entered(_body: Node2D) -> void:
 		hurt()
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	print("bullet collision")
-	if (!area.parriedBullet):
+	if (area.is_in_group("bullets") && !area.parriedBullet):
 		hurt()
 		area.queue_free()
 
 func _on_parry_zone_area_entered(area: Area2D) -> void:
-	print("bullet in parry zone")
 	if(parryLength.time_left > 0 && area.isParryable && !area.parriedBullet):
 		parry(area.pointValue)
 		area.setParried(parryDir)

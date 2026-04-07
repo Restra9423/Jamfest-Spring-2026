@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://0mc2t6s8cp4d"]
+
+[ext_resource type="Script" uid="uid://11ki4uh4cypv" path="res://Scripts/levelBounds.gd" id="1_rgmtb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8oma2"]
+size = Vector2(1918, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_47q4h"]
+size = Vector2(1918, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gajq0"]
+size = Vector2(1, 1920)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iyqwk"]
+size = Vector2(1, 1920)
+
+[node name="LevelBounds" type="Node2D" unique_id=1848593480]
+script = ExtResource("1_rgmtb")
+
+[node name="DamageBounds" type="Area2D" parent="." unique_id=1694168246]
+collision_layer = 8
+collision_mask = 2
+
+[node name="TopWall" type="CollisionShape2D" parent="DamageBounds" unique_id=633449977]
+position = Vector2(0, -959.5)
+shape = SubResource("RectangleShape2D_8oma2")
+
+[node name="BottomWall" type="CollisionShape2D" parent="DamageBounds" unique_id=2032731779]
+position = Vector2(0, 959.5)
+shape = SubResource("RectangleShape2D_47q4h")
+
+[node name="LeftWall" type="CollisionShape2D" parent="DamageBounds" unique_id=102311620]
+position = Vector2(-959.5, 0)
+shape = SubResource("RectangleShape2D_gajq0")
+
+[node name="RightWall" type="CollisionShape2D" parent="DamageBounds" unique_id=960143079]
+position = Vector2(959.5, 0)
+shape = SubResource("RectangleShape2D_iyqwk")
+
+[node name="CollisionBounds" type="StaticBody2D" parent="." unique_id=1464356877]
+collision_layer = 8
+collision_mask = 2
+
+[node name="TopWall" type="CollisionShape2D" parent="CollisionBounds" unique_id=128734182]
+position = Vector2(0, -960)
+shape = SubResource("RectangleShape2D_8oma2")
+
+[node name="BottomWall" type="CollisionShape2D" parent="CollisionBounds" unique_id=1897793093]
+position = Vector2(0, 960)
+shape = SubResource("RectangleShape2D_47q4h")
+
+[node name="LeftWall" type="CollisionShape2D" parent="CollisionBounds" unique_id=1352630699]
+position = Vector2(-960, 0)
+shape = SubResource("RectangleShape2D_gajq0")
+
+[node name="RightWall" type="CollisionShape2D" parent="CollisionBounds" unique_id=1623330241]
+position = Vector2(960, 0)
+shape = SubResource("RectangleShape2D_iyqwk")
