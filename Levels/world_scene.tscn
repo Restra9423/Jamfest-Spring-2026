@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bpt5xrqt3jw1h" path="res://Prefabs/Player.tscn" id="1_8oma2"]
 [ext_resource type="PackedScene" uid="uid://djiitpxgsp02t" path="res://Prefabs/PatternSpawner.tscn" id="2_47q4h"]
 [ext_resource type="PackedScene" uid="uid://0mc2t6s8cp4d" path="res://Prefabs/LevelBounds.tscn" id="3_fcaoe"]
-[ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/GameScoreDisplay.tscn" id="3_gajq0"]
+[ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/ScoreManager.tscn" id="3_gajq0"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="4_iyqwk"]
 [ext_resource type="AudioStream" uid="uid://dorjumjotuvsm" path="res://Sound/Music/BulletHellSong.wav" id="5_v2hpu"]
 [ext_resource type="Texture2D" uid="uid://cplw44st4q4vj" path="res://Art/HeathBar2.png" id="6_42d7d"]
@@ -19,13 +19,13 @@ slide_on_ceiling = false
 health3 = NodePath("../HeathBar3")
 health2 = NodePath("../HeathBar2")
 health1 = NodePath("../HeathBar1")
-scoreManager = NodePath("../ScoreCounter")
+scoreManager = NodePath("../ScoreManager")
 
 [node name="PatternSpawner" parent="." unique_id=680363320 instance=ExtResource("2_47q4h")]
 
 [node name="LevelBounds" parent="." unique_id=1305599879 instance=ExtResource("3_fcaoe")]
 
-[node name="ScoreCounter" parent="." unique_id=791273218 instance=ExtResource("3_gajq0")]
+[node name="ScoreManager" parent="." unique_id=791273218 instance=ExtResource("3_gajq0")]
 offset_left = -958.0
 offset_top = -954.0
 offset_right = -513.0

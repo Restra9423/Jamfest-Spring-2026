@@ -8,7 +8,7 @@ font_size = 64
 [sub_resource type="LabelSettings" id="LabelSettings_0b146"]
 font_size = 48
 
-[node name="ScoreCounter" type="Panel" unique_id=1229586716 node_paths=PackedStringArray("scoreDisplay", "comboDisplay")]
+[node name="ScoreManager" type="Panel" unique_id=1229586716 node_paths=PackedStringArray("scoreDisplay", "comboDisplay")]
 offset_left = 128.0
 offset_top = 128.0
 offset_right = 573.0

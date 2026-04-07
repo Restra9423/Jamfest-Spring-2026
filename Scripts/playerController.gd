@@ -101,11 +101,15 @@ func _on_parry_zone_area_entered(area: Area2D) -> void:
 
 #custom functions
 func parry(pointValue: int):
-	parried = true
-	parryLength.set_wait_time(parryLength.time_left + 0.35)
+	if parried:
+		ScoreCounter.incrementScore(pointValue/2)
+	else:
+		ScoreCounter.incrementScore(pointValue)
+		parried = true
+	parryLength.wait_time = 0.2
+	parryLength.start()
 	sfx.stream = parryhit_sound
 	sfx.play()
-	ScoreCounter.incrementScore(pointValue)
 	scoreManager.updateScore()
 	
 func hurt():

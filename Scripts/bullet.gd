@@ -65,6 +65,7 @@ func setParried(parriedDir: Vector2):
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("bullets")):
 		if(parriedBullet && isParryable && !area.isParryable && !area.parriedBullet):
+			# ScoreCounter.incrementScore(10)
 			if (area.moveDir.x > moveDir.x):
 				if (area.moveDir.y > moveDir.y):
 					area.setParried(-(abs(area.moveDir * moveDir)))
