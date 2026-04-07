@@ -31,7 +31,7 @@ var lastMousePos = Vector2.ZERO
 @onready var parryPivot : Node2D = $ParryPivot
 var aimDir = Vector2.ZERO
 
-@export var scoreCounter: Control
+@export var scoreManager : Panel
 
 @onready var parrySprite : Sprite2D = $ParryPivot/Sprite2D
 
@@ -42,7 +42,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	if(health < 1):
-		get_tree().change_scene_to_file("res://UI/title.tscn")
+		get_tree().change_scene_to_file("res://UI/death.tscn")
 	direction = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
 	var lerpWeight = delta * (acceleration if direction else friction)
 	velocity = lerp(velocity, direction * speed, lerpWeight)
@@ -94,8 +94,9 @@ func _on_parry_window_area_entered(area: Area2D) -> void:
 func parry(pointValue: int):
 	sfx.stream = parryhit_sound
 	sfx.play()
-	scoreCounter.incrementScore(pointValue)
 	parried = true
+	ScoreCounter.incrementScore(pointValue)
+	scoreManager.updateScore()
 	print("parry")
 	
 func hurt():
