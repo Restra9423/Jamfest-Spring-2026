@@ -146,6 +146,8 @@ func _on_parry_length_timeout() -> void:
 		sfx.stream = parrymiss_sound
 		sfx.play()
 		parryCooldown.wait_time = 2
+	else:
+		parried = false
 	parryCooldown.start()
 
 func _on_parry_cooldown_timeout() -> void:

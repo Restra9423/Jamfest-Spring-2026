@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c2xpwkxwc8thq" path="res://UI/death.gd" id="1_gusc1"]
 [ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_mp3rd"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="2_7yokq"]
-[ext_resource type="AudioStream" uid="uid://dorjumjotuvsm" path="res://Sound/Music/BulletHellSong.wav" id="2_hnni8"]
+[ext_resource type="AudioStream" uid="uid://bv4me1ki2gi2i" path="res://Sound/Music/BulletHellDeathJingle.wav" id="4_mp3rd"]
 
 [node name="Death" type="Control" unique_id=1424718591 node_paths=PackedStringArray("sfx", "scoreDisplay")]
 layout_mode = 3
@@ -68,7 +68,7 @@ layout_mode = 2
 text = "Quit"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=741904838]
-stream = ExtResource("2_hnni8")
+stream = ExtResource("4_mp3rd")
 volume_db = -5.0
 autoplay = true
 
