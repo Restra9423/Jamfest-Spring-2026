@@ -37,7 +37,7 @@ var aimInput = Vector2.ZERO
 
 #score
 @export var scoreManager : Panel
-
+var totalHeals : int = 0
 
 #start and update functions
 func _ready() -> void:
@@ -112,7 +112,11 @@ func parry(pointValue: int):
 	sfx.stream = parryhit_sound
 	sfx.play()
 	scoreManager.updateScore()
-	
+	if (totalHeals < ScoreCounter.currentScore/10000):
+		print("healing time!!")
+		restoreHealth()
+		totalHeals += 1
+
 func hurt():
 	print("hurt function called")
 	if(!iFrames.time_left > 0):
@@ -129,10 +133,8 @@ func hurt():
 		match health:
 			2:
 				health3.visible = false
-				print("heath 3 not visible")
 			1:
 				health2.visible = false
-				print("heath 2 not visible")
 
 func blink():
 	while(iFrames.time_left > 0):
@@ -140,6 +142,14 @@ func blink():
 		await get_tree().create_timer(0.1).timeout
 	playerSprite.visible = true
 
+func restoreHealth():
+	if health < 3:
+		health += 1
+		match health:
+			3:
+				health3.visible = true
+			2:
+				health2.visible = true
 
 
 #timer functions
