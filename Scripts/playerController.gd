@@ -106,8 +106,9 @@ func parry(pointValue: int):
 	else:
 		ScoreCounter.incrementScore(pointValue)
 		parried = true
-	parryLength.wait_time = 0.2
-	parryLength.start()
+	if(parryLength.time_left > 0 && !(parryLength.wait_time - parryLength.time_left) < 0.1):
+		parryLength.wait_time = parryLength.time_left + 0.1
+		parryLength.start()
 	sfx.stream = parryhit_sound
 	sfx.play()
 	scoreManager.updateScore()
