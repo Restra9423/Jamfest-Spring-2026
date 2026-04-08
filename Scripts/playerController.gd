@@ -113,7 +113,7 @@ func parry(pointValue: int):
 		parryLength.start()
 	playSound(parryhit_sound)
 	scoreManager.updateScore()
-	if (totalHeals < ScoreCounter.currentScore/1000):
+	if (totalHeals < ScoreCounter.currentScore/10000):
 		restoreHealth()
 		totalHeals += 1
 
