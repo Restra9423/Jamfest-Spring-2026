@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 	aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
 	if(aimInput != Vector2.ZERO):
 		parryDir = aimInput
-	elif(mouseInput.length() >= 5.0):
+	elif(mouseInput.length() >= 4.5):
 		parryDir = mouseInput.normalized()
 	
 	#move player
