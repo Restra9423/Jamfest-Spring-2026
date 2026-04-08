@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 	aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
 	if(aimInput != Vector2.ZERO):
 		parryDir = aimInput
-	elif(mouseInput.length() >= 5.0):
+	elif(mouseInput.length() >= 4.5):
 		parryDir = mouseInput.normalized()
 	
 	#move player
@@ -106,8 +106,8 @@ func parry(pointValue: int):
 	else:
 		ScoreCounter.incrementScore(pointValue)
 		parried = true
-	if(parryLength.time_left > 0 && !(parryLength.wait_time - parryLength.time_left) < 0.1):
-		parryLength.wait_time = parryLength.time_left + 0.1
+	if(parryLength.time_left > 0 && !(parryLength.wait_time - parryLength.time_left < 0.1)):
+		parryLength.wait_time = parryLength.time_left + 0.15
 		parryLength.start()
 	sfx.stream = parryhit_sound
 	sfx.play()
