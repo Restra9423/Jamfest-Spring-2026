@@ -46,30 +46,35 @@ position = Vector2(-475, 1505)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet9" parent="." unique_id=1795596981 instance=ExtResource("2_puxot")]
 position = Vector2(-425, 1405)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet10" parent="." unique_id=363498568 instance=ExtResource("2_puxot")]
 position = Vector2(-375, 1305)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet11" parent="." unique_id=1594148183 instance=ExtResource("2_puxot")]
 position = Vector2(-325, 1405)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet12" parent="." unique_id=537022609 instance=ExtResource("2_puxot")]
 position = Vector2(-275, 1505)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet18" parent="." unique_id=1608161722 instance=ExtResource("2_puxot")]
 position = Vector2(-826, 1762)
@@ -146,29 +151,34 @@ position = Vector2(299, 1504)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet14" parent="." unique_id=185561330 instance=ExtResource("2_puxot")]
 position = Vector2(349, 1404)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet15" parent="." unique_id=665097021 instance=ExtResource("2_puxot")]
 position = Vector2(399, 1304)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet16" parent="." unique_id=360003146 instance=ExtResource("2_puxot")]
 position = Vector2(449, 1404)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [node name="Bullet17" parent="." unique_id=1228645334 instance=ExtResource("2_puxot")]
 position = Vector2(499, 1504)
 speed = 500.0
 angle = 270.0
 timeToDestroy = 20.0
+pointValue = 25
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

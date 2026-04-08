@@ -11,12 +11,14 @@ position = Vector2(2533, 301)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet3" parent="." unique_id=1879919494 instance=ExtResource("2_xgadd")]
 position = Vector2(2613, 352)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet4" parent="." unique_id=1057265388 instance=ExtResource("2_xgadd")]
 position = Vector2(2702, 403)
@@ -24,74 +26,28 @@ speed = 500.0
 angle = 180.0
 isParryable = true
 timeToDestroy = 30.0
+pointValue = 150
 
 [node name="Bullet7" parent="." unique_id=906854087 instance=ExtResource("2_xgadd")]
 position = Vector2(2792, 351)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet15" parent="." unique_id=1201238122 instance=ExtResource("2_xgadd")]
-position = Vector2(3197, 301)
+[node name="Bullet8" parent="." unique_id=1149872952 instance=ExtResource("2_xgadd")]
+position = Vector2(2870, 300)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
-
-[node name="Bullet17" parent="." unique_id=1286725277 instance=ExtResource("2_xgadd")]
-position = Vector2(3277, 352)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet18" parent="." unique_id=1548834890 instance=ExtResource("2_xgadd")]
-position = Vector2(3366, 403)
-speed = 500.0
-angle = 180.0
-isParryable = true
-timeToDestroy = 30.0
-
-[node name="Bullet21" parent="." unique_id=1724041711 instance=ExtResource("2_xgadd")]
-position = Vector2(3456, 351)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet22" parent="." unique_id=1136226490 instance=ExtResource("2_xgadd")]
-position = Vector2(3533, 300)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet29" parent="." unique_id=933621061 instance=ExtResource("2_xgadd")]
-position = Vector2(3871, 299)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet23" parent="." unique_id=1877332221 instance=ExtResource("2_xgadd")]
-position = Vector2(3614, 249)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet26" parent="." unique_id=1309393442 instance=ExtResource("2_xgadd")]
-position = Vector2(3701, 198)
-speed = 500.0
-angle = 180.0
-isParryable = true
-timeToDestroy = 30.0
-
-[node name="Bullet27" parent="." unique_id=218559547 instance=ExtResource("2_xgadd")]
-position = Vector2(3791, 249)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet9" parent="." unique_id=1999441789 instance=ExtResource("2_xgadd")]
 position = Vector2(2944, 250)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet12" parent="." unique_id=1914507677 instance=ExtResource("2_xgadd")]
 position = Vector2(3031, 199)
@@ -99,123 +55,79 @@ speed = 500.0
 angle = 180.0
 isParryable = true
 timeToDestroy = 30.0
+pointValue = 150
 
 [node name="Bullet13" parent="." unique_id=424135365 instance=ExtResource("2_xgadd")]
 position = Vector2(3121, 250)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet8" parent="." unique_id=1149872952 instance=ExtResource("2_xgadd")]
-position = Vector2(2870, 300)
+[node name="Bullet15" parent="." unique_id=1201238122 instance=ExtResource("2_xgadd")]
+position = Vector2(3197, 301)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet2" parent="." unique_id=236119983 instance=ExtResource("2_xgadd")]
-position = Vector2(2554, -322)
+[node name="Bullet17" parent="." unique_id=1286725277 instance=ExtResource("2_xgadd")]
+position = Vector2(3277, 352)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet5" parent="." unique_id=1594735348 instance=ExtResource("2_xgadd")]
-position = Vector2(2634, -271)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet6" parent="." unique_id=596338982 instance=ExtResource("2_xgadd")]
-position = Vector2(2723, -220)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet10" parent="." unique_id=989538268 instance=ExtResource("2_xgadd")]
-position = Vector2(2813, -272)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet16" parent="." unique_id=636902654 instance=ExtResource("2_xgadd")]
-position = Vector2(3218, -322)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet19" parent="." unique_id=1468605315 instance=ExtResource("2_xgadd")]
-position = Vector2(3298, -271)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet20" parent="." unique_id=574645250 instance=ExtResource("2_xgadd")]
-position = Vector2(3387, -220)
+[node name="Bullet18" parent="." unique_id=1548834890 instance=ExtResource("2_xgadd")]
+position = Vector2(3366, 403)
 speed = 500.0
 angle = 180.0
 isParryable = true
 timeToDestroy = 30.0
+pointValue = 150
 
-[node name="Bullet24" parent="." unique_id=230263206 instance=ExtResource("2_xgadd")]
-position = Vector2(3477, -272)
+[node name="Bullet21" parent="." unique_id=1724041711 instance=ExtResource("2_xgadd")]
+position = Vector2(3456, 351)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet25" parent="." unique_id=1992888960 instance=ExtResource("2_xgadd")]
-position = Vector2(3554, -323)
+[node name="Bullet22" parent="." unique_id=1136226490 instance=ExtResource("2_xgadd")]
+position = Vector2(3533, 300)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet30" parent="." unique_id=1968836084 instance=ExtResource("2_xgadd")]
-position = Vector2(3892, -324)
+[node name="Bullet23" parent="." unique_id=1877332221 instance=ExtResource("2_xgadd")]
+position = Vector2(3614, 249)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet28" parent="." unique_id=2106055011 instance=ExtResource("2_xgadd")]
-position = Vector2(3635, -374)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet31" parent="." unique_id=1018112138 instance=ExtResource("2_xgadd")]
-position = Vector2(3722, -425)
-speed = 500.0
-angle = 180.0
-isParryable = true
-timeToDestroy = 30.0
-
-[node name="Bullet32" parent="." unique_id=937572635 instance=ExtResource("2_xgadd")]
-position = Vector2(3812, -374)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet11" parent="." unique_id=1271618308 instance=ExtResource("2_xgadd")]
-position = Vector2(2965, -373)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet14" parent="." unique_id=339026547 instance=ExtResource("2_xgadd")]
-position = Vector2(3052, -424)
+[node name="Bullet26" parent="." unique_id=1309393442 instance=ExtResource("2_xgadd")]
+position = Vector2(3701, 198)
 speed = 500.0
 angle = 180.0
 isParryable = true
 timeToDestroy = 30.0
+pointValue = 150
 
-[node name="Bullet33" parent="." unique_id=1861036620 instance=ExtResource("2_xgadd")]
-position = Vector2(3142, -373)
+[node name="Bullet27" parent="." unique_id=218559547 instance=ExtResource("2_xgadd")]
+position = Vector2(3791, 249)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet34" parent="." unique_id=1039946963 instance=ExtResource("2_xgadd")]
-position = Vector2(2891, -323)
+[node name="Bullet29" parent="." unique_id=933621061 instance=ExtResource("2_xgadd")]
+position = Vector2(3871, 299)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet35" parent="." unique_id=551141372 instance=ExtResource("2_xgadd")]
 position = Vector2(3943, 352)
@@ -223,74 +135,28 @@ speed = 500.0
 angle = 180.0
 isParryable = true
 timeToDestroy = 30.0
+pointValue = 150
 
 [node name="Bullet36" parent="." unique_id=1701420433 instance=ExtResource("2_xgadd")]
 position = Vector2(4033, 300)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet37" parent="." unique_id=52687067 instance=ExtResource("2_xgadd")]
-position = Vector2(4438, 250)
+[node name="Bullet49" parent="." unique_id=681042679 instance=ExtResource("2_xgadd")]
+position = Vector2(4111, 249)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
-
-[node name="Bullet38" parent="." unique_id=980601569 instance=ExtResource("2_xgadd")]
-position = Vector2(4518, 301)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet39" parent="." unique_id=2034771006 instance=ExtResource("2_xgadd")]
-position = Vector2(4607, 352)
-speed = 500.0
-angle = 180.0
-isParryable = true
-timeToDestroy = 30.0
-
-[node name="Bullet40" parent="." unique_id=775847649 instance=ExtResource("2_xgadd")]
-position = Vector2(4697, 300)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet41" parent="." unique_id=1007299894 instance=ExtResource("2_xgadd")]
-position = Vector2(4774, 249)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet42" parent="." unique_id=1617542317 instance=ExtResource("2_xgadd")]
-position = Vector2(5112, 248)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet43" parent="." unique_id=2047355270 instance=ExtResource("2_xgadd")]
-position = Vector2(4855, 198)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet44" parent="." unique_id=1179260426 instance=ExtResource("2_xgadd")]
-position = Vector2(4942, 147)
-speed = 500.0
-angle = 180.0
-isParryable = true
-timeToDestroy = 30.0
-
-[node name="Bullet45" parent="." unique_id=194917581 instance=ExtResource("2_xgadd")]
-position = Vector2(5032, 198)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet46" parent="." unique_id=1207074182 instance=ExtResource("2_xgadd")]
 position = Vector2(4185, 199)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet47" parent="." unique_id=817513094 instance=ExtResource("2_xgadd")]
 position = Vector2(4272, 148)
@@ -298,92 +164,229 @@ speed = 500.0
 angle = 180.0
 isParryable = true
 timeToDestroy = 30.0
+pointValue = 150
 
 [node name="Bullet48" parent="." unique_id=1146181718 instance=ExtResource("2_xgadd")]
 position = Vector2(4362, 199)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet49" parent="." unique_id=681042679 instance=ExtResource("2_xgadd")]
-position = Vector2(4111, 249)
+[node name="Bullet37" parent="." unique_id=52687067 instance=ExtResource("2_xgadd")]
+position = Vector2(4438, 250)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet38" parent="." unique_id=980601569 instance=ExtResource("2_xgadd")]
+position = Vector2(4518, 301)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet39" parent="." unique_id=2034771006 instance=ExtResource("2_xgadd")]
+position = Vector2(4607, 352)
+speed = 500.0
+angle = 180.0
+isParryable = true
+timeToDestroy = 30.0
+pointValue = 150
+
+[node name="Bullet40" parent="." unique_id=775847649 instance=ExtResource("2_xgadd")]
+position = Vector2(4697, 300)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet41" parent="." unique_id=1007299894 instance=ExtResource("2_xgadd")]
+position = Vector2(4774, 249)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet43" parent="." unique_id=2047355270 instance=ExtResource("2_xgadd")]
+position = Vector2(4855, 198)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet44" parent="." unique_id=1179260426 instance=ExtResource("2_xgadd")]
+position = Vector2(4942, 147)
+speed = 500.0
+angle = 180.0
+isParryable = true
+timeToDestroy = 30.0
+pointValue = 150
+
+[node name="Bullet45" parent="." unique_id=194917581 instance=ExtResource("2_xgadd")]
+position = Vector2(5032, 198)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet42" parent="." unique_id=1617542317 instance=ExtResource("2_xgadd")]
+position = Vector2(5112, 248)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet2" parent="." unique_id=236119983 instance=ExtResource("2_xgadd")]
+position = Vector2(2554, -322)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet5" parent="." unique_id=1594735348 instance=ExtResource("2_xgadd")]
+position = Vector2(2634, -271)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet6" parent="." unique_id=596338982 instance=ExtResource("2_xgadd")]
+position = Vector2(2723, -220)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet10" parent="." unique_id=989538268 instance=ExtResource("2_xgadd")]
+position = Vector2(2813, -272)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet34" parent="." unique_id=1039946963 instance=ExtResource("2_xgadd")]
+position = Vector2(2891, -323)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet11" parent="." unique_id=1271618308 instance=ExtResource("2_xgadd")]
+position = Vector2(2965, -373)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet14" parent="." unique_id=339026547 instance=ExtResource("2_xgadd")]
+position = Vector2(3052, -424)
+speed = 500.0
+angle = 180.0
+isParryable = true
+timeToDestroy = 30.0
+pointValue = 150
+
+[node name="Bullet33" parent="." unique_id=1861036620 instance=ExtResource("2_xgadd")]
+position = Vector2(3142, -373)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet16" parent="." unique_id=636902654 instance=ExtResource("2_xgadd")]
+position = Vector2(3218, -322)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet19" parent="." unique_id=1468605315 instance=ExtResource("2_xgadd")]
+position = Vector2(3298, -271)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet20" parent="." unique_id=574645250 instance=ExtResource("2_xgadd")]
+position = Vector2(3387, -220)
+speed = 500.0
+angle = 180.0
+isParryable = true
+timeToDestroy = 30.0
+pointValue = 150
+
+[node name="Bullet24" parent="." unique_id=230263206 instance=ExtResource("2_xgadd")]
+position = Vector2(3477, -272)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet25" parent="." unique_id=1992888960 instance=ExtResource("2_xgadd")]
+position = Vector2(3554, -323)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet28" parent="." unique_id=2106055011 instance=ExtResource("2_xgadd")]
+position = Vector2(3635, -374)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet31" parent="." unique_id=1018112138 instance=ExtResource("2_xgadd")]
+position = Vector2(3722, -425)
+speed = 500.0
+angle = 180.0
+isParryable = true
+timeToDestroy = 30.0
+pointValue = 150
+
+[node name="Bullet32" parent="." unique_id=937572635 instance=ExtResource("2_xgadd")]
+position = Vector2(3812, -374)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet30" parent="." unique_id=1968836084 instance=ExtResource("2_xgadd")]
+position = Vector2(3892, -324)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet50" parent="." unique_id=1193458972 instance=ExtResource("2_xgadd")]
 position = Vector2(3964, -271)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet51" parent="." unique_id=326860655 instance=ExtResource("2_xgadd")]
 position = Vector2(4054, -323)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet52" parent="." unique_id=519146671 instance=ExtResource("2_xgadd")]
-position = Vector2(4459, -373)
+[node name="Bullet64" parent="." unique_id=1195863596 instance=ExtResource("2_xgadd")]
+position = Vector2(4132, -374)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
-
-[node name="Bullet53" parent="." unique_id=1048538364 instance=ExtResource("2_xgadd")]
-position = Vector2(4539, -322)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet54" parent="." unique_id=938632407 instance=ExtResource("2_xgadd")]
-position = Vector2(4628, -271)
-speed = 500.0
-angle = 180.0
-isParryable = true
-timeToDestroy = 30.0
-
-[node name="Bullet55" parent="." unique_id=1443150896 instance=ExtResource("2_xgadd")]
-position = Vector2(4718, -323)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet56" parent="." unique_id=639424726 instance=ExtResource("2_xgadd")]
-position = Vector2(4795, -374)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet57" parent="." unique_id=1130554170 instance=ExtResource("2_xgadd")]
-position = Vector2(5133, -375)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet58" parent="." unique_id=437812107 instance=ExtResource("2_xgadd")]
-position = Vector2(4876, -425)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
-
-[node name="Bullet59" parent="." unique_id=542630506 instance=ExtResource("2_xgadd")]
-position = Vector2(4963, -476)
-speed = 500.0
-angle = 180.0
-isParryable = true
-timeToDestroy = 30.0
-
-[node name="Bullet60" parent="." unique_id=871675784 instance=ExtResource("2_xgadd")]
-position = Vector2(5053, -425)
-speed = 500.0
-angle = 180.0
-timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet61" parent="." unique_id=1593437868 instance=ExtResource("2_xgadd")]
 position = Vector2(4206, -424)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
 [node name="Bullet62" parent="." unique_id=1235697559 instance=ExtResource("2_xgadd")]
 position = Vector2(4293, -475)
@@ -391,15 +394,76 @@ speed = 500.0
 angle = 180.0
 isParryable = true
 timeToDestroy = 30.0
+pointValue = 150
 
 [node name="Bullet63" parent="." unique_id=394068952 instance=ExtResource("2_xgadd")]
 position = Vector2(4383, -424)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
 
-[node name="Bullet64" parent="." unique_id=1195863596 instance=ExtResource("2_xgadd")]
-position = Vector2(4132, -374)
+[node name="Bullet52" parent="." unique_id=519146671 instance=ExtResource("2_xgadd")]
+position = Vector2(4459, -373)
 speed = 500.0
 angle = 180.0
 timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet53" parent="." unique_id=1048538364 instance=ExtResource("2_xgadd")]
+position = Vector2(4539, -322)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet54" parent="." unique_id=938632407 instance=ExtResource("2_xgadd")]
+position = Vector2(4628, -271)
+speed = 500.0
+angle = 180.0
+isParryable = true
+timeToDestroy = 30.0
+pointValue = 150
+
+[node name="Bullet55" parent="." unique_id=1443150896 instance=ExtResource("2_xgadd")]
+position = Vector2(4718, -323)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet56" parent="." unique_id=639424726 instance=ExtResource("2_xgadd")]
+position = Vector2(4795, -374)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet58" parent="." unique_id=437812107 instance=ExtResource("2_xgadd")]
+position = Vector2(4876, -425)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet59" parent="." unique_id=542630506 instance=ExtResource("2_xgadd")]
+position = Vector2(4963, -476)
+speed = 500.0
+angle = 180.0
+isParryable = true
+timeToDestroy = 30.0
+pointValue = 150
+
+[node name="Bullet60" parent="." unique_id=871675784 instance=ExtResource("2_xgadd")]
+position = Vector2(5053, -425)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
+
+[node name="Bullet57" parent="." unique_id=1130554170 instance=ExtResource("2_xgadd")]
+position = Vector2(5133, -375)
+speed = 500.0
+angle = 180.0
+timeToDestroy = 30.0
+pointValue = 25
