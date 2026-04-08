@@ -9,9 +9,10 @@ var unparrySpearPattern = preload("res://Prefabs/Bullet Patterns/UnparrySpearPat
 var vPattern = preload("res://Prefabs/Bullet Patterns/VPattern.tscn")
 var linePattern = preload("res://Prefabs/Bullet Patterns/LinePattern.tscn")
 var wavePattern = preload("res://Prefabs/Bullet Patterns/WavePattern.tscn")
+var homingPattern1 = preload("res://Prefabs/Bullet Patterns/HomingPattern1.tscn")
 
 # Create an array of references to each existing bullet pattern
-var patternList = [parryCirclePattern1, unparryCirclePattern1, parrySpearPattern, unparrySpearPattern, vPattern, linePattern, wavePattern]
+var patternList = [parryCirclePattern1, unparryCirclePattern1, parrySpearPattern, unparrySpearPattern, vPattern, linePattern, wavePattern, homingPattern1]
 
 func _on_ready() -> void:
 	waveTimer.wait_time = 0.0

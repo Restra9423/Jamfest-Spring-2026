@@ -17,9 +17,10 @@ extends Area2D
 enum BulletShapes{
 	CIRCLE,
 	STAR,
-	TRIANGLE
+	TRIANGLE,
+	DELTA
 }
-var myShape: BulletShapes = BulletShapes.CIRCLE
+@export var myShape: BulletShapes = BulletShapes.CIRCLE
 
 var timeToStart : bool = false
 
@@ -36,6 +37,8 @@ func initializeSprite(shape: BulletShapes):
 			mySprite.animation="star"
 		BulletShapes.TRIANGLE:
 			mySprite.animation="triangle"
+		BulletShapes.DELTA:
+			mySprite.animation="delta"
 	match isParryable:
 		true:
 			# Become blue

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://iuj1ovoxyf5x"]
 
-[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/bulletPattern.gd" id="1_vfwat"]
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_vfwat"]
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullet.tscn" id="2_puxot"]
 
 [node name="UnparryCirclePattern1" type="Node2D" unique_id=448704251]

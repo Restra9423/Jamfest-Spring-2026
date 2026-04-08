@@ -9,7 +9,7 @@ func _ready() -> void:
 	scoreDisplay.text = str(ScoreCounter.currentScore)
 	sfx.stream = death_sound
 	sfx.play()
-	await get_tree().create_timer(0.2).timeout
+	await get_tree().create_timer(0.5).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _on_restart_pressed() -> void:
