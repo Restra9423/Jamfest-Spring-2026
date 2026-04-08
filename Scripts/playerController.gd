@@ -4,14 +4,8 @@ extends CharacterBody2D
 @export var health3: Node2D
 @export var health2: Node2D
 @export var health1: Node2D
-@onready var sfx = $AudioStreamPlayer
 @onready var playerSprite = $Area2D/AnimatedSprite2D
 @onready var parrySprite : Sprite2D = $ParryPivot/Sprite2D
-var parryhit_sound = preload("res://Sound/SFX/ParryPing8Bit_SFX.wav")
-var parrymiss_sound = preload("res://Sound/SFX/Swing8Bit_SFX.wav")
-var takedamage_sound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
-var healing_sound = preload("res://Sound/SFX/HealthGain8Bit_SFX.wav")
-var priorityPlaying : bool = false
 
 #timers references
 @onready var iFrames : Timer = $iFrames
@@ -63,7 +57,7 @@ func _process(delta: float) -> void:
 	aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
 	if(aimInput != Vector2.ZERO):
 		parryDir = aimInput
-	elif(mouseInput.length() >= 4.5):
+	elif(mouseInput.length() >= SettingsManager.mouseSensitivity):
 		parryDir = mouseInput.normalized()
 	
 	#move player
@@ -111,10 +105,10 @@ func parry(pointValue: int):
 	if(parryLength.time_left > 0 && !(parryLength.wait_time - parryLength.time_left < 0.1)):
 		parryLength.wait_time = parryLength.time_left + 0.15
 		parryLength.start()
-	playSound(parryhit_sound)
+	AudioController.playSFX(AudioController.parryHitSound)
 	scoreManager.updateScore()
 	if (totalHeals < ScoreCounter.currentScore/10000):
-		restoreHealth()
+		heal()
 		totalHeals += 1
 
 func hurt():
@@ -128,7 +122,7 @@ func hurt():
 		ScoreCounter.resetCombo()
 		scoreManager.updateCombo()
 		blink()
-		playSound(takedamage_sound, true)
+		AudioController.playSFX(AudioController.takeDamageSound, true)
 		match health:
 			2:
 				health3.visible = false
@@ -141,7 +135,7 @@ func blink():
 		await get_tree().create_timer(0.1).timeout
 	playerSprite.visible = true
 
-func restoreHealth():
+func heal():
 	if health < 3:
 		health += 1
 		match health:
@@ -149,21 +143,7 @@ func restoreHealth():
 				health3.visible = true
 			2:
 				health2.visible = true
-		playSound(healing_sound, true)
-
-func playSound(stream: AudioStream, priority: bool = false):
-	var volume = sfx.volume_db
-	if priorityPlaying:
-		return
-	sfx.stream = stream
-	if sfx.stream == healing_sound:
-		sfx.volume_db -= 5.0
-	sfx.play()
-	if priority:
-		priorityPlaying = true
-		await sfx.finished
-		priorityPlaying = false
-	sfx.volume_db = volume
+		AudioController.playSFX(AudioController.healingSound, true)
 
 
 #timer functions
@@ -173,7 +153,7 @@ func _on_parry_length_timeout() -> void:
 	if(!parrying):
 		parryCooldown.wait_time = 0.3
 	elif (!parried):
-		playSound(parrymiss_sound)
+		AudioController.playSFX(AudioController.parryMissSound)
 		parryCooldown.wait_time = 2
 		ScoreCounter.resetCombo()
 		scoreManager.updateCombo()

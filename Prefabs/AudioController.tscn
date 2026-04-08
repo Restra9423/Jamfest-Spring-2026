@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://knggnvbke8d5"]
+
+[ext_resource type="Script" uid="uid://10hfrbmjbndy" path="res://Scripts/audioController.gd" id="1_bimbq"]
+
+[node name="AudioController" type="Node" unique_id=814091816]
+script = ExtResource("1_bimbq")
+
+[node name="Music" type="AudioStreamPlayer" parent="." unique_id=1081648407]
+volume_db = -5.0
+
+[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=738064960]
+volume_db = 2.5

@@ -1,16 +1,17 @@
 [gd_scene format=3 uid="uid://b7scnx8hupynl"]
 
 [ext_resource type="PackedScene" uid="uid://bpt5xrqt3jw1h" path="res://Prefabs/Player.tscn" id="1_8oma2"]
+[ext_resource type="Script" uid="uid://bngvei5wgm4yt" path="res://Scripts/gameManager.gd" id="1_fcaoe"]
 [ext_resource type="PackedScene" uid="uid://djiitpxgsp02t" path="res://Prefabs/PatternSpawner.tscn" id="2_47q4h"]
 [ext_resource type="PackedScene" uid="uid://0mc2t6s8cp4d" path="res://Prefabs/LevelBounds.tscn" id="3_fcaoe"]
 [ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/ScoreManager.tscn" id="3_gajq0"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="4_iyqwk"]
-[ext_resource type="AudioStream" uid="uid://dorjumjotuvsm" path="res://Sound/Music/BulletHellSong.wav" id="5_v2hpu"]
 [ext_resource type="Texture2D" uid="uid://cplw44st4q4vj" path="res://Art/HeathBar2.png" id="6_42d7d"]
 [ext_resource type="Texture2D" uid="uid://hjvphaxd5iyy" path="res://Art/HeathBar3.png" id="7_fcaoe"]
 [ext_resource type="Texture2D" uid="uid://b4bcn08hdr3ho" path="res://Art/HeathBar1.png" id="8_syw1v"]
 
 [node name="WorldScene" type="Node2D" unique_id=1086633574]
+script = ExtResource("1_fcaoe")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=583817535]
 
@@ -34,11 +35,6 @@ offset_bottom = -679.0
 [node name="Background" type="Sprite2D" parent="." unique_id=203242074]
 z_index = -5
 texture = ExtResource("4_iyqwk")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=378901101]
-stream = ExtResource("5_v2hpu")
-volume_db = -5.778
-autoplay = true
 
 [node name="HeathBar3" type="Sprite2D" parent="." unique_id=1316957443]
 position = Vector2(-794, 832)

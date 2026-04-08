@@ -23,6 +23,8 @@ config/icon="uid://nqgc21jyfpj"
 [autoload]
 
 ScoreCounter="*uid://bibltxsa0n26g"
+SettingsManager="*uid://ja7uwfylmmc0"
+AudioController="*uid://knggnvbke8d5"
 
 [display]
 

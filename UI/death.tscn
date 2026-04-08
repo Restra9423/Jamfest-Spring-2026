@@ -3,9 +3,8 @@
 [ext_resource type="Script" uid="uid://c2xpwkxwc8thq" path="res://UI/death.gd" id="1_gusc1"]
 [ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_mp3rd"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="2_7yokq"]
-[ext_resource type="AudioStream" uid="uid://bv4me1ki2gi2i" path="res://Sound/Music/BulletHellDeathJingle.wav" id="4_mp3rd"]
 
-[node name="Death" type="Control" unique_id=1424718591 node_paths=PackedStringArray("sfx", "scoreDisplay")]
+[node name="Death" type="Control" unique_id=1424718591 node_paths=PackedStringArray("scoreDisplay")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,7 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_mp3rd")
 script = ExtResource("1_gusc1")
-sfx = NodePath("AudioStreamPlayer/SFXAudioStreamPlayer")
 scoreDisplay = NodePath("VBoxContainer/ScoreDisplay")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=721731475]
@@ -66,14 +64,6 @@ text = "Main Menu"
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1429858335]
 layout_mode = 2
 text = "Quit"
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=741904838]
-stream = ExtResource("4_mp3rd")
-volume_db = -5.0
-autoplay = true
-
-[node name="SFXAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=1791413318]
-volume_db = 7.0
 
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

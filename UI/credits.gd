@@ -1,15 +1,8 @@
 extends Control
 
-@export var sfx: AudioStreamPlayer
-var click_sound = preload("res://Sound/SFX/UISelect8Bit_SFX.wav")
-
 func _ready() -> void:
-	pass
-
-func _process(delta: float) -> void:
-	pass
+	AudioController.playMusic(AudioController.gameBGM)
 
 func _on_back_button_pressed() -> void:
-	#sfx.stream = click_sound
-	#sfx.play()
+	AudioController.playSFX(AudioController.clickSound)
 	get_tree().change_scene_to_file("res://UI/title.tscn")

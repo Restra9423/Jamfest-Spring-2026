@@ -3,10 +3,8 @@
 [ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_2itqh"]
 [ext_resource type="Script" uid="uid://djusunur2dvlt" path="res://UI/title.gd" id="2_pa5mj"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="3_jgd3k"]
-[ext_resource type="AudioStream" uid="uid://dorjumjotuvsm" path="res://Sound/Music/BulletHellSong.wav" id="4_s15np"]
-[ext_resource type="AudioStream" uid="uid://do7422yy4tlnt" path="res://Sound/SFX/UISelect8Bit_SFX.wav" id="5_cb2bp"]
 
-[node name="TitleScreen" type="Control" unique_id=966666377 node_paths=PackedStringArray("sfx")]
+[node name="TitleScreen" type="Control" unique_id=966666377]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,7 +15,6 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_2itqh")
 script = ExtResource("2_pa5mj")
-sfx = NodePath("AudioStreamPlayer/SFXAudioStreamPlayer")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=1933558376]
 layout_mode = 0
@@ -54,6 +51,10 @@ text = "Oops! All Parrys"
 layout_mode = 2
 text = "Start"
 
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=593332406]
+layout_mode = 2
+text = "Settings"
+
 [node name="Credits" type="Button" parent="VBoxContainer" unique_id=1251620939]
 layout_mode = 2
 text = "Credits"
@@ -62,15 +63,7 @@ text = "Credits"
 layout_mode = 2
 text = "Quit"
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1044587399]
-stream = ExtResource("4_s15np")
-volume_db = -5.0
-autoplay = true
-
-[node name="SFXAudioStreamPlayer" type="AudioStreamPlayer" parent="AudioStreamPlayer" unique_id=1868793945]
-stream = ExtResource("5_cb2bp")
-volume_db = 7.0
-
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
