@@ -129,6 +129,49 @@ text = "Godot Assistance"
 [node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1739131903]
 layout_mode = 2
 
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=470211728]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Special Thanks"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=549421066]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1059365121]
+layout_mode = 2
+text = "Michael Campbell"
+
+[node name="separator" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1955798367]
+layout_mode = 2
+text = "-"
+
+[node name="role" type="Label" parent="VBoxContainer/HBoxContainer" unique_id=1803642664]
+layout_mode = 2
+text = "Clancy Mahoney"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1025542496]
+layout_mode = 2
+alignment = 1
+
+[node name="name" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=645430101]
+layout_mode = 2
+text = "Kaiden Zamora-Soon"
+
+[node name="separator" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1227979168]
+layout_mode = 2
+text = "-"
+
+[node name="role" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1931155506]
+layout_mode = 2
+text = "Tushar Rangaswamy"
+
+[node name="name2" type="Label" parent="VBoxContainer" unique_id=369111765]
+layout_mode = 2
+text = "Justin Langdon"
+horizontal_alignment = 1
+
 [node name="backButton" type="Button" parent="VBoxContainer" unique_id=57105475]
 layout_mode = 2
 size_flags_horizontal = 0
