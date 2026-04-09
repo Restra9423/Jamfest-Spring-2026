@@ -3,6 +3,8 @@ extends Node
 @onready var music : AudioStreamPlayer = $Music
 @onready var sfx : AudioStreamPlayer = $SFX
 
+var priorityPlaying : bool = false
+
 var gameBGM = preload("res://Sound/Music/BulletHellSong.wav")
 var deathBGM = preload("res://Sound/Music/BulletHellDeathJingle.wav")
 
@@ -13,7 +15,9 @@ var healingSound = preload("res://Sound/SFX/HealthGain8Bit_SFX.wav")
 var deathSound = preload("res://Sound/SFX/ExplosionDeath8Bit_SFX.wav")
 var clickSound = preload("res://Sound/SFX/UISelect8Bit_SFX.wav")
 
-var priorityPlaying : bool = false
+func _ready() -> void:
+	music.volume_db += -5.0
+	sfx.volume_db += 2.5
 
 func playMusic(stream: AudioStream):
 	if (music.stream != stream):
@@ -29,3 +33,6 @@ func playSFX(stream: AudioStream, priority: bool = false):
 		priorityPlaying = true
 		await sfx.finished
 		priorityPlaying = false
+
+func setVolume(player : AudioStreamPlayer, volume : float):
+	player.volume_db = volume

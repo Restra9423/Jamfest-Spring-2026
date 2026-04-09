@@ -2,16 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://dkoiqnalnn0sh" path="res://Art/placeholderChar.png" id="1_um8lo"]
 [ext_resource type="Script" uid="uid://dpyrp55kf2kuf" path="res://Scripts/playerController.gd" id="1_x3d5u"]
+[ext_resource type="Texture2D" uid="uid://bfc25hpcobgil" path="res://Art/OrangeShield.png" id="3_gg3t4"]
 [ext_resource type="SpriteFrames" uid="uid://dr87lchxpvjjf" path="res://Art/CharAnim.tres" id="3_shmu5"]
+[ext_resource type="Texture2D" uid="uid://d18gwi35244a7" path="res://Art/PurpleShield.png" id="4_javds"]
 [ext_resource type="Texture2D" uid="uid://cv05qqpjql5dn" path="res://Art/WhiteShield.png" id="4_shmu5"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b43ah"]
-radius = 43.011627
+radius = 37.0
 
-[node name="Player" type="CharacterBody2D" unique_id=740572060 groups=["Player"]]
+[node name="Player" type="CharacterBody2D" unique_id=740572060 node_paths=PackedStringArray("parryZone") groups=["Player"]]
 collision_layer = 2
 collision_mask = 12
 script = ExtResource("1_x3d5u")
+parryTextureWhite = ExtResource("4_shmu5")
+parryTextureOrange = ExtResource("3_gg3t4")
+parryTexturePurple = ExtResource("4_javds")
+parryZone = NodePath("ParryPivot/ParryZone")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=756021141]
 shape = SubResource("CircleShape2D_b43ah")
@@ -46,7 +52,8 @@ position = Vector2(-63.201996, 13)
 scale = Vector2(3.5382335, 3.301938)
 polygon = PackedVector2Array(39.624855, -8.479868, 37.36384, -16.656883, 32.55918, -19.685408, 37.081215, -22.713932, 42.168495, -20.291113, 45.56002, -12.719802, 46.69053, -3.9370816, 45.56002, 4.845639, 42.168495, 13.022655, 37.081215, 15.445474, 32.55918, 12.416949, 37.36384, 9.388425, 39.624855, 0.9085572)
 
-[node name="Sprite2D" type="Sprite2D" parent="ParryPivot" unique_id=566237161]
+[node name="ParrySprite" type="Sprite2D" parent="ParryPivot" unique_id=566237161]
+unique_name_in_owner = true
 z_index = 1
 position = Vector2(75.635, 0)
 rotation = 1.5707964

@@ -55,14 +55,26 @@ horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="VBoxContainer" unique_id=2039440741]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Main Menu")
+focus_next = NodePath("../Main Menu")
+focus_previous = NodePath("../Quit")
 text = "Restart"
 
 [node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=388200324]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Restart")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Restart")
 text = "Main Menu"
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1429858335]
 layout_mode = 2
+focus_neighbor_top = NodePath("../Main Menu")
+focus_neighbor_bottom = NodePath("../Restart")
+focus_next = NodePath("../Restart")
+focus_previous = NodePath("../Main Menu")
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]

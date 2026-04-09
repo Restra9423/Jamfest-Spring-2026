@@ -3,6 +3,7 @@ extends Control
 @export var scoreDisplay : Label
 
 func _ready() -> void:
+	$VBoxContainer/Restart.grab_focus()
 	scoreDisplay.text = str(ScoreCounter.currentScore)
 	AudioController.playSFX(AudioController.deathSound)
 	AudioController.playMusic(AudioController.deathBGM)

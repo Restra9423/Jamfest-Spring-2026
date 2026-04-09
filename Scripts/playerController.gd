@@ -5,7 +5,11 @@ extends CharacterBody2D
 @export var health2: Node2D
 @export var health1: Node2D
 @onready var playerSprite = $Area2D/AnimatedSprite2D
-@onready var parrySprite : Sprite2D = $ParryPivot/Sprite2D
+@onready var parrySprite : Sprite2D = %ParrySprite
+
+@export var parryTextureWhite: Texture
+@export var parryTextureOrange: Texture
+@export var parryTexturePurple: Texture
 
 #timers references
 @onready var iFrames : Timer = $iFrames
@@ -27,7 +31,7 @@ var parried = false
 
 #input initialization
 @onready var parryPivot : Node2D = $ParryPivot
-@onready var parryZone : Area2D = $ParryPivot/ParryZone
+@export var parryZone : Area2D
 var mouseInput = Vector2.ZERO
 var aimInput = Vector2.ZERO
 
@@ -46,11 +50,11 @@ func _process(delta: float) -> void:
 	
 	#parry state check
 	if(parryLength.time_left > 0):
-		parrySprite.texture = load("res://Art/OrangeShield.png")
+		parrySprite.texture = parryTextureOrange
 	elif(parryCooldown.time_left > 0):
-		parrySprite.texture = load("res://Art/PurpleShield.png")
+		parrySprite.texture = parryTexturePurple
 	else:
-		parrySprite.texture = load("res://Art/WhiteShield.png")
+		parrySprite.texture = parryTextureWhite
 	
 	#get input
 	moveInput = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
@@ -74,6 +78,12 @@ func _process(delta: float) -> void:
 		parrying = true
 		parryLength.start()
 
+func _physics_process(_delta: float) -> void:
+	for area in parryZone.get_overlapping_areas():
+		if(parryLength.time_left > 0 && area.isParryable && !area.parriedBullet):
+			parry(area.pointValue/4)
+			area.setParried(((parryDir + self.position.direction_to(area.position))/2).normalized())
+
 
 
 #collision functions
@@ -85,14 +95,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_parry_zone_area_entered(area: Area2D) -> void:
 	if(parryLength.time_left > 0 && area.isParryable && !area.parriedBullet):
 		parry(area.pointValue)
-		area.setParried(parryDir)
-	else:
-		await get_tree().create_timer(0.5).timeout
-		if (is_instance_valid(area)):
-			if(parryLength.time_left > 0 && area.isParryable && parryZone.overlaps_area(area) && !area.parriedBullet):
-				parry(area.pointValue)
-				area.setParried((parryDir + ((position - area.position) / 2)).normalized())
-
+		area.setParried(((parryDir + self.position.direction_to(area.position))/2).normalized())
 
 
 #custom functions
@@ -110,6 +113,11 @@ func parry(pointValue: int):
 	if (totalHeals < ScoreCounter.currentScore/10000):
 		heal()
 		totalHeals += 1
+		
+	var parryTween = get_tree().create_tween()
+	parryTween.tween_property(parrySprite, "position:x", 110.0, 0.06).set_trans(Tween.TRANS_BOUNCE)
+	parryTween.tween_property(parrySprite, "position:x", 75.635, 0.10).set_trans(Tween.TRANS_BOUNCE)
+	
 
 func hurt():
 	print("hurt function called")

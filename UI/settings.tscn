@@ -4,10 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="2_wgjsl"]
 [ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="3_hnc8t"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_fb0e8"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_lgafb"]
-
 [node name="Settings" type="Control" unique_id=1857315905 node_paths=PackedStringArray("sfx")]
 layout_mode = 3
 anchors_preset = 15
@@ -15,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("3_hnc8t")
 script = ExtResource("1_7iqql")
 sfx = NodePath("")
 
@@ -47,34 +44,90 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1575087308]
 layout_mode = 2
-theme = ExtResource("3_hnc8t")
 text = "Settings"
-label_settings = SubResource("LabelSettings_fb0e8")
 horizontal_alignment = 1
 
-[node name="Sensitivity" type="HBoxContainer" parent="VBoxContainer" unique_id=787798267]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=456339048]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1855571428]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer/Sensitivity" unique_id=289590979]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=289590979]
 layout_mode = 2
+size_flags_horizontal = 8
 text = "Mouse Sensitivity"
-label_settings = SubResource("LabelSettings_lgafb")
 horizontal_alignment = 1
 
-[node name="aimSlider" type="HSlider" parent="VBoxContainer/Sensitivity" unique_id=1951586010]
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1968164570]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=155799215]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1214563227]
+layout_mode = 2
+
+[node name="aimSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1951586010]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
-max_value = 10.0
+size_flags_horizontal = 4
+size_flags_vertical = 6
+max_value = 50.0
 step = 0.1
 
-[node name="Display" type="Label" parent="VBoxContainer/Sensitivity" unique_id=1804054237]
+[node name="musicSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1289285435]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
+size_flags_vertical = 6
+step = 0.1
+
+[node name="sfxSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=393601576]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(750, 0)
+layout_mode = 2
+size_flags_vertical = 6
+step = 0.1
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=860326737]
+layout_mode = 2
+
+[node name="aimDisplay" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=1804054237]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0.0"
+horizontal_alignment = 1
+
+[node name="musicDisplay" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=699103381]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+text = "0.0"
+horizontal_alignment = 1
+
+[node name="sfxDisplay" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer3" unique_id=326332639]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
 text = "0.0"
 horizontal_alignment = 1
 
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=1369645295]
 layout_mode = 2
+size_flags_horizontal = 4
 text = "Exit"
 
-[connection signal="drag_ended" from="VBoxContainer/Sensitivity/aimSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/HBoxContainer/VBoxContainer2/aimSlider" to="." method="_on_h_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/HBoxContainer/VBoxContainer2/musicSlider" to="." method="_on_music_slider_drag_ended"]
+[connection signal="drag_ended" from="VBoxContainer/HBoxContainer/VBoxContainer2/sfxSlider" to="." method="_on_sfx_slider_drag_ended"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

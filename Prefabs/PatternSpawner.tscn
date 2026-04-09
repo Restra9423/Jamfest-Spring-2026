@@ -1,9 +1,18 @@
 [gd_scene format=3 uid="uid://djiitpxgsp02t"]
 
 [ext_resource type="Script" uid="uid://0bb3mt2iso4l" path="res://Scripts/patternSpawner.gd" id="1_2sovd"]
+[ext_resource type="PackedScene" uid="uid://cryd88wwyigoj" path="res://Prefabs/Bullet Patterns/ParryCirclePattern1.tscn" id="2_5o01j"]
+[ext_resource type="PackedScene" uid="uid://cul5eigkcnwns" path="res://Prefabs/Bullet Patterns/UnparryCirclePattern1.tscn" id="3_mnkuo"]
+[ext_resource type="PackedScene" uid="uid://ruviwgosc4y5" path="res://Prefabs/Bullet Patterns/ParrySpearPattern.tscn" id="4_758bo"]
+[ext_resource type="PackedScene" uid="uid://c8ii6g7jho1n2" path="res://Prefabs/Bullet Patterns/UnparrySpearPattern.tscn" id="5_tdlvc"]
+[ext_resource type="PackedScene" uid="uid://iuj1ovoxyf5x" path="res://Prefabs/Bullet Patterns/VPattern.tscn" id="6_jx3da"]
+[ext_resource type="PackedScene" uid="uid://bjp3gpj3rvffl" path="res://Prefabs/Bullet Patterns/LinePattern.tscn" id="7_02fpo"]
+[ext_resource type="PackedScene" uid="uid://djg5mj3kja0qq" path="res://Prefabs/Bullet Patterns/WavePattern.tscn" id="8_8dslv"]
+[ext_resource type="PackedScene" uid="uid://dejoq8cfsmchq" path="res://Prefabs/Bullet Patterns/HomingPattern1.tscn" id="9_ru17v"]
 
 [node name="PatternSpawner" type="Node2D" unique_id=680363320]
 script = ExtResource("1_2sovd")
+patternList = Array[PackedScene]([ExtResource("2_5o01j"), ExtResource("3_mnkuo"), ExtResource("4_758bo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("7_02fpo"), ExtResource("8_8dslv"), ExtResource("9_ru17v")])
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=869479075]
 wait_time = 2.0

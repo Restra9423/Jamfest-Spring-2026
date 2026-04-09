@@ -2,17 +2,9 @@ extends Node2D
 
 @onready var waveTimer : Timer = $WaveTimer
 var totalWaves : float = 0.0
-var parryCirclePattern1 = preload("res://Prefabs/Bullet Patterns/ParryCirclePattern1.tscn")
-var unparryCirclePattern1 = preload("res://Prefabs/Bullet Patterns/UnparryCirclePattern1.tscn")
-var parrySpearPattern = preload("res://Prefabs/Bullet Patterns/ParrySpearPattern.tscn")
-var unparrySpearPattern = preload("res://Prefabs/Bullet Patterns/UnparrySpearPattern.tscn")
-var vPattern = preload("res://Prefabs/Bullet Patterns/VPattern.tscn")
-var linePattern = preload("res://Prefabs/Bullet Patterns/LinePattern.tscn")
-var wavePattern = preload("res://Prefabs/Bullet Patterns/WavePattern.tscn")
-var homingPattern1 = preload("res://Prefabs/Bullet Patterns/HomingPattern1.tscn")
 
 # Create an array of references to each existing bullet pattern
-var patternList = [parryCirclePattern1, unparryCirclePattern1, parrySpearPattern, unparrySpearPattern, vPattern, linePattern, wavePattern, homingPattern1]
+@export var patternList : Array[PackedScene]
 
 func _on_ready() -> void:
 	waveTimer.wait_time = 0.0

@@ -6,7 +6,5 @@
 script = ExtResource("1_bimbq")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1081648407]
-volume_db = -5.0
 
 [node name="SFX" type="AudioStreamPlayer" parent="." unique_id=738064960]
-volume_db = 2.5
