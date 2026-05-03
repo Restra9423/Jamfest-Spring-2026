@@ -15,6 +15,11 @@ func _ready() -> void:
 	await get_tree().create_timer(0.5).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+func _process(_delta: float) -> void:
+	if(Input.is_action_just_pressed("Back")):
+		AudioController.playSFX(AudioController.clickSound)
+		get_tree().change_scene_to_file("res://UI/title.tscn")
+
 func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
 

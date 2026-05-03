@@ -9,6 +9,11 @@ func _ready() -> void:
 	for button in get_tree().get_nodes_in_group("UI Buttons"):
 		button.mouse_entered.connect(_on_any_button_focused)
 		button.focus_entered.connect(_on_any_button_focused)
+		
+func _process(_delta: float) -> void:
+	if(Input.is_action_just_pressed("Back")):
+		AudioController.playSFX(AudioController.clickSound)
+		get_tree().quit()
 
 func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)

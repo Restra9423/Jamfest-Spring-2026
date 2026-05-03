@@ -66,6 +66,10 @@ func _process(_delta) -> void:
 			if int(carry / slider.step) != 0:
 				slider.value += frameSteps
 				carry -= frameSteps
+	
+	if(Input.is_action_just_pressed("Back")):
+		AudioController.playSFX(AudioController.clickSound)
+		get_tree().change_scene_to_file("res://UI/title.tscn")
 
 func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
