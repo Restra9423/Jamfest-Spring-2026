@@ -2,33 +2,32 @@
 
 [ext_resource type="Texture2D" uid="uid://d14f5o56hdkbw" path="res://Art/Seraphim_Spritesheet.png" id="1_o51tf"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_o51tf"]
+atlas = ExtResource("1_o51tf")
+region = Rect2(0, 0, 375, 350)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_gpp1u"]
 atlas = ExtResource("1_o51tf")
-region = Rect2(0, 0, 2752, 2064)
+region = Rect2(375, 0, 375, 350)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3qws6"]
 atlas = ExtResource("1_o51tf")
-region = Rect2(2752, 0, 2752, 2064)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_d1img"]
-atlas = ExtResource("1_o51tf")
-region = Rect2(8256, 0, 2752, 2064)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_wcnxh"]
-atlas = ExtResource("1_o51tf")
-region = Rect2(13760, 0, 2752, 2064)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4lwts"]
-atlas = ExtResource("1_o51tf")
-region = Rect2(11008, 0, 2752, 2064)
+region = Rect2(1125, 0, 375, 350)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8c3bt"]
 atlas = ExtResource("1_o51tf")
-region = Rect2(5504, 0, 2752, 2064)
+region = Rect2(1500, 0, 375, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d1img"]
+atlas = ExtResource("1_o51tf")
+region = Rect2(750, 0, 375, 350)
 
 [resource]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o51tf")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_gpp1u")
 }, {
@@ -36,16 +35,13 @@ animations = [{
 "texture": SubResource("AtlasTexture_3qws6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_d1img")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_wcnxh")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4lwts")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_8c3bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o51tf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d1img")
 }],
 "loop": true,
 "name": &"default",
