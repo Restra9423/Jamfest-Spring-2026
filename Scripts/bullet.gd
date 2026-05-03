@@ -4,6 +4,7 @@ extends Area2D
 @export var speed : float = 200.0
 @export_range(0, 360) var angle : float
 @export var ownerGroup : String
+@export var groupID : int
 @export var isParryable : bool
 @export var timeToDestroy : float
 @export var pointValue: int = 100
@@ -63,6 +64,8 @@ func setParried(parriedDir: Vector2):
 	speed = (speed * 1.5) + 200
 	moveDir = (-(moveDir) + (parriedDir * 2)).normalized()
 	parriedBullet = true
+	if get_parent().has_method("onChildParried"):
+		get_parent().onChildParried(groupID)
 
 func _on_area_entered(area: Area2D) -> void:
 	if(area.is_in_group("bullets")):

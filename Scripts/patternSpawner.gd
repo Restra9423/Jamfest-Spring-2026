@@ -17,8 +17,5 @@ func _on_wave_timer_timeout() -> void:
 	totalWaves += 1
 	var currentWave = patternList[randi_range(0, patternList.size()-1)].instantiate()
 	add_child(currentWave)
+	currentWave.totalWaves = totalWaves
 	waveTimer.wait_time *= 0.99
-	
-	for child in currentWave.get_child_count():
-		if totalWaves > 0:
-			currentWave.get_child(child).speed *= (1.01 * totalWaves)

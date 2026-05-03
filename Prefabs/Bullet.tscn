@@ -4,7 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_pv5ng"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
-radius = 27.073973
+radius = 33.01515
 
 [node name="Bullet" type="Area2D" unique_id=979420319 node_paths=PackedStringArray("mySprite") groups=["bullets"]]
 collision_layer = 4
@@ -18,7 +18,6 @@ sprite_frames = ExtResource("2_pv5ng")
 animation = &"circle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1696189687]
-position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_62lvt")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=820223275]
