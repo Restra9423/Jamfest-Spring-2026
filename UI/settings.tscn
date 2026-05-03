@@ -80,14 +80,23 @@ custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 6
+focus_neighbor_top = NodePath("../../../Exit")
+focus_neighbor_bottom = NodePath("../musicSlider")
+focus_next = NodePath("../musicSlider")
+focus_previous = NodePath("../../../Exit")
 max_value = 50.0
 step = 0.1
+page = 0.5
 
 [node name="musicSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1289285435]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_top = NodePath("../aimSlider")
+focus_neighbor_bottom = NodePath("../sfxSlider")
+focus_next = NodePath("../sfxSlider")
+focus_previous = NodePath("../aimSlider")
 step = 0.1
 
 [node name="sfxSlider" type="HSlider" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=393601576]
@@ -95,6 +104,10 @@ unique_name_in_owner = true
 custom_minimum_size = Vector2(750, 0)
 layout_mode = 2
 size_flags_vertical = 6
+focus_neighbor_top = NodePath("../musicSlider")
+focus_neighbor_bottom = NodePath("../../../Exit")
+focus_next = NodePath("../../../Exit")
+focus_previous = NodePath("../musicSlider")
 step = 0.1
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=860326737]
@@ -124,6 +137,10 @@ horizontal_alignment = 1
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=1369645295 groups=["UI Buttons"]]
 layout_mode = 2
 size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../HBoxContainer/VBoxContainer2/sfxSlider")
+focus_neighbor_bottom = NodePath("../HBoxContainer/VBoxContainer2/aimSlider")
+focus_next = NodePath("../HBoxContainer/VBoxContainer2/aimSlider")
+focus_previous = NodePath("../HBoxContainer/VBoxContainer2/sfxSlider")
 text = "Exit"
 
 [connection signal="drag_ended" from="VBoxContainer/HBoxContainer/VBoxContainer2/aimSlider" to="." method="_on_h_slider_drag_ended"]

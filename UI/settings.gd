@@ -8,6 +8,10 @@ extends Control
 @onready var musicDisplay : Label = %musicDisplay
 @onready var sfxDisplay : Label = %sfxDisplay
 
+var input = 0.0
+var timePressed = 0.0
+var carry := 0.0
+
 func _ready() -> void:
 	AudioController.playMusic(AudioController.gameBGM)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -30,11 +34,38 @@ func _ready() -> void:
 		sfxSlider.value = remap(sfxDB, -15.0, 2.5, 0.1, 50.0)
 	else:
 		sfxSlider.value = remap(sfxDB, 2.5, 10.0, 50.0, 100.0)
+	
+	$VBoxContainer/HBoxContainer/VBoxContainer2/aimSlider.grab_focus()
 
 func _process(_delta) -> void:
 	aimDisplay.text = str(aimSlider.value)
 	musicDisplay.text = str(snappedf(db_to_linear(remap(musicSlider.value, 0.0, 100.0, -15.0, 10.0)), 0.01))
 	sfxDisplay.text = str(snappedf(db_to_linear(remap(sfxSlider.value, 0.0, 100.0, -15.0, 10.0)), 0.01))
+	
+	input = Input.get_axis("ui_left", "ui_right")
+	var speedMultiplier = input * 1
+	if input == 0:
+		aimSlider.editable = true
+		musicSlider.editable = true
+		sfxSlider.editable = true
+		timePressed = 0.0
+		carry = 0.0
+	else:
+		aimSlider.editable = false
+		musicSlider.editable = false
+		sfxSlider.editable = false
+		timePressed += _delta
+		speedMultiplier *= (1 + pow(timePressed + 0.5, 2.25))
+		var slider = get_viewport().gui_get_focus_owner()
+		if slider is HSlider:
+			if slider == %aimSlider:
+				carry += speedMultiplier * _delta * 8
+			else:
+				carry += speedMultiplier * _delta * 16
+			var frameSteps = int(carry / slider.step) * slider.step
+			if int(carry / slider.step) != 0:
+				slider.value += frameSteps
+				carry -= frameSteps
 
 func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
