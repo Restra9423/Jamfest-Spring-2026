@@ -84,7 +84,7 @@ focus_neighbor_top = NodePath("../../../Exit")
 focus_neighbor_bottom = NodePath("../musicSlider")
 focus_next = NodePath("../musicSlider")
 focus_previous = NodePath("../../../Exit")
-max_value = 50.0
+max_value = 10.0
 step = 0.1
 page = 0.5
 

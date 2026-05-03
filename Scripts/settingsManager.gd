@@ -1,6 +1,6 @@
 extends Node
 
-var mouseSensitivity : float = 4.5
+var mouseSensitivity : float = 25.0
 
 func setMouseSensitivity(newSetting : float):
 	mouseSensitivity = newSetting

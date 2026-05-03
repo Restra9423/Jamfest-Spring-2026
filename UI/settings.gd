@@ -18,7 +18,7 @@ var aimInput = Vector2.ZERO
 func _ready() -> void:
 	AudioController.playMusic(AudioController.gameBGM)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	aimSlider.value = (5.0 - (SettingsManager.mouseSensitivity / 10))
+	aimSlider.value = remap(SettingsManager.mouseSensitivity, 0.0, 50.0, 0.0, 10.0)
 	musicSlider.value = AudioController.musicSliderValue
 	sfxSlider.value = AudioController.sfxSliderValue
 	
@@ -85,7 +85,7 @@ func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
 
 func _on_h_slider_drag_ended(_value_changed: bool) -> void:
-	SettingsManager.setMouseSensitivity(5.0 - (aimSlider.value / 10))
+	SettingsManager.setMouseSensitivity(remap(aimSlider.value, 0.0, 10.0, 0.0, 50.0))
 
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioController.musicSliderValue = value

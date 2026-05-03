@@ -15,13 +15,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -145.435
-offset_top = -136.244
-offset_right = 0.56500244
-offset_bottom = -0.2440033
+offset_left = -290.0
+offset_top = -270.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
+theme_override_constants/separation = 15
+alignment = 1
 
 [node name="Resume" type="Button" parent="VBoxContainer" unique_id=1054845574 groups=["UI Buttons"]]
 layout_mode = 2
