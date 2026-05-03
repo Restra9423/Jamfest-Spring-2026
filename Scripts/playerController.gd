@@ -101,6 +101,7 @@ func _on_parry_zone_area_entered(area: Area2D) -> void:
 #custom functions
 func parry(pointValue: int):
 	if parried:
+		@warning_ignore("integer_division")
 		ScoreCounter.incrementScore(pointValue/2)
 	else:
 		ScoreCounter.incrementScore(pointValue)
@@ -110,6 +111,7 @@ func parry(pointValue: int):
 		parryLength.start()
 	AudioController.playSFX(AudioController.parryHitSound)
 	scoreManager.updateScore()
+	@warning_ignore("integer_division")
 	if (totalHeals < ScoreCounter.currentScore/10000):
 		heal()
 		totalHeals += 1
