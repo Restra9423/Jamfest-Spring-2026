@@ -12,6 +12,9 @@ var input = 0.0
 var timePressed = 0.0
 var carry := 0.0
 
+var mouseInput = Vector2.ZERO
+var aimInput = Vector2.ZERO
+
 func _ready() -> void:
 	AudioController.playMusic(AudioController.gameBGM)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -67,7 +70,14 @@ func _process(_delta) -> void:
 				slider.value += frameSteps
 				carry -= frameSteps
 	
-	if(Input.is_action_just_pressed("Back")):
+	#aimInput = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
+	#if aimInput != Vector2.ZERO:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	#elif mouseInput.length() > 0:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#mouseInput = mouseInput.move_toward(Vector2.ZERO, 20.0 * _delta)
+	
+	if Input.is_action_just_pressed("Back"):
 		AudioController.playSFX(AudioController.clickSound)
 		get_tree().change_scene_to_file("res://UI/title.tscn")
 
@@ -103,3 +113,7 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 func _on_exit_pressed() -> void:
 	AudioController.playSFX(AudioController.clickSound)
 	get_tree().change_scene_to_file("res://UI/title.tscn")
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		mouseInput = event.get_relative()

@@ -77,6 +77,5 @@ focus_next = NodePath("../Restart")
 focus_previous = NodePath("../Main Menu")
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

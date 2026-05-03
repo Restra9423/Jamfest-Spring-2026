@@ -1,5 +1,7 @@
 extends Control
 
+var mouseInput = Vector2.ZERO
+var aimInput = Vector2.ZERO
 
 func _ready() -> void:
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
@@ -11,9 +13,16 @@ func _ready() -> void:
 		button.focus_entered.connect(_on_any_button_focused)
 		
 func _process(_delta: float) -> void:
-	if(Input.is_action_just_pressed("Back")):
+	if Input.is_action_just_pressed("Back"):
 		AudioController.playSFX(AudioController.clickSound)
 		get_tree().quit()
+	#
+	#aimInput = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
+	#if aimInput != Vector2.ZERO:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
+	#if mouseInput.length() > 0:
+		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	#mouseInput = mouseInput.move_toward(Vector2.ZERO, 5.0 * _delta)
 
 func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
@@ -33,3 +42,7 @@ func _on_credits_pressed() -> void:
 func _on_quit_pressed() -> void:
 	AudioController.playSFX(AudioController.clickSound)
 	get_tree().quit()
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseMotion:
+		mouseInput = event.get_relative()

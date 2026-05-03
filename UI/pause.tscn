@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bl5wfjm3n1uv5"]
+
+[ext_resource type="Script" uid="uid://5og4pehvms81" path="res://UI/pauseMenu.gd" id="1_6wphx"]
+
+[node name="Pause" type="Control" unique_id=1244986732]
+process_mode = 2
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_6wphx")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=706092994]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -145.435
+offset_top = -136.244
+offset_right = 0.56500244
+offset_bottom = -0.2440033
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+
+[node name="Resume" type="Button" parent="VBoxContainer" unique_id=1054845574 groups=["UI Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Restart")
+focus_next = NodePath("../Restart")
+focus_previous = NodePath("../Quit")
+text = "Resume
+"
+
+[node name="Restart" type="Button" parent="VBoxContainer" unique_id=1514491875 groups=["UI Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Resume")
+focus_neighbor_bottom = NodePath("../Main Menu")
+focus_next = NodePath("../Main Menu")
+focus_previous = NodePath("../Resume")
+text = "Restart"
+
+[node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=1589924243 groups=["UI Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Restart")
+focus_neighbor_bottom = NodePath("../Quit")
+focus_next = NodePath("../Quit")
+focus_previous = NodePath("../Restart")
+text = "Main Menu"
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1162288187 groups=["UI Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Main Menu")
+focus_neighbor_bottom = NodePath("../Resume")
+focus_next = NodePath("../Resume")
+focus_previous = NodePath("../Main Menu")
+text = "Quit"
+
+[node name="Timer" type="Timer" parent="." unique_id=1143881701]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
