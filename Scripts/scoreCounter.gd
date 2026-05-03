@@ -4,7 +4,7 @@ var currentScore : int = 0
 var combo : float = 0.0
 
 func incrementScore(points: int):
-	currentScore += points * (1 + combo/10)
+	currentScore += int(points * (1 + combo/10))
 
 func incrementCombo():
 	combo += 1.0
