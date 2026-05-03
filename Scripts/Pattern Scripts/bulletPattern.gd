@@ -28,7 +28,7 @@ func onChildParried(groupID: int) -> void:
 	onAllParried(groupID)
 
 func onAllParried(groupID: int) -> void:
-	#AudioController.playSFX(AudioController.deathSound) - this is where the group parry bonus sound goes
+	AudioController.playSFX(AudioController.chainSound)
 	ScoreCounter.incrementScore(groupParryValue)
 	var player = get_tree().get_first_node_in_group("Player")
 	if is_instance_valid(player):

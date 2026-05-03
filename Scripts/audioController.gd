@@ -13,6 +13,7 @@ var deathBGM = preload("res://Sound/Music/BulletHellDeathJingle.wav")
 
 var parryHitSound = preload("res://Sound/SFX/ParryPing8Bit_SFX.wav")
 var parryMissSound = preload("res://Sound/SFX/Swing8Bit_SFX.wav")
+var chainSound = preload("res://Sound/SFX/ChainCombo8Bit_SFX.wav")
 var takeDamageSound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
 var healingSound = preload("res://Sound/SFX/HealthGain8Bit_SFX.wav")
 var deathSound = preload("res://Sound/SFX/ExplosionDeath8Bit_SFX.wav")
