@@ -3,6 +3,9 @@ extends Node
 @onready var music : AudioStreamPlayer = $Music
 @onready var sfx : AudioStreamPlayer = $SFX
 
+var musicSliderValue : float = 50.0
+var sfxSliderValue : float = 50.0
+
 var priorityPlaying : bool = false
 
 var gameBGM = preload("res://Sound/Music/BulletHellSong.wav")
