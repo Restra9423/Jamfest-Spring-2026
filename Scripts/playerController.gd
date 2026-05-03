@@ -45,13 +45,13 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	#death state check
-	if(health < 1):
+	if health < 1:
 		get_tree().change_scene_to_file("res://UI/death.tscn")
 	
 	#parry state check
-	if(parryLength.time_left > 0):
+	if parryLength.time_left > 0:
 		parrySprite.texture = parryTextureOrange
-	elif(parryCooldown.time_left > 0):
+	elif parryCooldown.time_left > 0:
 		parrySprite.texture = parryTexturePurple
 	else:
 		parrySprite.texture = parryTextureWhite
@@ -59,9 +59,9 @@ func _process(delta: float) -> void:
 	#get input
 	moveInput = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
 	aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
-	if(aimInput != Vector2.ZERO):
+	if aimInput != Vector2.ZERO:
 		parryDir = aimInput
-	elif(mouseInput.length() >= SettingsManager.mouseSensitivity):
+	elif mouseInput.length() >= SettingsManager.mouseSensitivity:
 		parryDir = mouseInput.normalized()
 	
 	#move player
@@ -70,17 +70,17 @@ func _process(delta: float) -> void:
 	move_and_slide()
 	
 	#move parry zone
-	if(parryDir != Vector2.ZERO):
+	if parryDir != Vector2.ZERO:
 		parryPivot.rotation = lerp(Vector2.ZERO,parryDir,1).angle()
 	
 	#parry check
-	if(Input.is_action_just_pressed("Parry") && parryCooldown.time_left == 0):
+	if Input.is_action_just_pressed("Parry") && parryCooldown.time_left == 0:
 		parrying = true
 		parryLength.start()
 
 func _physics_process(_delta: float) -> void:
 	for area in parryZone.get_overlapping_areas():
-		if(parryLength.time_left > 0 && area.isParryable && !area.parriedBullet):
+		if parryLength.time_left > 0 && area.isParryable && !area.parriedBullet:
 			parry(area.pointValue/4)
 			area.setParried(((parryDir + self.position.direction_to(area.position))/2).normalized())
 
@@ -88,12 +88,12 @@ func _physics_process(_delta: float) -> void:
 
 #collision functions
 func _on_area_2d_area_entered(area: Area2D) -> void:
-	if (area.is_in_group("bullets") && !area.parriedBullet):
+	if area.is_in_group("bullets") && !area.parriedBullet:
 		hurt()
 		area.queue_free()
 
 func _on_parry_zone_area_entered(area: Area2D) -> void:
-	if(parryLength.time_left > 0 && area.isParryable && !area.parriedBullet):
+	if parryLength.time_left > 0 && area.isParryable && !area.parriedBullet:
 		parry(area.pointValue)
 		area.setParried(((parryDir + self.position.direction_to(area.position))/2).normalized())
 
@@ -106,13 +106,13 @@ func parry(pointValue: int):
 	else:
 		ScoreCounter.incrementScore(pointValue)
 		parried = true
-	if(parryLength.time_left > 0 && !(parryLength.wait_time - parryLength.time_left < 0.1)):
+	if parryLength.time_left > 0 && !(parryLength.wait_time - parryLength.time_left < 0.1):
 		parryLength.wait_time = parryLength.time_left + 0.15
 		parryLength.start()
 	AudioController.playSFX(AudioController.parryHitSound)
 	scoreManager.updateScore()
 	@warning_ignore("integer_division")
-	if (totalHeals < ScoreCounter.currentScore/10000):
+	if totalHeals < ScoreCounter.currentScore/10000:
 		heal()
 		totalHeals += 1
 		
@@ -123,7 +123,7 @@ func parry(pointValue: int):
 
 func hurt():
 	print("hurt function called")
-	if(!iFrames.time_left > 0):
+	if !iFrames.time_left > 0:
 		iFrames.start()
 		health -= 1
 		parryLength.stop()
@@ -140,7 +140,7 @@ func hurt():
 				health2.visible = false
 
 func blink():
-	while(iFrames.time_left > 0):
+	while iFrames.time_left > 0:
 		playerSprite.visible = !playerSprite.visible
 		await get_tree().create_timer(0.1).timeout
 	playerSprite.visible = true
@@ -158,11 +158,11 @@ func heal():
 
 #timer functions
 func _on_parry_length_timeout() -> void:
-	if(parryLength.wait_time != 0.3):
+	if parryLength.wait_time != 0.3:
 		parryLength.wait_time = 0.3
-	if(!parrying):
+	if !parrying:
 		parryCooldown.wait_time = 0.3
-	elif (!parried):
+	elif !parried:
 		AudioController.playSFX(AudioController.parryMissSound)
 		parryCooldown.wait_time = 2
 		ScoreCounter.resetCombo()
@@ -176,7 +176,7 @@ func _on_parry_length_timeout() -> void:
 	parryCooldown.start()
 
 func _on_parry_cooldown_timeout() -> void:
-	if(parryCooldown.wait_time != 1):
+	if parryCooldown.wait_time != 1:
 		parryCooldown.wait_time = 1
 
 
