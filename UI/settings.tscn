@@ -121,7 +121,7 @@ size_flags_horizontal = 0
 text = "0.0"
 horizontal_alignment = 1
 
-[node name="Exit" type="Button" parent="VBoxContainer" unique_id=1369645295]
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=1369645295 groups=["UI Buttons"]]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Exit"

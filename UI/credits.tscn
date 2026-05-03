@@ -172,7 +172,7 @@ layout_mode = 2
 text = "Justin Langdon"
 horizontal_alignment = 1
 
-[node name="backButton" type="Button" parent="VBoxContainer" unique_id=57105475]
+[node name="backButton" type="Button" parent="VBoxContainer" unique_id=57105475 groups=["UI Buttons"]]
 layout_mode = 2
 size_flags_horizontal = 0
 text = "Back To Title"

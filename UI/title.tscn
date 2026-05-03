@@ -47,25 +47,25 @@ grow_vertical = 2
 layout_mode = 2
 text = "Oops! All Parrys"
 
-[node name="Start" type="Button" parent="VBoxContainer" unique_id=1343386419]
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1343386419 groups=["UI Buttons"]]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Settings")
 text = "Start"
 
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=593332406]
+[node name="Settings" type="Button" parent="VBoxContainer" unique_id=593332406 groups=["UI Buttons"]]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Start")
 focus_neighbor_bottom = NodePath("../Credits")
 text = "Settings"
 
-[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1251620939]
+[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1251620939 groups=["UI Buttons"]]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Settings")
 focus_neighbor_bottom = NodePath("../Quit")
 text = "Credits"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1560069852]
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1560069852 groups=["UI Buttons"]]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Credits")
 focus_neighbor_bottom = NodePath("../Start")

@@ -15,6 +15,10 @@ func _ready() -> void:
 	musicSlider.value = AudioController.musicSliderValue
 	sfxSlider.value = AudioController.sfxSliderValue
 	
+	for button in get_tree().get_nodes_in_group("UI Buttons"):
+		button.mouse_entered.connect(_on_any_button_focused)
+		button.focus_entered.connect(_on_any_button_focused)
+	
 	var musicDB = AudioController.music.volume_db
 	if musicDB <= -5.0:
 		musicSlider.value = remap(musicDB, -15.0, -5.0, 0.1, 50.0)
@@ -31,6 +35,9 @@ func _process(_delta) -> void:
 	aimDisplay.text = str(aimSlider.value)
 	musicDisplay.text = str(snappedf(db_to_linear(remap(musicSlider.value, 0.0, 100.0, -15.0, 10.0)), 0.01))
 	sfxDisplay.text = str(snappedf(db_to_linear(remap(sfxSlider.value, 0.0, 100.0, -15.0, 10.0)), 0.01))
+
+func _on_any_button_focused() -> void:
+	AudioController.playSFX(AudioController.mouseOverSound)
 
 func _on_h_slider_drag_ended(_value_changed: bool) -> void:
 	SettingsManager.setMouseSensitivity(5.0 - (aimSlider.value / 10))

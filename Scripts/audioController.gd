@@ -17,6 +17,7 @@ var takeDamageSound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
 var healingSound = preload("res://Sound/SFX/HealthGain8Bit_SFX.wav")
 var deathSound = preload("res://Sound/SFX/ExplosionDeath8Bit_SFX.wav")
 var clickSound = preload("res://Sound/SFX/UISelect8Bit_SFX.wav")
+var mouseOverSound = preload("res://Sound/SFX/UIMouseOver8Bit_SFX.wav")
 
 func _ready() -> void:
 	music.volume_db += -5.0

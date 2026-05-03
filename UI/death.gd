@@ -7,8 +7,16 @@ func _ready() -> void:
 	scoreDisplay.text = str(ScoreCounter.currentScore)
 	AudioController.playSFX(AudioController.deathSound)
 	AudioController.playMusic(AudioController.deathBGM)
+	
+	for button in get_tree().get_nodes_in_group("UI Buttons"):
+		button.mouse_entered.connect(_on_any_button_focused)
+		button.focus_entered.connect(_on_any_button_focused)
+	
 	await get_tree().create_timer(0.5).timeout
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _on_any_button_focused() -> void:
+	AudioController.playSFX(AudioController.mouseOverSound)
 
 func _on_restart_pressed() -> void:
 	ScoreCounter.currentScore = 0
