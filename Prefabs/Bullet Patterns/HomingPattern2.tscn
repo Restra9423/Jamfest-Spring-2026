@@ -5,7 +5,6 @@
 
 [node name="PatternBase" type="Node2D" unique_id=1058599110]
 script = ExtResource("1_rtsfb")
-patternShape = 3
 
 [node name="HomingBullet" parent="." unique_id=979420319 instance=ExtResource("2_4fctj")]
 position = Vector2(-1200, 0)
@@ -13,4 +12,4 @@ scale = Vector2(3, 3)
 speed = 250.0
 isParryable = false
 timeToDestroy = 20.0
-pointValue = 200
+pointValue = 400

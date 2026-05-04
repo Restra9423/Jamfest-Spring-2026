@@ -51,8 +51,8 @@ func initializeSprite(shape: BulletShapes):
 			# Become red
 			mySprite.frame = 1
 
-func _process (delta):
-	if (timeToStart):
+func _process(delta):
+	if timeToStart:
 		translate(moveDir * speed * delta)
 
 func _on_start_timer_timeout() -> void:

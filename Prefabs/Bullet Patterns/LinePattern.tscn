@@ -11,6 +11,7 @@ patternShape = 2
 position = Vector2(-2322, 4)
 speed = 900.0
 timeToDestroy = 20.0
+myShape = 2
 
 [node name="Bullet2" parent="." unique_id=1786042420 instance=ExtResource("2_jldfn")]
 position = Vector2(-2422, 4)
@@ -18,6 +19,7 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet3" parent="." unique_id=1531825327 instance=ExtResource("2_jldfn")]
 position = Vector2(-2522, 4)
@@ -25,6 +27,7 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet4" parent="." unique_id=734749517 instance=ExtResource("2_jldfn")]
 position = Vector2(-2622, 4)
@@ -32,16 +35,19 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet5" parent="." unique_id=490822820 instance=ExtResource("2_jldfn")]
 position = Vector2(-2722, 4)
 speed = 900.0
 timeToDestroy = 20.0
+myShape = 2
 
 [node name="Bullet6" parent="." unique_id=1278520855 instance=ExtResource("2_jldfn")]
 position = Vector2(-2528, -337)
 speed = 900.0
 timeToDestroy = 20.0
+myShape = 2
 
 [node name="Bullet7" parent="." unique_id=1825645912 instance=ExtResource("2_jldfn")]
 position = Vector2(-2628, -337)
@@ -49,6 +55,7 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet8" parent="." unique_id=1789857033 instance=ExtResource("2_jldfn")]
 position = Vector2(-2728, -337)
@@ -56,6 +63,7 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet9" parent="." unique_id=1723044879 instance=ExtResource("2_jldfn")]
 position = Vector2(-2828, -337)
@@ -63,16 +71,19 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet10" parent="." unique_id=1610133839 instance=ExtResource("2_jldfn")]
 position = Vector2(-2928, -337)
 speed = 900.0
 timeToDestroy = 20.0
+myShape = 2
 
 [node name="Bullet11" parent="." unique_id=2088785959 instance=ExtResource("2_jldfn")]
 position = Vector2(-2528, 376)
 speed = 900.0
 timeToDestroy = 20.0
+myShape = 2
 
 [node name="Bullet12" parent="." unique_id=1998123084 instance=ExtResource("2_jldfn")]
 position = Vector2(-2628, 376)
@@ -80,6 +91,7 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet13" parent="." unique_id=250387364 instance=ExtResource("2_jldfn")]
 position = Vector2(-2728, 376)
@@ -87,6 +99,7 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet14" parent="." unique_id=125760075 instance=ExtResource("2_jldfn")]
 position = Vector2(-2828, 376)
@@ -94,8 +107,10 @@ speed = 900.0
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 150
+myShape = 2
 
 [node name="Bullet15" parent="." unique_id=145490675 instance=ExtResource("2_jldfn")]
 position = Vector2(-2928, 376)
 speed = 900.0
 timeToDestroy = 20.0
+myShape = 2

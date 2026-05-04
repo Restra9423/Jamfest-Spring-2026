@@ -1,14 +1,13 @@
 class_name BulletPattern
 extends Node2D
 
-@export var patternShape: Bullet.BulletShapes
 @export var groupParryValue : int
 @export var totalWaves : int = 0
 
 func _ready() -> void:
 	for child in get_children():
 		if child is Bullet:
-			child.initializeSprite(patternShape)
+			child.initializeSprite(child.myShape)
 			if totalWaves > 0:
 				child.speed *= (1.01 * totalWaves)
 			if child.groupID == 0:

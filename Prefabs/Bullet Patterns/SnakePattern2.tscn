@@ -1,0 +1,249 @@
+[gd_scene format=3 uid="uid://b15l5m5h8lk81"]
+
+[ext_resource type="Script" uid="uid://7pn3lrtp7b46" path="res://Scripts/Pattern Scripts/homingPattern.gd" id="1_djfd7"]
+[ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/HomingBullet.tscn" id="2_qwiey"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullet.tscn" id="2_tgl37"]
+
+[node name="PatternBase" type="Node2D" unique_id=1058599110]
+script = ExtResource("1_djfd7")
+groupParryValue = 300
+
+[node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("2_tgl37")]
+position = Vector2(-525, -1015)
+speed = 600.0
+angle = 90.0
+groupID = 1
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet" parent="." unique_id=1544178269 instance=ExtResource("2_qwiey")]
+position = Vector2(-525, -1165)
+speed = 600.0
+groupID = 1
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet2" parent="." unique_id=153146361 instance=ExtResource("2_tgl37")]
+position = Vector2(-608, -1085)
+speed = 600.0
+angle = 90.0
+groupID = 1
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet2" parent="." unique_id=2038155513 instance=ExtResource("2_qwiey")]
+position = Vector2(-608, -1235)
+speed = 600.0
+groupID = 1
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet3" parent="." unique_id=627164651 instance=ExtResource("2_tgl37")]
+position = Vector2(-442, -1085)
+speed = 600.0
+angle = 90.0
+groupID = 1
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet3" parent="." unique_id=2017710492 instance=ExtResource("2_qwiey")]
+position = Vector2(-442, -1235)
+speed = 600.0
+groupID = 1
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet4" parent="." unique_id=817291243 instance=ExtResource("2_tgl37")]
+position = Vector2(533, -1394)
+speed = 600.0
+angle = 90.0
+groupID = 2
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet4" parent="." unique_id=1727850125 instance=ExtResource("2_qwiey")]
+position = Vector2(533, -1544)
+speed = 600.0
+groupID = 2
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet5" parent="." unique_id=1914131831 instance=ExtResource("2_tgl37")]
+position = Vector2(450, -1464)
+speed = 600.0
+angle = 90.0
+groupID = 2
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet5" parent="." unique_id=1353751763 instance=ExtResource("2_qwiey")]
+position = Vector2(450, -1614)
+speed = 600.0
+groupID = 2
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet6" parent="." unique_id=2120460113 instance=ExtResource("2_tgl37")]
+position = Vector2(616, -1464)
+speed = 600.0
+angle = 90.0
+groupID = 2
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet6" parent="." unique_id=449560466 instance=ExtResource("2_qwiey")]
+position = Vector2(616, -1614)
+speed = 600.0
+groupID = 2
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet7" parent="." unique_id=515761567 instance=ExtResource("2_tgl37")]
+position = Vector2(-114, -1842)
+speed = 600.0
+angle = 90.0
+groupID = 3
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet7" parent="." unique_id=618360005 instance=ExtResource("2_qwiey")]
+position = Vector2(-114, -1992)
+speed = 600.0
+groupID = 3
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet8" parent="." unique_id=824710955 instance=ExtResource("2_tgl37")]
+position = Vector2(-197, -1912)
+speed = 600.0
+angle = 90.0
+groupID = 3
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet8" parent="." unique_id=601244055 instance=ExtResource("2_qwiey")]
+position = Vector2(-197, -2062)
+speed = 600.0
+groupID = 3
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet9" parent="." unique_id=1449324516 instance=ExtResource("2_tgl37")]
+position = Vector2(-31, -1912)
+speed = 600.0
+angle = 90.0
+groupID = 3
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet9" parent="." unique_id=1887369244 instance=ExtResource("2_qwiey")]
+position = Vector2(-31, -2062)
+speed = 600.0
+groupID = 3
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet10" parent="." unique_id=77393258 instance=ExtResource("2_tgl37")]
+position = Vector2(278, -2295)
+speed = 600.0
+angle = 90.0
+groupID = 4
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet10" parent="." unique_id=1294541790 instance=ExtResource("2_qwiey")]
+position = Vector2(278, -2445)
+speed = 600.0
+groupID = 4
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet11" parent="." unique_id=884020331 instance=ExtResource("2_tgl37")]
+position = Vector2(195, -2365)
+speed = 600.0
+angle = 90.0
+groupID = 4
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet11" parent="." unique_id=1871942561 instance=ExtResource("2_qwiey")]
+position = Vector2(195, -2515)
+speed = 600.0
+groupID = 4
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet12" parent="." unique_id=1377278320 instance=ExtResource("2_tgl37")]
+position = Vector2(361, -2365)
+speed = 600.0
+angle = 90.0
+groupID = 4
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet12" parent="." unique_id=1385113833 instance=ExtResource("2_qwiey")]
+position = Vector2(361, -2515)
+speed = 600.0
+groupID = 4
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet13" parent="." unique_id=1560906242 instance=ExtResource("2_tgl37")]
+position = Vector2(-374, -2690)
+speed = 600.0
+angle = 90.0
+groupID = 5
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet13" parent="." unique_id=1566653666 instance=ExtResource("2_qwiey")]
+position = Vector2(-374, -2840)
+speed = 600.0
+groupID = 5
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet14" parent="." unique_id=761709022 instance=ExtResource("2_tgl37")]
+position = Vector2(-457, -2760)
+speed = 600.0
+angle = 90.0
+groupID = 5
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet14" parent="." unique_id=310745354 instance=ExtResource("2_qwiey")]
+position = Vector2(-457, -2910)
+speed = 600.0
+groupID = 5
+timeToDestroy = 20.0
+pointValue = 50
+
+[node name="Bullet15" parent="." unique_id=1911517163 instance=ExtResource("2_tgl37")]
+position = Vector2(-291, -2760)
+speed = 600.0
+angle = 90.0
+groupID = 5
+isParryable = true
+pointValue = 50
+myShape = 1
+
+[node name="HomingBullet15" parent="." unique_id=922950113 instance=ExtResource("2_qwiey")]
+position = Vector2(-291, -2910)
+speed = 600.0
+groupID = 5
+timeToDestroy = 20.0
+pointValue = 50
