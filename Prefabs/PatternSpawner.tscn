@@ -11,10 +11,11 @@
 [ext_resource type="PackedScene" uid="uid://dejoq8cfsmchq" path="res://Prefabs/Bullet Patterns/HomingPattern1.tscn" id="9_ru17v"]
 [ext_resource type="PackedScene" uid="uid://cusie7jxxcoh8" path="res://Prefabs/Bullet Patterns/PushPattern1.tscn" id="10_mnkuo"]
 [ext_resource type="PackedScene" uid="uid://xgwhj7wj6j8m" path="res://Prefabs/Bullet Patterns/SnakePattern1.tscn" id="11_758bo"]
+[ext_resource type="PackedScene" uid="uid://30mcbssxr2ge" path="res://Prefabs/Bullet Patterns/HomingPattern2.tscn" id="12_tdlvc"]
 
 [node name="PatternSpawner" type="Node2D" unique_id=680363320]
 script = ExtResource("1_2sovd")
-patternList = Array[PackedScene]([ExtResource("2_5o01j"), ExtResource("3_mnkuo"), ExtResource("4_758bo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("7_02fpo"), ExtResource("8_8dslv"), ExtResource("9_ru17v"), ExtResource("10_mnkuo"), ExtResource("11_758bo")])
+patternList = Array[PackedScene]([ExtResource("2_5o01j"), ExtResource("3_mnkuo"), ExtResource("4_758bo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("7_02fpo"), ExtResource("8_8dslv"), ExtResource("9_ru17v"), ExtResource("10_mnkuo"), ExtResource("11_758bo"), ExtResource("12_tdlvc")])
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=869479075]
 wait_time = 2.0
