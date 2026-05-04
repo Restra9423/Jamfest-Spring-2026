@@ -19,7 +19,8 @@ enum BulletShapes{
 	CIRCLE,
 	STAR,
 	TRIANGLE,
-	DELTA
+	DELTA,
+	RECTANGLE
 }
 @export var myShape: BulletShapes = BulletShapes.CIRCLE
 
@@ -40,6 +41,8 @@ func initializeSprite(shape: BulletShapes):
 			mySprite.animation="triangle"
 		BulletShapes.DELTA:
 			mySprite.animation="delta"
+		BulletShapes.RECTANGLE:
+			mySprite.animation = "rectangle"
 	match isParryable:
 		true:
 			# Become blue
@@ -47,7 +50,6 @@ func initializeSprite(shape: BulletShapes):
 		false:
 			# Become red
 			mySprite.frame = 1
-
 
 func _process (delta):
 	if (timeToStart):

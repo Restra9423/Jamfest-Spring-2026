@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cusie7jxxcoh8"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_bldfl"]
+[ext_resource type="PackedScene" uid="uid://tp7r53disc88" path="res://Prefabs/PushBullet.tscn" id="2_ugugn"]
+
+[node name="PushPattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_bldfl")
+patternShape = 4
+
+[node name="PushBullet" parent="." unique_id=1518870708 instance=ExtResource("2_ugugn")]
+position = Vector2(-1984, -695)
+speed = 500.0
+
+[node name="PushBullet2" parent="." unique_id=2026895863 instance=ExtResource("2_ugugn")]
+position = Vector2(-1284, 695)
+speed = 500.0
+
+[node name="PushBullet3" parent="." unique_id=1347840736 instance=ExtResource("2_ugugn")]
+position = Vector2(-2684, 165)
+speed = 500.0
+
+[node name="PushBullet4" parent="." unique_id=1463542821 instance=ExtResource("2_ugugn")]
+position = Vector2(-3384, -165)
+speed = 500.0

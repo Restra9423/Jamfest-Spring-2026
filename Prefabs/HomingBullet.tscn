@@ -15,7 +15,7 @@ speed = 500.0
 isParryable = true
 timeToDestroy = 100.0
 mySprite = NodePath("Sprite")
-myShape = 2
+myShape = 3
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1309506250]
 scale = Vector2(0.4, 0.4)

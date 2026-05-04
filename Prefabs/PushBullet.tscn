@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://tp7r53disc88"]
+
+[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="1_1bvuq"]
+[ext_resource type="Script" uid="uid://dxxciylbl1ixm" path="res://Scripts/pushBullet.gd" id="1_8gfei"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ynjt"]
+size = Vector2(60, 265)
+
+[node name="PushBullet" type="Area2D" unique_id=1518870708 node_paths=PackedStringArray("mySprite")]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_8gfei")
+timeToDestroy = 20.0
+pointValue = 0
+mySprite = NodePath("Sprite")
+myShape = 4
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=507618532]
+scale = Vector2(0.8, 0.8)
+sprite_frames = ExtResource("1_1bvuq")
+animation = &"rectangle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=884174612]
+scale = Vector2(2, 2)
+shape = SubResource("RectangleShape2D_3ynjt")
+
+[node name="StartTimer" type="Timer" parent="." unique_id=1854745348]
+wait_time = 0.1
+autostart = true
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=2019033656]
+wait_time = 20.0
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=408143638]
+rect = Rect2(-17, -21, 36, 40)
+
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

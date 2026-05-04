@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cu8nnii2tngqe" path="res://Art/Bullets/YellowStarBullet.png" id="6_gqhj7"]
 [ext_resource type="Texture2D" uid="uid://brykfosk478xl" path="res://Art/Bullets/YellowDeltaBullet.png" id="6_h0l7l"]
 [ext_resource type="Texture2D" uid="uid://dt36hog3o1kjh" path="res://Art/Bullets/BlueTriangleBullet.png" id="7_h0l7l"]
+[ext_resource type="Texture2D" uid="uid://cceifegay3pyi" path="res://Art/Bullets/PurpleRectangleBullet.png" id="7_xk5jr"]
 [ext_resource type="Texture2D" uid="uid://ceedekwndyac0" path="res://Art/Bullets/RedTriangleBullet.png" id="8_eb0ij"]
 [ext_resource type="Texture2D" uid="uid://b6pxg4pykh68u" path="res://Art/Bullets/YellowTriangleBullet.png" id="9_7ao64"]
 
@@ -41,6 +42,20 @@ animations = [{
 }],
 "loop": false,
 "name": &"delta",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_xk5jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xk5jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_xk5jr")
+}],
+"loop": true,
+"name": &"rectangle",
 "speed": 5.0
 }, {
 "frames": [{
