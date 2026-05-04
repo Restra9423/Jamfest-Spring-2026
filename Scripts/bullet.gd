@@ -7,8 +7,9 @@ extends Area2D
 @export var groupID : int
 @export var isParryable : bool
 @export var timeToDestroy : float
-@export var pointValue: int = 100
-@export var mySprite: AnimatedSprite2D
+@export var pointValue : int = 100
+@export var mySprite : AnimatedSprite2D
+@onready var myHitbox : CollisionShape2D = $Hitbox
 @onready var destroyTimer : Timer = $DestroyTimer
 @onready var startTimer : Timer = $StartTimer
 @onready var moveDir : Vector2
@@ -59,6 +60,11 @@ func _on_start_timer_timeout() -> void:
 	timeToStart = true
 
 func _on_destroy_timer_timeout() -> void:
+	timeToStart = false
+	myHitbox.set_deferred("disabled", true)
+	var tween = create_tween()
+	tween.tween_property(mySprite, "modulate:a", 0.0, 1.0)
+	await tween.finished
 	queue_free()
 
 func setParried(parriedDir: Vector2):

@@ -22,12 +22,13 @@ scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("2_fjmd6")
 animation = &"triangle"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1696189687]
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1696189687]
 position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_62lvt")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=820223275]
 wait_time = 0.1
+one_shot = true
 autostart = true
 
 [node name="DestroyTimer" type="Timer" parent="." unique_id=1871037056]
