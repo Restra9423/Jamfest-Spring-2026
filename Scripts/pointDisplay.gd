@@ -2,12 +2,19 @@ extends Node2D
 
 var colorIndex : int = 0
 @onready var displayText : Label = $Label
+@onready var destroyTimer : Timer = $DestroyTimer
+
+func _on_destroy_timer_timeout() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(queue_free)
 
 func setText(points : int, modifier : String):
 	if points == 0:
 		queue_free()
 	if modifier == "Bonus":
 		displayText.add_theme_font_size_override("font_size", 70)
+		destroyTimer.wait_time = 1.0
 		var colors = [Color.RED, Color.BLUE, Color.GREEN, Color.YELLOW, Color.PURPLE]
 		var tween = create_tween().set_loops()
 		tween.tween_callback(func():
@@ -41,3 +48,4 @@ func setText(points : int, modifier : String):
 			displayText.add_theme_font_size_override("font_size", 70)
 			displayText.modulate = Color.CRIMSON
 	displayText.text = str(points)
+	destroyTimer.start()

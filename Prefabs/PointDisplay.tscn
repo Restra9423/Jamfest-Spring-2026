@@ -15,3 +15,8 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme = SubResource("Theme_nv327")
 text = "sample"
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1082966202]
+wait_time = 0.5
+
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]

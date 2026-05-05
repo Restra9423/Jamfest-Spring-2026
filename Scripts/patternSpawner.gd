@@ -8,6 +8,7 @@ var currentDifficulty : int = 0
 @export var easyPatterns : Array[PackedScene]
 @export var mediumPatterns : Array[PackedScene]
 @export var hardPatterns : Array[PackedScene]
+@export var superHardPatterns : Array[PackedScene]
 
 var patternsByDifficulty : Dictionary = {}
 
@@ -16,7 +17,8 @@ func _ready() -> void:
 	patternsByDifficulty = {
 		0: easyPatterns,
 		1: mediumPatterns,
-		2: hardPatterns
+		2: hardPatterns,
+		3: superHardPatterns
 	}
 
 # Randomly call a pattern from that array, repeat infinitely
@@ -25,8 +27,8 @@ func _on_wave_timer_timeout() -> void:
 	if totalWaves < 1:
 		waveTimer.wait_time = 3.0
 	totalWaves += 1
-	# currentDifficulty = 2
-	var targetDifficulty = mini(ScoreCounter.currentScore / 20000, 2)
+	# currentDifficulty = 3
+	var targetDifficulty = mini(ScoreCounter.currentScore / 20000, 3)
 	if targetDifficulty > currentDifficulty:
 		currentDifficulty += 1
 		totalWaves = 1

@@ -24,8 +24,3 @@ func makePointDisplay(spawnPos : Vector2, points : int, modifier : String) -> vo
 	
 	newDisplay.global_position = spawnPos
 	newDisplay.setText(points, modifier)
-	
-	var tween = create_tween()
-	tween.tween_interval(1.0)
-	tween.tween_property(newDisplay, "modulate:a", 0.0, 0.5)
-	tween.tween_callback(newDisplay.queue_free)

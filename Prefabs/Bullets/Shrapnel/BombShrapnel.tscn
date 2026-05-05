@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://24b5rja4foyw"]
+
+[ext_resource type="Script" uid="uid://dbka1n0ktewc0" path="res://Scripts/Bullet Scripts/bombBullet.gd" id="1_c8pa3"]
+[ext_resource type="Material" uid="uid://bj7xj1rtxvaph" path="res://Art/Shaders/tempLandmineShader.tres" id="2_cwrbt"]
+[ext_resource type="PackedScene" uid="uid://sqn7gpa3dep8" path="res://Prefabs/Bullets/Shrapnel/DefaultShrapnel.tscn" id="3_kj2ch"]
+[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="4_nfqe1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
+radius = 33.01515
+
+[node name="BombBullet" type="Area2D" unique_id=979420319 node_paths=PackedStringArray("mySprite") groups=["bullets"]]
+scale = Vector2(2, 2)
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_c8pa3")
+myShader = ExtResource("2_cwrbt")
+shrapnelType = ExtResource("3_kj2ch")
+speed = 300.0
+isParryable = true
+timeToDestroy = 1.0
+mySprite = NodePath("Sprite")
+myShape = 2
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=926987284]
+material = ExtResource("2_cwrbt")
+scale = Vector2(0.4, 0.4)
+sprite_frames = ExtResource("4_nfqe1")
+animation = &"circle"
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1696189687]
+shape = SubResource("CircleShape2D_62lvt")
+
+[node name="StartTimer" type="Timer" parent="." unique_id=820223275]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1871037056]
+wait_time = 20.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2141841784]
+rect = Rect2(-17, -21, 36, 40)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b4ex5xt13dp3o"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_s4yae"]
+[ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="2_brmo4"]
+[ext_resource type="PackedScene" uid="uid://24b5rja4foyw" path="res://Prefabs/Bullets/Shrapnel/BombShrapnel.tscn" id="3_brmo4"]
+
+[node name="PatternBase" type="Node2D" unique_id=448704251]
+script = ExtResource("1_s4yae")
+
+[node name="BombBullet" parent="." unique_id=979420319 instance=ExtResource("2_brmo4")]
+position = Vector2(0, -1200)
+scale = Vector2(3, 3)
+shrapnelCount = 6
+shrapnelType = ExtResource("3_brmo4")
+speed = 150.0
+angle = 90.0
+timeToDestroy = 7.0
+pointValue = 600
