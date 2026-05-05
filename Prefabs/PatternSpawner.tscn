@@ -22,7 +22,9 @@
 
 [node name="PatternSpawner" type="Node2D" unique_id=680363320]
 script = ExtResource("1_2sovd")
-patternList = Array[PackedScene]([ExtResource("2_5o01j"), ExtResource("3_mnkuo"), ExtResource("4_758bo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("7_02fpo"), ExtResource("8_8dslv"), ExtResource("9_ru17v"), ExtResource("10_mnkuo"), ExtResource("11_758bo"), ExtResource("12_tdlvc"), ExtResource("13_jx3da"), ExtResource("14_02fpo"), ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("17_luylw"), ExtResource("18_yv4v0"), ExtResource("19_g8jf1")])
+easyPatterns = Array[PackedScene]([ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("4_758bo"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv")])
+mediumPatterns = Array[PackedScene]([ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("9_ru17v"), ExtResource("12_tdlvc"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("4_758bo"), ExtResource("10_mnkuo"), ExtResource("11_758bo"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv")])
+hardPatterns = Array[PackedScene]([ExtResource("17_luylw"), ExtResource("19_g8jf1"), ExtResource("18_yv4v0"), ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("9_ru17v"), ExtResource("12_tdlvc"), ExtResource("14_02fpo"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("4_758bo"), ExtResource("10_mnkuo"), ExtResource("11_758bo"), ExtResource("13_jx3da"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv")])
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=869479075]
 wait_time = 2.0

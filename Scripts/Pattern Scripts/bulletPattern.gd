@@ -9,7 +9,7 @@ func _ready() -> void:
 		if child is Bullet:
 			child.initializeSprite(child.myShape)
 			if totalWaves > 0:
-				child.speed *= (1.01 * totalWaves)
+				child.speed *= 1.01 * totalWaves
 			if child.groupID == 0:
 				child.reparent.call_deferred(get_parent())
 		else:
