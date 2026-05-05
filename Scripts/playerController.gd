@@ -95,6 +95,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 func _on_parry_zone_area_entered(area: Area2D) -> void:
 	if parryLength.time_left > 0 && area.isParryable && !area.parriedBullet:
 		parry(area.pointValue)
+		if area.is_in_group("landmines"):
+			hurt()
 		area.setParried(((parryDir + self.position.direction_to(area.position))/2).normalized())
 
 

@@ -69,6 +69,7 @@ func _on_destroy_timer_timeout() -> void:
 
 func setParried(parriedDir: Vector2):
 	mySprite.frame = 2
+	destroyTimer.start()
 	speed = (speed * 1.5) + 200
 	moveDir = (-(moveDir) + (parriedDir * 2)).normalized()
 	parriedBullet = true
@@ -81,7 +82,6 @@ func _on_area_entered(area: Area2D) -> void:
 			ScoreCounter.incrementScore(area.pointValue)
 			ScoreManager.instance.updateScore()
 			area.setParried(self.position.direction_to(area.position).normalized())
-
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	if (parriedBullet):

@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bj7xj1rtxvaph"]
+
+[ext_resource type="Shader" uid="uid://il5wcqdx2emf" path="res://Art/Shaders/tempLandmineShader.gdshader" id="1_23ka8"]
+
+[resource]
+shader = ExtResource("1_23ka8")
+shader_parameter/hue_shift = 0.7350000349125

@@ -1,0 +1,326 @@
+[gd_scene format=3 uid="uid://b81esshntjxnf"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_lwplj"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullet.tscn" id="2_s6xwt"]
+[ext_resource type="PackedScene" uid="uid://cigum3seiiefx" path="res://Prefabs/LandmineBullet.tscn" id="3_s6xwt"]
+
+[node name="ParryCirclePattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_lwplj")
+
+[node name="Bullet" parent="." unique_id=1610133839 instance=ExtResource("2_s6xwt")]
+position = Vector2(919, 1302)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet2" parent="." unique_id=1825645912 instance=ExtResource("2_s6xwt")]
+position = Vector2(1015, 1302)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet" parent="." unique_id=979420319 instance=ExtResource("3_s6xwt")]
+position = Vector2(1111, 1302)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet3" parent="." unique_id=1723044879 instance=ExtResource("2_s6xwt")]
+position = Vector2(1111, 1398)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet4" parent="." unique_id=1278520855 instance=ExtResource("2_s6xwt")]
+position = Vector2(1111, 1494)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet2" parent="." unique_id=1383026260 instance=ExtResource("3_s6xwt")]
+position = Vector2(1207, 1494)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet5" parent="." unique_id=1789857033 instance=ExtResource("2_s6xwt")]
+position = Vector2(1303, 1494)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet6" parent="." unique_id=2074585151 instance=ExtResource("2_s6xwt")]
+position = Vector2(1303, 1590)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet7" parent="." unique_id=623311371 instance=ExtResource("2_s6xwt")]
+position = Vector2(1303, 1686)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet3" parent="." unique_id=888451412 instance=ExtResource("3_s6xwt")]
+position = Vector2(1399, 1686)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet8" parent="." unique_id=792045194 instance=ExtResource("2_s6xwt")]
+position = Vector2(1495, 1686)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet4" parent="." unique_id=1201701749 instance=ExtResource("3_s6xwt")]
+position = Vector2(1495, 1782)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet9" parent="." unique_id=1452832407 instance=ExtResource("2_s6xwt")]
+position = Vector2(1495, 1878)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet10" parent="." unique_id=1928034799 instance=ExtResource("2_s6xwt")]
+position = Vector2(1591, 1878)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet5" parent="." unique_id=492890803 instance=ExtResource("3_s6xwt")]
+position = Vector2(1687, 1878)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet11" parent="." unique_id=1357236500 instance=ExtResource("2_s6xwt")]
+position = Vector2(1687, 1974)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet12" parent="." unique_id=1133169973 instance=ExtResource("2_s6xwt")]
+position = Vector2(1687, 2070)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet6" parent="." unique_id=1442912343 instance=ExtResource("3_s6xwt")]
+position = Vector2(1783, 2070)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet13" parent="." unique_id=1336007222 instance=ExtResource("2_s6xwt")]
+position = Vector2(1879, 2070)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet14" parent="." unique_id=1789337892 instance=ExtResource("2_s6xwt")]
+position = Vector2(1879, 2166)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet15" parent="." unique_id=1987494078 instance=ExtResource("2_s6xwt")]
+position = Vector2(1879, 2262)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet7" parent="." unique_id=189527711 instance=ExtResource("3_s6xwt")]
+position = Vector2(1975, 2262)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet16" parent="." unique_id=1843043087 instance=ExtResource("2_s6xwt")]
+position = Vector2(2071, 2262)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet8" parent="." unique_id=407213226 instance=ExtResource("3_s6xwt")]
+position = Vector2(2071, 2358)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet17" parent="." unique_id=1237867456 instance=ExtResource("2_s6xwt")]
+position = Vector2(2071, 2454)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet18" parent="." unique_id=1005778665 instance=ExtResource("2_s6xwt")]
+position = Vector2(2375, 1582)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet19" parent="." unique_id=1269844876 instance=ExtResource("2_s6xwt")]
+position = Vector2(2471, 1582)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet9" parent="." unique_id=154322673 instance=ExtResource("3_s6xwt")]
+position = Vector2(2567, 1582)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet20" parent="." unique_id=1930375145 instance=ExtResource("2_s6xwt")]
+position = Vector2(2567, 1678)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet21" parent="." unique_id=881964993 instance=ExtResource("2_s6xwt")]
+position = Vector2(2567, 1774)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet10" parent="." unique_id=547398729 instance=ExtResource("3_s6xwt")]
+position = Vector2(2663, 1774)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet22" parent="." unique_id=932363903 instance=ExtResource("2_s6xwt")]
+position = Vector2(2759, 1774)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet23" parent="." unique_id=828264552 instance=ExtResource("2_s6xwt")]
+position = Vector2(2759, 1870)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet24" parent="." unique_id=1243039761 instance=ExtResource("2_s6xwt")]
+position = Vector2(2759, 1966)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet11" parent="." unique_id=459274412 instance=ExtResource("3_s6xwt")]
+position = Vector2(2855, 1966)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet25" parent="." unique_id=424879558 instance=ExtResource("2_s6xwt")]
+position = Vector2(2951, 1966)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet12" parent="." unique_id=12888138 instance=ExtResource("3_s6xwt")]
+position = Vector2(2951, 2062)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet26" parent="." unique_id=1349121106 instance=ExtResource("2_s6xwt")]
+position = Vector2(2951, 2158)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet27" parent="." unique_id=2057095003 instance=ExtResource("2_s6xwt")]
+position = Vector2(3047, 2158)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet13" parent="." unique_id=131511343 instance=ExtResource("3_s6xwt")]
+position = Vector2(3143, 2158)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet28" parent="." unique_id=1960472116 instance=ExtResource("2_s6xwt")]
+position = Vector2(3143, 2254)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet29" parent="." unique_id=2049883348 instance=ExtResource("2_s6xwt")]
+position = Vector2(3143, 2350)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet14" parent="." unique_id=39548638 instance=ExtResource("3_s6xwt")]
+position = Vector2(3239, 2350)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet30" parent="." unique_id=1867274946 instance=ExtResource("2_s6xwt")]
+position = Vector2(3335, 2350)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet31" parent="." unique_id=881898427 instance=ExtResource("2_s6xwt")]
+position = Vector2(3335, 2446)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="Bullet32" parent="." unique_id=1678051394 instance=ExtResource("2_s6xwt")]
+position = Vector2(3335, 2542)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet15" parent="." unique_id=958823304 instance=ExtResource("3_s6xwt")]
+position = Vector2(3431, 2542)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet33" parent="." unique_id=31539026 instance=ExtResource("2_s6xwt")]
+position = Vector2(3527, 2542)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
+
+[node name="LandmineBullet16" parent="." unique_id=2033573621 instance=ExtResource("3_s6xwt")]
+position = Vector2(3527, 2638)
+speed = 500.0
+angle = 225.0
+
+[node name="Bullet34" parent="." unique_id=708894220 instance=ExtResource("2_s6xwt")]
+position = Vector2(3527, 2734)
+speed = 500.0
+angle = 225.0
+isParryable = true
+pointValue = 200
