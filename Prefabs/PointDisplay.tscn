@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dm05ldt1tn0ak"]
+
+[ext_resource type="Script" uid="uid://cy4hv0ghavchy" path="res://Scripts/pointDisplay.gd" id="1_6anlv"]
+[ext_resource type="FontFile" uid="uid://cufmx7yxxurpt" path="res://Art/Fonts/neon.ttf" id="2_pe3sr"]
+
+[sub_resource type="Theme" id="Theme_nv327"]
+default_font = ExtResource("2_pe3sr")
+default_font_size = 40
+
+[node name="PointDisplay" type="Node2D" unique_id=1653039655]
+script = ExtResource("1_6anlv")
+
+[node name="Label" type="Label" parent="." unique_id=1444463713]
+offset_right = 40.0
+offset_bottom = 23.0
+theme = SubResource("Theme_nv327")
+text = "sample"

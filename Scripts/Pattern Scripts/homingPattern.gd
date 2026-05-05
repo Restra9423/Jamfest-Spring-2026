@@ -34,7 +34,7 @@ func _ready() -> void:
 	if !hasGroupedBullets():
 		queue_free.call_deferred()
 
-func onChildParried(groupID: int) -> void:
+func onChildParried(groupID: int, childPos : Vector2) -> void:
 	for child in get_children():
 		if is_instance_valid(child) && "target" in child:
 			if child.target is Bullet && child.target.parriedBullet:
@@ -43,9 +43,9 @@ func onChildParried(groupID: int) -> void:
 		if child is Bullet && child.groupID == groupID && child.parriedBullet:
 			child.reparent.call_deferred(get_parent())
 	for child in get_children():
-		if child is Bullet && !child.parriedBullet:
+		if child is Bullet && child.groupID == groupID && !child.parriedBullet:
 			return
-	onAllParried(groupID)
+	onAllParried(groupID, childPos)
 
 func hasGroupedBullets() -> bool:
 	for child in get_children():

@@ -33,7 +33,7 @@ func setParried(parriedDir: Vector2):
 	explode()
 	parriedBullet = true
 	if get_parent().has_method("onChildParried"):
-		get_parent().onChildParried(groupID)
+		get_parent().onChildParried(groupID, global_position)
 	queue_free()
 
 func explode() -> void:

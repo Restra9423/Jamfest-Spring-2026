@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dx1wp8ft46jae"]
 
 [ext_resource type="Script" uid="uid://o10x46h3o3pp" path="res://Scripts/scoreManager.gd" id="1_g5j4s"]
+[ext_resource type="PackedScene" uid="uid://dm05ldt1tn0ak" path="res://Prefabs/PointDisplay.tscn" id="2_4t262"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y3as1"]
 font_size = 64
@@ -16,6 +17,7 @@ offset_bottom = 403.0
 script = ExtResource("1_g5j4s")
 scoreDisplay = NodePath("ScoreDisplay")
 comboDisplay = NodePath("ComboDisplay")
+pointDisplays = ExtResource("2_4t262")
 
 [node name="ScoreDisplay" type="Label" parent="." unique_id=2121244486]
 layout_mode = 1

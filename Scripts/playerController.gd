@@ -48,6 +48,12 @@ func _process(delta: float) -> void:
 	if health < 1:
 		get_tree().change_scene_to_file("res://UI/death.tscn")
 	
+	#heal check
+	@warning_ignore("integer_division")
+	if totalHeals < ScoreCounter.currentScore/10000:
+		heal()
+		totalHeals += 1
+	
 	#parry state check
 	if parryLength.time_left > 0:
 		parrySprite.texture = parryTextureOrange
@@ -81,6 +87,10 @@ func _process(delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	for area in parryZone.get_overlapping_areas():
 		if parryLength.time_left > 0 && area.isParryable && !area.parriedBullet:
+			if parried:
+				scoreManager.makePointDisplay(area.global_position, area.pointValue/4, "Weak Parry")
+			else:
+				scoreManager.makePointDisplay(area.global_position, area.pointValue/2, "Weak Parry")
 			parry(area.pointValue/2)
 			if area.is_in_group("landmines"):
 				hurt()
@@ -96,6 +106,10 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func _on_parry_zone_area_entered(area: Area2D) -> void:
 	if parryLength.time_left > 0 && area.isParryable && !area.parriedBullet:
+		if parried:
+			scoreManager.makePointDisplay(area.global_position, area.pointValue/2, "none")
+		else:
+			scoreManager.makePointDisplay(area.global_position, area.pointValue, "none")
 		parry(area.pointValue)
 		if area.is_in_group("landmines"):
 			hurt()
@@ -115,11 +129,6 @@ func parry(pointValue: int):
 		parryLength.start()
 	AudioController.playSFX(AudioController.parryHitSound)
 	scoreManager.updateScore()
-	@warning_ignore("integer_division")
-	if totalHeals < ScoreCounter.currentScore/10000:
-		heal()
-		totalHeals += 1
-		
 	var parryTween = get_tree().create_tween()
 	parryTween.tween_property(parrySprite, "position:x", 110.0, 0.06).set_trans(Tween.TRANS_BOUNCE)
 	parryTween.tween_property(parrySprite, "position:x", 75.635, 0.10).set_trans(Tween.TRANS_BOUNCE)

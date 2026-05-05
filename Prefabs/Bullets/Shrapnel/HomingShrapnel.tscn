@@ -13,6 +13,7 @@ collision_mask = 6
 script = ExtResource("1_f108x")
 turnSpeed = 3.0
 speed = 400.0
+groupID = 1
 isParryable = true
 timeToDestroy = 20.0
 pointValue = 50

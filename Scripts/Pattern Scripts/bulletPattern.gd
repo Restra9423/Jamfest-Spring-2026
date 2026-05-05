@@ -17,18 +17,19 @@ func _ready() -> void:
 	if !hasGroupedBullets():
 		queue_free.call_deferred()
 
-func onChildParried(groupID: int) -> void:
+func onChildParried(groupID: int, childPos : Vector2) -> void:
 	for child in get_children():
 		if child is Bullet && child.groupID == groupID && child.parriedBullet:
 			child.reparent.call_deferred(get_parent())
 	for child in get_children():
 		if child is Bullet && child.groupID == groupID && !child.parriedBullet:
 			return
-	onAllParried(groupID)
+	onAllParried(groupID, childPos)
 
-func onAllParried(groupID: int) -> void:
+func onAllParried(groupID: int, childPos : Vector2) -> void:
 	AudioController.playSFX(AudioController.chainSound)
 	ScoreCounter.incrementScore(groupParryValue)
+	ScoreManager.instance.makePointDisplay(childPos + Vector2(0, -100), groupParryValue, "Bonus")
 	var player = get_tree().get_first_node_in_group("Player")
 	if is_instance_valid(player):
 		player.scoreManager.updateScore()

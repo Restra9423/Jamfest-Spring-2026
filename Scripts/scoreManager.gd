@@ -4,6 +4,8 @@ class_name ScoreManager
 @export var scoreDisplay : Label
 @export var comboDisplay : Label
 
+@export var pointDisplays : PackedScene
+
 static var instance: ScoreManager
 
 func _init() -> void:
@@ -14,3 +16,16 @@ func updateScore():
 
 func updateCombo():
 	comboDisplay.text = str(int(ScoreCounter.combo), "x")
+
+func makePointDisplay(spawnPos : Vector2, points : int, modifier : String) -> void:
+	var newDisplay = pointDisplays.instantiate()
+	var label = newDisplay.get_node("Label")
+	add_child(newDisplay)
+	
+	newDisplay.global_position = spawnPos
+	newDisplay.setText(points, modifier)
+	
+	var tween = create_tween()
+	tween.tween_interval(1.0)
+	tween.tween_property(newDisplay, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(newDisplay.queue_free)
