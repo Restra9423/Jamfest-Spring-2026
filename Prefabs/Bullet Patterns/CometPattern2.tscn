@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://6tr2v133uwg5"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_t5hd6"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullet.tscn" id="2_lcn5n"]
+[ext_resource type="PackedScene" uid="uid://cigum3seiiefx" path="res://Prefabs/LandmineBullet.tscn" id="3_nwk1c"]
+
+[node name="CometPattern2" type="Node2D" unique_id=448704251]
+script = ExtResource("1_t5hd6")
+
+[node name="Bullet" parent="." unique_id=1070001626 instance=ExtResource("2_lcn5n")]
+position = Vector2(1984, -1848)
+speed = 700.0
+angle = 135.0
+groupID = 1
+isParryable = true
+pointValue = 1000
+myShape = 1
+
+[node name="LandmineBullet" parent="." unique_id=979420319 instance=ExtResource("3_nwk1c")]
+position = Vector2(2027, -1898)
+speed = 700.0
+angle = 135.0
+myShape = 1
+
+[node name="LandmineBullet2" parent="." unique_id=1520909286 instance=ExtResource("3_nwk1c")]
+position = Vector2(2071, -1947)
+speed = 700.0
+angle = 135.0
+myShape = 1
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
