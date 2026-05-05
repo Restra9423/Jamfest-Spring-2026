@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://b81esshntjxnf"]
 
 [ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_lwplj"]
-[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullet.tscn" id="2_s6xwt"]
-[ext_resource type="PackedScene" uid="uid://cigum3seiiefx" path="res://Prefabs/LandmineBullet.tscn" id="3_s6xwt"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_s6xwt"]
+[ext_resource type="PackedScene" uid="uid://cigum3seiiefx" path="res://Prefabs/Bullets/LandmineBullet.tscn" id="3_s6xwt"]
 
 [node name="ParryCirclePattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_lwplj")

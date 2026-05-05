@@ -81,7 +81,9 @@ func _process(delta: float) -> void:
 func _physics_process(_delta: float) -> void:
 	for area in parryZone.get_overlapping_areas():
 		if parryLength.time_left > 0 && area.isParryable && !area.parriedBullet:
-			parry(area.pointValue/4)
+			parry(area.pointValue/2)
+			if area.is_in_group("landmines"):
+				hurt()
 			area.setParried(((parryDir + self.position.direction_to(area.position))/2).normalized())
 
 

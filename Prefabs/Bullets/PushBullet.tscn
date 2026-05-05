@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://tp7r53disc88"]
 
-[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="1_1bvuq"]
-[ext_resource type="Script" uid="uid://dxxciylbl1ixm" path="res://Scripts/pushBullet.gd" id="1_8gfei"]
+[ext_resource type="Script" uid="uid://dxxciylbl1ixm" path="res://Scripts/Bullet Scripts/pushBullet.gd" id="1_u6jtk"]
+[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_fcxft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ynjt"]
 size = Vector2(60, 265)
@@ -9,7 +9,7 @@ size = Vector2(60, 265)
 [node name="PushBullet" type="Area2D" unique_id=1518870708 node_paths=PackedStringArray("mySprite")]
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("1_8gfei")
+script = ExtResource("1_u6jtk")
 timeToDestroy = 20.0
 pointValue = 0
 mySprite = NodePath("Sprite")
@@ -17,7 +17,7 @@ myShape = 4
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=507618532]
 scale = Vector2(0.8, 0.8)
-sprite_frames = ExtResource("1_1bvuq")
+sprite_frames = ExtResource("2_fcxft")
 animation = &"rectangle"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=884174612]
@@ -31,6 +31,7 @@ autostart = true
 
 [node name="DestroyTimer" type="Timer" parent="." unique_id=2019033656]
 wait_time = 20.0
+one_shot = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=408143638]
 rect = Rect2(-17, -21, 36, 40)

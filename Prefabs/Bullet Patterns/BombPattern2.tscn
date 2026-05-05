@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://c5038pw6kmunj"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_de3o6"]
+[ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="2_otm0h"]
+
+[node name="PatternBase" type="Node2D" unique_id=448704251]
+script = ExtResource("1_de3o6")
+
+[node name="BombBullet" parent="." unique_id=979420319 instance=ExtResource("2_otm0h")]
+position = Vector2(-1200, 0)
+timeToDestroy = 8.0
+
+[node name="BombBullet2" parent="." unique_id=827400876 instance=ExtResource("2_otm0h")]
+position = Vector2(2000, -2000)
+angle = 135.0
+timeToDestroy = 15.0
+
+[node name="BombBullet3" parent="." unique_id=212810983 instance=ExtResource("2_otm0h")]
+position = Vector2(3000, 3000)
+angle = 225.0
+timeToDestroy = 20.0

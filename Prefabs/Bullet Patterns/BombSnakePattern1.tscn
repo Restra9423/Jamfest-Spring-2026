@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://dvedlpn5u7b5o"]
+
+[ext_resource type="Script" uid="uid://7pn3lrtp7b46" path="res://Scripts/Pattern Scripts/homingPattern.gd" id="1_4nhps"]
+[ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="2_e4ya8"]
+[ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="3_e4ya8"]
+[ext_resource type="PackedScene" uid="uid://bvuhx7q3dom6j" path="res://Prefabs/Bullets/Shrapnel/HomingShrapnel.tscn" id="3_i634d"]
+
+[node name="BombSnakePattern1" type="Node2D" unique_id=1058599110]
+script = ExtResource("1_4nhps")
+groupParryValue = 200
+
+[node name="BombBullet" parent="." unique_id=556327553 instance=ExtResource("3_e4ya8")]
+position = Vector2(1350, 0)
+shrapnelCount = 3
+shrapnelType = ExtResource("3_i634d")
+speed = 500.0
+angle = 180.0
+groupID = 1
+timeToDestroy = 2.5
+
+[node name="HomingBullet" parent="." unique_id=979420319 instance=ExtResource("2_e4ya8")]
+position = Vector2(1500, 0)
+angle = 180.0
+groupID = 1
+pointValue = 75
+
+[node name="HomingBullet2" parent="." unique_id=1646522236 instance=ExtResource("2_e4ya8")]
+position = Vector2(1600, 0)
+angle = 180.0
+groupID = 1
+pointValue = 75
+
+[node name="HomingBullet3" parent="." unique_id=196391501 instance=ExtResource("2_e4ya8")]
+position = Vector2(1700, 0)
+angle = 180.0
+groupID = 1
+pointValue = 75
+
+[node name="HomingBullet4" parent="." unique_id=755376441 instance=ExtResource("2_e4ya8")]
+position = Vector2(1800, 0)
+angle = 180.0
+groupID = 1
+pointValue = 75
+
+[node name="HomingBullet5" parent="." unique_id=1925174447 instance=ExtResource("2_e4ya8")]
+position = Vector2(1900, 0)
+angle = 180.0
+groupID = 1
+pointValue = 75

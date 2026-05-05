@@ -1,33 +1,41 @@
-[gd_scene format=3 uid="uid://cnip621aht0tq"]
+[gd_scene format=3 uid="uid://bvuhx7q3dom6j"]
 
-[ext_resource type="Script" uid="uid://coh2yb5bluxi1" path="res://Scripts/bullet.gd" id="1_pv5ng"]
-[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_pv5ng"]
+[ext_resource type="Script" uid="uid://dt8rjh238lxoq" path="res://Scripts/Bullet Scripts/homingBullet.gd" id="1_f108x"]
+[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_f5els"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
-radius = 33.01515
+radius = 27.073973
 
-[node name="Bullet" type="Area2D" unique_id=979420319 node_paths=PackedStringArray("mySprite") groups=["bullets"]]
+[node name="HomingBullet" type="Area2D" unique_id=979420319 node_paths=PackedStringArray("mySprite") groups=["bullets"]]
+scale = Vector2(0.75, 0.75)
 collision_layer = 4
 collision_mask = 6
-script = ExtResource("1_pv5ng")
+script = ExtResource("1_f108x")
+turnSpeed = 3.0
+speed = 400.0
+isParryable = true
 timeToDestroy = 20.0
+pointValue = 50
 mySprite = NodePath("Sprite")
+myShape = 3
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1309506250]
 scale = Vector2(0.4, 0.4)
-sprite_frames = ExtResource("2_pv5ng")
-animation = &"circle"
+sprite_frames = ExtResource("2_f5els")
+animation = &"triangle"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1696189687]
+position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_62lvt")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=820223275]
-wait_time = 0.1
+wait_time = 0.05
 one_shot = true
 autostart = true
 
 [node name="DestroyTimer" type="Timer" parent="." unique_id=1871037056]
 wait_time = 20.0
+one_shot = true
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2141841784]
 rect = Rect2(-17, -21, 36, 40)

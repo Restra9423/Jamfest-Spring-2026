@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cusie7jxxcoh8"]
 
 [ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_bldfl"]
-[ext_resource type="PackedScene" uid="uid://tp7r53disc88" path="res://Prefabs/PushBullet.tscn" id="2_ugugn"]
+[ext_resource type="PackedScene" uid="uid://tp7r53disc88" path="res://Prefabs/Bullets/PushBullet.tscn" id="2_ugugn"]
 
 [node name="PushPattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_bldfl")

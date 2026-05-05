@@ -43,7 +43,7 @@ func onChildParried(groupID: int) -> void:
 		if child is Bullet && child.groupID == groupID && child.parriedBullet:
 			child.reparent.call_deferred(get_parent())
 	for child in get_children():
-		if child is Bullet && child.groupID == groupID && !child.parriedBullet:
+		if child is Bullet && !child.parriedBullet:
 			return
 	onAllParried(groupID)
 
