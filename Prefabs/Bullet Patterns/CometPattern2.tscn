@@ -6,6 +6,7 @@
 
 [node name="CometPattern2" type="Node2D" unique_id=448704251]
 script = ExtResource("1_t5hd6")
+groupParryValue = 1000
 
 [node name="Bullet" parent="." unique_id=1070001626 instance=ExtResource("2_lcn5n")]
 position = Vector2(1984, -1848)
@@ -13,7 +14,7 @@ speed = 700.0
 angle = 135.0
 groupID = 1
 isParryable = true
-pointValue = 1000
+pointValue = 0
 myShape = 1
 
 [node name="LandmineBullet" parent="." unique_id=979420319 instance=ExtResource("3_nwk1c")]

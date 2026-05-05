@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://hjvphaxd5iyy" path="res://Art/HeathBar3.png" id="7_fcaoe"]
 [ext_resource type="Texture2D" uid="uid://b4bcn08hdr3ho" path="res://Art/HeathBar1.png" id="8_syw1v"]
 [ext_resource type="PackedScene" uid="uid://bl5wfjm3n1uv5" path="res://UI/pause.tscn" id="11_adrbb"]
-[ext_resource type="PackedScene" uid="uid://dchtm1boreqc7" path="res://Prefabs/Bullet Patterns/CometPattern1.tscn" id="11_d1005"]
 
 [node name="WorldScene" type="Node2D" unique_id=1086633574]
 script = ExtResource("1_fcaoe")
@@ -59,7 +58,5 @@ visible = false
 
 [node name="VBoxContainer" parent="Pause" index="0" unique_id=706092994]
 process_mode = 2
-
-[node name="CometPattern1" parent="." unique_id=448704251 instance=ExtResource("11_d1005")]
 
 [editable path="Pause"]
