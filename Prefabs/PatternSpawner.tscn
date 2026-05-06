@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://dejoq8cfsmchq" path="res://Prefabs/Bullet Patterns/Homing Patterns/HomingPattern1.tscn" id="9_ru17v"]
 [ext_resource type="PackedScene" uid="uid://cusie7jxxcoh8" path="res://Prefabs/Bullet Patterns/PushPattern1.tscn" id="10_mnkuo"]
 [ext_resource type="PackedScene" uid="uid://xgwhj7wj6j8m" path="res://Prefabs/Bullet Patterns/Homing Patterns/SnakePattern1.tscn" id="11_758bo"]
+[ext_resource type="PackedScene" uid="uid://cy2360a3xr617" path="res://Prefabs/Bullet Patterns/Orbit Patterns/OrbitPattern1.tscn" id="12_1urmc"]
 [ext_resource type="PackedScene" uid="uid://30mcbssxr2ge" path="res://Prefabs/Bullet Patterns/Homing Patterns/HomingPattern2.tscn" id="12_tdlvc"]
 [ext_resource type="PackedScene" uid="uid://b15l5m5h8lk81" path="res://Prefabs/Bullet Patterns/Homing Patterns/SnakePattern2.tscn" id="13_jx3da"]
 [ext_resource type="PackedScene" uid="uid://b81esshntjxnf" path="res://Prefabs/Bullet Patterns/Landmine Patterns/LandmineWavePattern1.tscn" id="14_02fpo"]
@@ -25,13 +26,14 @@
 [ext_resource type="PackedScene" uid="uid://bmcck7aok2cyv" path="res://Prefabs/Bullet Patterns/Bomb Patterns/BombPattern3.tscn" id="22_cdetl"]
 [ext_resource type="PackedScene" uid="uid://bcxn3krglxr2h" path="res://Prefabs/Bullet Patterns/MixedCirclePattern1.tscn" id="23_y65w7"]
 [ext_resource type="PackedScene" uid="uid://clncuf5m6c7of" path="res://Prefabs/Bullet Patterns/MixedCirclePattern2.tscn" id="24_cdetl"]
+[ext_resource type="PackedScene" uid="uid://rucgelce40vc" path="res://Prefabs/Bullet Patterns/Orbit Patterns/HomingOrbitPattern1.tscn" id="27_dupqx"]
 
 [node name="PatternSpawner" type="Node2D" unique_id=680363320]
 script = ExtResource("1_2sovd")
-easyPatterns = Array[PackedScene]([ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("4_758bo"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv"), ExtResource("9_ru17v")])
-mediumPatterns = Array[PackedScene]([ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("9_ru17v"), ExtResource("12_tdlvc"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("4_758bo"), ExtResource("10_mnkuo"), ExtResource("14_lntha"), ExtResource("11_758bo"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv")])
-hardPatterns = Array[PackedScene]([ExtResource("17_luylw"), ExtResource("19_g8jf1"), ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("9_ru17v"), ExtResource("12_tdlvc"), ExtResource("14_02fpo"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("19_mcwy1"), ExtResource("10_mnkuo"), ExtResource("14_lntha"), ExtResource("11_758bo"), ExtResource("13_jx3da"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv")])
-superHardPatterns = Array[PackedScene]([ExtResource("15_2xk7t"), ExtResource("17_luylw"), ExtResource("19_g8jf1"), ExtResource("22_cdetl"), ExtResource("18_yv4v0"), ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("9_ru17v"), ExtResource("12_tdlvc"), ExtResource("14_02fpo"), ExtResource("7_02fpo"), ExtResource("23_y65w7"), ExtResource("24_cdetl"), ExtResource("19_mcwy1"), ExtResource("10_mnkuo"), ExtResource("14_lntha"), ExtResource("11_758bo"), ExtResource("13_jx3da"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv")])
+easyPatterns = Array[PackedScene]([ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("4_758bo"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv"), ExtResource("9_ru17v"), ExtResource("12_1urmc")])
+mediumPatterns = Array[PackedScene]([ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("9_ru17v"), ExtResource("12_tdlvc"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("4_758bo"), ExtResource("10_mnkuo"), ExtResource("14_lntha"), ExtResource("11_758bo"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv"), ExtResource("12_1urmc")])
+hardPatterns = Array[PackedScene]([ExtResource("17_luylw"), ExtResource("19_g8jf1"), ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("9_ru17v"), ExtResource("12_tdlvc"), ExtResource("14_02fpo"), ExtResource("7_02fpo"), ExtResource("2_5o01j"), ExtResource("19_mcwy1"), ExtResource("10_mnkuo"), ExtResource("14_lntha"), ExtResource("11_758bo"), ExtResource("13_jx3da"), ExtResource("3_mnkuo"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv"), ExtResource("27_dupqx")])
+superHardPatterns = Array[PackedScene]([ExtResource("15_2xk7t"), ExtResource("17_luylw"), ExtResource("19_g8jf1"), ExtResource("22_cdetl"), ExtResource("18_yv4v0"), ExtResource("15_8dslv"), ExtResource("16_ru17v"), ExtResource("9_ru17v"), ExtResource("12_tdlvc"), ExtResource("14_02fpo"), ExtResource("7_02fpo"), ExtResource("23_y65w7"), ExtResource("24_cdetl"), ExtResource("19_mcwy1"), ExtResource("10_mnkuo"), ExtResource("14_lntha"), ExtResource("11_758bo"), ExtResource("13_jx3da"), ExtResource("5_tdlvc"), ExtResource("6_jx3da"), ExtResource("8_8dslv"), ExtResource("27_dupqx")])
 
 [node name="WaveTimer" type="Timer" parent="." unique_id=869479075]
 wait_time = 2.0

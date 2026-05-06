@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://rucgelce40vc"]
+
+[ext_resource type="Script" uid="uid://km2oqw7po6xo" path="res://Scripts/Pattern Scripts/orbitPattern.gd" id="1_1mqr5"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_mrhwr"]
+[ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="3_tbssf"]
+
+[node name="OrbitPattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_1mqr5")
+orbitSpeed = 3.0
+groupParryValue = 400
+
+[node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_mrhwr")]
+position = Vector2(-1183, -1097)
+scale = Vector2(1.25, 1.25)
+speed = 500.0
+angle = 45.0
+groupID = 1
+isLead = true
+timeToDestroy = 40.0
+myShape = 1
+
+[node name="HomingBullet" parent="." unique_id=1040025875 instance=ExtResource("3_tbssf")]
+position = Vector2(-1183, -1097)
+speed = 550.0
+groupID = 1
+timeToDestroy = 40.0
+
+[node name="HomingBullet2" parent="." unique_id=1542151189 instance=ExtResource("3_tbssf")]
+position = Vector2(-1183, -1097)
+speed = 550.0
+groupID = 1
+timeToDestroy = 40.0
+
+[node name="HomingBullet3" parent="." unique_id=1194774189 instance=ExtResource("3_tbssf")]
+position = Vector2(-1183, -1097)
+speed = 550.0
+groupID = 1
+timeToDestroy = 40.0
+
+[node name="HomingBullet4" parent="." unique_id=181876831 instance=ExtResource("3_tbssf")]
+position = Vector2(-1183, -1097)
+speed = 550.0
+groupID = 1
+timeToDestroy = 40.0
+
+[node name="LeadBullet2" parent="." unique_id=602865943 instance=ExtResource("2_mrhwr")]
+position = Vector2(-1887, -1008)
+scale = Vector2(1.25, 1.25)
+speed = 500.0
+angle = 45.0
+groupID = 2
+isLead = true
+timeToDestroy = 40.0
+myShape = 1
+
+[node name="HomingBullet5" parent="." unique_id=377168793 instance=ExtResource("3_tbssf")]
+position = Vector2(-1887, -1008)
+speed = 550.0
+groupID = 2
+timeToDestroy = 40.0
+
+[node name="HomingBullet6" parent="." unique_id=1643721929 instance=ExtResource("3_tbssf")]
+position = Vector2(-1887, -1008)
+speed = 550.0
+groupID = 2
+timeToDestroy = 40.0
+
+[node name="HomingBullet7" parent="." unique_id=2054284015 instance=ExtResource("3_tbssf")]
+position = Vector2(-1887, -1008)
+speed = 550.0
+groupID = 2
+timeToDestroy = 40.0
+
+[node name="HomingBullet8" parent="." unique_id=1947183166 instance=ExtResource("3_tbssf")]
+position = Vector2(-1887, -1008)
+speed = 550.0
+groupID = 2
+timeToDestroy = 40.0
+
+[node name="LeadBullet3" parent="." unique_id=58823555 instance=ExtResource("2_mrhwr")]
+position = Vector2(-1603, -1989)
+scale = Vector2(1.25, 1.25)
+speed = 500.0
+angle = 45.0
+groupID = 3
+isLead = true
+timeToDestroy = 40.0
+myShape = 1
+
+[node name="HomingBullet9" parent="." unique_id=1177172557 instance=ExtResource("3_tbssf")]
+position = Vector2(-1603, -1989)
+speed = 550.0
+groupID = 3
+timeToDestroy = 40.0
+
+[node name="HomingBullet10" parent="." unique_id=2027752552 instance=ExtResource("3_tbssf")]
+position = Vector2(-1603, -1989)
+speed = 550.0
+groupID = 3
+timeToDestroy = 40.0
+
+[node name="HomingBullet11" parent="." unique_id=1024319995 instance=ExtResource("3_tbssf")]
+position = Vector2(-1603, -1989)
+speed = 550.0
+groupID = 3
+timeToDestroy = 40.0
+
+[node name="HomingBullet12" parent="." unique_id=568637023 instance=ExtResource("3_tbssf")]
+position = Vector2(-1603, -1989)
+speed = 550.0
+groupID = 3
+timeToDestroy = 40.0

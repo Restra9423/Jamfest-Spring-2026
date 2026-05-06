@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b15l5m5h8lk81"]
 
-[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/bulletPattern.gd" id="1_qwiey"]
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_qwiey"]
 [ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="2_qwiey"]
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_tgl37"]
 

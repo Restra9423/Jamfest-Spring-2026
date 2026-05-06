@@ -3,7 +3,6 @@ extends Bullet
 @export var turnSpeed : float = 2.0
 var target : Node2D
 var targetSet : bool = false
-var isLead : bool = false
 
 func _process(delta):
 	if timeToStart && targetSet:

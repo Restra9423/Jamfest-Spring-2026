@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://cy2360a3xr617"]
+
+[ext_resource type="Script" uid="uid://km2oqw7po6xo" path="res://Scripts/Pattern Scripts/orbitPattern.gd" id="1_86j8q"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_yvpjc"]
+
+[node name="OrbitPattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_86j8q")
+orbitSpeed = 3.0
+groupParryValue = 400
+
+[node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1183, -1097)
+scale = Vector2(1.25, 1.25)
+speed = 500.0
+angle = 45.0
+groupID = 1
+isLead = true
+myShape = 1
+
+[node name="Bullet" parent="." unique_id=553075319 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1183, -1097)
+speed = 600.0
+angle = 45.0
+groupID = 1
+isParryable = true
+pointValue = 200
+
+[node name="Bullet2" parent="." unique_id=275167137 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1183, -1097)
+speed = 600.0
+angle = 45.0
+groupID = 1
+isParryable = true
+pointValue = 200
+
+[node name="Bullet3" parent="." unique_id=1661907436 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1183, -1097)
+speed = 600.0
+angle = 45.0
+groupID = 1
+isParryable = true
+pointValue = 200
+
+[node name="Bullet4" parent="." unique_id=1973641276 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1183, -1097)
+speed = 600.0
+angle = 45.0
+groupID = 1
+isParryable = true
+pointValue = 200
+
+[node name="LeadBullet2" parent="." unique_id=602865943 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1887, -1008)
+scale = Vector2(1.25, 1.25)
+speed = 500.0
+angle = 45.0
+groupID = 2
+isLead = true
+myShape = 1
+
+[node name="Bullet5" parent="." unique_id=505052507 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1887, -1008)
+speed = 600.0
+angle = 45.0
+groupID = 2
+isParryable = true
+pointValue = 200
+
+[node name="Bullet6" parent="." unique_id=1187418125 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1887, -1008)
+speed = 600.0
+angle = 45.0
+groupID = 2
+isParryable = true
+pointValue = 200
+
+[node name="Bullet7" parent="." unique_id=1546126379 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1887, -1008)
+speed = 600.0
+angle = 45.0
+groupID = 2
+isParryable = true
+pointValue = 200
+
+[node name="Bullet8" parent="." unique_id=577348230 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1887, -1008)
+speed = 600.0
+angle = 45.0
+groupID = 2
+isParryable = true
+pointValue = 200
+
+[node name="LeadBullet3" parent="." unique_id=58823555 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1603, -1989)
+scale = Vector2(1.25, 1.25)
+speed = 500.0
+angle = 45.0
+groupID = 3
+isLead = true
+myShape = 1
+
+[node name="Bullet9" parent="." unique_id=1593578717 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1603, -1989)
+speed = 600.0
+angle = 45.0
+groupID = 3
+isParryable = true
+pointValue = 200
+
+[node name="Bullet10" parent="." unique_id=1932472430 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1603, -1989)
+speed = 600.0
+angle = 45.0
+groupID = 3
+isParryable = true
+pointValue = 200
+
+[node name="Bullet11" parent="." unique_id=1840226538 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1603, -1989)
+speed = 600.0
+angle = 45.0
+groupID = 3
+isParryable = true
+pointValue = 200
+
+[node name="Bullet12" parent="." unique_id=29925061 instance=ExtResource("2_yvpjc")]
+position = Vector2(-1603, -1989)
+speed = 600.0
+angle = 45.0
+groupID = 3
+isParryable = true
+pointValue = 200

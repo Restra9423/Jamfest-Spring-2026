@@ -5,6 +5,7 @@ extends Area2D
 @export_range(0, 360) var angle : float
 @export var ownerGroup : String
 @export var groupID : int
+@export var isLead : bool = false
 @export var isParryable : bool
 @export var timeToDestroy : float
 @export var pointValue : int = 100

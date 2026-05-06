@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmcck7aok2cyv"]
 
-[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/bulletPattern.gd" id="1_cwthg"]
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_cwthg"]
 [ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="2_2kesx"]
 
 [node name="BombPattern3" type="Node2D" unique_id=448704251]
