@@ -51,6 +51,7 @@ func _process(delta: float) -> void:
 	#heal check
 	@warning_ignore("integer_division")
 	if totalHeals < ScoreCounter.currentScore/10000:
+		scoreManager.levelUp()
 		heal()
 		totalHeals += 1
 	
@@ -142,8 +143,8 @@ func hurt():
 		parryLength.stop()
 		parryLength.wait_time = parryLength.wait_time
 		parryLength.timeout.emit()
+		scoreManager.clearCombo(ScoreCounter.combo)
 		ScoreCounter.resetCombo()
-		scoreManager.updateCombo()
 		blink()
 		AudioController.playSFX(AudioController.takeDamageSound, true)
 		match health:
@@ -178,8 +179,8 @@ func _on_parry_length_timeout() -> void:
 	elif !parried:
 		AudioController.playSFX(AudioController.parryMissSound)
 		parryCooldown.wait_time = 2
+		scoreManager.clearCombo(ScoreCounter.combo)
 		ScoreCounter.resetCombo()
-		scoreManager.updateCombo()
 	else:
 		parried = false
 		ScoreCounter.incrementCombo()

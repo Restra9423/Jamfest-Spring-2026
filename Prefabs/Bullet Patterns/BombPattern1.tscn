@@ -11,25 +11,25 @@ position = Vector2(-1200, -1200)
 shrapnelCount = 6
 angle = 45.0
 timeToDestroy = 4.0
-pointValue = 600
+pointValue = 500
 
 [node name="BombBullet2" parent="." unique_id=238861350 instance=ExtResource("2_x0fkt")]
 position = Vector2(1200, -1200)
 shrapnelCount = 6
 angle = 135.0
 timeToDestroy = 4.0
-pointValue = 600
+pointValue = 500
 
 [node name="BombBullet3" parent="." unique_id=1581371068 instance=ExtResource("2_x0fkt")]
 position = Vector2(1200, 1200)
 shrapnelCount = 6
 angle = 225.0
 timeToDestroy = 4.0
-pointValue = 600
+pointValue = 500
 
 [node name="BombBullet4" parent="." unique_id=1182213476 instance=ExtResource("2_x0fkt")]
 position = Vector2(-1200, 1200)
 shrapnelCount = 6
 angle = 315.0
 timeToDestroy = 4.0
-pointValue = 600
+pointValue = 500

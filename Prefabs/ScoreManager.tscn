@@ -2,21 +2,25 @@
 
 [ext_resource type="Script" uid="uid://o10x46h3o3pp" path="res://Scripts/scoreManager.gd" id="1_g5j4s"]
 [ext_resource type="PackedScene" uid="uid://dm05ldt1tn0ak" path="res://Prefabs/PointDisplay.tscn" id="2_4t262"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_y3as1"]
-font_size = 64
+[ext_resource type="FontFile" uid="uid://cufmx7yxxurpt" path="res://Art/Fonts/neon.ttf" id="3_2nxgq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0b146"]
-font_size = 48
+font = ExtResource("3_2nxgq")
+font_size = 80
 
-[node name="ScoreManager" type="Panel" unique_id=1229586716 node_paths=PackedStringArray("scoreDisplay", "comboDisplay")]
+[sub_resource type="LabelSettings" id="LabelSettings_2nxgq"]
+font = ExtResource("3_2nxgq")
+font_size = 45
+
+[node name="ScoreManager" type="Panel" unique_id=1229586716 node_paths=PackedStringArray("scoreDisplay", "comboDisplay", "multiDisplay")]
 offset_left = 128.0
 offset_top = 128.0
 offset_right = 573.0
 offset_bottom = 403.0
 script = ExtResource("1_g5j4s")
 scoreDisplay = NodePath("ScoreDisplay")
-comboDisplay = NodePath("ComboDisplay")
+comboDisplay = NodePath("HBoxContainer/ComboDisplay")
+multiDisplay = NodePath("HBoxContainer/MultiDisplay")
 pointDisplays = ExtResource("2_4t262")
 
 [node name="ScoreDisplay" type="Label" parent="." unique_id=2121244486]
@@ -26,46 +30,61 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -77.5
-offset_top = -46.5
-offset_right = 77.5
-offset_bottom = 41.5
+offset_left = -10.5
+offset_top = -87.5
+offset_right = 144.5
+offset_bottom = 2.5
 grow_horizontal = 2
 grow_vertical = 2
 text = "0"
-label_settings = SubResource("LabelSettings_y3as1")
+label_settings = SubResource("LabelSettings_0b146")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ComboDisplay" type="Label" parent="." unique_id=865751037]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.65400004
-anchor_right = 0.5
-anchor_bottom = 0.65400004
-offset_left = 80.5
-offset_top = 17.149994
-offset_right = 152.5
-offset_bottom = 87.149994
-text = "0x"
-label_settings = SubResource("LabelSettings_0b146")
-horizontal_alignment = 1
-
-[node name="combo" type="Label" parent="." unique_id=1923386355]
-layout_mode = 0
-offset_left = 17.0
-offset_top = 196.0
-offset_right = 220.0
-offset_bottom = 284.0
-text = "COMBO:"
-label_settings = SubResource("LabelSettings_0b146")
-
 [node name="score" type="Label" parent="." unique_id=910713655]
 layout_mode = 1
-offset_left = 20.0
-offset_top = 11.0
-offset_right = 223.0
-offset_bottom = 99.0
+offset_right = 203.0
+offset_bottom = 90.0
 text = "SCORE:"
 label_settings = SubResource("LabelSettings_0b146")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=321505792]
+custom_minimum_size = Vector2(445, 0)
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -90.0
+offset_right = 443.0
+grow_vertical = 0
+
+[node name="combo" type="Label" parent="HBoxContainer" unique_id=1923386355]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "COMBO:"
+label_settings = SubResource("LabelSettings_0b146")
+vertical_alignment = 1
+
+[node name="ComboDisplay" type="Label" parent="HBoxContainer" unique_id=865751037]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "0"
+label_settings = SubResource("LabelSettings_0b146")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MultiDisplay" type="Label" parent="HBoxContainer" unique_id=1375685861]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 50
+text = "(1.0x)"
+label_settings = SubResource("LabelSettings_2nxgq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScoreAccumTimer" type="Timer" parent="." unique_id=1570188059]
+one_shot = true
+
+[connection signal="timeout" from="ScoreAccumTimer" to="." method="_on_score_accum_timer_timeout"]

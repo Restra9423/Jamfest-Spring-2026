@@ -1,6 +1,7 @@
 extends Node
 
 var currentScore : int = 0
+var scoreBeforeNewPoints : int = 0
 var combo : float = 0.0
 
 func incrementScore(points: int) -> void:
@@ -14,3 +15,4 @@ func resetCombo() -> void:
 
 func resetScore() -> void:
 	currentScore = 0
+	scoreBeforeNewPoints = 0

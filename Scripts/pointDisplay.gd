@@ -5,6 +5,7 @@ var colorIndex : int = 0
 @onready var destroyTimer : Timer = $DestroyTimer
 
 func _on_destroy_timer_timeout() -> void:
+	#text fades out
 	var tween = create_tween()
 	tween.tween_property(self, "modulate:a", 0.0, 0.5)
 	tween.tween_callback(queue_free)
@@ -49,3 +50,16 @@ func setText(points : int, modifier : String):
 			displayText.modulate = Color.CRIMSON
 	displayText.text = str(points)
 	destroyTimer.start()
+
+func comboLost(combo : int) -> void:
+	displayText.text = str(combo)
+	displayText.add_theme_font_size_override("font_size", 80)
+	displayText.modulate = Color.RED
+	
+	$DestroyTimer.wait_time = 1.5
+	$DestroyTimer.start()
+	
+	var tween = create_tween()
+	tween.tween_property(self, "position:y", position.y - 50.0, 1.5)
+	tween.parallel().tween_property(self, "modulate:a", 0.0, 1.5)
+	tween.tween_callback(queue_free)

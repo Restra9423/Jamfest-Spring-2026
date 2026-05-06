@@ -28,14 +28,6 @@ func _on_destroy_timer_timeout() -> void:
 	explode()
 	queue_free()
 
-func setParried(parriedDir: Vector2):
-	destroyTimer.start()
-	explode()
-	parriedBullet = true
-	if get_parent().has_method("onChildParried"):
-		get_parent().onChildParried(groupID, global_position)
-	queue_free()
-
 func explode() -> void:
 	var angleStep = 360.0 / shrapnelCount
 	for i in shrapnelCount:

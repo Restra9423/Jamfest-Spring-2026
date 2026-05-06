@@ -28,6 +28,7 @@ func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
 
 func _on_start_pressed() -> void:
+	ScoreCounter.resetScore()
 	AudioController.playSFX(AudioController.clickSound)
 	get_tree().change_scene_to_file("res://Levels/world_scene.tscn")
 
