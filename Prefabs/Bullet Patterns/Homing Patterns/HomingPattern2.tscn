@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://30mcbssxr2ge"]
 
-[ext_resource type="Script" uid="uid://7pn3lrtp7b46" path="res://Scripts/Pattern Scripts/homingPattern.gd" id="1_rtsfb"]
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/bulletPattern.gd" id="1_rtsfb"]
 [ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="2_4fctj"]
 
 [node name="PatternBase" type="Node2D" unique_id=1058599110]

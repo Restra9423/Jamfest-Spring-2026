@@ -1,11 +1,10 @@
 [gd_scene format=3 uid="uid://dejoq8cfsmchq"]
 
-[ext_resource type="Script" uid="uid://7pn3lrtp7b46" path="res://Scripts/Pattern Scripts/homingPattern.gd" id="1_11a13"]
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/bulletPattern.gd" id="1_jt2lv"]
 [ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="2_jt2lv"]
 
 [node name="PatternBase" type="Node2D" unique_id=1058599110]
-script = ExtResource("1_11a13")
-patternShape = 3
+script = ExtResource("1_jt2lv")
 
 [node name="HomingBullet" parent="." unique_id=979420319 instance=ExtResource("2_jt2lv")]
 position = Vector2(-1730, -1755)

@@ -56,6 +56,15 @@ func _process(delta):
 	if timeToStart:
 		translate(moveDir * speed * delta)
 
+func _physics_process(_delta: float) -> void:
+	for area in get_overlapping_areas():
+		if(area.is_in_group("bullets")):
+			if(parriedBullet && isParryable && !area.isParryable && !area.parriedBullet):
+				ScoreCounter.incrementScore(area.pointValue)
+				ScoreManager.instance.updateScore()
+				ScoreManager.instance.makePointDisplay(area.global_position, area.pointValue, "Ricochet")
+				area.setParried(self.position.direction_to(area.position).normalized())
+
 func _on_start_timer_timeout() -> void:
 	timeToStart = true
 
@@ -75,14 +84,6 @@ func setParried(parriedDir: Vector2):
 	parriedBullet = true
 	if get_parent().has_method("onChildParried"):
 		get_parent().onChildParried(groupID, global_position)
-
-func _on_area_entered(area: Area2D) -> void:
-	if(area.is_in_group("bullets")):
-		if(parriedBullet && isParryable && !area.isParryable && !area.parriedBullet):
-			ScoreCounter.incrementScore(area.pointValue)
-			ScoreManager.instance.updateScore()
-			ScoreManager.instance.makePointDisplay(area.global_position, area.pointValue, "Ricochet")
-			area.setParried(self.position.direction_to(area.position).normalized())
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	if (parriedBullet):

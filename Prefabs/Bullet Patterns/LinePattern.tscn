@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bjp3gpj3rvffl"]
 
-[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_jishi"]
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/bulletPattern.gd" id="1_jishi"]
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_jldfn"]
 
 [node name="ParryCirclePattern1" type="Node2D" unique_id=448704251]

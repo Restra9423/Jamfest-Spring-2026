@@ -1,13 +1,12 @@
 [gd_scene format=3 uid="uid://dvedlpn5u7b5o"]
 
-[ext_resource type="Script" uid="uid://7pn3lrtp7b46" path="res://Scripts/Pattern Scripts/homingPattern.gd" id="1_4nhps"]
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/bulletPattern.gd" id="1_i634d"]
 [ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="2_e4ya8"]
 [ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="3_e4ya8"]
 [ext_resource type="PackedScene" uid="uid://bvuhx7q3dom6j" path="res://Prefabs/Bullets/Shrapnel/HomingShrapnel.tscn" id="3_i634d"]
 
 [node name="BombSnakePattern1" type="Node2D" unique_id=1058599110]
-script = ExtResource("1_4nhps")
-groupParryValue = 200
+script = ExtResource("1_i634d")
 
 [node name="BombBullet" parent="." unique_id=556327553 instance=ExtResource("3_e4ya8")]
 position = Vector2(1350, 0)
