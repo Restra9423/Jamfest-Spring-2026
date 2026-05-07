@@ -7,10 +7,12 @@
 
 [node name="BombSnakePattern1" type="Node2D" unique_id=1058599110]
 script = ExtResource("1_i634d")
+groupParryValue = 200
 
 [node name="BombBullet" parent="." unique_id=556327553 instance=ExtResource("3_e4ya8")]
 position = Vector2(1350, 0)
 shrapnelCount = 3
+explosionAngle = 180.0
 shrapnelType = ExtResource("3_i634d")
 speed = 500.0
 angle = 180.0

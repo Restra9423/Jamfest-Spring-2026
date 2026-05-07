@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://he8yqfhmrqgw"]
+
+[ext_resource type="Script" uid="uid://c8mott2mh7isq" path="res://Scripts/Pattern Scripts/sniperOrbitPattern.gd" id="1_egv2b"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_1usfq"]
+
+[node name="SniperOrbitPattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_egv2b")
+fireRate = 1.0
+orbitSpeed = 4.0
+groupParryValue = 400
+
+[node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_1usfq")]
+position = Vector2(-1183, 0)
+scale = Vector2(1.25, 1.25)
+speed = 400.0
+groupID = 1
+isLead = true
+pointValue = 400
+myShape = 1
+
+[node name="Bullet" parent="." unique_id=553075319 instance=ExtResource("2_1usfq")]
+position = Vector2(-1183, 0)
+speed = 900.0
+angle = 45.0
+groupID = 1
+isParryable = true
+pointValue = 300
+myShape = 2
+
+[node name="Bullet2" parent="." unique_id=275167137 instance=ExtResource("2_1usfq")]
+position = Vector2(-1183, 0)
+speed = 900.0
+angle = 45.0
+groupID = 1
+isParryable = true
+pointValue = 300
+myShape = 2
+
+[node name="Bullet3" parent="." unique_id=1661907436 instance=ExtResource("2_1usfq")]
+position = Vector2(-1183, 0)
+speed = 900.0
+angle = 45.0
+groupID = 1
+isParryable = true
+pointValue = 300
+myShape = 2
+
+[node name="Bullet4" parent="." unique_id=1973641276 instance=ExtResource("2_1usfq")]
+position = Vector2(-1183, 0)
+speed = 900.0
+angle = 45.0
+groupID = 1
+isParryable = true
+pointValue = 300
+myShape = 2

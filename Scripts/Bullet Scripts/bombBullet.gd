@@ -2,6 +2,7 @@ extends Bullet
 
 @export var myShader : ShaderMaterial
 @export var shrapnelCount : int = 8
+@export var explosionAngle : float = 0.0
 @export var shrapnelType : PackedScene
 
 func _ready() -> void:
@@ -40,6 +41,8 @@ func setParried(parriedDir: Vector2):
 		get_parent().onChildParried(groupID, global_position)
 
 func explode() -> void:
+	if !is_visible_in_tree():
+		queue_free()
 	var angleStep = 360.0 / shrapnelCount
 	for i in shrapnelCount:
 		var shrapnel = shrapnelType.instantiate()
@@ -48,5 +51,5 @@ func explode() -> void:
 		if "target" in shrapnel:
 			shrapnel.setTarget(get_tree().get_first_node_in_group("Player"))
 		shrapnel.global_position = global_position
-		shrapnel.angle = 180 + (angleStep * i)
+		shrapnel.angle = explosionAngle + (angleStep * i)
 		shrapnel.moveDir = Vector2.RIGHT.rotated(deg_to_rad(shrapnel.angle))

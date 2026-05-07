@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://242mcrdh0cuq"]
+
+[ext_resource type="Script" uid="uid://c8mott2mh7isq" path="res://Scripts/Pattern Scripts/sniperOrbitPattern.gd" id="1_y3uja"]
+[ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_636bi"]
+[ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="3_636bi"]
+
+[node name="SniperOrbitPattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_y3uja")
+fireRate = 1.0
+orbitSpeed = 3.0
+groupParryValue = 500
+
+[node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_636bi")]
+position = Vector2(1200, 400)
+scale = Vector2(1.25, 1.25)
+speed = 400.0
+angle = 180.0
+groupID = 1
+isLead = true
+pointValue = 400
+myShape = 1
+
+[node name="BombBullet" parent="." unique_id=252411327 instance=ExtResource("3_636bi")]
+position = Vector2(1200, 400)
+shrapnelCount = 4
+explosionAngle = 45.0
+speed = 700.0
+groupID = 1
+timeToDestroy = 1.0
+
+[node name="BombBullet2" parent="." unique_id=1907811438 instance=ExtResource("3_636bi")]
+position = Vector2(1200, 400)
+shrapnelCount = 4
+speed = 700.0
+groupID = 1
+timeToDestroy = 1.0
+
+[node name="BombBullet3" parent="." unique_id=111951295 instance=ExtResource("3_636bi")]
+position = Vector2(1200, 400)
+shrapnelCount = 4
+explosionAngle = 45.0
+speed = 700.0
+groupID = 1
+timeToDestroy = 1.0
+
+[node name="BombBullet4" parent="." unique_id=1694131820 instance=ExtResource("3_636bi")]
+position = Vector2(1200, 400)
+shrapnelCount = 4
+speed = 700.0
+groupID = 1
+timeToDestroy = 1.0

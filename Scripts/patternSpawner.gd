@@ -32,9 +32,9 @@ func _on_wave_timer_timeout() -> void:
 	if targetDifficulty > currentDifficulty:
 		currentDifficulty += 1
 		totalWaves = 1
-		waveTimer.wait_time = 3.0 - (0.1 * currentDifficulty)
+		waveTimer.wait_time = 3.0 - (0.08 * currentDifficulty)
 	var currentList = patternsByDifficulty[currentDifficulty]
 	var currentWave = currentList[randi_range(0, currentList.size() - 1)].instantiate()
 	currentWave.totalWaves = totalWaves
 	add_child(currentWave)
-	waveTimer.wait_time *= 0.99
+	waveTimer.wait_time *= 0.995

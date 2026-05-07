@@ -14,6 +14,7 @@ collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_c8pa3")
 myShader = ExtResource("2_cwrbt")
+shrapnelCount = 6
 shrapnelType = ExtResource("3_kj2ch")
 speed = 300.0
 isParryable = true

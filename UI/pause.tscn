@@ -57,7 +57,6 @@ focus_previous = NodePath("../Main Menu")
 text = "Quit"
 
 [node name="Timer" type="Timer" parent="." unique_id=1143881701]
-wait_time = 2.5
 one_shot = true
 
 [connection signal="pressed" from="VBoxContainer/Resume" to="." method="_on_resume_pressed"]

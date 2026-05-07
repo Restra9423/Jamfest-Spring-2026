@@ -17,6 +17,15 @@ func _ready() -> void:
 		for i in range(1, bulletGroup.size()):
 			orbitAngles[bulletGroup[i]] = angleStep * (i - 1)
 			bulletGroup[i].timeToStart = false
+			if "shrapnelCount" in bulletGroup[i]:
+				bulletGroup[i].destroyTimer.paused = true
+				# connect screen_exited to free bomb bullet if no longer orbiting
+				var bullet = bulletGroup[i]
+				bullet.get_node("VisibleOnScreenNotifier2D").screen_exited.connect(
+					func():
+						if is_instance_valid(bullet) && bullet.timeToStart:
+							bullet.queue_free()
+				)
 
 func _process(delta: float) -> void:
 	for id in groups:
@@ -32,6 +41,10 @@ func _process(delta: float) -> void:
 			var bullet = bulletGroup[i]
 			if !is_instance_valid(bullet) || bullet.parriedBullet:
 				continue
+			
+			# pause destroy timer for orbiting bomb bullets
+			if "shrapnelCount" in bullet:
+				bullet.destroyTimer.paused = true
 			
 			# increment orbit angle
 			orbitAngles[bullet] += orbitSpeed * delta
@@ -57,11 +70,15 @@ func onChildParried(groupID: int, childPos: Vector2) -> void:
 			# re-enable movement
 			bullet.timeToStart = true
 			
+			if "shrapnelCount" in bullet:
+				# bomb bullet - unpause destroy timer
+				bullet.destroyTimer.paused = false
+			
 			if "target" in bullet:
 				# homing bullet - retarget to player
 				bullet.setTarget(get_tree().get_first_node_in_group("Player"))
 			else:
-				# regular bullet - travel away from lead's last position
+				# other bullets - travel away from lead's last position
 				bullet.moveDir = (bullet.global_position - leadPos).normalized()
 	
 	super.onChildParried(groupID, childPos)

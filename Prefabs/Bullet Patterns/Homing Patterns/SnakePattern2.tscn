@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="2_qwiey"]
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_tgl37"]
 
-[node name="PatternBase" type="Node2D" unique_id=1058599110]
+[node name="SnakePattern2" type="Node2D" unique_id=1058599110]
 script = ExtResource("1_qwiey")
+groupParryValue = 400
 
 [node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("2_tgl37")]
 position = Vector2(-525, -1015)

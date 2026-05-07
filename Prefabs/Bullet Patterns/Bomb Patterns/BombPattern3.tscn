@@ -8,7 +8,7 @@ script = ExtResource("1_cwthg")
 
 [node name="BombBullet" parent="." unique_id=1182213476 instance=ExtResource("2_2kesx")]
 position = Vector2(-1200, 1200)
-shrapnelCount = 6
+shrapnelCount = 5
 speed = 400.0
 angle = 315.0
 timeToDestroy = 2.0
@@ -16,7 +16,7 @@ pointValue = 500
 
 [node name="BombBullet2" parent="." unique_id=981431444 instance=ExtResource("2_2kesx")]
 position = Vector2(0, -1600)
-shrapnelCount = 6
+shrapnelCount = 5
 speed = 400.0
 angle = 90.0
 timeToDestroy = 2.8
@@ -24,14 +24,14 @@ pointValue = 500
 
 [node name="BombBullet3" parent="." unique_id=238861350 instance=ExtResource("2_2kesx")]
 position = Vector2(-2000, 0)
-shrapnelCount = 6
+shrapnelCount = 5
 speed = 400.0
 timeToDestroy = 3.5
 pointValue = 500
 
 [node name="BombBullet4" parent="." unique_id=1581371068 instance=ExtResource("2_2kesx")]
 position = Vector2(1800, 1800)
-shrapnelCount = 6
+shrapnelCount = 5
 speed = 400.0
 angle = 225.0
 timeToDestroy = 4.3
@@ -39,7 +39,7 @@ pointValue = 500
 
 [node name="BombBullet5" parent="." unique_id=1497436251 instance=ExtResource("2_2kesx")]
 position = Vector2(2100, -2100)
-shrapnelCount = 6
+shrapnelCount = 5
 speed = 400.0
 angle = 135.0
 timeToDestroy = 5.0
@@ -47,7 +47,7 @@ pointValue = 500
 
 [node name="BombBullet6" parent="." unique_id=745407691 instance=ExtResource("2_2kesx")]
 position = Vector2(0, 3000)
-shrapnelCount = 6
+shrapnelCount = 5
 speed = 400.0
 angle = 270.0
 timeToDestroy = 5.8
@@ -55,7 +55,7 @@ pointValue = 500
 
 [node name="BombBullet7" parent="." unique_id=979420319 instance=ExtResource("2_2kesx")]
 position = Vector2(-2400, -2400)
-shrapnelCount = 6
+shrapnelCount = 5
 speed = 400.0
 angle = 45.0
 timeToDestroy = 6.5
@@ -63,7 +63,7 @@ pointValue = 500
 
 [node name="BombBullet8" parent="." unique_id=2117984338 instance=ExtResource("2_2kesx")]
 position = Vector2(3500, 0)
-shrapnelCount = 6
+shrapnelCount = 5
 speed = 400.0
 angle = 180.0
 timeToDestroy = 7.2
