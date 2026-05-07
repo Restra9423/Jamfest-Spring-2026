@@ -1,29 +1,30 @@
-[gd_scene format=3 uid="uid://bvuhx7q3dom6j"]
+[gd_scene format=3 uid="uid://do2gn53pewmco"]
 
-[ext_resource type="Script" uid="uid://dt8rjh238lxoq" path="res://Scripts/Bullet Scripts/homingBullet.gd" id="1_f108x"]
-[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_f5els"]
-[ext_resource type="PackedScene" uid="uid://coke6x88f0hq" path="res://Prefabs/OffscreenIndicator.tscn" id="2_ju7xq"]
+[ext_resource type="Script" uid="uid://bu8b2kqbek2xt" path="res://Scripts/Bullet Scripts/jellyfishBullet.gd" id="1_pw2g1"]
+[ext_resource type="PackedScene" uid="uid://coke6x88f0hq" path="res://Prefabs/OffscreenIndicator.tscn" id="2_fwdp0"]
+[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_hje7d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
 radius = 27.073973
 
-[node name="HomingBullet" type="Area2D" unique_id=979420319 node_paths=PackedStringArray("mySprite") groups=["bullets"]]
-scale = Vector2(0.75, 0.75)
+[node name="JellyfishBullet" type="Area2D" unique_id=979420319 node_paths=PackedStringArray("mySprite") groups=["bullets"]]
 collision_layer = 4
 collision_mask = 6
-script = ExtResource("1_f108x")
+script = ExtResource("1_pw2g1")
+burstSpeed = 850.0
+driftSpeed = 50.0
+burstDuration = 1.0
+driftDuration = 2.0
+transitionDuration = 0.2
 turnSpeed = 3.0
-offscreenIndicator = ExtResource("2_ju7xq")
-speed = 400.0
-groupID = 1
+offscreenIndicator = ExtResource("2_fwdp0")
 isParryable = true
-pointValue = 50
 mySprite = NodePath("Sprite")
 myShape = 3
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1309506250]
 scale = Vector2(0.4, 0.4)
-sprite_frames = ExtResource("2_f5els")
+sprite_frames = ExtResource("2_hje7d")
 animation = &"triangle"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1696189687]
@@ -31,7 +32,7 @@ position = Vector2(1, -1)
 shape = SubResource("CircleShape2D_62lvt")
 
 [node name="StartTimer" type="Timer" parent="." unique_id=820223275]
-wait_time = 0.05
+wait_time = 0.1
 one_shot = true
 autostart = true
 
@@ -46,4 +47,5 @@ rect = Rect2(-17, -21, 36, 40)
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -1,4 +1,5 @@
 extends Bullet
+class_name BombBullet
 
 @export var myShader : ShaderMaterial
 @export var shrapnelCount : int = 8

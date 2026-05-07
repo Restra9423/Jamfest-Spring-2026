@@ -7,7 +7,7 @@ extends Area2D
 @export var groupID : int
 @export var isLead : bool = false
 @export var isParryable : bool
-@export var timeToDestroy : float
+@export var timeToDestroy : float = 20.0
 @export var pointValue : int = 100
 @export var mySprite : AnimatedSprite2D
 @onready var myHitbox : CollisionShape2D = $Hitbox
@@ -80,11 +80,18 @@ func _on_destroy_timer_timeout() -> void:
 func setParried(parriedDir: Vector2):
 	mySprite.frame = 2
 	destroyTimer.start()
-	speed = (speed * 1.5) + 200
+	speed = (speed * 1.3) + 300
 	moveDir = (-(moveDir) + (parriedDir * 2)).normalized()
 	parriedBullet = true
 	if get_parent().has_method("onChildParried"):
 		get_parent().onChildParried(groupID, global_position)
+
+func onDestroyed() -> void:
+	if get_parent().has_method("onBulletDestroyed"):
+		get_parent().onBulletDestroyed(self)
+	if get_parent().has_method("onChildParried"):
+		get_parent().onChildParried(groupID, global_position)
+	queue_free()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	if (parriedBullet):

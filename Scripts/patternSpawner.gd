@@ -27,7 +27,7 @@ func _on_wave_timer_timeout() -> void:
 	if totalWaves < 1:
 		waveTimer.wait_time = 3.0
 	totalWaves += 1
-	# currentDifficulty = 3
+	currentDifficulty = 3
 	var targetDifficulty = mini(ScoreCounter.currentScore / 20000, 3)
 	if targetDifficulty > currentDifficulty:
 		currentDifficulty += 1

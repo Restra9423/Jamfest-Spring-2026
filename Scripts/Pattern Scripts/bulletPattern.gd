@@ -5,9 +5,9 @@ extends Node2D
 @export var totalWaves : int = 0
 
 var groups : Dictionary = {}
+var groupInvalidated : Dictionary = {}
 
 func _ready() -> void:
-	print(str(totalWaves))
 	for child in get_children():
 		
 		#initialize bullets
@@ -48,8 +48,8 @@ func _ready() -> void:
 func onChildParried(groupID: int, childPos : Vector2) -> void:
 	for child in get_children():
 		if is_instance_valid(child) && "target" in child:
-			if child.target is Bullet && child.target.parriedBullet:
-				child.target = get_tree().get_first_node_in_group("Player")
+			if !is_instance_valid(child.target) || (child.target is Bullet && child.target.parriedBullet):
+				child.setTarget(get_tree().get_first_node_in_group("Player"))
 	for child in get_children():
 		if child is Bullet && child.groupID == groupID && child.parriedBullet:
 			child.reparent.call_deferred(get_parent())
@@ -58,7 +58,17 @@ func onChildParried(groupID: int, childPos : Vector2) -> void:
 			return
 	onAllParried(groupID, childPos)
 
+func onBulletDestroyed(destroyedBullet: Bullet) -> void:
+	for child in get_children():
+		if is_instance_valid(child) && "target" in child:
+			if child.target == destroyedBullet:
+				child.setTarget(get_tree().get_first_node_in_group("Player"))
+	groupInvalidated[destroyedBullet.groupID] = true
+
 func onAllParried(groupID: int, childPos : Vector2) -> void:
+	if groupInvalidated.get(groupID, false):
+		queue_free.call_deferred()
+		return
 	AudioController.playSFX(AudioController.chainSound)
 	ScoreCounter.incrementScore(groupParryValue)
 	ScoreManager.instance.makePointDisplay(childPos + Vector2(0, -100), groupParryValue, "Bonus")

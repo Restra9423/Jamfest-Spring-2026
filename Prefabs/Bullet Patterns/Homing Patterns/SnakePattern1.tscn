@@ -8,51 +8,51 @@ script = ExtResource("1_bfhew")
 groupParryValue = 200
 
 [node name="HomingBullet" parent="." unique_id=979420319 instance=ExtResource("2_14bob")]
-position = Vector2(0, -1200)
+position = Vector2(0, -1360)
 groupID = 1
 pointValue = 50
 
 [node name="HomingBullet2" parent="." unique_id=1646522236 instance=ExtResource("2_14bob")]
-position = Vector2(0, -1350)
+position = Vector2(0, -1510)
 groupID = 1
 pointValue = 50
 
 [node name="HomingBullet3" parent="." unique_id=196391501 instance=ExtResource("2_14bob")]
-position = Vector2(0, -1500)
+position = Vector2(0, -1660)
 groupID = 1
 pointValue = 50
 
 [node name="HomingBullet4" parent="." unique_id=755376441 instance=ExtResource("2_14bob")]
-position = Vector2(0, -1650)
+position = Vector2(0, -1810)
 groupID = 1
 pointValue = 50
 
 [node name="HomingBullet5" parent="." unique_id=1925174447 instance=ExtResource("2_14bob")]
-position = Vector2(0, -1800)
+position = Vector2(0, -1960)
 groupID = 1
 pointValue = 50
 
 [node name="HomingBullet6" parent="." unique_id=664090823 instance=ExtResource("2_14bob")]
-position = Vector2(0, 1200)
+position = Vector2(0, 1360)
 groupID = 2
 pointValue = 50
 
 [node name="HomingBullet7" parent="." unique_id=242888841 instance=ExtResource("2_14bob")]
-position = Vector2(0, 1350)
+position = Vector2(0, 1510)
 groupID = 2
 pointValue = 50
 
 [node name="HomingBullet8" parent="." unique_id=307040710 instance=ExtResource("2_14bob")]
-position = Vector2(0, 1500)
+position = Vector2(0, 1660)
 groupID = 2
 pointValue = 50
 
 [node name="HomingBullet9" parent="." unique_id=562238031 instance=ExtResource("2_14bob")]
-position = Vector2(0, 1650)
+position = Vector2(0, 1810)
 groupID = 2
 pointValue = 50
 
 [node name="HomingBullet10" parent="." unique_id=509526378 instance=ExtResource("2_14bob")]
-position = Vector2(0, 1800)
+position = Vector2(0, 1960)
 groupID = 2
 pointValue = 50

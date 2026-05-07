@@ -14,7 +14,7 @@
 [node name="WorldScene" type="Node2D" unique_id=1086633574]
 script = ExtResource("1_fcaoe")
 
-[node name="Camera2D" type="Camera2D" parent="." unique_id=583817535]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=583817535 groups=["Camera"]]
 
 [node name="Player" parent="." unique_id=696695548 node_paths=PackedStringArray("health3", "health2", "health1", "scoreManager") instance=ExtResource("1_8oma2")]
 slide_on_ceiling = false

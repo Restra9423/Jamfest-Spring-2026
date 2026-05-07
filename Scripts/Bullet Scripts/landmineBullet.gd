@@ -1,4 +1,5 @@
 extends Bullet
+class_name LandmineBullet
 
 @export var myShader : ShaderMaterial
 

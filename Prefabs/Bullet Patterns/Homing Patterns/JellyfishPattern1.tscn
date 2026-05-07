@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://fsnnnonr645k"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_mgtqx"]
+[ext_resource type="PackedScene" uid="uid://do2gn53pewmco" path="res://Prefabs/Bullets/JellyfishBullet.tscn" id="2_mgtqx"]
+
+[node name="JellyfishPattern1" type="Node2D" unique_id=1058599110]
+script = ExtResource("1_mgtqx")
+groupParryValue = 200
+
+[node name="JellyfishBullet" parent="." unique_id=979420319 instance=ExtResource("2_mgtqx")]
+position = Vector2(-1798, 0)
+turnSpeed = 50.0
+groupID = 1
+isLead = true
+pointValue = 200
+
+[node name="JellyfishBullet2" parent="." unique_id=2142948273 instance=ExtResource("2_mgtqx")]
+position = Vector2(-1898, 0)
+burstDuration = 0.8
+turnSpeed = 50.0
+groupID = 1
+pointValue = 200
+
+[node name="JellyfishBullet3" parent="." unique_id=921362467 instance=ExtResource("2_mgtqx")]
+position = Vector2(-1998, 0)
+burstDuration = 0.8
+turnSpeed = 50.0
+groupID = 1
+pointValue = 200

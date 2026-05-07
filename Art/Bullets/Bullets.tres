@@ -9,8 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://p6etnjv3s6pu" path="res://Art/Bullets/RedStarBullet.png" id="5_xk5jr"]
 [ext_resource type="Texture2D" uid="uid://cu8nnii2tngqe" path="res://Art/Bullets/YellowStarBullet.png" id="6_gqhj7"]
 [ext_resource type="Texture2D" uid="uid://brykfosk478xl" path="res://Art/Bullets/YellowDeltaBullet.png" id="6_h0l7l"]
+[ext_resource type="Texture2D" uid="uid://bwo6llr5ierqd" path="res://Art/Bullets/LightBlueDeltaBullet.png" id="7_gqhj7"]
 [ext_resource type="Texture2D" uid="uid://dt36hog3o1kjh" path="res://Art/Bullets/BlueTriangleBullet.png" id="7_h0l7l"]
-[ext_resource type="Texture2D" uid="uid://cceifegay3pyi" path="res://Art/Bullets/PurpleRectangleBullet.png" id="7_xk5jr"]
+[ext_resource type="Texture2D" uid="uid://bom045j3d75vv" path="res://Art/Bullets/WhiteRectangleBullet.png" id="7_xk5jr"]
 [ext_resource type="Texture2D" uid="uid://ceedekwndyac0" path="res://Art/Bullets/RedTriangleBullet.png" id="8_eb0ij"]
 [ext_resource type="Texture2D" uid="uid://b6pxg4pykh68u" path="res://Art/Bullets/YellowTriangleBullet.png" id="9_7ao64"]
 
@@ -39,6 +40,12 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("6_h0l7l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_gqhj7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_gqhj7")
 }],
 "loop": false,
 "name": &"delta",

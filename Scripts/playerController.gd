@@ -103,7 +103,7 @@ func _physics_process(_delta: float) -> void:
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("bullets") && !area.parriedBullet:
 		hurt()
-		area.queue_free()
+		area.onDestroyed()
 
 func _on_parry_zone_area_entered(area: Area2D) -> void:
 	if parryLength.time_left > 0 && area.isParryable && !area.parriedBullet:
@@ -136,7 +136,6 @@ func parry(pointValue: int):
 	
 
 func hurt():
-	print("hurt function called")
 	if !iFrames.time_left > 0:
 		iFrames.start()
 		health -= 1

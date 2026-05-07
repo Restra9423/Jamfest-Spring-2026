@@ -54,6 +54,7 @@ bullets=""
 Player=""
 "UI Buttons"=""
 landmines=""
+Camera=""
 
 [input]
 

@@ -46,7 +46,6 @@ func updateCombo():
 func clearCombo(combo : int):
 	if combo > 0:
 		var comboFade = pointDisplays.instantiate()
-		var label = comboFade.get_node("Label")
 		add_child(comboFade)
 		
 		comboFade.global_position = Vector2(comboDisplay.global_position.x + 60, comboDisplay.global_position.y)
@@ -57,7 +56,6 @@ func clearCombo(combo : int):
 
 func makePointDisplay(spawnPos : Vector2, points : int, modifier : String) -> void:
 	var newDisplay = pointDisplays.instantiate()
-	var label = newDisplay.get_node("Label")
 	add_child(newDisplay)
 	
 	newDisplay.global_position = spawnPos

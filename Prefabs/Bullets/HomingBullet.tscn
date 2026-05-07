@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dt8rjh238lxoq" path="res://Scripts/Bullet Scripts/homingBullet.gd" id="1_jfhm8"]
 [ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_fjmd6"]
+[ext_resource type="PackedScene" uid="uid://coke6x88f0hq" path="res://Prefabs/OffscreenIndicator.tscn" id="2_xq20h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
 radius = 27.073973
@@ -11,6 +12,7 @@ collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_jfhm8")
 turnSpeed = 3.0
+offscreenIndicator = ExtResource("2_xq20h")
 speed = 500.0
 isParryable = true
 timeToDestroy = 100.0
@@ -42,4 +44,5 @@ rect = Rect2(-17, -21, 36, 40)
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
 [connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
 [connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
