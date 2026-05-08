@@ -85,7 +85,7 @@ func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
 
 func _on_h_slider_drag_ended(_value_changed: bool) -> void:
-	SettingsManager.setMouseSensitivity(remap(aimSlider.value, 0.0, 10.0, 50.0, 0.0))
+	SettingsManager.setMouseSensitivity(remap(aimSlider.value, 0.0, 10.0, 100.0, 0.0))
 
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioController.musicSliderValue = value
