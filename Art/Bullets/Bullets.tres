@@ -4,21 +4,21 @@
 [ext_resource type="Texture2D" uid="uid://bimlvymmfpn2k" path="res://Art/Bullets/BlueCircleBullet.png" id="1_rfvle"]
 [ext_resource type="Texture2D" uid="uid://bixiqcp6i76r8" path="res://Art/Bullets/RedCircleBullet.png" id="2_8pdw1"]
 [ext_resource type="Texture2D" uid="uid://bvnabkbkf1bn5" path="res://Art/Bullets/OrangeBombBullet.png" id="2_srrph"]
+[ext_resource type="Texture2D" uid="uid://bq0catt3fg3do" path="res://Art/Bullets/YellowCircleBullet.png" id="3_61fnc"]
 [ext_resource type="Texture2D" uid="uid://t7eggivaxkka" path="res://Art/Bullets/GreenBombBullet.png" id="3_aolcf"]
 [ext_resource type="Texture2D" uid="uid://2fbd5fe1r6ee" path="res://Art/Bullets/BlueStarBullet.png" id="4_xj40j"]
 [ext_resource type="Texture2D" uid="uid://cl2cwxkrukrj8" path="res://Art/Bullets/BlueDeltaBullet.png" id="4_xk5jr"]
 [ext_resource type="Texture2D" uid="uid://dx67v6spngggt" path="res://Art/Bullets/RedDeltaBullet.png" id="5_gqhj7"]
 [ext_resource type="Texture2D" uid="uid://p6etnjv3s6pu" path="res://Art/Bullets/RedStarBullet.png" id="5_xk5jr"]
-[ext_resource type="Texture2D" uid="uid://cr644meier01f" path="res://Art/Bullets/GreenCircleBullet.png" id="6_aolcf"]
+[ext_resource type="Texture2D" uid="uid://cu8nnii2tngqe" path="res://Art/Bullets/YellowStarBullet.png" id="6_gqhj7"]
+[ext_resource type="Texture2D" uid="uid://brykfosk478xl" path="res://Art/Bullets/YellowDeltaBullet.png" id="6_h0l7l"]
 [ext_resource type="Texture2D" uid="uid://bwo6llr5ierqd" path="res://Art/Bullets/LightBlueDeltaBullet.png" id="7_gqhj7"]
 [ext_resource type="Texture2D" uid="uid://dt36hog3o1kjh" path="res://Art/Bullets/BlueTriangleBullet.png" id="7_h0l7l"]
 [ext_resource type="Texture2D" uid="uid://bom045j3d75vv" path="res://Art/Bullets/WhiteRectangleBullet.png" id="7_xk5jr"]
 [ext_resource type="Texture2D" uid="uid://ceedekwndyac0" path="res://Art/Bullets/RedTriangleBullet.png" id="8_eb0ij"]
 [ext_resource type="Texture2D" uid="uid://mmej4lqhmwhd" path="res://Art/Bullets/LightRedDeltaBullet.png" id="8_h0l7l"]
-[ext_resource type="Texture2D" uid="uid://dthoopxphlfcc" path="res://Art/Bullets/GreenDeltaBullet.png" id="9_aolcf"]
-[ext_resource type="Texture2D" uid="uid://mr8mraowqu6j" path="res://Art/Bullets/YellowMineBullet.png" id="12_aolcf"]
-[ext_resource type="Texture2D" uid="uid://bcpf4yv0l264h" path="res://Art/Bullets/GreenStarBullet.png" id="16_5oqaa"]
-[ext_resource type="Texture2D" uid="uid://b3ut02pfgc1eu" path="res://Art/Bullets/GreenTriangleBullet.png" id="19_cougb"]
+[ext_resource type="Texture2D" uid="uid://b6pxg4pykh68u" path="res://Art/Bullets/YellowTriangleBullet.png" id="9_7ao64"]
+[ext_resource type="Texture2D" uid="uid://c72y8yu1y6n6q" path="res://Art/Bullets/PinkMineBullet.png" id="12_aolcf"]
 
 [resource]
 animations = [{
@@ -44,7 +44,7 @@ animations = [{
 "texture": ExtResource("2_8pdw1")
 }, {
 "duration": 1.0,
-"texture": ExtResource("6_aolcf")
+"texture": ExtResource("3_61fnc")
 }],
 "loop": false,
 "name": &"circle",
@@ -58,7 +58,7 @@ animations = [{
 "texture": ExtResource("5_gqhj7")
 }, {
 "duration": 1.0,
-"texture": ExtResource("9_aolcf")
+"texture": ExtResource("6_h0l7l")
 }, {
 "duration": 1.0,
 "texture": ExtResource("7_gqhj7")
@@ -100,7 +100,7 @@ animations = [{
 "texture": ExtResource("5_xk5jr")
 }, {
 "duration": 1.0,
-"texture": ExtResource("16_5oqaa")
+"texture": ExtResource("6_gqhj7")
 }],
 "loop": false,
 "name": &"star",
@@ -114,7 +114,7 @@ animations = [{
 "texture": ExtResource("8_eb0ij")
 }, {
 "duration": 1.0,
-"texture": ExtResource("19_cougb")
+"texture": ExtResource("9_7ao64")
 }],
 "loop": true,
 "name": &"triangle",
