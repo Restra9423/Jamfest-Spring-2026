@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c5mguo6modkws"]
 
 [ext_resource type="Script" uid="uid://dbka1n0ktewc0" path="res://Scripts/Bullet Scripts/bombBullet.gd" id="1_bceta"]
-[ext_resource type="Material" uid="uid://bj7xj1rtxvaph" path="res://Art/Shaders/tempLandmineShader.tres" id="2_6c2wn"]
 [ext_resource type="PackedScene" uid="uid://sqn7gpa3dep8" path="res://Prefabs/Bullets/Shrapnel/DefaultShrapnel.tscn" id="3_6c2wn"]
 [ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="3_wbaqw"]
 
@@ -13,19 +12,17 @@ scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_bceta")
-myShader = ExtResource("2_6c2wn")
 shrapnelType = ExtResource("3_6c2wn")
 isParryable = true
 timeToDestroy = 10.0
 pointValue = 400
 mySprite = NodePath("Sprite")
-myShape = 2
+myShape = 5
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=926987284]
-material = ExtResource("2_6c2wn")
 scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("3_wbaqw")
-animation = &"circle"
+animation = &"triangle"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1696189687]
 shape = SubResource("CircleShape2D_62lvt")

@@ -22,7 +22,9 @@ enum BulletShapes{
 	STAR,
 	TRIANGLE,
 	DELTA,
-	RECTANGLE
+	RECTANGLE,
+	BOMB,
+	LANDMINE
 }
 @export var myShape: BulletShapes = BulletShapes.CIRCLE
 
@@ -44,7 +46,11 @@ func initializeSprite(shape: BulletShapes):
 		BulletShapes.DELTA:
 			mySprite.animation="delta"
 		BulletShapes.RECTANGLE:
-			mySprite.animation = "rectangle"
+			mySprite.animation="rectangle"
+		BulletShapes.BOMB:
+			mySprite.animation="bomb"
+		BulletShapes.LANDMINE:
+			mySprite.animation="landmine"
 	match isParryable:
 		true:
 			# Become blue

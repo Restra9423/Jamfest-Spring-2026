@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://cigum3seiiefx"]
 
 [ext_resource type="Script" uid="uid://bhg6k8c3myj2t" path="res://Scripts/Bullet Scripts/landmineBullet.gd" id="1_xjvcb"]
-[ext_resource type="Material" uid="uid://bj7xj1rtxvaph" path="res://Art/Shaders/tempLandmineShader.tres" id="2_7eo3g"]
 [ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="3_2skcc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
@@ -11,17 +10,15 @@ radius = 33.01515
 collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_xjvcb")
-myShader = ExtResource("2_7eo3g")
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 0
 mySprite = NodePath("Sprite")
+myShape = 6
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1309506250]
-material = ExtResource("2_7eo3g")
-scale = Vector2(0.4, 0.4)
+scale = Vector2(0.3, 0.3)
 sprite_frames = ExtResource("3_2skcc")
-animation = &"circle"
+animation = &"landmine"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1696189687]
 shape = SubResource("CircleShape2D_62lvt")

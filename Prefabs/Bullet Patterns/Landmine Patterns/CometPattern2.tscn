@@ -21,12 +21,10 @@ myShape = 1
 position = Vector2(2027, -1898)
 speed = 700.0
 angle = 135.0
-myShape = 1
 
 [node name="LandmineBullet2" parent="." unique_id=1520909286 instance=ExtResource("3_nwk1c")]
 position = Vector2(2071, -1947)
 speed = 700.0
 angle = 135.0
-myShape = 1
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

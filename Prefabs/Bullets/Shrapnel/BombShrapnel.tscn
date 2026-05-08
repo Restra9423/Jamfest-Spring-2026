@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://24b5rja4foyw"]
 
 [ext_resource type="Script" uid="uid://dbka1n0ktewc0" path="res://Scripts/Bullet Scripts/bombBullet.gd" id="1_c8pa3"]
-[ext_resource type="Material" uid="uid://bj7xj1rtxvaph" path="res://Art/Shaders/tempLandmineShader.tres" id="2_cwrbt"]
 [ext_resource type="PackedScene" uid="uid://sqn7gpa3dep8" path="res://Prefabs/Bullets/Shrapnel/DefaultShrapnel.tscn" id="3_kj2ch"]
 [ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="4_nfqe1"]
 
@@ -13,17 +12,15 @@ scale = Vector2(2, 2)
 collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_c8pa3")
-myShader = ExtResource("2_cwrbt")
 shrapnelCount = 6
 shrapnelType = ExtResource("3_kj2ch")
 speed = 300.0
 isParryable = true
 timeToDestroy = 1.0
 mySprite = NodePath("Sprite")
-myShape = 2
+myShape = 5
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=926987284]
-material = ExtResource("2_cwrbt")
 scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("4_nfqe1")
 animation = &"circle"

@@ -1,28 +1,21 @@
 extends Bullet
 class_name BombBullet
 
-@export var myShader : ShaderMaterial
 @export var shrapnelCount : int = 8
 @export var explosionAngle : float = 0.0
 @export var shrapnelType : PackedScene
-
-func _ready() -> void:
-	super._ready()
-	myShader = myShader.duplicate()
-	mySprite.material = myShader
-	setHue(0.1)
 
 func _process(delta):
 	if timeToStart:
 		translate(moveDir * speed * delta)
 		if destroyTimer.time_left < 2.0:
 			if fmod(destroyTimer.time_left, 0.5) < 0.25:
-				setHue(0.1)  # original color
+				if parriedBullet:
+					mySprite.frame = 2
+				else:
+					mySprite.frame = 0
 			else:
-				setHue(0.45)  # orange shift
-
-func setHue(value : float) -> void:
-	myShader.set_shader_parameter("hue_shift", value)
+				mySprite.frame = 1
 
 func _on_destroy_timer_timeout() -> void:
 	timeToStart = false
