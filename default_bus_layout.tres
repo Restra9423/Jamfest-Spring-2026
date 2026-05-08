@@ -1,7 +1,7 @@
 [gd_resource type="AudioBusLayout" format=3 uid="uid://db1upmlraggay"]
 
 [resource]
-bus/1/name = &"BGM"
+bus/1/name = &"Music"
 bus/1/solo = false
 bus/1/mute = false
 bus/1/bypass_fx = false
@@ -13,3 +13,15 @@ bus/2/mute = false
 bus/2/bypass_fx = false
 bus/2/volume_db = 2.5292358
 bus/2/send = &"Master"
+bus/3/name = &"Priority SFX"
+bus/3/solo = false
+bus/3/mute = false
+bus/3/bypass_fx = false
+bus/3/volume_db = 2.5270157
+bus/3/send = &"Master"
+bus/4/name = &"Quiet SFX"
+bus/4/solo = false
+bus/4/mute = false
+bus/4/bypass_fx = false
+bus/4/volume_db = -1.9969778
+bus/4/send = &"Master"

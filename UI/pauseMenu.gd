@@ -14,11 +14,11 @@ func _process(_delta: float) -> void:
 		if !get_tree().paused:
 			get_tree().paused = true
 			visible = true
-			AudioController.playSFX(AudioController.clickSound)
+			AudioController.playSFX(AudioController.pauseSound, true)
+			AudioController.setMusicVolume(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) - 15.0)
 			$VBoxContainer/Resume.grab_focus()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		else:
-			AudioController.playSFX(AudioController.clickSound)
 			get_tree().paused = false
 			visible = false
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
@@ -35,7 +35,8 @@ func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
 
 func _on_resume_pressed() -> void:
-	AudioController.playSFX(AudioController.clickSound)
+	AudioController.playSFX(AudioController.unpauseSound, true)
+	AudioController.setMusicVolume(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) + 15.0)
 	get_tree().paused = false
 	visible = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)

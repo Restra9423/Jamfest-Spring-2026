@@ -4,10 +4,11 @@
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_mrhwr"]
 [ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="3_tbssf"]
 
-[node name="OrbitPattern1" type="Node2D" unique_id=448704251]
+[node name="HomingOrbitPattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_1mqr5")
 orbitSpeed = 3.0
 groupParryValue = 400
+spawnCooldown = 2.5
 
 [node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_mrhwr")]
 position = Vector2(-1183, -1097)

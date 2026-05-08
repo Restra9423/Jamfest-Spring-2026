@@ -4,11 +4,12 @@
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_636bi"]
 [ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="3_636bi"]
 
-[node name="SniperOrbitPattern1" type="Node2D" unique_id=448704251]
+[node name="SniperOrbitPattern2" type="Node2D" unique_id=448704251]
 script = ExtResource("1_y3uja")
 fireRate = 1.0
 orbitSpeed = 3.0
 groupParryValue = 500
+spawnCooldown = 3.0
 
 [node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_636bi")]
 position = Vector2(1200, 400)

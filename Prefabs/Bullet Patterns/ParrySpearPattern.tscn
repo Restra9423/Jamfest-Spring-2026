@@ -6,6 +6,7 @@
 [node name="ParrySpearPattern" type="Node2D" unique_id=448704251]
 script = ExtResource("1_m7t5h")
 groupParryValue = 200
+spawnCooldown = 1.2
 
 [node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("2_lba1i")]
 position = Vector2(2562, -2228)
@@ -13,7 +14,6 @@ speed = 600.0
 angle = 135.0
 groupID = 2
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet5" parent="." unique_id=247807751 instance=ExtResource("2_lba1i")]
@@ -22,7 +22,6 @@ speed = 600.0
 angle = 135.0
 groupID = 2
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet2" parent="." unique_id=658920638 instance=ExtResource("2_lba1i")]
@@ -31,7 +30,6 @@ speed = 600.0
 angle = 135.0
 groupID = 2
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet3" parent="." unique_id=197878993 instance=ExtResource("2_lba1i")]
@@ -40,7 +38,6 @@ speed = 600.0
 angle = 135.0
 groupID = 2
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet4" parent="." unique_id=836309892 instance=ExtResource("2_lba1i")]
@@ -49,7 +46,6 @@ speed = 600.0
 angle = 135.0
 groupID = 2
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet6" parent="." unique_id=227825232 instance=ExtResource("2_lba1i")]
@@ -58,7 +54,6 @@ speed = 600.0
 angle = 135.0
 groupID = 4
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet7" parent="." unique_id=1295017018 instance=ExtResource("2_lba1i")]
@@ -67,7 +62,6 @@ speed = 600.0
 angle = 135.0
 groupID = 4
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet8" parent="." unique_id=94899913 instance=ExtResource("2_lba1i")]
@@ -76,7 +70,6 @@ speed = 600.0
 angle = 135.0
 groupID = 4
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet9" parent="." unique_id=771154789 instance=ExtResource("2_lba1i")]
@@ -85,7 +78,6 @@ speed = 600.0
 angle = 135.0
 groupID = 4
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet10" parent="." unique_id=1821272010 instance=ExtResource("2_lba1i")]
@@ -94,7 +86,6 @@ speed = 600.0
 angle = 135.0
 groupID = 4
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet11" parent="." unique_id=654818697 instance=ExtResource("2_lba1i")]
@@ -103,7 +94,6 @@ speed = 600.0
 angle = 135.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet12" parent="." unique_id=788104572 instance=ExtResource("2_lba1i")]
@@ -112,7 +102,6 @@ speed = 600.0
 angle = 135.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet13" parent="." unique_id=2005115657 instance=ExtResource("2_lba1i")]
@@ -121,7 +110,6 @@ speed = 600.0
 angle = 135.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet14" parent="." unique_id=1070001626 instance=ExtResource("2_lba1i")]
@@ -130,7 +118,6 @@ speed = 600.0
 angle = 135.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet15" parent="." unique_id=2086993274 instance=ExtResource("2_lba1i")]
@@ -139,7 +126,6 @@ speed = 600.0
 angle = 135.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet16" parent="." unique_id=215060738 instance=ExtResource("2_lba1i")]
@@ -148,7 +134,6 @@ speed = 600.0
 angle = 135.0
 groupID = 3
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet17" parent="." unique_id=922788980 instance=ExtResource("2_lba1i")]
@@ -157,7 +142,6 @@ speed = 600.0
 angle = 135.0
 groupID = 3
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet18" parent="." unique_id=1509681582 instance=ExtResource("2_lba1i")]
@@ -166,7 +150,6 @@ speed = 600.0
 angle = 135.0
 groupID = 3
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet19" parent="." unique_id=227713375 instance=ExtResource("2_lba1i")]
@@ -175,7 +158,6 @@ speed = 600.0
 angle = 135.0
 groupID = 3
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [node name="Bullet20" parent="." unique_id=1017899669 instance=ExtResource("2_lba1i")]
@@ -184,7 +166,6 @@ speed = 600.0
 angle = 135.0
 groupID = 3
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_s6xwt"]
 [ext_resource type="PackedScene" uid="uid://cigum3seiiefx" path="res://Prefabs/Bullets/LandmineBullet.tscn" id="3_s6xwt"]
 
-[node name="ParryCirclePattern1" type="Node2D" unique_id=448704251]
+[node name="LandmineWavePattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_lwplj")
+spawnCooldown = 6.0
 
 [node name="Bullet" parent="." unique_id=1610133839 instance=ExtResource("2_s6xwt")]
 position = Vector2(919, 1302)

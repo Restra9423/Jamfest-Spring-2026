@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_ijms8"]
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_v4yo8"]
 
-[node name="ParryCirclePattern1" type="Node2D" unique_id=448704251]
+[node name="MixedCirclePattern2" type="Node2D" unique_id=448704251]
 script = ExtResource("1_ijms8")
 groupParryValue = 300
+spawnCooldown = 0.3
 
 [node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("2_v4yo8")]
 position = Vector2(1500, -2)

@@ -4,8 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="2_brmo4"]
 [ext_resource type="PackedScene" uid="uid://24b5rja4foyw" path="res://Prefabs/Bullets/Shrapnel/BombShrapnel.tscn" id="3_brmo4"]
 
-[node name="PatternBase" type="Node2D" unique_id=448704251]
+[node name="BigBombPattern" type="Node2D" unique_id=448704251]
 script = ExtResource("1_s4yae")
+spawnCooldown = 5.0
 
 [node name="BombBullet" parent="." unique_id=979420319 instance=ExtResource("2_brmo4")]
 position = Vector2(0, -1200)

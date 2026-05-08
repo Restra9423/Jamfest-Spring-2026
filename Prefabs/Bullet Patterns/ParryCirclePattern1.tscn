@@ -5,15 +5,14 @@
 
 [node name="ParryCirclePattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_sfsge")
-patternShape = 2
 groupParryValue = 400
+spawnCooldown = 0.3
 
 [node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("1_3mqx0")]
 position = Vector2(1500, -2)
 angle = 180.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -22,7 +21,6 @@ position = Vector2(1299.0381, -750)
 angle = 150.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -31,7 +29,6 @@ position = Vector2(749.99994, -1299.0382)
 angle = 120.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -40,7 +37,6 @@ position = Vector2(-6.556708e-05, -1500)
 angle = 90.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -50,7 +46,6 @@ scale = Vector2(0.99999994, 0.99999994)
 angle = 60.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -60,7 +55,6 @@ scale = Vector2(0.99999994, 0.99999994)
 angle = 30.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -68,7 +62,6 @@ myShape = 2
 position = Vector2(-1500, 0.00021458855)
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -78,7 +71,6 @@ scale = Vector2(0.99999994, 0.99999994)
 angle = 330.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -88,7 +80,6 @@ scale = Vector2(0.99999994, 0.99999994)
 angle = 300.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -97,7 +88,6 @@ position = Vector2(0.00019670124, 1500)
 angle = 270.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -106,7 +96,6 @@ position = Vector2(750, 1299.0381)
 angle = 240.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2
 
@@ -115,6 +104,5 @@ position = Vector2(1299.0382, 749.99994)
 angle = 210.0
 groupID = 1
 isParryable = true
-timeToDestroy = 20.0
 pointValue = 50
 myShape = 2

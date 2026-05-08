@@ -26,9 +26,11 @@ func setText(points : int, modifier : String):
 		if points < 200:
 			displayText.add_theme_font_size_override("font_size", 25)
 			displayText.modulate = Color.YELLOW_GREEN
+			AudioController.playSFX(AudioController.ricochetSound, false, true)
 		else:
 			displayText.add_theme_font_size_override("font_size", 60)
 			displayText.modulate = Color.SIENNA
+			AudioController.playSFX(AudioController.bigRicochetSound, false, true)
 	if modifier == "Weak Parry":
 		if points < 75:
 			displayText.add_theme_font_size_override("font_size", 25)

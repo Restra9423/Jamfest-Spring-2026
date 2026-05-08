@@ -3,9 +3,10 @@
 [ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_bfhew"]
 [ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="2_14bob"]
 
-[node name="PatternBase" type="Node2D" unique_id=1058599110]
+[node name="SnakePattern1" type="Node2D" unique_id=1058599110]
 script = ExtResource("1_bfhew")
 groupParryValue = 200
+spawnCooldown = 5.0
 
 [node name="HomingBullet" parent="." unique_id=979420319 instance=ExtResource("2_14bob")]
 position = Vector2(0, -1360)

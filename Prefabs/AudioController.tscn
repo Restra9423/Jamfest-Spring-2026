@@ -3,8 +3,41 @@
 [ext_resource type="Script" uid="uid://10hfrbmjbndy" path="res://Scripts/audioController.gd" id="1_bimbq"]
 
 [node name="AudioController" type="Node" unique_id=814091816]
+process_mode = 3
 script = ExtResource("1_bimbq")
 
 [node name="Music" type="AudioStreamPlayer" parent="." unique_id=1081648407]
+bus = &"Music"
+playback_type = 1
 
-[node name="SFX" type="AudioStreamPlayer" parent="." unique_id=738064960]
+[node name="SFX1" type="AudioStreamPlayer" parent="." unique_id=738064960]
+bus = &"SFX"
+playback_type = 1
+
+[node name="SFX2" type="AudioStreamPlayer" parent="." unique_id=1319676001]
+bus = &"SFX"
+playback_type = 1
+
+[node name="SFX3" type="AudioStreamPlayer" parent="." unique_id=1713983958]
+bus = &"SFX"
+playback_type = 1
+
+[node name="SFX4" type="AudioStreamPlayer" parent="." unique_id=691646078]
+bus = &"SFX"
+playback_type = 1
+
+[node name="SFX5" type="AudioStreamPlayer" parent="." unique_id=1629823118]
+bus = &"SFX"
+playback_type = 1
+
+[node name="SFX6" type="AudioStreamPlayer" parent="." unique_id=1914452646]
+bus = &"SFX"
+playback_type = 1
+
+[node name="SFX7" type="AudioStreamPlayer" parent="." unique_id=1213244156]
+bus = &"SFX"
+playback_type = 1
+
+[node name="SFX8" type="AudioStreamPlayer" parent="." unique_id=1943387679]
+bus = &"SFX"
+playback_type = 1

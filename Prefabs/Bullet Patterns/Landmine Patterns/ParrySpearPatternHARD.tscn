@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cnip621aht0tq" path="res://Prefabs/Bullets/Bullet.tscn" id="2_v8148"]
 [ext_resource type="PackedScene" uid="uid://cigum3seiiefx" path="res://Prefabs/Bullets/LandmineBullet.tscn" id="3_v8148"]
 
-[node name="ParrySpearPattern" type="Node2D" unique_id=448704251]
+[node name="ParrySpearPatternHARD" type="Node2D" unique_id=448704251]
 script = ExtResource("1_cmetv")
 groupParryValue = 200
+spawnCooldown = 1.2
 
 [node name="Bullet" parent="." unique_id=1070001626 instance=ExtResource("2_v8148")]
 position = Vector2(1425, -1675)

@@ -8,6 +8,7 @@ script = ExtResource("1_egv2b")
 fireRate = 1.0
 orbitSpeed = 4.0
 groupParryValue = 400
+spawnCooldown = 3.0
 
 [node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_1usfq")]
 position = Vector2(-1183, 0)

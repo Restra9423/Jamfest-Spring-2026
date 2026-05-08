@@ -3,6 +3,7 @@ extends Node2D
 
 @export var groupParryValue : int
 @export var totalWaves : int = 0
+@export var spawnCooldown : float = 0.0
 
 var groups : Dictionary = {}
 var groupInvalidated : Dictionary = {}

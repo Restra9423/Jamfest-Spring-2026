@@ -5,6 +5,7 @@
 
 [node name="PushPattern2" type="Node2D" unique_id=448704251]
 script = ExtResource("1_1mg7v")
+spawnCooldown = 4.0
 
 [node name="PushBullet" parent="." unique_id=1044338232 instance=ExtResource("2_p3cdl")]
 position = Vector2(-695, -1285)

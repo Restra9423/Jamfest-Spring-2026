@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_rtsfb"]
 [ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="2_4fctj"]
 
-[node name="PatternBase" type="Node2D" unique_id=1058599110]
+[node name="HomingPattern2" type="Node2D" unique_id=1058599110]
 script = ExtResource("1_rtsfb")
+spawnCooldown = 3.0
 
 [node name="HomingBullet" parent="." unique_id=979420319 instance=ExtResource("2_4fctj")]
 position = Vector2(-1200, 0)
