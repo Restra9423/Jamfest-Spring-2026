@@ -50,7 +50,7 @@ func setText(points : int, modifier : String):
 		else:
 			displayText.add_theme_font_size_override("font_size", 70)
 			displayText.modulate = Color.CRIMSON
-	displayText.text = str(int(points * (1 + ScoreCounter.combo/10)))
+	displayText.text = str(points)
 	destroyTimer.start()
 
 func comboLost(combo : int) -> void:

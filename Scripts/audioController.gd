@@ -32,44 +32,43 @@ func playMusic(stream: AudioStream):
 func playSFX(stream: AudioStream, priority: bool = false, quiet: bool = false):
 	var player = sfxPlayers.filter(func(p): return !p.playing).front()
 	if player:
-		# don't play if a priority sound is playing
 		for sfxPlayer in sfxPlayers:
+			# don't play if a priority sound is playing
 			if sfxPlayer.bus == &"Priority" && sfxPlayer.playing && priority == false:
 				return
+			
+			# stop all similar sounds
+			if sfxPlayer.stream == stream:
+					sfxPlayer.stop()
+		
+		# prevent likely cases of overlapping sounds
+		if stream == chainSound:
+			for sfxPlayer in sfxPlayers:
+				if sfxPlayer.stream == parryHitSound || sfxPlayer.stream == ricochetSound:
+					sfxPlayer.stop()
+		if stream == deathSound:
+			for sfxPlayer in sfxPlayers:
+				if sfxPlayer.stream == takeDamageSound:
+					sfxPlayer.stop()
 		
 		# play sound
 		if priority:
 			player.bus = &"Priority SFX"
 			player.stream = stream
 			
-			AudioServer.set_bus_mute(2, true)
-			AudioServer.set_bus_mute(4, true)
+			# stop all other sounds
+			for sfxPlayer in sfxPlayers:
+				if sfxPlayer.bus != &"Priority" && sfxPlayer.playing:
+					sfxPlayer.stop()
 			
 			player.play()
-			
-			await player.finished
-			
-			AudioServer.set_bus_mute(2, false)
-			AudioServer.set_bus_mute(4, false)
-			
 		elif quiet:
 			player.bus = &"Quiet SFX"
 			player.stream = stream
-			for sfxPlayer in sfxPlayers:
-				if sfxPlayer.stream == player.stream:
-					sfxPlayer.stop()
 			player.play()
-			
 		else:
 			player.bus = &"SFX"
 			player.stream = stream
-			for sfxPlayer in sfxPlayers:
-				if sfxPlayer.stream == player.stream:
-					sfxPlayer.stop()
-			if stream == chainSound:
-				for sfxPlayer in sfxPlayers:
-					if sfxPlayer.stream == parryHitSound || sfxPlayer.stream == ricochetSound:
-						sfxPlayer.stop()
 			player.play()
 
 func setSFXVolume(db: float):
