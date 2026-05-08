@@ -71,6 +71,9 @@ func _process(delta: float) -> void:
 	elif mouseInput.length() >= SettingsManager.mouseSensitivity:
 		parryDir = mouseInput.normalized()
 	
+	# reset mouseInput after using it
+	mouseInput = Vector2.ZERO
+	
 	#move player
 	var lerpWeight = delta * (acceleration if moveInput else friction)
 	velocity = lerp(velocity, moveInput * speed, lerpWeight)

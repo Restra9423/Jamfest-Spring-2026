@@ -18,7 +18,7 @@ var aimInput = Vector2.ZERO
 func _ready() -> void:
 	AudioController.playMusic(AudioController.gameBGM)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	aimSlider.value = remap(SettingsManager.mouseSensitivity, 50.0, 0.0, 0.0, 10.0)
+	aimSlider.value = remap(SettingsManager.mouseSensitivity, 100.0, 0.0, 0.0, 10.0)
 	musicSlider.value = AudioController.musicSliderValue
 	sfxSlider.value = AudioController.sfxSliderValue
 	
