@@ -82,3 +82,27 @@ func onChildParried(groupID: int, childPos: Vector2) -> void:
 				bullet.moveDir = (bullet.global_position - leadPos).normalized()
 	
 	super.onChildParried(groupID, childPos)
+
+func onBulletDestroyed(destroyedBullet: Bullet) -> void:
+	super.onBulletDestroyed(destroyedBullet)
+	
+	for id in groups:
+		var bulletGroup = groups[id]
+		if bulletGroup.size() > 0 && bulletGroup[0] == destroyedBullet:
+			# lead was destroyed, release all orbiting bullets
+			var leadPos = destroyedBullet.global_position
+			for i in range(1, bulletGroup.size()):
+				var bullet = bulletGroup[i]
+				if !is_instance_valid(bullet) || bullet.parriedBullet:
+					continue
+				
+				bullet.timeToStart = true
+				
+				if "shrapnelCount" in bullet:
+					bullet.destroyTimer.paused = false
+				
+				if "target" in bullet:
+					bullet.setTarget(get_tree().get_first_node_in_group("Player"))
+				else:
+					bullet.moveDir = (bullet.global_position - leadPos).normalized()
+			break

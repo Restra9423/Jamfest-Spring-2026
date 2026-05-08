@@ -96,6 +96,8 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 		if is_instance_valid(indicator):
 			indicator.queue_free()
 			indicator = null
+		if get_parent().has_method("onChildParried") && get_parent() is BulletPattern:
+			get_parent().onChildParried(groupID, global_position)
 		queue_free()
 		return
 	
