@@ -26,13 +26,13 @@ func _ready() -> void:
 		button.mouse_entered.connect(_on_any_button_focused)
 		button.focus_entered.connect(_on_any_button_focused)
 	
-	var musicDB = AudioController.music.volume_db
+	var musicDB = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music"))
 	if musicDB <= -5.0:
 		musicSlider.value = remap(musicDB, -15.0, -5.0, 0.1, 50.0)
 	else:
 		musicSlider.value = remap(musicDB, -5.0, 10.0, 50.0, 100.0)
 
-	var sfxDB = AudioController.sfx.volume_db
+	var sfxDB = AudioServer.get_bus_volume_db(AudioServer.get_bus_index("SFX"))
 	if sfxDB <= 2.5:
 		sfxSlider.value = remap(sfxDB, -15.0, 2.5, 0.1, 50.0)
 	else:
@@ -90,24 +90,24 @@ func _on_h_slider_drag_ended(_value_changed: bool) -> void:
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioController.musicSliderValue = value
 	if value == 0.0:
-		AudioController.setVolume(AudioController.music, -80.0)
+		AudioController.setMusicVolume(-80.0)
 	elif value <= 50.0:
 		var db = remap(value, 0.1, 50.0, -15.0, -5.0)
-		AudioController.setVolume(AudioController.music, db)
+		AudioController.setMusicVolume(db)
 	else:
 		var db = remap(value, 50.0, 100.0, -5.0, 10.0)
-		AudioController.setVolume(AudioController.music, db)
+		AudioController.setMusicVolume(db)
 
 func _on_sfx_slider_value_changed(value: float) -> void:
 	AudioController.sfxSliderValue = value
 	if value == 0.0:
-		AudioController.setVolume(AudioController.sfx, -80.0)
+		AudioController.setSFXVolume(-80.0)
 	elif value <= 50.0:
 		var db = remap(value, 0.1, 50.0, -15.0, 2.5)
-		AudioController.setVolume(AudioController.sfx, db)
+		AudioController.setSFXVolume(db)
 	else:
 		var db = remap(value, 50.0, 100.0, 2.5, 10.0)
-		AudioController.setVolume(AudioController.sfx, db)
+		AudioController.setSFXVolume(db)
 
 
 func _on_exit_pressed() -> void:

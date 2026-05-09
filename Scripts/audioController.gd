@@ -73,6 +73,8 @@ func playSFX(stream: AudioStream, priority: bool = false, quiet: bool = false):
 
 func setSFXVolume(db: float):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), db)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Priority SFX"), db)
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Quiet SFX"), db - 4.5)
 
 func setMusicVolume(db: float):
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), db)
