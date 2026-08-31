@@ -32,9 +32,6 @@ var parried = false
 #input initialization
 @onready var parryPivot : Node2D = $ParryPivot
 @export var parryZone : Area2D
-var mouseInput = Vector2.ZERO
-var rawAimInput = Vector2.ZERO
-var aimInput = Vector2.ZERO
 
 #score
 @export var scoreManager : Panel
@@ -66,15 +63,7 @@ func _process(delta: float) -> void:
 	
 	#get input
 	moveInput = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
-	rawAimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown"))
-	aimInput = rawAimInput.normalized()
-	if aimInput != Vector2.ZERO && rawAimInput.length() > 0.8:
-		parryDir = aimInput
-	elif mouseInput.length() >= SettingsManager.mouseSensitivity:
-		parryDir = mouseInput.normalized()
-	
-	# reset mouseInput after using it
-	mouseInput = Vector2.ZERO
+	parryDir = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
 	
 	#move player
 	var lerpWeight = delta * (acceleration if moveInput else friction)
@@ -83,7 +72,7 @@ func _process(delta: float) -> void:
 	
 	#move parry zone
 	if parryDir != Vector2.ZERO:
-		parryPivot.rotation = lerp(Vector2.ZERO,parryDir,1).angle()
+		parryPivot.rotation = lerp_angle(parryPivot.rotation, lerp(Vector2.ZERO,parryDir,1).angle(), .5)
 	
 	#parry check
 	if Input.is_action_just_pressed("Parry") && parryCooldown.time_left == 0:
@@ -196,10 +185,3 @@ func _on_parry_length_timeout() -> void:
 func _on_parry_cooldown_timeout() -> void:
 	if parryCooldown.wait_time != 1:
 		parryCooldown.wait_time = 1
-
-
-
-#input functions
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		mouseInput = event.get_relative()
