@@ -77,16 +77,17 @@ func _process(delta):
 				indicator = null
 
 func setTarget(newTarget : Node2D):
+	if parriedBullet: return
 	target = newTarget
-	if target.is_in_group("Player"):
-		mySprite.frame = 0 if isParryable else 1
-	else:
-		mySprite.frame = 3 if isParryable else 4
+	if !isOrbiting:
+			if target.is_in_group("Player"):
+				mySprite.frame = 0 if isParryable else 1
+			else:
+				mySprite.frame = 3 if isParryable else 4
 	moveDir = (target.global_position - global_position).normalized()
 	targetSet = true
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
-	print(str(position))
 	if is_instance_valid(indicator):
 		indicator.queue_free()
 		indicator = null

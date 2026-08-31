@@ -15,6 +15,7 @@ extends Area2D
 @onready var startTimer : Timer = $StartTimer
 @onready var moveDir : Vector2
 @onready var parriedBullet : bool = false
+@onready var isOrbiting : bool = false
 @onready var visibleOnScreen : VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
 enum BulletShapes{
@@ -91,6 +92,8 @@ func setParried(parriedDir: Vector2):
 	parriedBullet = true
 	if get_parent().has_method("onChildParried"):
 		get_parent().onChildParried(groupID, global_position)
+	elif has_meta("parentPattern") && is_instance_valid(get_meta("parentPattern")):
+		get_meta("parentPattern").onChildParried(groupID, global_position)
 
 func onDestroyed() -> void:
 	if get_parent().has_method("onBulletDestroyed"):

@@ -14,9 +14,13 @@ func _ready() -> void:
 		var bulletGroup = groups[id]
 		var angleStep = TAU / (bulletGroup.size() - 1)  # -1 to exclude lead bullet
 		bulletGroup[0].isLead = true
+		
 		for i in range(1, bulletGroup.size()):
 			orbitAngles[bulletGroup[i]] = angleStep * (i - 1)
 			bulletGroup[i].timeToStart = false
+			bulletGroup[i].set_meta("parentPattern", self)
+			bulletGroup[i].isOrbiting = true
+			
 			if "shrapnelCount" in bulletGroup[i]:
 				bulletGroup[i].destroyTimer.paused = true
 				# connect screen_exited to free bomb bullet if no longer orbiting
@@ -67,19 +71,13 @@ func onChildParried(groupID: int, childPos: Vector2) -> void:
 			if !is_instance_valid(bullet) || bullet.parriedBullet:
 				continue
 			
-			# re-enable movement
-			bullet.timeToStart = true
-			
-			if "shrapnelCount" in bullet:
-				# bomb bullet - unpause destroy timer
-				bullet.destroyTimer.paused = false
-			
-			if "target" in bullet:
-				# homing bullet - retarget to player
-				bullet.setTarget(get_tree().get_first_node_in_group("Player"))
-			else:
-				# other bullets - travel away from lead's last position
-				bullet.moveDir = (bullet.global_position - leadPos).normalized()
+			releaseBullet(bullet, leadPos)
+	
+	# reparent any already-released orbiting bullets before base class checks
+	for i in range(1, bulletGroup.size()):
+		var bullet = bulletGroup[i]
+		if is_instance_valid(bullet) && !bullet.parriedBullet && bullet.timeToStart:
+			bullet.reparent.call_deferred(get_parent())
 	
 	super.onChildParried(groupID, childPos)
 
@@ -89,20 +87,33 @@ func onBulletDestroyed(destroyedBullet: Bullet) -> void:
 	for id in groups:
 		var bulletGroup = groups[id]
 		if bulletGroup.size() > 0 && bulletGroup[0] == destroyedBullet:
-			# lead was destroyed, release all orbiting bullets
 			var leadPos = destroyedBullet.global_position
 			for i in range(1, bulletGroup.size()):
 				var bullet = bulletGroup[i]
 				if !is_instance_valid(bullet) || bullet.parriedBullet:
 					continue
 				
-				bullet.timeToStart = true
+				releaseBullet(bullet, leadPos)
 				
-				if "shrapnelCount" in bullet:
-					bullet.destroyTimer.paused = false
-				
-				if "target" in bullet:
-					bullet.setTarget(get_tree().get_first_node_in_group("Player"))
-				else:
-					bullet.moveDir = (bullet.global_position - leadPos).normalized()
+				# reparent immediately so they are no longer children of the pattern
+				bullet.reparent.call_deferred(get_parent())
 			break
+
+func onAllParried(groupID: int, childPos: Vector2) -> void:
+	var bulletGroup = groups.get(groupID, [])
+	var leadPos = bulletGroup[0].global_position if is_instance_valid(bulletGroup[0]) else Vector2.ZERO
+	for i in range(1, bulletGroup.size()):
+		var bullet = bulletGroup[i]
+		if is_instance_valid(bullet) && !bullet.parriedBullet:
+			releaseBullet(bullet, leadPos)
+	super.onAllParried(groupID, childPos)
+
+func releaseBullet(bullet: Bullet, leadPos: Vector2) -> void:
+	bullet.isOrbiting = false
+	bullet.timeToStart = true
+	if "shrapnelCount" in bullet:
+		bullet.destroyTimer.paused = false
+	if "target" in bullet:
+		bullet.setTarget(get_tree().get_first_node_in_group("Player"))
+	else:
+		bullet.moveDir = (bullet.global_position - leadPos).normalized()

@@ -54,8 +54,9 @@ func onChildParried(groupID: int, childPos : Vector2) -> void:
 	for child in get_children():
 		if child is Bullet && child.groupID == groupID && child.parriedBullet:
 			child.reparent.call_deferred(get_parent())
-	for child in get_children():
-		if child is Bullet && child.groupID == groupID && !child.parriedBullet:
+	var bulletGroup = groups.get(groupID, [])
+	for bullet in bulletGroup:
+		if is_instance_valid(bullet) && !bullet.parriedBullet:
 			return
 	onAllParried(groupID, childPos)
 
@@ -68,18 +69,21 @@ func onBulletDestroyed(destroyedBullet: Bullet) -> void:
 
 func onAllParried(groupID: int, childPos : Vector2) -> void:
 	if groupInvalidated.get(groupID, false):
-		queue_free.call_deferred()
-		return
-	AudioController.playSFX(AudioController.chainSound)
-	ScoreCounter.incrementScore(groupParryValue)
-	ScoreManager.instance.makePointDisplay(childPos + Vector2(0, -100), groupParryValue, "Bonus")
-	var player = get_tree().get_first_node_in_group("Player")
-	if is_instance_valid(player):
-		player.scoreManager.updateScore()
-	for child in get_children():
-		if child is Bullet:
-			if child.groupID > 0 && !child.parriedBullet:
-					return
+		pass
+	else:
+		AudioController.playSFX(AudioController.chainSound)
+		ScoreCounter.incrementScore(groupParryValue)
+		ScoreManager.instance.makePointDisplay(childPos + Vector2(0, -100), groupParryValue, "Bonus")
+		var player = get_tree().get_first_node_in_group("Player")
+		if is_instance_valid(player):
+			player.scoreManager.updateScore()
+	
+	# check ALL groups before freeing pattern
+	for id in groups:
+		var group = groups[id]
+		for bullet in group:
+			if is_instance_valid(bullet) && !bullet.parriedBullet:
+				return
 	queue_free.call_deferred()
 
 func hasGroupedBullets() -> bool:
