@@ -13,7 +13,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_mp3rd")
 script = ExtResource("1_gusc1")
-scoreDisplay = NodePath("VBoxContainer/ScoreDisplay")
+scoreDisplay = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/ScoreDisplay")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=721731475]
 layout_mode = 0
@@ -42,18 +42,25 @@ offset_bottom = 258.00195
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1098213433]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=2109560861]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1591598943]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1098213433]
 layout_mode = 2
 text = "You Died!
 Score:"
 horizontal_alignment = 1
 
-[node name="ScoreDisplay" type="Label" parent="VBoxContainer" unique_id=1083181179]
+[node name="ScoreDisplay" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1083181179]
 layout_mode = 2
 text = "0"
 horizontal_alignment = 1
 
-[node name="Restart" type="Button" parent="VBoxContainer" unique_id=2039440741 groups=["UI Buttons"]]
+[node name="Restart" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2039440741 groups=["UI Buttons"]]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Main Menu")
@@ -61,7 +68,7 @@ focus_next = NodePath("../Main Menu")
 focus_previous = NodePath("../Quit")
 text = "Restart"
 
-[node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=388200324 groups=["UI Buttons"]]
+[node name="Main Menu" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=388200324 groups=["UI Buttons"]]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Restart")
 focus_neighbor_bottom = NodePath("../Quit")
@@ -69,7 +76,7 @@ focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Restart")
 text = "Main Menu"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1429858335 groups=["UI Buttons"]]
+[node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1429858335 groups=["UI Buttons"]]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Main Menu")
 focus_neighbor_bottom = NodePath("../Restart")
@@ -77,6 +84,14 @@ focus_next = NodePath("../Restart")
 focus_previous = NodePath("../Main Menu")
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/Restart" to="." method="_on_restart_pressed"]
-[connection signal="pressed" from="VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[node name="Tips" type="Label" parent="VBoxContainer" unique_id=1320274945]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 64
+text = "
+Tips go here!"
+horizontal_alignment = 1
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

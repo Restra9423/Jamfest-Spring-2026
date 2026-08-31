@@ -1,13 +1,17 @@
 extends Control
 
 @export var scoreDisplay : Label
-
-var mouseInput = Vector2.ZERO
-var aimInput = Vector2.ZERO
+var tips = [
+	"Getting hit or missing a parry\nboth reset your combo.",
+	"Your combo counter gives\nyou a score multiplier!",
+	"Every 10,000 points\ngives you 1 life back!",
+	"Parrying an entire bullet\nformation gives you bonus points!"
+	]
 
 func _ready() -> void:
-	$VBoxContainer/Restart.grab_focus()
+	$VBoxContainer/HBoxContainer/VBoxContainer/Restart.grab_focus()
 	scoreDisplay.text = str(ScoreCounter.currentScore)
+	%Tips.text = "\n" + tips.pick_random()
 	AudioController.playSFX(AudioController.deathSound)
 	AudioController.playMusic(AudioController.deathBGM)
 	
@@ -44,7 +48,3 @@ func _on_main_menu_pressed() -> void:
 func _on_quit_pressed() -> void:
 	AudioController.playSFX(AudioController.clickSound)
 	get_tree().quit()
-	
-func _unhandled_input(event: InputEvent) -> void:
-	if event is InputEventMouseMotion:
-		mouseInput = event.get_relative()
