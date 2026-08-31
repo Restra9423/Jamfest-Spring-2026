@@ -21,6 +21,8 @@ func _process(_delta: float) -> void:
 		else:
 			get_tree().paused = false
 			visible = false
+			AudioController.playSFX(AudioController.unpauseSound, true)
+			AudioController.setMusicVolume(AudioServer.get_bus_volume_db(AudioServer.get_bus_index("Music")) + 15.0)
 			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 			timer.start()
 #
