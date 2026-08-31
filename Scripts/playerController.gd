@@ -33,6 +33,7 @@ var parried = false
 @onready var parryPivot : Node2D = $ParryPivot
 @export var parryZone : Area2D
 var mouseInput = Vector2.ZERO
+var rawAimInput = Vector2.ZERO
 var aimInput = Vector2.ZERO
 
 #score
@@ -65,8 +66,9 @@ func _process(delta: float) -> void:
 	
 	#get input
 	moveInput = Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
-	aimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown")).normalized()
-	if aimInput != Vector2.ZERO:
+	rawAimInput = Vector2(Input.get_axis("AimLeft", "AimRight"), Input.get_axis("AimUp", "AimDown"))
+	aimInput = rawAimInput.normalized()
+	if aimInput != Vector2.ZERO && rawAimInput.length() > 0.8:
 		parryDir = aimInput
 	elif mouseInput.length() >= SettingsManager.mouseSensitivity:
 		parryDir = mouseInput.normalized()

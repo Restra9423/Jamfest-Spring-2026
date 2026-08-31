@@ -15,7 +15,10 @@ func _process(delta):
 				else:
 					mySprite.frame = 0
 			else:
-				mySprite.frame = 1
+				if parriedBullet:
+					mySprite.frame = 3
+				else:
+					mySprite.frame = 1
 
 func _on_destroy_timer_timeout() -> void:
 	timeToStart = false
