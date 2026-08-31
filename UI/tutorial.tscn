@@ -1,0 +1,175 @@
+[gd_scene format=3 uid="uid://7y08tyd4f7yd"]
+
+[ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_c6il8"]
+[ext_resource type="Script" uid="uid://ddgh6raemyk5r" path="res://UI/tutorial.gd" id="2_7m0sj"]
+[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="3_nsmic"]
+[ext_resource type="Texture2D" uid="uid://nqgc21jyfpj" path="res://Art/SpiritStill.png" id="3_sdy2q"]
+[ext_resource type="Texture2D" uid="uid://cv05qqpjql5dn" path="res://Art/WhiteShield.png" id="4_m8qsh"]
+[ext_resource type="Texture2D" uid="uid://bfc25hpcobgil" path="res://Art/OrangeShield.png" id="5_yfxfi"]
+[ext_resource type="Texture2D" uid="uid://d18gwi35244a7" path="res://Art/PurpleShield.png" id="6_oe8iu"]
+
+[node name="Tutorial" type="Control" unique_id=564746374]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_c6il8")
+script = ExtResource("2_7m0sj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=603949463]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 100.0
+offset_right = 1820.0
+offset_bottom = 600.0
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=273996225]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Tutorial"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=818544369]
+layout_mode = 2
+
+[node name="Introduction" type="Label" parent="VBoxContainer" unique_id=1706826955]
+custom_minimum_size = Vector2(1720, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Welcome to Oops! All Parrys. We've included some helpful information for new players below."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=336112373]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1560443901]
+layout_mode = 2
+
+[node name="Player" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=691785204]
+layout_mode = 2
+
+[node name="PlayerSprite" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Player" unique_id=1167363064]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("3_sdy2q")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Player" unique_id=672008663]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+text = "Player"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=108947379]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Controls:
+- Movement uses WASD
+- Parry Shield is controlled by Arrow Keys
+- Parry with Spacebar"
+
+[node name="ParryShield" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=270881322]
+layout_mode = 2
+
+[node name="ParryShield" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/ParryShield" unique_id=1907318874]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("4_m8qsh")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ParryShieldActive" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/ParryShield" unique_id=201178496]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("5_yfxfi")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="ParryShieldCooldown" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/ParryShield" unique_id=391550860]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+texture = ExtResource("6_oe8iu")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="Label2" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=878821509]
+custom_minimum_size = Vector2(860, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "This is your Parry Shield.
+While parrying, the shield is orange.
+While parry is on cooldown, the shield is purple.
+While parrying, your Parry Shield can deflect blue and purple bullets it touches.
+"
+autowrap_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=968941372]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1740461451]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Score" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=803913416]
+layout_mode = 2
+text = "Score"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer2" unique_id=1232216735]
+custom_minimum_size = Vector2(860, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "You gain points for every bullet you parry.
+
+Parrying additional bullets after the first will give less points.
+
+Parrying every bullet in a group will give bonus points.
+
+You regain 1 health every 10k points, and reach a new level every 20k points.
+
+Every successful parry adds to your combo.
+
+Missing a parry or taking damage will reset your combo.
+
+Get a high combo to score the most points!"
+autowrap_mode = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=659838609]
+custom_minimum_size = Vector2(1720, 0)
+layout_mode = 2
+
+[node name="backButton" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=57105475 groups=["UI Buttons"]]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Back To Title"
+icon_alignment = 1
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer2" unique_id=496911703]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="nextButton" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=808179785 groups=["UI Buttons"]]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Next Page"
+icon_alignment = 1
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=581658310]
+layout_mode = 0
+offset_left = 552.5
+offset_top = 702.0
+offset_right = 592.5
+offset_bottom = 742.0
+alignment = 1
+
+[node name="Background" type="Sprite2D" parent="BoxContainer" unique_id=49087058]
+z_index = -5
+position = Vector2(404.5, 260)
+texture = ExtResource("3_nsmic")
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/nextButton" to="." method="_on_next_button_pressed"]

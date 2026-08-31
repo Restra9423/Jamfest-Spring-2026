@@ -56,12 +56,18 @@ text = "Start"
 [node name="Settings" type="Button" parent="VBoxContainer" unique_id=593332406 groups=["UI Buttons"]]
 layout_mode = 2
 focus_neighbor_top = NodePath("../Start")
-focus_neighbor_bottom = NodePath("../Credits")
+focus_neighbor_bottom = NodePath("../Tutorial")
 text = "Settings"
+
+[node name="Tutorial" type="Button" parent="VBoxContainer" unique_id=605796630 groups=["UI Buttons"]]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../Credits")
+text = "Tutorial"
 
 [node name="Credits" type="Button" parent="VBoxContainer" unique_id=1251620939 groups=["UI Buttons"]]
 layout_mode = 2
-focus_neighbor_top = NodePath("../Settings")
+focus_neighbor_top = NodePath("../Tutorial")
 focus_neighbor_bottom = NodePath("../Quit")
 text = "Credits"
 
@@ -73,5 +79,6 @@ text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
 [connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

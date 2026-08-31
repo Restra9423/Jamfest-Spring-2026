@@ -86,11 +86,13 @@ text = "Quit"
 
 [node name="Tips" type="Label" parent="VBoxContainer" unique_id=1320274945]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(700, 0)
 layout_mode = 2
-theme_override_font_sizes/font_size = 64
-text = "
-Tips go here!"
+theme_override_colors/font_color = Color(1, 0.94509804, 0.4392157, 1)
+theme_override_font_sizes/font_size = 52
+text = "Tips go here!"
 horizontal_alignment = 1
+autowrap_mode = 3
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/Main Menu" to="." method="_on_main_menu_pressed"]

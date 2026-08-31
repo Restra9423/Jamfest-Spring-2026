@@ -2,10 +2,23 @@ extends Control
 
 @export var scoreDisplay : Label
 var tips = [
-	"Getting hit or missing a parry\nboth reset your combo.",
-	"Your combo counter gives\nyou a score multiplier!",
-	"Every 10,000 points\ngives you 1 life back!",
-	"Parrying an entire bullet\nformation gives you bonus points!"
+	"Getting hit or missing a parry both reset your combo.",
+	"Your combo counter gives you a score multiplier!",
+	"Every 10,000 points gives you 1 life back!",
+	"Running into the walls will hurt you!",
+	"Parrying an entire bullet formation gives you bonus points!",
+	"Your parry cooldown is longer after you miss a parry.",
+	"You'll earn fewer points if you parry a bullet late!",
+	"Only blue and purple bullets can be parried by your shield!",
+	"Bullets parried by your shield can ricochet into red bullets, parrying them too!",
+	"Parrying many bullets in a single parry gives less points than parrying them individually.",
+	"New patterns will start appearing for every 20,000 points you earn!",
+	"Getting a high combo is key for earning points!",
+	"Homing Bullets will never lose sight of you, but they can be outmaneuvered.",
+	"Some orbital groups will throw their bullets at you! Look out!",
+	"Tracker Bullets will change their target to you once their target is parried.",
+	"Wall Bullets can't be parried, but they also can't damage you directly.",
+	"Bomb Bullets won't explode if they leave the screen before their timer runs out!"
 	]
 
 func _ready() -> void:
