@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://pfuobjn43cfx"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_u0cwj"]
+[ext_resource type="PackedScene" uid="uid://tbdntti0pomr" path="res://Prefabs/Bullets/BouncyBullet.tscn" id="2_208qj"]
+[ext_resource type="PackedScene" uid="uid://f4bp1sut0g7y" path="res://Prefabs/Bullets/HomingBullet.tscn" id="3_208qj"]
+
+[node name="BouncyPattern2" type="Node2D" unique_id=448704251]
+script = ExtResource("1_u0cwj")
+groupParryValue = 200
+spawnCooldown = 5.0
+
+[node name="BouncyBullet" parent="." unique_id=979420319 instance=ExtResource("2_208qj")]
+position = Vector2(-1000, 530)
+speed = 600.0
+angle = 330.0
+groupID = 1
+
+[node name="HomingBullet" parent="." unique_id=423578304 instance=ExtResource("3_208qj")]
+position = Vector2(-1050, 580)
+speed = 600.0
+groupID = 1
+timeToDestroy = 200.0
+
+[node name="HomingBullet2" parent="." unique_id=1819430706 instance=ExtResource("3_208qj")]
+position = Vector2(-1100, 630)
+speed = 600.0
+groupID = 1
+timeToDestroy = 200.0
+
+[node name="HomingBullet3" parent="." unique_id=4046743 instance=ExtResource("3_208qj")]
+position = Vector2(-1150, 680)
+speed = 600.0
+groupID = 1
+timeToDestroy = 200.0
+
+[node name="HomingBullet4" parent="." unique_id=1108640083 instance=ExtResource("3_208qj")]
+position = Vector2(-1200, 730)
+speed = 600.0
+groupID = 1
+timeToDestroy = 200.0
+
+[node name="BouncyBullet2" parent="." unique_id=489924292 instance=ExtResource("2_208qj")]
+position = Vector2(1000, -530)
+speed = 600.0
+angle = 150.0
+groupID = 2
+
+[node name="HomingBullet5" parent="." unique_id=358887874 instance=ExtResource("3_208qj")]
+position = Vector2(1050, -580)
+speed = 600.0
+groupID = 2
+timeToDestroy = 200.0
+
+[node name="HomingBullet6" parent="." unique_id=1839707549 instance=ExtResource("3_208qj")]
+position = Vector2(1100, -630)
+speed = 600.0
+groupID = 2
+timeToDestroy = 200.0
+
+[node name="HomingBullet7" parent="." unique_id=20022915 instance=ExtResource("3_208qj")]
+position = Vector2(1150, -680)
+speed = 600.0
+groupID = 2
+timeToDestroy = 200.0
+
+[node name="HomingBullet8" parent="." unique_id=1235148328 instance=ExtResource("3_208qj")]
+position = Vector2(1200, -730)
+speed = 600.0
+groupID = 2
+timeToDestroy = 200.0

@@ -32,6 +32,8 @@ func _ready() -> void:
 		indicator.visible = true
 
 func _process(delta):
+	if name == "HomingBullet2":
+		print("my pos: ", global_position, " target name: ", target.name, " target global_pos: ", target.global_position, " target pos: ", target.position)
 	if parriedBullet && is_instance_valid(indicator):
 		indicator.queue_free()
 		indicator = null
@@ -42,7 +44,11 @@ func _process(delta):
 			
 			var effectiveTurnSpeed = turnSpeed
 			if !target.is_in_group("Player"):
-				effectiveTurnSpeed = turnSpeed * clamp(minDistance * 2 / distanceToTarget, 1.0, 5.0)
+				if is_instance_valid(target) && target is BouncyBullet:
+					effectiveTurnSpeed = turnSpeed * 5.0
+				else:
+					effectiveTurnSpeed = turnSpeed * clamp(minDistance * 2 / distanceToTarget, 1.0, 5.0)
+					
 			
 			moveDir = moveDir.rotated(clamp(moveDir.angle_to(targetDir), -effectiveTurnSpeed * delta, effectiveTurnSpeed * delta))
 			
@@ -50,6 +56,9 @@ func _process(delta):
 				var proximityFactor = (distanceToTarget - minDistance) / minDistance
 				proximityFactor = clamp(proximityFactor, 0.05, 1.0)
 				translate(moveDir * speed * proximityFactor * delta)
+			elif !target.is_in_group("Player") && distanceToTarget > minDistance * 3 && shouldCatchup():
+				var catchupFactor = clamp(distanceToTarget / (minDistance * 3), 1.0, 2.0)
+				translate(moveDir * speed * catchupFactor * delta)
 			else:
 				translate(moveDir * speed * delta)
 		else:
@@ -85,6 +94,15 @@ func setTarget(newTarget : Node2D):
 				mySprite.frame = 3 if isParryable else 4
 	moveDir = (target.global_position - global_position).normalized()
 	targetSet = true
+
+func shouldCatchup() -> bool:
+	if target is BouncyBullet:
+		return true
+	if target is HomingBullet:
+		# only catchup if the bullet ahead has already caught up to its target
+		var targetDist = target.global_position.distance_to(target.target.global_position) if is_instance_valid(target.target) else 0.0
+		return targetDist <= minDistance * 3
+	return false
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	isOffscreen = false

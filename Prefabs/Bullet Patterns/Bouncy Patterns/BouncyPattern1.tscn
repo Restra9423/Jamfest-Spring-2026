@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://donwbuaim0jlr"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_rkmf3"]
+[ext_resource type="PackedScene" uid="uid://tbdntti0pomr" path="res://Prefabs/Bullets/BouncyBullet.tscn" id="2_1yhg2"]
+
+[node name="BouncyPattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_rkmf3")
+spawnCooldown = 5.0
+
+[node name="BouncyBullet" parent="." unique_id=979420319 instance=ExtResource("2_1yhg2")]
+position = Vector2(-1000, -800)
+angle = 45.0
+
+[node name="BouncyBullet3" parent="." unique_id=1839865891 instance=ExtResource("2_1yhg2")]
+position = Vector2(2500, -2400)
+angle = 135.0
+
+[node name="BouncyBullet5" parent="." unique_id=1786027134 instance=ExtResource("2_1yhg2")]
+position = Vector2(150, 4500)
+angle = 270.0
