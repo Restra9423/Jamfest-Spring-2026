@@ -18,7 +18,6 @@ func _ready() -> void:
 		for i in range(1, bulletGroup.size()):
 			orbitAngles[bulletGroup[i]] = angleStep * (i - 1)
 			bulletGroup[i].timeToStart = false
-			bulletGroup[i].set_meta("parentPattern", self)
 			bulletGroup[i].isOrbiting = true
 			
 			if "shrapnelCount" in bulletGroup[i]:
@@ -46,18 +45,17 @@ func _process(delta: float) -> void:
 			if !is_instance_valid(bullet) || bullet.parriedBullet:
 				continue
 			
-			# pause destroy timer for orbiting bomb bullets
+			# skip bullets not registered in orbitAngles (e.g. shrapnel)
+			if bullet not in orbitAngles:
+				continue
+			
+			#pause timers for orbiting bomb bullets
 			if "shrapnelCount" in bullet:
 				bullet.destroyTimer.paused = true
 			
-			# increment orbit angle
 			orbitAngles[bullet] += orbitSpeed * delta
-			
-			# position bullet around lead
 			var offset = Vector2.RIGHT.rotated(orbitAngles[bullet]) * orbitRadius
 			bullet.global_position = lead.global_position + offset
-			
-			# update bullet's moveDir to match its orbit direction
 			bullet.moveDir = Vector2.RIGHT.rotated(orbitAngles[bullet] + PI / 2)
 
 func onChildParried(groupID: int, childPos: Vector2) -> void:

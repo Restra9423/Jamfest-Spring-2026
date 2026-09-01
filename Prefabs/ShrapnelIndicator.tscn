@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://ctkr0fcull1p1"]
+
+[ext_resource type="Texture2D" uid="uid://c57uapl7s5kkp" path="res://Art/ShrapnelIndicator.png" id="1_et6gf"]
+
+[node name="ShrapnelIndicator" type="Node2D" unique_id=485596288]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1443322661]
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_et6gf")

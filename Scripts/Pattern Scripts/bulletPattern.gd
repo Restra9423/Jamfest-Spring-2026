@@ -39,6 +39,7 @@ func _ready() -> void:
 					else:
 						child.setTarget(get_tree().get_first_node_in_group("Player"))
 				groups[id].append(child)
+				child.set_meta("parentPattern", self)
 		else:
 			child.reparent.call_deferred(get_parent())
 	

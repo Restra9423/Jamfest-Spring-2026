@@ -45,7 +45,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1584414685]
 layout_mode = 2
-text = "Oops! All Parrys"
+text = "Oops! All Parries"
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=1343386419 groups=["UI Buttons"]]
 layout_mode = 2

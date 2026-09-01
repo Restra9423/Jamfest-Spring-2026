@@ -77,6 +77,7 @@ func _on_start_timer_timeout() -> void:
 	timeToStart = true
 
 func _on_destroy_timer_timeout() -> void:
+	print("destroy timer timeout: ", name, " groupID: ", groupID, " parriedBullet: ", parriedBullet)
 	timeToStart = false
 	myHitbox.set_deferred("disabled", true)
 	var tween = create_tween()

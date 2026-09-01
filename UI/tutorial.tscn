@@ -38,7 +38,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(1720, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 60
-text = "Welcome to Oops! All Parrys. We've included some helpful information for new players below."
+text = "Welcome to Oops! All Parries. We've included some helpful information for new players below."
 horizontal_alignment = 1
 autowrap_mode = 3
 

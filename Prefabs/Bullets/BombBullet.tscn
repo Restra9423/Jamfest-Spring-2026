@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dbka1n0ktewc0" path="res://Scripts/Bullet Scripts/bombBullet.gd" id="1_bceta"]
 [ext_resource type="PackedScene" uid="uid://sqn7gpa3dep8" path="res://Prefabs/Bullets/Shrapnel/DefaultShrapnel.tscn" id="3_6c2wn"]
+[ext_resource type="PackedScene" uid="uid://ctkr0fcull1p1" path="res://Prefabs/ShrapnelIndicator.tscn" id="3_o5wlq"]
 [ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="3_wbaqw"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
@@ -13,6 +14,7 @@ collision_layer = 4
 collision_mask = 6
 script = ExtResource("1_bceta")
 shrapnelType = ExtResource("3_6c2wn")
+shrapnelIndicator = ExtResource("3_o5wlq")
 isParryable = true
 timeToDestroy = 10.0
 pointValue = 400

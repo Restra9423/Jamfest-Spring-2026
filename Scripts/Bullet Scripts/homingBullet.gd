@@ -10,17 +10,23 @@ var target : Node2D
 var targetSet : bool = false
 var indicator : Node2D = null
 var margin : float = 90.0
+var isOffscreen : bool = false
 
 
 func _ready() -> void:
 	super._ready()
 	await get_parent().ready
+	await get_tree().process_frame
 	
-	if !screenNotifier.is_on_screen() && is_instance_valid(target) && target.is_in_group("Player") && _isWithinIndicatorRange():
+	if parriedBullet || !is_instance_valid(target) || !target.is_in_group("Player"):
+		return
+	
+	isOffscreen = !screenNotifier.is_on_screen()
+	
+	if isOffscreen && _isWithinIndicatorRange():
 		indicator = offscreenIndicator.instantiate()
 		indicator.visible = false
 		get_tree().root.get_node("WorldScene").add_child.call_deferred(indicator)
-		
 		await indicator.tree_entered
 		_updateIndicator()
 		indicator.visible = true
@@ -61,20 +67,13 @@ func _process(delta):
 				indicator = null
 		
 		# spawn indicator when bullet enters range while offscreen
-		if !screenNotifier.is_on_screen() && is_instance_valid(target) && target.is_in_group("Player") && !parriedBullet:
+		if isOffscreen && is_instance_valid(target) && target.is_in_group("Player") && !parriedBullet:
 			if _isWithinIndicatorRange() && !is_instance_valid(indicator):
 				indicator = offscreenIndicator.instantiate()
 				indicator.visible = false
 				get_tree().root.get_node("WorldScene").add_child(indicator)
 				_updateIndicator()
 				indicator.visible = true
-		
-		if is_instance_valid(indicator) && is_instance_valid(target) && target.is_in_group("Player"):
-			if _isWithinIndicatorRange():
-				_updateIndicator()
-			else:
-				indicator.queue_free()
-				indicator = null
 
 func setTarget(newTarget : Node2D):
 	if parriedBullet: return
@@ -88,11 +87,13 @@ func setTarget(newTarget : Node2D):
 	targetSet = true
 
 func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
+	isOffscreen = false
 	if is_instance_valid(indicator):
 		indicator.queue_free()
 		indicator = null
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
+	isOffscreen = true
 	if parriedBullet:
 		if is_instance_valid(indicator):
 			indicator.queue_free()
