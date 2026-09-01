@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bn0p2pll7u2qa"]
+
+[ext_resource type="Script" uid="uid://hj8v4jdh4olm" path="res://Scripts/Pattern Scripts/bulletPattern.gd" id="1_nq21t"]
+[ext_resource type="PackedScene" uid="uid://c5mguo6modkws" path="res://Prefabs/Bullets/BombBullet.tscn" id="2_ilsbi"]
+[ext_resource type="PackedScene" uid="uid://tbdntti0pomr" path="res://Prefabs/Bullets/BouncyBullet.tscn" id="2_rv0lq"]
+[ext_resource type="PackedScene" uid="uid://n6ixdilntmij" path="res://Prefabs/Bullets/Shrapnel/BouncyShrapnel.tscn" id="3_mdt16"]
+
+[node name="BouncyPattern1" type="Node2D" unique_id=448704251]
+script = ExtResource("1_nq21t")
+groupParryValue = 200
+spawnCooldown = 5.0
+
+[node name="BombBullet" parent="." unique_id=979420319 instance=ExtResource("2_ilsbi")]
+position = Vector2(-1000, -1000)
+shrapnelCount = 6
+shrapnelType = ExtResource("3_mdt16")
+speed = 400.0
+angle = 45.0
+groupID = 1
+timeToDestroy = 5.0
+
+[node name="BouncyBullet" parent="." unique_id=1313254299 instance=ExtResource("2_rv0lq")]
+position = Vector2(-1100, -950)
+speed = 400.0
+angle = 45.0
+groupID = 1
+
+[node name="BouncyBullet2" parent="." unique_id=1095904362 instance=ExtResource("2_rv0lq")]
+position = Vector2(-950, -1100)
+speed = 400.0
+angle = 45.0
+groupID = 1

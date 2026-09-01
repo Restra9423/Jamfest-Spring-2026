@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://n6ixdilntmij"]
+
+[ext_resource type="Script" uid="uid://df0ux8j7cw6cb" path="res://Scripts/Bullet Scripts/bouncyBullet.gd" id="1_fn306"]
+[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_n4squ"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62lvt"]
+radius = 33.01515
+
+[node name="BouncyBullet" type="Area2D" unique_id=979420319 node_paths=PackedStringArray("mySprite") groups=["bullets"]]
+scale = Vector2(0.75, 0.75)
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_fn306")
+speed = 400.0
+isParryable = true
+timeToDestroy = 200.0
+pointValue = 200
+mySprite = NodePath("Sprite")
+myShape = 5
+
+[node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1309506250]
+scale = Vector2(0.4, 0.4)
+sprite_frames = ExtResource("2_n4squ")
+animation = &"bomb"
+frame = 3
+
+[node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1696189687]
+shape = SubResource("CircleShape2D_62lvt")
+
+[node name="StartTimer" type="Timer" parent="." unique_id=820223275]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[node name="DestroyTimer" type="Timer" parent="." unique_id=1871037056]
+wait_time = 20.0
+one_shot = true
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2141841784]
+rect = Rect2(-17, -21, 36, 40)
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="StartTimer" to="." method="_on_start_timer_timeout"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_destroy_timer_timeout"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
