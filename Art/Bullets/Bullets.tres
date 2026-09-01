@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://t7eggivaxkka" path="res://Art/Bullets/GreenBombBullet.png" id="4_5oqaa"]
 [ext_resource type="Texture2D" uid="uid://2fbd5fe1r6ee" path="res://Art/Bullets/BlueStarBullet.png" id="4_xj40j"]
 [ext_resource type="Texture2D" uid="uid://cl2cwxkrukrj8" path="res://Art/Bullets/BlueDeltaBullet.png" id="4_xk5jr"]
+[ext_resource type="Texture2D" uid="uid://cr644meier01f" path="res://Art/Bullets/GreenCircleBullet.png" id="5_cougb"]
 [ext_resource type="Texture2D" uid="uid://dx67v6spngggt" path="res://Art/Bullets/RedDeltaBullet.png" id="5_gqhj7"]
 [ext_resource type="Texture2D" uid="uid://p6etnjv3s6pu" path="res://Art/Bullets/RedStarBullet.png" id="5_xk5jr"]
 [ext_resource type="Texture2D" uid="uid://cu8nnii2tngqe" path="res://Art/Bullets/YellowStarBullet.png" id="6_gqhj7"]
@@ -38,6 +39,20 @@ animations = [{
 }],
 "loop": true,
 "name": &"bomb",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_cougb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_8pdw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_61fnc")
+}],
+"loop": true,
+"name": &"bouncy",
 "speed": 5.0
 }, {
 "frames": [{

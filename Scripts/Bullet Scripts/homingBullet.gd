@@ -55,16 +55,16 @@ func _process(delta):
 			if !target.is_in_group("Player") && distanceToTarget < minDistance * 2:
 				var proximityFactor = (distanceToTarget - minDistance) / minDistance
 				proximityFactor = clamp(proximityFactor, 0.05, 1.0)
-				translate(moveDir * speed * proximityFactor * delta)
+				global_translate(moveDir * speed * proximityFactor * delta)
 			elif !target.is_in_group("Player") && distanceToTarget > minDistance * 3 && shouldCatchup():
 				var catchupFactor = clamp(distanceToTarget / (minDistance * 3), 1.0, 2.0)
-				translate(moveDir * speed * catchupFactor * delta)
+				global_translate(moveDir * speed * catchupFactor * delta)
 			else:
-				translate(moveDir * speed * delta)
+				global_translate(moveDir * speed * delta)
 		else:
 			if !is_instance_valid(target):
 				setTarget(get_tree().get_first_node_in_group("Player"))
-			translate(moveDir * speed * delta)
+			global_translate(moveDir * speed * delta)
 		
 		mySprite.rotation = (moveDir.angle() + 1.5)
 		

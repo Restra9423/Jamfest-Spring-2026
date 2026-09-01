@@ -15,13 +15,12 @@ isParryable = true
 timeToDestroy = 200.0
 pointValue = 200
 mySprite = NodePath("Sprite")
-myShape = 5
+myShape = 7
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=1309506250]
 scale = Vector2(0.4, 0.4)
 sprite_frames = ExtResource("2_q24gm")
-animation = &"bomb"
-frame = 3
+animation = &"bouncy"
 
 [node name="Hitbox" type="CollisionShape2D" parent="." unique_id=1696189687]
 shape = SubResource("CircleShape2D_62lvt")

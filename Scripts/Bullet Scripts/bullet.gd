@@ -25,7 +25,8 @@ enum BulletShapes{
 	DELTA,
 	RECTANGLE,
 	BOMB,
-	LANDMINE
+	LANDMINE,
+	BOUNCY
 }
 @export var myShape: BulletShapes = BulletShapes.CIRCLE
 
@@ -52,6 +53,8 @@ func initializeSprite(shape: BulletShapes):
 			mySprite.animation="bomb"
 		BulletShapes.LANDMINE:
 			mySprite.animation="landmine"
+		BulletShapes.BOUNCY:
+			mySprite.animation="bouncy"
 	match isParryable:
 		true:
 			# Become blue
@@ -62,7 +65,7 @@ func initializeSprite(shape: BulletShapes):
 
 func _process(delta):
 	if timeToStart:
-		translate(moveDir * speed * delta)
+		global_translate(moveDir * speed * delta)
 
 func _physics_process(_delta: float) -> void:
 	for area in get_overlapping_areas():

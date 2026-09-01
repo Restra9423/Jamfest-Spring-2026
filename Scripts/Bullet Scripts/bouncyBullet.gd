@@ -8,30 +8,6 @@ var hasEnteredScreen : bool = false
 var enterTimer : float = 0.0
 var enterDelay : float
 
-func initializeSprite(shape: BulletShapes):
-	match shape:
-		BulletShapes.CIRCLE:
-			mySprite.animation="circle"
-		BulletShapes.STAR:
-			mySprite.animation="star"
-		BulletShapes.TRIANGLE:
-			mySprite.animation="triangle"
-		BulletShapes.DELTA:
-			mySprite.animation="delta"
-		BulletShapes.RECTANGLE:
-			mySprite.animation="rectangle"
-		BulletShapes.BOMB:
-			mySprite.animation="bomb"
-		BulletShapes.LANDMINE:
-			mySprite.animation="landmine"
-	match isParryable:
-		true:
-			# Become green
-			mySprite.frame = 3
-		false:
-			# Become red
-			mySprite.frame = 1
-
 func _ready() -> void:
 	super._ready()
 	var bulletWidth = mySprite.sprite_frames.get_frame_texture(mySprite.animation, 0).get_width()
@@ -45,7 +21,7 @@ func _process(delta: float) -> void:
 			enterTimer += delta
 			if enterTimer >= enterDelay:
 				hasEnteredScreen = true
-		translate(moveDir * speed * delta)
+		global_translate(moveDir * speed * delta)
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)

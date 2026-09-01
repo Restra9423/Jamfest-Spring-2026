@@ -2,7 +2,7 @@ extends Bullet
 
 func _process (delta):
 	if (timeToStart):
-		translate(moveDir * speed * delta)
+		global_translate(moveDir * speed * delta)
 		rotation = moveDir.angle()
 		for body in get_overlapping_bodies():
 			if body.is_in_group("Player"):
