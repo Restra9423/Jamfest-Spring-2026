@@ -70,7 +70,8 @@ theme_override_font_sizes/font_size = 40
 text = "Controls:
 - Movement uses WASD
 - Parry Shield is controlled by Arrow Keys
-- Parry with Spacebar"
+- Parry with Spacebar
+- Controller uses Joysticks and Right Trigger"
 
 [node name="ParryShield" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=270881322]
 layout_mode = 2
