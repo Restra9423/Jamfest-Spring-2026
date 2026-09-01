@@ -32,7 +32,7 @@ func _on_wave_timer_timeout() -> void:
 	
 	# increase wave count
 	totalWaves += 1
-	currentDifficulty = 4
+	# currentDifficulty = 3
 	
 	# increase difficulty when threshold is met
 	var targetDifficulty = mini(ScoreCounter.currentScore / 20000, 3)

@@ -33,12 +33,6 @@ speed = 600.0
 groupID = 1
 timeToDestroy = 200.0
 
-[node name="HomingBullet4" parent="." unique_id=1108640083 instance=ExtResource("3_208qj")]
-position = Vector2(-1200, 730)
-speed = 600.0
-groupID = 1
-timeToDestroy = 200.0
-
 [node name="BouncyBullet2" parent="." unique_id=489924292 instance=ExtResource("2_208qj")]
 position = Vector2(1000, -530)
 speed = 600.0
@@ -59,12 +53,6 @@ timeToDestroy = 200.0
 
 [node name="HomingBullet7" parent="." unique_id=20022915 instance=ExtResource("3_208qj")]
 position = Vector2(1150, -680)
-speed = 600.0
-groupID = 2
-timeToDestroy = 200.0
-
-[node name="HomingBullet8" parent="." unique_id=1235148328 instance=ExtResource("3_208qj")]
-position = Vector2(1200, -730)
 speed = 600.0
 groupID = 2
 timeToDestroy = 200.0
