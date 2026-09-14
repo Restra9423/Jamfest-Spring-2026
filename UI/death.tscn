@@ -88,7 +88,6 @@ vertical_alignment = 1
 
 [node name="Seed" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1655384072]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.21176471, 1, 0.34117648, 1)
 theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 1

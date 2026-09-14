@@ -86,7 +86,7 @@ func _physics_process(_delta: float) -> void:
 				scoreManager.makePointDisplay(area.global_position, area.pointValue/4, "Weak Parry")
 			else:
 				scoreManager.makePointDisplay(area.global_position, area.pointValue/2, "Weak Parry")
-			parry(area.pointValue/2)
+			parry(area.pointValue/2, true)
 			if area.is_in_group("landmines"):
 				hurt()
 			area.setParried(((parryDir + self.position.direction_to(area.position))/2).normalized())
@@ -112,7 +112,7 @@ func _on_parry_zone_area_entered(area: Area2D) -> void:
 
 
 #custom functions
-func parry(pointValue: int):
+func parry(pointValue: int, weak: bool = false):
 	if parried:
 		@warning_ignore("integer_division")
 		ScoreCounter.incrementScore(pointValue/2)
@@ -122,7 +122,10 @@ func parry(pointValue: int):
 	if parryLength.time_left > 0 && !(parryLength.wait_time - parryLength.time_left < 0.1):
 		parryLength.wait_time = parryLength.time_left + 0.15
 		parryLength.start()
-	AudioController.playSFX(AudioController.parryHitSound)
+	if (weak):
+		AudioController.playSFX(AudioController.weakParryHitSound)
+	else:
+		AudioController.playSFX(AudioController.parryHitSound)
 	scoreManager.updateScore()
 	var parryTween = get_tree().create_tween()
 	parryTween.tween_property(parrySprite, "position:x", 110.0, 0.06).set_trans(Tween.TRANS_BOUNCE)

@@ -7,6 +7,7 @@ class_name BombBullet
 @export var shrapnelIndicator : PackedScene
 var indicators : Array = []
 var indicatorRadius : float = 0.0
+var beepFlipper = ""
 
 func _ready() -> void:
 	super._ready()
@@ -31,6 +32,9 @@ func _process(delta):
 		global_translate(moveDir * speed * delta)
 		if destroyTimer.time_left < 2.0:
 			if destroyTimer.time_left < 0.5:
+				if $VisibleOnScreenNotifier2D.is_on_screen() && beepFlipper != "Last":
+					beepFlipper = "Last"
+					AudioController.playSFX(AudioController.longBombBeepSound, false, true, self)
 				for indicator in indicators:
 					if is_instance_valid(indicator):
 						indicator.visible = true
@@ -45,11 +49,17 @@ func _process(delta):
 					else:
 						mySprite.frame = 1
 			elif fmod(destroyTimer.time_left, 0.5) < 0.25:
+				if $VisibleOnScreenNotifier2D.is_on_screen() && beepFlipper != "Left" && beepFlipper != "Last":
+					beepFlipper = "Left"
 				if parriedBullet:
 					mySprite.frame = 2
 				else:
 					mySprite.frame = 0
 			else:
+				if $VisibleOnScreenNotifier2D.is_on_screen() && beepFlipper != "Right" && beepFlipper != "Last":
+					beepFlipper = "Right"
+					if (!isNearScreenEdge(global_position, 30.0)):
+						AudioController.playSFX(AudioController.shortBombBeepSound, false, true, self)
 				if parriedBullet:
 					mySprite.frame = 3
 				else:
@@ -71,6 +81,8 @@ func setParried(parriedDir: Vector2):
 	mySprite.frame = 2
 	if destroyTimer.time_left < 0.5:
 		destroyTimer.wait_time = 0.5
+		beepFlipper = "Last"
+		AudioController.playSFX(AudioController.longBombBeepSound, false, true, self)
 		destroyTimer.start()
 	speed = (speed * 1.5) + 200
 	moveDir = (-(moveDir) + (parriedDir * 2)).normalized()
@@ -82,20 +94,33 @@ func explode() -> void:
 	if !is_visible_in_tree():
 		queue_free()
 		return
+	
+	AudioController.playSFX(AudioController.bombExplosionSound, false, false, self)
+	
 	var angleStep = 360.0 / shrapnelCount
 	var pattern = get_meta("parentPattern") if has_meta("parentPattern") && is_instance_valid(get_meta("parentPattern")) else null
 	var spawnParent = pattern.get_parent() if pattern else get_parent()
+	
 	for i in shrapnelCount:
 		var shrapnel = shrapnelType.instantiate()
 		spawnParent.add_child(shrapnel)
 		shrapnel.initializeSprite(shrapnel.myShape)
+		
 		if "target" in shrapnel:
 			shrapnel.setTarget(get_tree().get_first_node_in_group("Player"))
+		
 		shrapnel.global_position = global_position
 		shrapnel.angle = explosionAngle + (angleStep * i)
 		shrapnel.moveDir = Vector2.RIGHT.rotated(deg_to_rad(shrapnel.angle))
 		shrapnel.groupID = groupID
+		
 		if pattern && shrapnel.isParryable:
 			shrapnel.set_meta("parentPattern", pattern)
 			pattern.groups[groupID].append(shrapnel)
-		print("shrapnel parent: ", shrapnel.get_parent().name)
+
+func isNearScreenEdge(pos: Vector2, threshold: float) -> bool:
+	var distToEdge = min(
+		960.0 - abs(pos.x),
+		960.0 - abs(pos.y)
+	)
+	return distToEdge <= threshold

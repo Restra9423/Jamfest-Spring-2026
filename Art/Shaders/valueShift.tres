@@ -1,0 +1,7 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://beucle1c6rxup"]
+
+[ext_resource type="Shader" uid="uid://cmbmwj71tcgdj" path="res://Art/Shaders/valueShift.gdshader" id="1_axr5d"]
+
+[resource]
+shader = ExtResource("1_axr5d")
+shader_parameter/value_shift = 0.0

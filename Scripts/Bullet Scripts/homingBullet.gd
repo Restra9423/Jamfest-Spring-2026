@@ -32,8 +32,6 @@ func _ready() -> void:
 		indicator.visible = true
 
 func _process(delta):
-	if name == "HomingBullet2":
-		print("my pos: ", global_position, " target name: ", target.name, " target global_pos: ", target.global_position, " target pos: ", target.position)
 	if parriedBullet && is_instance_valid(indicator):
 		indicator.queue_free()
 		indicator = null

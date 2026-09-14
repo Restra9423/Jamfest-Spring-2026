@@ -2,6 +2,7 @@ extends Node
 
 @onready var musicPlayer : AudioStreamPlayer = $Music
 @onready var sfxPlayers : Array[AudioStreamPlayer] = [$SFX1, $SFX2, $SFX3, $SFX4, $SFX5, $SFX6, $SFX7, $SFX8]
+var activeCallers : Dictionary = {}
 
 var musicSliderValue : float = 50.0
 var sfxSliderValue : float = 50.0
@@ -12,10 +13,14 @@ var gameBGM = preload("res://Sound/Music/BulletHellSong.wav")
 var deathBGM = preload("res://Sound/Music/BulletHellDeathJingle.wav")
 
 var parryHitSound = preload("res://Sound/SFX/ParryPing8Bit_SFX.wav")
+var weakParryHitSound = preload("res://Sound/SFX/ParryPingWeak8Bit_SFX.wav")
 var parryMissSound = preload("res://Sound/SFX/Swing8Bit_SFX.wav")
 var chainSound = preload("res://Sound/SFX/ChainCombo8Bit_SFX.wav")
 var ricochetSound = preload("res://Sound/SFX/Ricochet8Bit_SFX.wav")
 var bigRicochetSound = preload("res://Sound/SFX/RicochetBig8Bit_SFX.wav")
+var shortBombBeepSound = preload("res://Sound/SFX/BombBeepShort8Bit_SFX.wav")
+var longBombBeepSound = preload("res://Sound/SFX/BombBeepLong8Bit_SFX.wav")
+var bombExplosionSound = preload("res://Sound/SFX/BombExplosion8Bit_SFX.wav")
 var takeDamageSound = preload("res://Sound/SFX/TakeDamage8Bit_SFX.wav")
 var healingSound = preload("res://Sound/SFX/HealthGain8Bit_SFX.wav")
 var deathSound = preload("res://Sound/SFX/ExplosionDeath8Bit_SFX.wav")
@@ -29,7 +34,7 @@ func playMusic(stream: AudioStream):
 		musicPlayer.stream = stream
 		musicPlayer.play()
 
-func playSFX(stream: AudioStream, priority: bool = false, quiet: bool = false):
+func playSFX(stream: AudioStream, priority: bool = false, quiet: bool = false, caller = null):
 	var player = sfxPlayers.filter(func(p): return !p.playing).front()
 	if player:
 		for sfxPlayer in sfxPlayers:
@@ -44,7 +49,11 @@ func playSFX(stream: AudioStream, priority: bool = false, quiet: bool = false):
 		# prevent likely cases of overlapping sounds
 		if stream == chainSound:
 			for sfxPlayer in sfxPlayers:
-				if sfxPlayer.stream == parryHitSound || sfxPlayer.stream == ricochetSound:
+				if sfxPlayer.stream == parryHitSound || sfxPlayer.stream == weakParryHitSound || sfxPlayer.stream == ricochetSound:
+					sfxPlayer.stop()
+		if stream == bombExplosionSound:
+			for sfxPlayer in sfxPlayers:
+				if sfxPlayer.stream == longBombBeepSound || sfxPlayer.stream == shortBombBeepSound && activeCallers[player] == activeCallers[sfxPlayer]:
 					sfxPlayer.stop()
 		if stream == deathSound:
 			for sfxPlayer in sfxPlayers:
@@ -55,6 +64,10 @@ func playSFX(stream: AudioStream, priority: bool = false, quiet: bool = false):
 		if priority:
 			player.bus = &"Priority SFX"
 			player.stream = stream
+			if caller != null:
+				activeCallers[player] = caller
+			else:
+				activeCallers[player] = null
 			
 			# stop all other sounds
 			for sfxPlayer in sfxPlayers:
@@ -65,10 +78,18 @@ func playSFX(stream: AudioStream, priority: bool = false, quiet: bool = false):
 		elif quiet:
 			player.bus = &"Quiet SFX"
 			player.stream = stream
+			if caller != null:
+				activeCallers[player] = caller
+			else:
+				activeCallers[player] = null
 			player.play()
 		else:
 			player.bus = &"SFX"
 			player.stream = stream
+			if caller != null:
+				activeCallers[player] = caller
+			else:
+				activeCallers[player] = null
 			player.play()
 
 func setSFXVolume(db: float):
