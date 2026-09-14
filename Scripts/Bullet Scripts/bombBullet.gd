@@ -28,7 +28,7 @@ func _createIndicators() -> void:
 
 func _process(delta):
 	if timeToStart:
-		translate(moveDir * speed * delta)
+		global_translate(moveDir * speed * delta)
 		if destroyTimer.time_left < 2.0:
 			if destroyTimer.time_left < 0.5:
 				for indicator in indicators:
@@ -95,6 +95,7 @@ func explode() -> void:
 		shrapnel.angle = explosionAngle + (angleStep * i)
 		shrapnel.moveDir = Vector2.RIGHT.rotated(deg_to_rad(shrapnel.angle))
 		shrapnel.groupID = groupID
-		if pattern:
+		if pattern && shrapnel.isParryable:
 			shrapnel.set_meta("parentPattern", pattern)
 			pattern.groups[groupID].append(shrapnel)
+		print("shrapnel parent: ", shrapnel.get_parent().name)

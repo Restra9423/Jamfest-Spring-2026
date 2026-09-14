@@ -45,7 +45,7 @@ vertical_alignment = 1
 layout_mode = 1
 offset_right = 203.0
 offset_bottom = 90.0
-text = "SCORE:"
+text = " SCORE:"
 label_settings = SubResource("LabelSettings_0b146")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=321505792]
@@ -61,7 +61,7 @@ grow_vertical = 0
 [node name="combo" type="Label" parent="HBoxContainer" unique_id=1923386355]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "COMBO:"
+text = " COMBO:"
 label_settings = SubResource("LabelSettings_0b146")
 vertical_alignment = 1
 

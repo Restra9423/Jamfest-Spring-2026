@@ -66,15 +66,18 @@ func onChildParried(groupID: int, childPos: Vector2) -> void:
 		var leadPos = bulletGroup[0].global_position
 		for i in range(1, bulletGroup.size()):
 			var bullet = bulletGroup[i]
-			if !is_instance_valid(bullet) || bullet.parriedBullet:
-				continue
+			if is_instance_valid(bullet) && !bullet.parriedBullet && bullet.timeToStart && bullet.get_parent() == self:
+				bullet.reparent.call_deferred(get_parent())
 			
-			releaseBullet(bullet, leadPos)
+			if !bullet.parriedBullet:
+				releaseBullet(bullet, leadPos)
 	
 	# reparent any already-released orbiting bullets before base class checks
 	for i in range(1, bulletGroup.size()):
 		var bullet = bulletGroup[i]
-		if is_instance_valid(bullet) && !bullet.parriedBullet && bullet.timeToStart:
+		if !is_instance_valid(bullet):
+			continue
+		if !bullet.parriedBullet && bullet.timeToStart:
 			bullet.reparent.call_deferred(get_parent())
 	
 	super.onChildParried(groupID, childPos)
@@ -91,9 +94,12 @@ func onBulletDestroyed(destroyedBullet: Bullet) -> void:
 				if !is_instance_valid(bullet) || bullet.parriedBullet:
 					continue
 				
-				releaseBullet(bullet, leadPos)
+				# only affect bullets that are still children of the pattern
+				if bullet.get_parent() != self:
+					continue
 				
-				# reparent immediately so they are no longer children of the pattern
+				if !bullet.parriedBullet:
+					releaseBullet(bullet, leadPos)
 				bullet.reparent.call_deferred(get_parent())
 			break
 
