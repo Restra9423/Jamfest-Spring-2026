@@ -36,6 +36,17 @@ func _physics_process(delta: float) -> void:
 				parriedBullet = true
 			break
 
+func setParried(parriedDir: Vector2):
+	mySprite.frame = 1
+	destroyTimer.start()
+	speed = (speed * 1.3) + 300
+	moveDir = (-(moveDir) + (parriedDir * 2)).normalized()
+	parriedBullet = true
+	if get_parent().has_method("onChildParried"):
+		get_parent().onChildParried(groupID, global_position)
+	elif has_meta("parentPattern") && is_instance_valid(get_meta("parentPattern")):
+		get_meta("parentPattern").onChildParried(groupID, global_position)
+
 func _checkBounce() -> void:
 	var halfWidth = 960.0
 	var halfHeight = 960.0
