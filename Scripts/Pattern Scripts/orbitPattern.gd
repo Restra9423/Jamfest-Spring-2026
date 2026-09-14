@@ -69,7 +69,7 @@ func onChildParried(groupID: int, childPos: Vector2) -> void:
 			if is_instance_valid(bullet) && !bullet.parriedBullet && bullet.timeToStart && bullet.get_parent() == self:
 				bullet.reparent.call_deferred(get_parent())
 			
-			if !bullet.parriedBullet:
+			if is_instance_valid(bullet) && !bullet.parriedBullet:
 				releaseBullet(bullet, leadPos)
 	
 	# reparent any already-released orbiting bullets before base class checks

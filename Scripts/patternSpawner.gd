@@ -3,6 +3,7 @@ extends Node2D
 @onready var waveTimer : Timer = $WaveTimer
 var totalWaves : float = 0.0
 var currentDifficulty : int = 0
+var patternRng : RandomNumberGenerator
 
 # Create difficulty-based arrays of references to each existing bullet pattern
 @export var easyPatterns : Array[PackedScene]
@@ -15,6 +16,10 @@ var patternsByDifficulty : Dictionary = {}
 var cooldownIndices : Dictionary = {}
 
 func _ready() -> void:
+	if (!SeedManager.playerSeedInput): SeedManager.setSeed()
+	patternRng = RandomNumberGenerator.new()
+	patternRng.seed = SeedManager.random.seed
+	
 	waveTimer.wait_time = 0.0
 	patternsByDifficulty = {
 		0: easyPatterns,
@@ -53,7 +58,7 @@ func _on_wave_timer_timeout() -> void:
 		availableIndices = range(currentList.size())
 	
 	# spawn a pattern
-	var chosenIndex = availableIndices[randi_range(0, availableIndices.size() - 1)]
+	var chosenIndex = availableIndices[patternRng.randi_range(0, availableIndices.size() - 1)]
 	var currentWave = currentList[chosenIndex].instantiate()
 	currentWave.totalWaves = totalWaves
 	add_child(currentWave)

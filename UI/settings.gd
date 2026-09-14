@@ -7,10 +7,12 @@ extends Control
 @onready var aimDisplay : Label = %aimDisplay
 @onready var musicDisplay : Label = %musicDisplay
 @onready var sfxDisplay : Label = %sfxDisplay
+@onready var seedInput : LineEdit = $VBoxContainer/HBoxContainer2/seedInput
 
 var input = 0.0
 var timePressed = 0.0
 var carry := 0.0
+var isFiltering : bool = false
 
 var mouseInput = Vector2.ZERO
 var aimInput = Vector2.ZERO
@@ -21,6 +23,9 @@ func _ready() -> void:
 	aimSlider.value = remap(SettingsManager.mouseSensitivity, 100.0, 0.0, 0.0, 10.0)
 	musicSlider.value = AudioController.musicSliderValue
 	sfxSlider.value = AudioController.sfxSliderValue
+	
+	if (SeedManager.playerSeedInput == true):
+		seedInput.text = str(SeedManager.random.seed)
 	
 	for button in get_tree().get_nodes_in_group("UI Buttons"):
 		button.mouse_entered.connect(_on_any_button_focused)
@@ -109,6 +114,24 @@ func _on_sfx_slider_value_changed(value: float) -> void:
 		var db = remap(value, 50.0, 100.0, 2.5, 10.0)
 		AudioController.setSFXVolume(db)
 
+func _on_seed_input_text_changed(new_text: String) -> void:
+	if isFiltering:
+		return
+	var valid = ""
+	for c in new_text:
+		if c.is_valid_int():
+			valid += c
+	if valid != new_text:
+		isFiltering = true
+		seedInput.text = valid
+		seedInput.caret_column = valid.length()
+		isFiltering = false
+
+func _on_seed_input_text_submitted(new_text: String) -> void:
+	if (new_text == ""):
+		SeedManager.setSeed()
+	elif SeedManager.validateSeed(new_text):
+		SeedManager.setSeed(int(new_text))
 
 func _on_exit_pressed() -> void:
 	AudioController.playSFX(AudioController.clickSound)

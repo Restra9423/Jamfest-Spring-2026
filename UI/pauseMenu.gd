@@ -1,6 +1,7 @@
 extends Control
 
 @onready var timer = $Timer
+@onready var seedLabel = $VBoxContainer/Seed
 var mouseInput = Vector2.ZERO
 var aimInput = Vector2.ZERO
 
@@ -8,6 +9,8 @@ func _ready() -> void:
 	for button in get_tree().get_nodes_in_group("UI Buttons"):
 		button.mouse_entered.connect(_on_any_button_focused)
 		button.focus_entered.connect(_on_any_button_focused)
+	
+	seedLabel.text = str(SeedManager.random.seed)
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Back") && timer.time_left == 0:

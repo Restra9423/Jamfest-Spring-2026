@@ -70,7 +70,7 @@ process_mode = 3
 visible = false
 z_index = 2
 
-[node name="VBoxContainer" parent="Pause" index="0" unique_id=706092994]
+[node name="VBoxContainer" parent="Pause" index="1" unique_id=706092994]
 process_mode = 2
 
 [editable path="Pause"]

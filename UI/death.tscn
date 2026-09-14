@@ -4,7 +4,7 @@
 [ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_mp3rd"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="2_7yokq"]
 
-[node name="Death" type="Control" unique_id=1424718591 node_paths=PackedStringArray("scoreDisplay")]
+[node name="Death" type="Control" unique_id=1424718591 node_paths=PackedStringArray("scoreDisplay", "seedDisplay")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +14,7 @@ grow_vertical = 2
 theme = ExtResource("1_mp3rd")
 script = ExtResource("1_gusc1")
 scoreDisplay = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/ScoreDisplay")
+seedDisplay = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Seed")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=721731475]
 layout_mode = 0
@@ -49,19 +50,53 @@ size_flags_horizontal = 4
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer" unique_id=1591598943]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1098213433]
+[node name="You Died!" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1098213433]
 layout_mode = 2
-text = "You Died!
-Score:"
+theme_override_font_sizes/font_size = 120
+text = "You Died!"
 horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=487264103]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ScoreHeader" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1300834397]
+layout_mode = 2
+theme_override_font_sizes/font_size = 72
+text = "Score:"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ScoreDisplay" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1083181179]
 layout_mode = 2
+theme_override_colors/font_color = Color(0.3019608, 0.8352941, 1, 1)
+theme_override_font_sizes/font_size = 120
+text = "0"
+horizontal_alignment = 1
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=372283713]
+layout_mode = 2
+alignment = 1
+
+[node name="SeedHeader" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=22933319]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Seed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seed" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" unique_id=1655384072]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.21176471, 1, 0.34117648, 1)
+theme_override_font_sizes/font_size = 60
 text = "0"
 horizontal_alignment = 1
 
 [node name="Restart" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=2039440741 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Main Menu")
 focus_next = NodePath("../Main Menu")
@@ -69,7 +104,9 @@ focus_previous = NodePath("../Quit")
 text = "Restart"
 
 [node name="Main Menu" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=388200324 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Restart")
 focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
@@ -77,7 +114,9 @@ focus_previous = NodePath("../Restart")
 text = "Main Menu"
 
 [node name="Quit" type="Button" parent="VBoxContainer/HBoxContainer/VBoxContainer" unique_id=1429858335 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Main Menu")
 focus_neighbor_bottom = NodePath("../Restart")
 focus_next = NodePath("../Restart")

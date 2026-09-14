@@ -43,6 +43,7 @@ grow_vertical = 2
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1575087308]
 layout_mode = 2
+theme_override_font_sizes/font_size = 100
 text = "Settings"
 horizontal_alignment = 1
 
@@ -134,6 +135,21 @@ size_flags_horizontal = 0
 text = "0.0"
 horizontal_alignment = 1
 
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=1234828623]
+layout_mode = 2
+alignment = 1
+
+[node name="SetSeed" type="Label" parent="VBoxContainer/HBoxContainer2" unique_id=1053009255]
+layout_mode = 2
+text = "Set Seed:"
+
+[node name="seedInput" type="LineEdit" parent="VBoxContainer/HBoxContainer2" unique_id=2110842883]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+placeholder_text = "00000000"
+alignment = 1
+max_length = 8
+
 [node name="Exit" type="Button" parent="VBoxContainer" unique_id=1369645295 groups=["UI Buttons"]]
 layout_mode = 2
 size_flags_horizontal = 4
@@ -146,4 +162,6 @@ text = "Exit"
 [connection signal="drag_ended" from="VBoxContainer/HBoxContainer/VBoxContainer2/aimSlider" to="." method="_on_h_slider_drag_ended"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer2/musicSlider" to="." method="_on_music_slider_value_changed"]
 [connection signal="value_changed" from="VBoxContainer/HBoxContainer/VBoxContainer2/sfxSlider" to="." method="_on_sfx_slider_value_changed"]
+[connection signal="text_changed" from="VBoxContainer/HBoxContainer2/seedInput" to="." method="_on_seed_input_text_changed"]
+[connection signal="text_submitted" from="VBoxContainer/HBoxContainer2/seedInput" to="." method="_on_seed_input_text_submitted"]
 [connection signal="pressed" from="VBoxContainer/Exit" to="." method="_on_exit_pressed"]

@@ -1,6 +1,8 @@
 extends Control
 
 @export var scoreDisplay : Label
+@export var seedDisplay : Label
+
 var tips = [
 	"Getting hit or missing a parry both reset your combo.",
 	"Your combo counter gives you a score multiplier!",
@@ -24,6 +26,7 @@ var tips = [
 func _ready() -> void:
 	$VBoxContainer/HBoxContainer/VBoxContainer/Restart.grab_focus()
 	scoreDisplay.text = str(ScoreCounter.currentScore)
+	seedDisplay.text = str(SeedManager.random.seed)
 	%Tips.text = "\n" + tips.pick_random()
 	AudioController.playSFX(AudioController.deathSound)
 	AudioController.playMusic(AudioController.deathBGM)

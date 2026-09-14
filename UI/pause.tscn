@@ -8,6 +8,19 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_6wphx")
 
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1163136803]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -960.0
+offset_top = -960.0
+offset_right = 960.0
+offset_bottom = 960.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6862745)
+
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=706092994]
 layout_mode = 1
 anchors_preset = 8
@@ -16,12 +29,32 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -290.0
-offset_top = -270.0
+offset_top = -374.0
+offset_bottom = -110.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
-theme_override_constants/separation = 15
+theme_override_constants/separation = 10
 alignment = 1
+
+[node name="Seed Header" type="Label" parent="VBoxContainer" unique_id=1142004759]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Seed:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Seed" type="Label" parent="VBoxContainer" unique_id=1568438902]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.31764707, 1, 0.2784314, 1)
+theme_override_font_sizes/font_size = 26
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=631086318]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 9
 
 [node name="Resume" type="Button" parent="VBoxContainer" unique_id=1054845574 groups=["UI Buttons"]]
 layout_mode = 2
@@ -29,6 +62,7 @@ focus_neighbor_top = NodePath("../Quit")
 focus_neighbor_bottom = NodePath("../Restart")
 focus_next = NodePath("../Restart")
 focus_previous = NodePath("../Quit")
+theme_override_font_sizes/font_size = 24
 text = "Resume
 "
 
@@ -38,6 +72,7 @@ focus_neighbor_top = NodePath("../Resume")
 focus_neighbor_bottom = NodePath("../Main Menu")
 focus_next = NodePath("../Main Menu")
 focus_previous = NodePath("../Resume")
+theme_override_font_sizes/font_size = 24
 text = "Restart"
 
 [node name="Main Menu" type="Button" parent="VBoxContainer" unique_id=1589924243 groups=["UI Buttons"]]
@@ -46,6 +81,7 @@ focus_neighbor_top = NodePath("../Restart")
 focus_neighbor_bottom = NodePath("../Quit")
 focus_next = NodePath("../Quit")
 focus_previous = NodePath("../Restart")
+theme_override_font_sizes/font_size = 24
 text = "Main Menu"
 
 [node name="Quit" type="Button" parent="VBoxContainer" unique_id=1162288187 groups=["UI Buttons"]]
@@ -54,6 +90,7 @@ focus_neighbor_top = NodePath("../Main Menu")
 focus_neighbor_bottom = NodePath("../Resume")
 focus_next = NodePath("../Resume")
 focus_previous = NodePath("../Main Menu")
+theme_override_font_sizes/font_size = 24
 text = "Quit"
 
 [node name="Timer" type="Timer" parent="." unique_id=1143881701]
