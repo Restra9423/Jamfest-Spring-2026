@@ -32,7 +32,7 @@ func _process(delta):
 		global_translate(moveDir * speed * delta)
 		if destroyTimer.time_left < 2.0:
 			if destroyTimer.time_left < 0.5:
-				if $VisibleOnScreenNotifier2D.is_on_screen() && beepFlipper != "Last":
+				if beepFlipper != "Last" && !(parriedBullet && !$VisibleOnScreenNotifier2D.is_on_screen()):
 					beepFlipper = "Last"
 					AudioController.playSFX(AudioController.longBombBeepSound, false, true, self)
 				for indicator in indicators:

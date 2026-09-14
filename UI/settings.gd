@@ -1,10 +1,8 @@
 extends Control
 
 @export var sfx: AudioStreamPlayer
-@onready var aimSlider : HSlider = %aimSlider
 @onready var musicSlider : HSlider = %musicSlider
 @onready var sfxSlider : HSlider = %sfxSlider
-@onready var aimDisplay : Label = %aimDisplay
 @onready var musicDisplay : Label = %musicDisplay
 @onready var sfxDisplay : Label = %sfxDisplay
 @onready var seedInput : LineEdit = $VBoxContainer/HBoxContainer2/seedInput
@@ -20,7 +18,6 @@ var aimInput = Vector2.ZERO
 func _ready() -> void:
 	AudioController.playMusic(AudioController.gameBGM)
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	aimSlider.value = remap(SettingsManager.mouseSensitivity, 100.0, 0.0, 0.0, 10.0)
 	musicSlider.value = AudioController.musicSliderValue
 	sfxSlider.value = AudioController.sfxSliderValue
 	
@@ -42,45 +39,30 @@ func _ready() -> void:
 		sfxSlider.value = remap(sfxDB, -15.0, 2.5, 0.1, 50.0)
 	else:
 		sfxSlider.value = remap(sfxDB, 2.5, 10.0, 50.0, 100.0)
-	
-	$VBoxContainer/HBoxContainer/VBoxContainer2/aimSlider.grab_focus()
 
 func _process(_delta) -> void:
-	aimDisplay.text = str(aimSlider.value)
 	musicDisplay.text = str(snappedf(db_to_linear(remap(musicSlider.value, 0.0, 100.0, -15.0, 10.0)), 0.01))
 	sfxDisplay.text = str(snappedf(db_to_linear(remap(sfxSlider.value, 0.0, 100.0, -15.0, 10.0)), 0.01))
 	
 	input = Input.get_axis("ui_left", "ui_right")
 	var speedMultiplier = input * 1
 	if input == 0:
-		aimSlider.editable = true
 		musicSlider.editable = true
 		sfxSlider.editable = true
 		timePressed = 0.0
 		carry = 0.0
 	else:
-		aimSlider.editable = false
 		musicSlider.editable = false
 		sfxSlider.editable = false
 		timePressed += _delta
 		speedMultiplier *= (1 + pow(timePressed + 0.5, 2.25))
 		var slider = get_viewport().gui_get_focus_owner()
 		if slider is HSlider:
-			if slider == %aimSlider:
-				carry += speedMultiplier * _delta * 8
-			else:
-				carry += speedMultiplier * _delta * 16
+			carry += speedMultiplier * _delta * 16
 			var frameSteps = int(carry / slider.step) * slider.step
 			if int(carry / slider.step) != 0:
 				slider.value += frameSteps
 				carry -= frameSteps
-	
-	#aimInput = Vector2(Input.get_axis("ui_left", "ui_right"), Input.get_axis("ui_up", "ui_down"))
-	#if aimInput != Vector2.ZERO:
-		#Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
-	#elif mouseInput.length() > 0:
-		#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	#mouseInput = mouseInput.move_toward(Vector2.ZERO, 20.0 * _delta)
 	
 	if Input.is_action_just_pressed("Back"):
 		AudioController.playSFX(AudioController.clickSound)
@@ -88,9 +70,6 @@ func _process(_delta) -> void:
 
 func _on_any_button_focused() -> void:
 	AudioController.playSFX(AudioController.mouseOverSound)
-
-func _on_h_slider_drag_ended(_value_changed: bool) -> void:
-	SettingsManager.setMouseSensitivity(remap(aimSlider.value, 0.0, 10.0, 100.0, 0.0))
 
 func _on_music_slider_value_changed(value: float) -> void:
 	AudioController.musicSliderValue = value
