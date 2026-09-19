@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://coke6x88f0hq"]
+
+[ext_resource type="Texture2D" uid="uid://dra3j5tso2mqn" path="res://Art/OffscreenIndicator.png" id="1_263fi"]
+[ext_resource type="SpriteFrames" uid="uid://dylvvniktxl21" path="res://Art/Bullets/Bullets.tres" id="2_me7nw"]
+
+[node name="OffscreenIndicator" type="Node2D" unique_id=485596288]
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1443322661]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_263fi")
+
+[node name="BulletSprite" type="AnimatedSprite2D" parent="." unique_id=257749606]
+position = Vector2(0, -10)
+scale = Vector2(0.5, 0.5)
+sprite_frames = ExtResource("2_me7nw")
+animation = &"delta"

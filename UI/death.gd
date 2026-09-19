@@ -28,8 +28,6 @@ func _ready() -> void:
 	scoreDisplay.text = str(ScoreCounter.currentScore)
 	seedDisplay.text = str(SeedManager.random.seed)
 	%Tips.text = "\n" + tips.pick_random()
-	AudioController.playSFX(AudioController.deathSound)
-	AudioController.playMusic(AudioController.deathBGM)
 	
 	for button in get_tree().get_nodes_in_group("UI Buttons"):
 		button.mouse_entered.connect(_on_any_button_focused)

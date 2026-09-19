@@ -43,42 +43,97 @@ offset_bottom = 258.00195
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="VBoxContainer" unique_id=1584414685]
+[node name="Title" type="Label" parent="VBoxContainer" unique_id=1584414685]
 layout_mode = 2
+theme_override_font_sizes/font_size = 120
 text = "Oops! All Parries"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1147573407]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="Start" type="Button" parent="VBoxContainer" unique_id=1343386419 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
+size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Quit")
-focus_neighbor_bottom = NodePath("../Settings")
+focus_neighbor_bottom = NodePath("../HBoxContainer/Settings")
+theme_override_colors/font_color = Color(0.25882354, 0.60784316, 0.8117647, 1)
+theme_override_font_sizes/font_size = 120
 text = "Start"
 
-[node name="Settings" type="Button" parent="VBoxContainer" unique_id=593332406 groups=["UI Buttons"]]
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer" unique_id=1694832956]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../Start")
-focus_neighbor_bottom = NodePath("../Tutorial")
+theme_override_constants/separation = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1476912415]
+layout_mode = 2
+
+[node name="Settings" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=593332406 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../../Start")
+focus_neighbor_right = NodePath("../HighScores")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/Tutorial")
+theme_override_font_sizes/font_size = 84
 text = "Settings"
 
-[node name="Tutorial" type="Button" parent="VBoxContainer" unique_id=605796630 groups=["UI Buttons"]]
+[node name="HighScores" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=496638192 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../Settings")
-focus_neighbor_bottom = NodePath("../Credits")
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../Settings")
+focus_neighbor_top = NodePath("../../Start")
+focus_neighbor_bottom = NodePath("../../HBoxContainer2/Credits")
+theme_override_font_sizes/font_size = 84
+text = "High Scores"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=2110915738]
+layout_mode = 2
+
+[node name="Tutorial" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=605796630 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../../HBoxContainer/Settings")
+focus_neighbor_right = NodePath("../Credits")
+focus_neighbor_bottom = NodePath("../../Quit")
+theme_override_font_sizes/font_size = 84
 text = "Tutorial"
 
-[node name="Credits" type="Button" parent="VBoxContainer" unique_id=1251620939 groups=["UI Buttons"]]
+[node name="Credits" type="Button" parent="VBoxContainer/HBoxContainer2" unique_id=1251620939 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../Tutorial")
-focus_neighbor_bottom = NodePath("../Quit")
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../Tutorial")
+focus_neighbor_top = NodePath("../../HBoxContainer/HighScores")
+focus_neighbor_bottom = NodePath("../../Quit")
+theme_override_font_sizes/font_size = 84
 text = "Credits"
 
-[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1560069852 groups=["UI Buttons"]]
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer" unique_id=627587443]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 2
-focus_neighbor_top = NodePath("../Credits")
+theme_override_constants/separation = 10
+
+[node name="Quit" type="Button" parent="VBoxContainer" unique_id=1560069852 groups=["UI Buttons"]]
+custom_minimum_size = Vector2(600, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../HBoxContainer2/Credits")
 focus_neighbor_bottom = NodePath("../Start")
+theme_override_colors/font_color = Color(0.50980395, 0.2901961, 0.2901961, 1)
+theme_override_font_sizes/font_size = 84
 text = "Quit"
 
 [connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="VBoxContainer/Tutorial" to="." method="_on_tutorial_pressed"]
-[connection signal="pressed" from="VBoxContainer/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/HighScores" to="." method="_on_high_scores_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Tutorial" to="." method="_on_tutorial_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/Credits" to="." method="_on_credits_pressed"]
 [connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_quit_pressed"]

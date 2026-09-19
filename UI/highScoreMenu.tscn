@@ -1,0 +1,291 @@
+[gd_scene format=3 uid="uid://byk74ejt08ukf"]
+
+[ext_resource type="Script" uid="uid://icdsq6cjk6dk" path="res://UI/highScoreMenu.gd" id="1_y4jqr"]
+[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="2_bw6it"]
+[ext_resource type="PackedScene" uid="uid://cd3pan238lx2x" path="res://Prefabs/UI & UX/ScoreClearPopUp.tscn" id="3_citr7"]
+
+[node name="HighScores" type="Control" unique_id=112037327]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_y4jqr")
+
+[node name="BoxContainer" type="BoxContainer" parent="." unique_id=605408794]
+layout_mode = 0
+offset_left = 552.5
+offset_top = 702.0
+offset_right = 592.5
+offset_bottom = 742.0
+alignment = 1
+
+[node name="Background" type="Sprite2D" parent="BoxContainer" unique_id=170580438]
+z_index = -5
+position = Vector2(404.5, 260)
+texture = ExtResource("2_bw6it")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=585958508]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -273.0
+offset_top = -258.0
+offset_right = 273.0
+offset_bottom = 258.00195
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="High Scores" type="Label" parent="VBoxContainer" unique_id=1911707384]
+layout_mode = 2
+theme_override_font_sizes/font_size = 120
+text = "High Scores"
+horizontal_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=1645078951]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="FirstPlace" type="HBoxContainer" parent="VBoxContainer" unique_id=344719804]
+layout_mode = 2
+alignment = 1
+
+[node name="First" type="Label" parent="VBoxContainer/FirstPlace" unique_id=762692970]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+text = "        1."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/FirstPlace" unique_id=813926008]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/FirstPlace" unique_id=544326940]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.25490198, 0.09019608, 1)
+theme_override_font_sizes/font_size = 84
+text = "No Data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/FirstPlace" unique_id=1810151512]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Score" type="Label" parent="VBoxContainer/FirstPlace" unique_id=877387525]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.25490198, 0.09019608, 1)
+theme_override_font_sizes/font_size = 84
+text = "0"
+horizontal_alignment = 1
+
+[node name="SecondPlace" type="HBoxContainer" parent="VBoxContainer" unique_id=1603740868]
+layout_mode = 2
+alignment = 1
+
+[node name="Second" type="Label" parent="VBoxContainer/SecondPlace" unique_id=1709724603]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+text = "        2."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/SecondPlace" unique_id=1447950942]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/SecondPlace" unique_id=1993604985]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.54509807, 0.09019608, 1)
+theme_override_font_sizes/font_size = 84
+text = "No Data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/SecondPlace" unique_id=1114544855]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Score" type="Label" parent="VBoxContainer/SecondPlace" unique_id=1732828030]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.54509807, 0.09019608, 1)
+theme_override_font_sizes/font_size = 84
+text = "0"
+horizontal_alignment = 1
+
+[node name="ThirdPlace" type="HBoxContainer" parent="VBoxContainer" unique_id=917892565]
+layout_mode = 2
+alignment = 1
+
+[node name="Third" type="Label" parent="VBoxContainer/ThirdPlace" unique_id=200537810]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+text = "        3."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/ThirdPlace" unique_id=1680016159]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/ThirdPlace" unique_id=1375555977]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45490196, 1, 0.09019608, 1)
+theme_override_font_sizes/font_size = 84
+text = "No Data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/ThirdPlace" unique_id=389287940]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Score" type="Label" parent="VBoxContainer/ThirdPlace" unique_id=372559391]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.45490196, 1, 0.09019608, 1)
+theme_override_font_sizes/font_size = 84
+text = "0"
+horizontal_alignment = 1
+
+[node name="FourthPlace" type="HBoxContainer" parent="VBoxContainer" unique_id=1013793022]
+layout_mode = 2
+alignment = 1
+
+[node name="Fourth" type="Label" parent="VBoxContainer/FourthPlace" unique_id=877858113]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+text = "        4."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/FourthPlace" unique_id=2041490474]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/FourthPlace" unique_id=1743009491]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.050980393, 1, 0.68235296, 1)
+theme_override_font_sizes/font_size = 84
+text = "No Data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/FourthPlace" unique_id=300694456]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Score" type="Label" parent="VBoxContainer/FourthPlace" unique_id=114450741]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.050980393, 1, 0.68235296, 1)
+theme_override_font_sizes/font_size = 84
+text = "0"
+horizontal_alignment = 1
+
+[node name="FifthPlace" type="HBoxContainer" parent="VBoxContainer" unique_id=1822502010]
+layout_mode = 2
+alignment = 1
+
+[node name="Fifth" type="Label" parent="VBoxContainer/FifthPlace" unique_id=721510763]
+layout_mode = 2
+theme_override_font_sizes/font_size = 84
+text = "        5."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator2" type="VSeparator" parent="VBoxContainer/FifthPlace" unique_id=849439255]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 100
+
+[node name="PlayerName" type="Label" parent="VBoxContainer/FifthPlace" unique_id=1769533630]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.33333334, 1, 1)
+theme_override_font_sizes/font_size = 84
+text = "No Data"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/FifthPlace" unique_id=1840772122]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Score" type="Label" parent="VBoxContainer/FifthPlace" unique_id=1095140661]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.2, 0.33333334, 1, 1)
+theme_override_font_sizes/font_size = 84
+text = "0"
+horizontal_alignment = 1
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer" unique_id=1782428369]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="backButton" type="Button" parent="VBoxContainer" unique_id=1455532027 groups=["UI Buttons"]]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../../clearButton")
+focus_neighbor_top = NodePath("../../clearButton")
+focus_neighbor_right = NodePath("../../clearButton")
+focus_neighbor_bottom = NodePath("../../clearButton")
+focus_next = NodePath("../../clearButton")
+focus_previous = NodePath("../../clearButton")
+theme_override_font_sizes/font_size = 72
+text = "Return to Title"
+icon_alignment = 1
+
+[node name="clearButton" type="Button" parent="." unique_id=1463927159 groups=["UI Buttons"]]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -400.0
+offset_top = -107.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 4
+focus_neighbor_left = NodePath("../VBoxContainer/backButton")
+focus_neighbor_top = NodePath("../VBoxContainer/backButton")
+focus_neighbor_right = NodePath("../VBoxContainer/backButton")
+focus_neighbor_bottom = NodePath("../VBoxContainer/backButton")
+focus_next = NodePath("../VBoxContainer/backButton")
+focus_previous = NodePath("../VBoxContainer/backButton")
+theme_override_colors/font_color = Color(0.4074, 0.41328, 0.42, 1)
+theme_override_font_sizes/font_size = 60
+text = "Clear Scores"
+icon_alignment = 1
+
+[node name="ScoreClearPopUp" parent="." unique_id=1076288941 instance=ExtResource("3_citr7")]
+layout_mode = 1
+focus_next = NodePath("../clearButton")
+focus_previous = NodePath("../clearButton")
+
+[connection signal="pressed" from="VBoxContainer/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="clearButton" to="." method="_on_clear_button_pressed"]

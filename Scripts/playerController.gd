@@ -44,7 +44,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	#death state check
 	if health < 1:
-		get_tree().change_scene_to_file("res://UI/death.tscn")
+		AudioController.playSFX(AudioController.deathSound)
+		AudioController.playMusic(AudioController.deathBGM)
+		if ScoreCounter.currentScore > HighScores.toBeSaved["FifthPlace"].score:
+			get_tree().change_scene_to_file("res://UI/highScoreUpdate.tscn")
+		else:
+			get_tree().change_scene_to_file("res://UI/death.tscn")
 	
 	#heal check
 	@warning_ignore("integer_division")

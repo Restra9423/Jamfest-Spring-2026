@@ -1,0 +1,92 @@
+[gd_scene format=3 uid="uid://cd3pan238lx2x"]
+
+[ext_resource type="Script" uid="uid://0ds07xr7te1l" path="res://Prefabs/UI & UX/scoreClearPopUp.gd" id="1_871il"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fuqbp"]
+bg_color = Color(0.2, 0.17999999, 0.17999999, 0.98039216)
+
+[node name="ScoreClearPopUp" type="Control" unique_id=1076288941]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_871il")
+
+[node name="Panel" type="Panel" parent="." unique_id=1219371155]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -499.8125
+offset_top = -230.0
+offset_right = 499.8125
+offset_bottom = 230.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fuqbp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=59284740]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -335.5
+offset_top = -154.0
+offset_right = 335.5
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="VBoxContainer" unique_id=143943559]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Are you sure you want
+to clear all high scores?"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer" unique_id=440844940]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=1732624037]
+layout_mode = 2
+alignment = 1
+
+[node name="YesButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=1347390646]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../NoButton")
+focus_neighbor_top = NodePath("../NoButton")
+focus_neighbor_right = NodePath("../NoButton")
+focus_neighbor_bottom = NodePath("../NoButton")
+focus_next = NodePath("../NoButton")
+focus_previous = NodePath("../NoButton")
+theme_override_font_sizes/font_size = 60
+text = "Yes"
+
+[node name="VSeparator" type="VSeparator" parent="VBoxContainer/HBoxContainer" unique_id=765046497]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+theme_override_constants/separation = 40
+
+[node name="NoButton" type="Button" parent="VBoxContainer/HBoxContainer" unique_id=650270918]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+focus_neighbor_left = NodePath("../YesButton")
+focus_neighbor_top = NodePath("../YesButton")
+focus_neighbor_right = NodePath("../YesButton")
+focus_neighbor_bottom = NodePath("../YesButton")
+focus_next = NodePath("../YesButton")
+focus_previous = NodePath("../YesButton")
+theme_override_font_sizes/font_size = 60
+text = "No"
+
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/YesButton" to="." method="_on_yes_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NoButton" to="." method="_on_no_button_pressed"]

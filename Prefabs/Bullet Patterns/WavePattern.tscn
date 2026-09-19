@@ -257,6 +257,7 @@ pointValue = 25
 position = Vector2(1755, -220)
 speed = 500.0
 angle = 180.0
+isParryable = true
 timeToDestroy = 30.0
 pointValue = 25
 
@@ -365,6 +366,7 @@ pointValue = 25
 position = Vector2(2996, -271)
 speed = 500.0
 angle = 180.0
+isParryable = true
 timeToDestroy = 30.0
 pointValue = 25
 

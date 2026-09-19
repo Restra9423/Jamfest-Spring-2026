@@ -39,6 +39,8 @@ func _ready() -> void:
 		sfxSlider.value = remap(sfxDB, -15.0, 2.5, 0.1, 50.0)
 	else:
 		sfxSlider.value = remap(sfxDB, 2.5, 10.0, 50.0, 100.0)
+	
+	musicSlider.grab_focus()
 
 func _process(_delta) -> void:
 	musicDisplay.text = str(snappedf(db_to_linear(remap(musicSlider.value, 0.0, 100.0, -15.0, 10.0)), 0.01))
@@ -111,6 +113,7 @@ func _on_seed_input_text_submitted(new_text: String) -> void:
 		SeedManager.setSeed()
 	elif SeedManager.validateSeed(new_text):
 		SeedManager.setSeed(int(new_text))
+	$VBoxContainer/Exit.grab_focus()
 
 func _on_exit_pressed() -> void:
 	AudioController.playSFX(AudioController.clickSound)

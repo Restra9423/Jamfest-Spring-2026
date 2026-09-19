@@ -29,6 +29,7 @@ buses/default_bus_layout="uid://db1upmlraggay"
 ScoreCounter="*uid://bibltxsa0n26g"
 AudioController="*uid://knggnvbke8d5"
 SeedManager="*uid://d2r0hmwvbw3ek"
+HighScores="*uid://derii1ec5w6gs"
 
 [display]
 

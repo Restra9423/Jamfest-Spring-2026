@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://bngvei5wgm4yt" path="res://Scripts/gameManager.gd" id="1_fcaoe"]
 [ext_resource type="PackedScene" uid="uid://djiitpxgsp02t" path="res://Prefabs/PatternSpawner.tscn" id="2_47q4h"]
 [ext_resource type="PackedScene" uid="uid://0mc2t6s8cp4d" path="res://Prefabs/LevelBounds.tscn" id="3_fcaoe"]
-[ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/ScoreManager.tscn" id="3_gajq0"]
+[ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/UI & UX/ScoreManager.tscn" id="3_gajq0"]
 [ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="4_iyqwk"]
 [ext_resource type="Texture2D" uid="uid://dabyphwt5u71h" path="res://Art/EvilRedWall.png" id="5_adrbb"]
 [ext_resource type="Shader" uid="uid://cmbmwj71tcgdj" path="res://Art/Shaders/valueShift.gdshader" id="5_d1005"]

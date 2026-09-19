@@ -36,6 +36,10 @@ func _on_settings_pressed() -> void:
 	AudioController.playSFX(AudioController.clickSound)
 	get_tree().change_scene_to_file("res://UI/settings.tscn")
 
+func _on_high_scores_pressed() -> void:
+	AudioController.playSFX(AudioController.clickSound)
+	get_tree().change_scene_to_file("res://UI/highScoreMenu.tscn")
+
 func _on_tutorial_pressed() -> void:
 	AudioController.playSFX(AudioController.clickSound)
 	get_tree().change_scene_to_file("res://UI/tutorial.tscn")
