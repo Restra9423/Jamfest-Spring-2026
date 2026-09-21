@@ -11,6 +11,7 @@ var colorIndex : int = 0
 
 var currentScoreDisplay : Node2D = null
 
+@export var levelProgressBar : Control
 @export var pointDisplays : PackedScene
 
 static var instance: ScoreManager
@@ -38,6 +39,9 @@ func updateScore():
 		currentScoreDisplay.get_node("Label").text = "+" + str(accumulatedPoints)
 		currentScoreDisplay.get_node("Label").modulate = Color.CHARTREUSE
 		currentScoreDisplay.get_node("Label").add_theme_font_size_override("font_size", 60)
+	
+	if levelProgressBar != null:
+		levelProgressBar.updateProgress()
 
 func updateCombo():
 	comboDisplay.text = str(int(ScoreCounter.combo))

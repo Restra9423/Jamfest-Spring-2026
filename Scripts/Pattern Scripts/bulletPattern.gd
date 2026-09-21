@@ -2,7 +2,6 @@ class_name BulletPattern
 extends Node2D
 
 @export var groupParryValue : int
-@export var totalWaves : int = 0
 @export var spawnCooldown : float = 0.0
 
 var groups : Dictionary = {}
@@ -16,13 +15,6 @@ func _ready() -> void:
 			
 			#initialize bullet sprite
 			child.initializeSprite(child.myShape)
-			
-			#set bullet speed
-			if totalWaves > 0:
-				if "shrapnelCount" in child:
-					pass
-				else:
-					child.speed *= pow(1.001, totalWaves)
 			
 			#reparent ungrouped bullets, catalog grouped bullets, set homing targets
 			if child.groupID == 0:
@@ -46,6 +38,18 @@ func _ready() -> void:
 	#delete pattern if it has no grouped bullets
 	if !hasGroupedBullets():
 		queue_free.call_deferred()
+
+func setBulletSpeed(totalWaves: int, currentDifficulty: int) -> void:
+	for child in get_children():
+		if child is Bullet:
+			#set bullet speed
+			if currentDifficulty == 1:
+				child.speed *= 0.8
+			elif totalWaves > 0:
+				if "shrapnelCount" in child:
+					pass
+				else:
+					child.speed *= pow(1.001, totalWaves)
 
 func onChildParried(groupID: int, childPos : Vector2) -> void:
 	for child in get_children():

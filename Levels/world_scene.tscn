@@ -10,6 +10,7 @@
 [ext_resource type="Shader" uid="uid://cmbmwj71tcgdj" path="res://Art/Shaders/valueShift.gdshader" id="5_d1005"]
 [ext_resource type="Texture2D" uid="uid://cplw44st4q4vj" path="res://Art/HeathBar2.png" id="6_42d7d"]
 [ext_resource type="Texture2D" uid="uid://hjvphaxd5iyy" path="res://Art/HeathBar3.png" id="7_fcaoe"]
+[ext_resource type="PackedScene" uid="uid://sko4g3jqxl4l" path="res://Prefabs/UI & UX/LevelProgressBar.tscn" id="8_6oujl"]
 [ext_resource type="Texture2D" uid="uid://b4bcn08hdr3ho" path="res://Art/HeathBar1.png" id="8_syw1v"]
 [ext_resource type="PackedScene" uid="uid://bl5wfjm3n1uv5" path="res://UI/pause.tscn" id="11_adrbb"]
 
@@ -17,8 +18,9 @@
 shader = ExtResource("5_d1005")
 shader_parameter/value_shift = 0.0
 
-[node name="WorldScene" type="Node2D" unique_id=1086633574]
+[node name="WorldScene" type="Node2D" unique_id=1086633574 node_paths=PackedStringArray("levelProgressBar")]
 script = ExtResource("1_fcaoe")
+levelProgressBar = NodePath("LevelProgressBar")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=583817535 groups=["Camera"]]
 
@@ -30,7 +32,8 @@ health2 = NodePath("../HeathBar2")
 health1 = NodePath("../HeathBar1")
 scoreManager = NodePath("../ScoreManager")
 
-[node name="PatternSpawner" parent="." unique_id=680363320 instance=ExtResource("2_47q4h")]
+[node name="PatternSpawner" parent="." unique_id=680363320 node_paths=PackedStringArray("levelProgressBar") instance=ExtResource("2_47q4h")]
+levelProgressBar = NodePath("../LevelProgressBar")
 
 [node name="LevelBounds" parent="." unique_id=1305599879 instance=ExtResource("3_fcaoe")]
 
@@ -39,12 +42,22 @@ material = SubResource("ShaderMaterial_6oujl")
 scale = Vector2(1.04, 1.04)
 texture = ExtResource("5_adrbb")
 
-[node name="ScoreManager" parent="." unique_id=791273218 instance=ExtResource("3_gajq0")]
+[node name="ScoreManager" parent="." unique_id=791273218 node_paths=PackedStringArray("levelProgressBar") instance=ExtResource("3_gajq0")]
 z_index = 2
 offset_left = -960.0
 offset_top = -960.0
 offset_right = -515.0
 offset_bottom = -685.0
+levelProgressBar = NodePath("../LevelProgressBar")
+
+[node name="LevelProgressBar" parent="." unique_id=1213569923 instance=ExtResource("8_6oujl")]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.0
+offset_top = -950.0
+offset_bottom = -950.0
+grow_vertical = 1
 
 [node name="Background" type="Sprite2D" parent="." unique_id=203242074]
 z_index = -5

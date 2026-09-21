@@ -140,12 +140,18 @@ func parry(pointValue: int, weak: bool = false):
 func hurt():
 	if !iFrames.time_left > 0:
 		iFrames.start()
-		health -= 1
+		
+		scoreManager.clearCombo(ScoreCounter.combo)
+		
+		if ScoreCounter.comboMaxed:
+			ScoreCounter.breakMaxCombo()
+		else:
+			health -= 1
+			ScoreCounter.resetCombo()
+		
 		parryLength.stop()
 		parryLength.wait_time = parryLength.wait_time
 		parryLength.timeout.emit()
-		scoreManager.clearCombo(ScoreCounter.combo)
-		ScoreCounter.resetCombo()
 		blink()
 		AudioController.playSFX(AudioController.takeDamageSound, true)
 		match health:

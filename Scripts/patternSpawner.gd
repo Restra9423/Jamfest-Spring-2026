@@ -2,15 +2,20 @@ extends Node2D
 
 @onready var waveTimer : Timer = $WaveTimer
 var totalWaves : float = 0.0
-var currentDifficulty : int = 0
+var currentList
 var patternRng : RandomNumberGenerator
 
-# Create difficulty-based arrays of references to each existing bullet pattern
-@export var easyPatterns : Array[PackedScene]
-@export var mediumPatterns : Array[PackedScene]
-@export var hardPatterns : Array[PackedScene]
-@export var superHardPatterns : Array[PackedScene]
+@export var levelProgressBar : Control
 @export var testPatterns : Array[PackedScene]
+@export var levelOnePatterns : Array[PackedScene]
+@export var levelTwoPatterns : Array[PackedScene]
+@export var levelThreePatterns : Array[PackedScene]
+@export var levelFourPatterns : Array[PackedScene]
+@export var levelFivePatterns : Array[PackedScene]
+@export var levelSixPatterns : Array[PackedScene]
+@export var levelSevenPatterns : Array[PackedScene]
+@export var levelEightPatterns : Array[PackedScene]
+@export var levelNinePatterns : Array[PackedScene]
 
 var patternsByDifficulty : Dictionary = {}
 var cooldownIndices : Dictionary = {}
@@ -22,30 +27,25 @@ func _ready() -> void:
 	
 	waveTimer.wait_time = 0.0
 	patternsByDifficulty = {
-		0: easyPatterns,
-		1: mediumPatterns,
-		2: hardPatterns,
-		3: superHardPatterns,
-		4: testPatterns
+		0: testPatterns,
+		1: levelOnePatterns,
+		2: levelTwoPatterns,
+		3: levelThreePatterns,
+		4: levelFourPatterns,
+		5: levelFivePatterns,
+		6: levelSixPatterns,
+		7: levelSevenPatterns,
+		8: levelEightPatterns,
+		9: levelNinePatterns
 	}
+	# ScoreCounter.setLevel(3)
 
-# Randomly call a pattern from that array, repeat infinitely
-# Decrease time between waves over time
 func _on_wave_timer_timeout() -> void:
-	if totalWaves < 1:
-		waveTimer.wait_time = 3.0
-	
-	# increase wave count
-	totalWaves += 1
-	# currentDifficulty = 3
-	
 	# increase difficulty when threshold is met
-	var targetDifficulty = mini(ScoreCounter.currentScore / 20000, 3)
-	if targetDifficulty > currentDifficulty:
-		currentDifficulty += 1
+	if ScoreCounter.currentLevel != 0 && levelProgressBar != null && levelProgressBar.levelUp():
 		totalWaves = 1
-		waveTimer.wait_time = 3.0 - (0.08 * currentDifficulty)
-	var currentList = patternsByDifficulty[currentDifficulty]
+		waveTimer.wait_time = 3.0 - (0.04 * ScoreCounter.currentLevel)
+	currentList = patternsByDifficulty[ScoreCounter.currentLevel]
 	
 	# get all available indices that aren't on cooldown
 	var availableIndices : Array = []
@@ -60,7 +60,7 @@ func _on_wave_timer_timeout() -> void:
 	# spawn a pattern
 	var chosenIndex = availableIndices[patternRng.randi_range(0, availableIndices.size() - 1)]
 	var currentWave = currentList[chosenIndex].instantiate()
-	currentWave.totalWaves = totalWaves
+	currentWave.setBulletSpeed(totalWaves, ScoreCounter.currentLevel)
 	add_child(currentWave)
 	
 	# create cooldown timer if pattern has a spawnCooldown
@@ -76,4 +76,13 @@ func _on_wave_timer_timeout() -> void:
 		)
 		cooldownTimer.start()
 	
-	waveTimer.wait_time *= 0.995
+	# set next wave's timer based on current level
+	if ScoreCounter.currentLevel == 1:
+		waveTimer.wait_time = 5.0
+	elif totalWaves < 1:
+		waveTimer.wait_time = 3.0
+	else:
+		waveTimer.wait_time *= 0.995
+	
+	# increase wave count
+	totalWaves += 1
