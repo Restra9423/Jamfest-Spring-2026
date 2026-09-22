@@ -114,6 +114,8 @@ func _on_parry_zone_area_entered(area: Area2D) -> void:
 		if area.is_in_group("landmines"):
 			hurt()
 		area.setParried(((parryDir + self.position.direction_to(area.position))/2).normalized())
+		if ScoreCounter.comboMaxed:
+			playerSprite.modulate = Color(.7,.85,1,1)
 
 
 #custom functions
@@ -155,10 +157,14 @@ func hurt():
 		blink()
 		AudioController.playSFX(AudioController.takeDamageSound, true)
 		match health:
+			3:
+				playerSprite.modulate = Color(1,1,1,1)
 			2:
 				health3.visible = false
+				playerSprite.modulate = Color(1,0.925,0.65,1)
 			1:
 				health2.visible = false
+				playerSprite.modulate = Color(1,0.7,0.65,1)
 
 func blink():
 	while iFrames.time_left > 0:
@@ -172,8 +178,10 @@ func heal():
 		match health:
 			3:
 				health3.visible = true
+				playerSprite.modulate = Color(1,1,1,1)
 			2:
 				health2.visible = true
+				playerSprite.modulate = Color(1,0.925,0.65,1)
 		AudioController.playSFX(AudioController.healingSound, true)
 
 
@@ -188,6 +196,13 @@ func _on_parry_length_timeout() -> void:
 		parryCooldown.wait_time = 2
 		scoreManager.clearCombo(ScoreCounter.combo)
 		ScoreCounter.resetCombo()
+		match health:
+			3:
+				playerSprite.modulate = Color(1,1,1,1)
+			2:
+				playerSprite.modulate = Color(1,0.925,0.65,1)
+			1:
+				playerSprite.modulate = Color(1,0.7,0.65,1)
 	else:
 		parried = false
 		ScoreCounter.incrementCombo()
