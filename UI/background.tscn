@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://baytbonh4mcii"]
+
+[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="1_ns7dc"]
+[ext_resource type="Texture2D" uid="uid://bshfvwq4ehk6u" path="res://Art/placeeholderParry.png" id="2_cbj22"]
+
+[node name="Background" type="Node2D" unique_id=1234250048]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=1524169382]
+z_index = -5
+scale = Vector2(0.94, 0.94)
+texture = ExtResource("1_ns7dc")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1740827276]
+modulate = Color(0, 0, 0, 1)
+z_index = 5
+position = Vector2(-1250, 0)
+scale = Vector2(0.9, 3.2)
+texture = ExtResource("2_cbj22")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=866116340]
+modulate = Color(0, 0, 0, 1)
+z_index = 5
+position = Vector2(1250, 0)
+scale = Vector2(0.9, 3.2)
+texture = ExtResource("2_cbj22")

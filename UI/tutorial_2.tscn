@@ -7,26 +7,41 @@
 [ext_resource type="Texture2D" uid="uid://cl2cwxkrukrj8" path="res://Art/Bullets/BlueDeltaBullet.png" id="5_6fscg"]
 [ext_resource type="Texture2D" uid="uid://bwo6llr5ierqd" path="res://Art/Bullets/LightBlueDeltaBullet.png" id="6_s06nb"]
 [ext_resource type="Texture2D" uid="uid://bom045j3d75vv" path="res://Art/Bullets/WhiteRectangleBullet.png" id="7_fsoem"]
-[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="7_wd0mq"]
 [ext_resource type="Texture2D" uid="uid://c72y8yu1y6n6q" path="res://Art/Bullets/PinkMineBullet.png" id="8_3tvpc"]
 [ext_resource type="Texture2D" uid="uid://c7fjex3cqye48" path="res://Art/Bullets/PurpleBombBullet.png" id="9_qlhs3"]
+[ext_resource type="PackedScene" uid="uid://baytbonh4mcii" path="res://UI/background.tscn" id="10_qlhs3"]
 
 [node name="Tutorial2" type="Control" unique_id=564746374]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1536.0
+offset_top = -960.0
+offset_right = -1536.0
+offset_bottom = -960.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_s06nb")
 script = ExtResource("2_s06nb")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=603949463]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 100.0
-offset_right = 1820.0
-offset_bottom = 600.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -876.0
+offset_top = -839.0
+offset_right = 876.0
+offset_bottom = 839.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 46
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=273996225]
 layout_mode = 2
@@ -219,7 +234,7 @@ horizontal_alignment = 1
 custom_minimum_size = Vector2(860, 0)
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "A bullet that explodes into many smaller bullets after a countdown. Can be parried, but will still explode if it remains on-screen when its timer runs out."
+text = "A bullet that explodes into many smaller bullets after a countdown. Can be parried, but will still explode unless it is off-screen when its timer runs out."
 autowrap_mode = 3
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=659838609]
@@ -244,16 +259,13 @@ icon_alignment = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=581658310]
 layout_mode = 0
-offset_left = 552.5
-offset_top = 702.0
-offset_right = 592.5
-offset_bottom = 742.0
+offset_right = 40.0
+offset_bottom = 40.0
 alignment = 1
 
-[node name="Background" type="Sprite2D" parent="BoxContainer" unique_id=49087058]
-z_index = -5
-position = Vector2(404.5, 260)
-texture = ExtResource("7_wd0mq")
+[node name="Camera2D" type="Camera2D" parent="BoxContainer" unique_id=450226891 groups=["Camera"]]
+
+[node name="Background" parent="BoxContainer" unique_id=1234250048 instance=ExtResource("10_qlhs3")]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/previousButton" to="." method="_on_previous_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/backButton" to="." method="_on_back_button_pressed"]

@@ -5,18 +5,30 @@
 [ext_resource type="PackedScene" uid="uid://djiitpxgsp02t" path="res://Prefabs/PatternSpawner.tscn" id="2_47q4h"]
 [ext_resource type="PackedScene" uid="uid://0mc2t6s8cp4d" path="res://Prefabs/LevelBounds.tscn" id="3_fcaoe"]
 [ext_resource type="PackedScene" uid="uid://dx1wp8ft46jae" path="res://Prefabs/UI & UX/ScoreManager.tscn" id="3_gajq0"]
-[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="4_iyqwk"]
 [ext_resource type="Texture2D" uid="uid://dabyphwt5u71h" path="res://Art/EvilRedWall.png" id="5_adrbb"]
 [ext_resource type="Shader" uid="uid://cmbmwj71tcgdj" path="res://Art/Shaders/valueShift.gdshader" id="5_d1005"]
 [ext_resource type="Texture2D" uid="uid://cplw44st4q4vj" path="res://Art/HeathBar2.png" id="6_42d7d"]
 [ext_resource type="Texture2D" uid="uid://hjvphaxd5iyy" path="res://Art/HeathBar3.png" id="7_fcaoe"]
 [ext_resource type="PackedScene" uid="uid://sko4g3jqxl4l" path="res://Prefabs/UI & UX/LevelProgressBar.tscn" id="8_6oujl"]
 [ext_resource type="Texture2D" uid="uid://b4bcn08hdr3ho" path="res://Art/HeathBar1.png" id="8_syw1v"]
+[ext_resource type="PackedScene" uid="uid://baytbonh4mcii" path="res://UI/background.tscn" id="9_6oujl"]
 [ext_resource type="PackedScene" uid="uid://bl5wfjm3n1uv5" path="res://UI/pause.tscn" id="11_adrbb"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_6oujl"]
 shader = ExtResource("5_d1005")
 shader_parameter/value_shift = 0.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eewp0"]
+shader = ExtResource("5_d1005")
+shader_parameter/value_shift = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_y418r"]
+shader = ExtResource("5_d1005")
+shader_parameter/value_shift = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ngvrl"]
+shader = ExtResource("5_d1005")
+shader_parameter/value_shift = 1.0
 
 [node name="WorldScene" type="Node2D" unique_id=1086633574 node_paths=PackedStringArray("levelProgressBar")]
 script = ExtResource("1_fcaoe")
@@ -43,39 +55,50 @@ scale = Vector2(1.04, 1.04)
 texture = ExtResource("5_adrbb")
 
 [node name="ScoreManager" parent="." unique_id=791273218 node_paths=PackedStringArray("levelProgressBar") instance=ExtResource("3_gajq0")]
-z_index = 2
-offset_left = -960.0
-offset_top = -960.0
-offset_right = -515.0
-offset_bottom = -685.0
+z_index = 6
+offset_left = -1430.0
+offset_top = -500.0
+offset_right = -1130.0
+offset_bottom = -50.0
+scale = Vector2(1.25, 1.25)
 levelProgressBar = NodePath("../LevelProgressBar")
 
 [node name="LevelProgressBar" parent="." unique_id=1213569923 instance=ExtResource("8_6oujl")]
+z_index = 6
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.0
-offset_top = -950.0
-offset_bottom = -950.0
+offset_left = 1245.0
+offset_top = 24.0
+offset_right = 1245.0
+offset_bottom = 24.0
 grow_vertical = 1
 
-[node name="Background" type="Sprite2D" parent="." unique_id=203242074]
-z_index = -5
-texture = ExtResource("4_iyqwk")
+[node name="Background" parent="." unique_id=1234250048 instance=ExtResource("9_6oujl")]
 
 [node name="HeathBar3" type="Sprite2D" parent="." unique_id=1316957443]
-position = Vector2(-794, 832)
-scale = Vector2(0.099999994, 0.099999994)
+z_index = 6
+material = SubResource("ShaderMaterial_eewp0")
+position = Vector2(-1240.9003, 462.12585)
+rotation = 3.1415927
+scale = Vector2(0.14542128, 0.12609094)
 texture = ExtResource("7_fcaoe")
 
 [node name="HeathBar2" type="Sprite2D" parent="." unique_id=1423403472]
-position = Vector2(-794, 832)
-scale = Vector2(0.1, 0.1)
+z_index = 6
+material = SubResource("ShaderMaterial_y418r")
+position = Vector2(-1240.9003, 462.12595)
+rotation = 3.1415927
+scale = Vector2(0.1454213, 0.12609093)
 texture = ExtResource("6_42d7d")
 
 [node name="HeathBar1" type="Sprite2D" parent="." unique_id=2044029295]
-position = Vector2(-794, 832)
-scale = Vector2(0.1, 0.1)
+z_index = 6
+material = SubResource("ShaderMaterial_ngvrl")
+position = Vector2(-1240.9003, 462.12595)
+rotation = 3.1415927
+scale = Vector2(0.1454213, 0.12609093)
 texture = ExtResource("8_syw1v")
 
 [node name="Pause" parent="." unique_id=1244986732 instance=ExtResource("11_adrbb")]

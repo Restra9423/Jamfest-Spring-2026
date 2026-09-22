@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="Oops! All Parries"
-config/version="1.2"
+config/version="1.5"
 run/main_scene="uid://jkbycmyymtjq"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://nqgc21jyfpj"
@@ -33,7 +33,7 @@ HighScores="*uid://derii1ec5w6gs"
 
 [display]
 
-window/size/viewport_width=1920
+window/size/viewport_width=3072
 window/size/viewport_height=1920
 window/size/mode=4
 window/stretch/mode="viewport"

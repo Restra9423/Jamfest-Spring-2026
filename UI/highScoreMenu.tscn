@@ -1,30 +1,42 @@
 [gd_scene format=3 uid="uid://byk74ejt08ukf"]
 
 [ext_resource type="Script" uid="uid://icdsq6cjk6dk" path="res://UI/highScoreMenu.gd" id="1_y4jqr"]
-[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="2_bw6it"]
+[ext_resource type="PackedScene" uid="uid://baytbonh4mcii" path="res://UI/background.tscn" id="2_y4jqr"]
 [ext_resource type="PackedScene" uid="uid://cd3pan238lx2x" path="res://Prefabs/UI & UX/ScoreClearPopUp.tscn" id="3_citr7"]
 
 [node name="HighScores" type="Control" unique_id=112037327]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1536.0
+offset_top = -960.0
+offset_right = -1536.0
+offset_bottom = -960.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_y4jqr")
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=605408794]
-layout_mode = 0
-offset_left = 552.5
-offset_top = 702.0
-offset_right = 592.5
-offset_bottom = 742.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="Background" type="Sprite2D" parent="BoxContainer" unique_id=170580438]
-z_index = -5
-position = Vector2(404.5, 260)
-texture = ExtResource("2_bw6it")
+[node name="Camera2D" type="Camera2D" parent="BoxContainer" unique_id=204481820 groups=["Camera"]]
+
+[node name="Background" parent="BoxContainer" unique_id=1234250048 instance=ExtResource("2_y4jqr")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=585958508]
 layout_mode = 1
@@ -33,10 +45,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -273.0
-offset_top = -258.0
-offset_right = 273.0
-offset_bottom = 258.00195
+offset_left = -646.5
+offset_top = -489.5
+offset_right = 646.5
+offset_bottom = 489.5
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -58,7 +70,7 @@ alignment = 1
 [node name="First" type="Label" parent="VBoxContainer/FirstPlace" unique_id=762692970]
 layout_mode = 2
 theme_override_font_sizes/font_size = 84
-text = "        1."
+text = "      1."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -96,7 +108,7 @@ alignment = 1
 [node name="Second" type="Label" parent="VBoxContainer/SecondPlace" unique_id=1709724603]
 layout_mode = 2
 theme_override_font_sizes/font_size = 84
-text = "        2."
+text = "      2."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -134,7 +146,7 @@ alignment = 1
 [node name="Third" type="Label" parent="VBoxContainer/ThirdPlace" unique_id=200537810]
 layout_mode = 2
 theme_override_font_sizes/font_size = 84
-text = "        3."
+text = "      3."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -172,7 +184,7 @@ alignment = 1
 [node name="Fourth" type="Label" parent="VBoxContainer/FourthPlace" unique_id=877858113]
 layout_mode = 2
 theme_override_font_sizes/font_size = 84
-text = "        4."
+text = "      4."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -210,7 +222,7 @@ alignment = 1
 [node name="Fifth" type="Label" parent="VBoxContainer/FifthPlace" unique_id=721510763]
 layout_mode = 2
 theme_override_font_sizes/font_size = 84
-text = "        5."
+text = "      5."
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -266,8 +278,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -400.0
-offset_top = -107.0
+offset_left = 530.0
+offset_top = 820.0
+offset_right = 930.0
+offset_bottom = 927.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 4
@@ -284,6 +298,11 @@ icon_alignment = 1
 
 [node name="ScoreClearPopUp" parent="." unique_id=1076288941 instance=ExtResource("3_citr7")]
 layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
 focus_next = NodePath("../clearButton")
 focus_previous = NodePath("../clearButton")
 

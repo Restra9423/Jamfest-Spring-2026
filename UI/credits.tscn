@@ -2,24 +2,38 @@
 
 [ext_resource type="Theme" uid="uid://b0t0wqywuh78x" path="res://UI/ui_theme.tres" id="1_ng644"]
 [ext_resource type="Script" uid="uid://cnews4yryjkpt" path="res://UI/credits.gd" id="2_uuuvy"]
-[ext_resource type="Texture2D" uid="uid://3pn0sh3mbpie" path="res://Art/Background.png" id="3_kk2ga"]
+[ext_resource type="PackedScene" uid="uid://baytbonh4mcii" path="res://UI/background.tscn" id="3_kk2ga"]
 
 [node name="Credits" type="Control" unique_id=564746374]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -1536.0
+offset_top = -960.0
+offset_right = -1536.0
+offset_bottom = -960.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_ng644")
 script = ExtResource("2_uuuvy")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=603949463]
-layout_mode = 0
-offset_left = 96.0
-offset_top = 96.0
-offset_right = 1292.0
-offset_bottom = 596.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -864.0
+offset_top = -848.0
+offset_right = 864.0
+offset_bottom = 848.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=273996225]
 layout_mode = 2
@@ -44,7 +58,7 @@ text = "-"
 
 [node name="role" type="Label" parent="VBoxContainer/Jonathan" unique_id=221395028]
 layout_mode = 2
-text = "Programmer"
+text = "Lead Programmer"
 
 [node name="Jordan" type="HBoxContainer" parent="VBoxContainer" unique_id=1871781349]
 layout_mode = 2
@@ -174,21 +188,25 @@ horizontal_alignment = 1
 
 [node name="backButton" type="Button" parent="VBoxContainer" unique_id=57105475 groups=["UI Buttons"]]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 text = "Back To Title"
 icon_alignment = 1
 
 [node name="BoxContainer" type="BoxContainer" parent="." unique_id=581658310]
-layout_mode = 0
-offset_left = 552.5
-offset_top = 702.0
-offset_right = 592.5
-offset_bottom = 742.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
 alignment = 1
 
-[node name="Background" type="Sprite2D" parent="BoxContainer" unique_id=49087058]
-z_index = -5
-position = Vector2(404.5, 260)
-texture = ExtResource("3_kk2ga")
+[node name="Camera2D" type="Camera2D" parent="BoxContainer" unique_id=1020529013 groups=["Camera"]]
+
+[node name="Background" parent="BoxContainer" unique_id=1234250048 instance=ExtResource("3_kk2ga")]
 
 [connection signal="pressed" from="VBoxContainer/backButton" to="." method="_on_back_button_pressed"]
