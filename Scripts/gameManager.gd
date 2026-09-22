@@ -8,4 +8,5 @@ func _ready() -> void:
 	
 	if levelProgressBar != null:
 		ScoreCounter.setLevel(1)
+		# ScoreCounter.setLevel(0)
 		levelProgressBar.updateLevel()

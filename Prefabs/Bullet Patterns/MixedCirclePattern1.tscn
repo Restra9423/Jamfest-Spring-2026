@@ -6,7 +6,8 @@
 [node name="MixedCirclePattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_ratil")
 groupParryValue = 300
-spawnCooldown = 0.3
+spawnCooldown = 2.0
+patternType = "Circle"
 
 [node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("2_h71ju")]
 position = Vector2(1500, -2)
@@ -35,6 +36,7 @@ myShape = 2
 [node name="Bullet4" parent="." unique_id=836309892 instance=ExtResource("2_h71ju")]
 position = Vector2(-6.556708e-05, -1500)
 angle = 90.0
+groupID = 1
 pointValue = 25
 myShape = 2
 
@@ -42,6 +44,7 @@ myShape = 2
 position = Vector2(-750.0001, -1299.038)
 scale = Vector2(0.99999994, 0.99999994)
 angle = 60.0
+groupID = 1
 pointValue = 25
 myShape = 2
 
@@ -49,11 +52,13 @@ myShape = 2
 position = Vector2(-1299.0383, -749.9998)
 scale = Vector2(0.99999994, 0.99999994)
 angle = 30.0
+groupID = 1
 pointValue = 25
 myShape = 2
 
 [node name="Bullet7" parent="." unique_id=1252134906 instance=ExtResource("2_h71ju")]
 position = Vector2(-1500, 0.00021458855)
+groupID = 1
 pointValue = 25
 myShape = 2
 
@@ -61,6 +66,7 @@ myShape = 2
 position = Vector2(-1299.038, 750.0001)
 scale = Vector2(0.99999994, 0.99999994)
 angle = 330.0
+groupID = 1
 pointValue = 25
 myShape = 2
 
@@ -68,6 +74,7 @@ myShape = 2
 position = Vector2(-749.9998, 1299.0383)
 scale = Vector2(0.99999994, 0.99999994)
 angle = 300.0
+groupID = 1
 pointValue = 25
 myShape = 2
 

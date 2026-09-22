@@ -5,32 +5,40 @@
 
 [node name="BombPattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_x0fkt")
-spawnCooldown = 1.0
+spawnCooldown = 5.0
 
 [node name="BombBullet" parent="." unique_id=979420319 instance=ExtResource("2_x0fkt")]
 position = Vector2(-1200, -1200)
 shrapnelCount = 6
+speed = 150.0
 angle = 45.0
-timeToDestroy = 4.0
+staticSpeed = true
+timeToDestroy = 7.0
 pointValue = 500
 
 [node name="BombBullet2" parent="." unique_id=238861350 instance=ExtResource("2_x0fkt")]
 position = Vector2(1200, -1200)
 shrapnelCount = 6
+speed = 150.0
 angle = 135.0
-timeToDestroy = 4.0
+staticSpeed = true
+timeToDestroy = 7.0
 pointValue = 500
 
 [node name="BombBullet3" parent="." unique_id=1581371068 instance=ExtResource("2_x0fkt")]
 position = Vector2(1200, 1200)
 shrapnelCount = 6
+speed = 150.0
 angle = 225.0
-timeToDestroy = 4.0
+staticSpeed = true
+timeToDestroy = 7.0
 pointValue = 500
 
 [node name="BombBullet4" parent="." unique_id=1182213476 instance=ExtResource("2_x0fkt")]
 position = Vector2(-1200, 1200)
 shrapnelCount = 6
+speed = 150.0
 angle = 315.0
-timeToDestroy = 4.0
+staticSpeed = true
+timeToDestroy = 7.0
 pointValue = 500

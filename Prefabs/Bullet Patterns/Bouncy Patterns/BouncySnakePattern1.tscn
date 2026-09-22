@@ -7,7 +7,9 @@
 [node name="BouncyPattern2" type="Node2D" unique_id=448704251]
 script = ExtResource("1_u0cwj")
 groupParryValue = 200
-spawnCooldown = 5.0
+spawnCooldown = 10.0
+patternType = "Bouncy"
+allowedRotations = Array[float]([0.0, 45.0, 90.0, 135.0, 180.0])
 
 [node name="BouncyBullet" parent="." unique_id=979420319 instance=ExtResource("2_208qj")]
 position = Vector2(-1000, 530)

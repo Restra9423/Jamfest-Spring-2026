@@ -6,7 +6,8 @@
 [node name="ParryCirclePattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_sfsge")
 groupParryValue = 400
-spawnCooldown = 0.3
+spawnCooldown = 2.0
+patternType = "Circle"
 
 [node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("1_3mqx0")]
 position = Vector2(1500, -2)

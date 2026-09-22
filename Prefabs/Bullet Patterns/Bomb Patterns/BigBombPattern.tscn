@@ -6,14 +6,16 @@
 
 [node name="BigBombPattern" type="Node2D" unique_id=448704251]
 script = ExtResource("1_s4yae")
-spawnCooldown = 5.0
+spawnCooldown = 10.0
+allowedRotations = Array[float]([0.0, 90.0, 180.0, 270.0])
 
 [node name="BombBullet" parent="." unique_id=979420319 instance=ExtResource("2_brmo4")]
-position = Vector2(0, -1200)
+position = Vector2(0, -1500)
 scale = Vector2(3, 3)
-shrapnelCount = 6
+shrapnelCount = 7
 shrapnelType = ExtResource("3_brmo4")
-speed = 250.0
+speed = 175.0
 angle = 90.0
-timeToDestroy = 5.0
+staticSpeed = true
+timeToDestroy = 9.0
 pointValue = 500

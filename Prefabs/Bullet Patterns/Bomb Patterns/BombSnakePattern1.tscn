@@ -9,6 +9,7 @@
 script = ExtResource("1_i634d")
 groupParryValue = 200
 spawnCooldown = 5.0
+allowedRotations = Array[float]([0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0])
 
 [node name="BombBullet" parent="." unique_id=556327553 instance=ExtResource("3_e4ya8")]
 position = Vector2(1350, 0)
@@ -18,7 +19,8 @@ shrapnelType = ExtResource("3_i634d")
 speed = 500.0
 angle = 180.0
 groupID = 1
-timeToDestroy = 2.5
+staticSpeed = true
+timeToDestroy = 3.0
 
 [node name="HomingBullet" parent="." unique_id=979420319 instance=ExtResource("2_e4ya8")]
 position = Vector2(1500, 0)

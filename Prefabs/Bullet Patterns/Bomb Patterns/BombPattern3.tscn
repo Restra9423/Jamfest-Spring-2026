@@ -5,13 +5,16 @@
 
 [node name="BombPattern3" type="Node2D" unique_id=448704251]
 script = ExtResource("1_cwthg")
-spawnCooldown = 5.0
+spawnCooldown = 15.0
+allowedRotations = Array[float]([0.0, 90.0, 180.0, 270.0])
+canBeMirrored = true
 
 [node name="BombBullet" parent="." unique_id=1182213476 instance=ExtResource("2_2kesx")]
 position = Vector2(-1200, 1200)
 shrapnelCount = 5
 speed = 400.0
 angle = 315.0
+staticSpeed = true
 timeToDestroy = 2.0
 pointValue = 500
 
@@ -20,6 +23,7 @@ position = Vector2(0, -1600)
 shrapnelCount = 5
 speed = 400.0
 angle = 90.0
+staticSpeed = true
 timeToDestroy = 2.8
 pointValue = 500
 
@@ -27,6 +31,7 @@ pointValue = 500
 position = Vector2(-2000, 0)
 shrapnelCount = 5
 speed = 400.0
+staticSpeed = true
 timeToDestroy = 3.5
 pointValue = 500
 
@@ -35,6 +40,7 @@ position = Vector2(1800, 1800)
 shrapnelCount = 5
 speed = 400.0
 angle = 225.0
+staticSpeed = true
 timeToDestroy = 4.3
 pointValue = 500
 
@@ -43,6 +49,7 @@ position = Vector2(2100, -2100)
 shrapnelCount = 5
 speed = 400.0
 angle = 135.0
+staticSpeed = true
 timeToDestroy = 5.0
 pointValue = 500
 
@@ -51,6 +58,7 @@ position = Vector2(0, 3000)
 shrapnelCount = 5
 speed = 400.0
 angle = 270.0
+staticSpeed = true
 timeToDestroy = 5.8
 pointValue = 500
 
@@ -59,6 +67,7 @@ position = Vector2(-2400, -2400)
 shrapnelCount = 5
 speed = 400.0
 angle = 45.0
+staticSpeed = true
 timeToDestroy = 6.5
 pointValue = 500
 
@@ -67,5 +76,6 @@ position = Vector2(3500, 0)
 shrapnelCount = 5
 speed = 400.0
 angle = 180.0
+staticSpeed = true
 timeToDestroy = 7.2
 pointValue = 500

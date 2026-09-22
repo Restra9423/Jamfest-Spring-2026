@@ -6,6 +6,9 @@
 [node name="PushPattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_1130y")
 spawnCooldown = 4.0
+patternType = "Wall"
+allowedRotations = Array[float]([0.0, 90.0, 180.0, 270.0])
+canBeMirrored = true
 
 [node name="PushBullet" parent="." unique_id=1518870708 instance=ExtResource("2_5ujg5")]
 position = Vector2(-1984, -695)

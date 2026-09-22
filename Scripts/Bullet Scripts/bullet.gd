@@ -7,6 +7,7 @@ extends Area2D
 @export var groupID : int
 @export var isLead : bool = false
 @export var isParryable : bool
+@export var staticSpeed : bool = false
 @export var timeToDestroy : float = 20.0
 @export var pointValue : int = 100
 @export var mySprite : AnimatedSprite2D

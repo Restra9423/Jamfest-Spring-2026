@@ -6,7 +6,9 @@
 
 [node name="LandmineWavePattern1" type="Node2D" unique_id=448704251]
 script = ExtResource("1_lwplj")
-spawnCooldown = 6.0
+spawnCooldown = 7.5
+allowedRotations = Array[float]([0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0])
+canBeMirrored = true
 
 [node name="Bullet" parent="." unique_id=1610133839 instance=ExtResource("2_s6xwt")]
 position = Vector2(919, 1302)

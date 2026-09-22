@@ -55,8 +55,31 @@ func _process(delta: float) -> void:
 			
 			orbitAngles[bullet] += orbitSpeed * delta
 			var offset = Vector2.RIGHT.rotated(orbitAngles[bullet]) * orbitRadius
-			bullet.global_position = lead.global_position + offset
+			
+			if appliedRotation != 0.0:
+				offset = offset.rotated(deg_to_rad(appliedRotation))
+			
+			var finalOffset = offset
+			if appliedMirrorX:
+				finalOffset.x = -finalOffset.x
+			if appliedMirrorY:
+				finalOffset.y = -finalOffset.y
+			
+			bullet.global_position = lead.global_position + finalOffset
 			bullet.moveDir = Vector2.RIGHT.rotated(orbitAngles[bullet] + PI / 2)
+			
+			if appliedRotation != 0.0:
+				bullet.moveDir = bullet.moveDir.rotated(deg_to_rad(appliedRotation))
+			if appliedMirrorX:
+				bullet.moveDir.x = -bullet.moveDir.x
+			if appliedMirrorY:
+				bullet.moveDir.y = -bullet.moveDir.y
+
+func applyTransform(bullet: Bullet) -> void:
+	# orbital bullets are handled in _process(), skip transform here
+	if bullet.groupID > 0:
+		return
+	super.applyTransform(bullet)
 
 func onChildParried(groupID: int, childPos: Vector2) -> void:
 	var bulletGroup = groups.get(groupID, [])

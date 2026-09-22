@@ -6,7 +6,8 @@
 [node name="ParrySpearPattern" type="Node2D" unique_id=448704251]
 script = ExtResource("1_m7t5h")
 groupParryValue = 200
-spawnCooldown = 1.2
+spawnCooldown = 2.0
+allowedRotations = Array[float]([0.0, 90.0, 180.0, 270.0])
 
 [node name="Bullet" parent="." unique_id=979420319 instance=ExtResource("2_lba1i")]
 position = Vector2(2562, -2228)

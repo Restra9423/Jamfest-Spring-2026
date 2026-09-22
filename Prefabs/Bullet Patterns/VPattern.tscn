@@ -6,71 +6,77 @@
 [node name="VPattern" type="Node2D" unique_id=448704251]
 script = ExtResource("1_vfwat")
 groupParryValue = 200
-spawnCooldown = 1.0
+spawnCooldown = 2.0
+allowedRotations = Array[float]([0.0, 90.0, 180.0, 270.0])
 
 [node name="Bullet3" parent="." unique_id=197878993 instance=ExtResource("2_puxot")]
 position = Vector2(-79, 1264)
 speed = 500.0
 angle = 270.0
-groupID = 2
+groupID = 3
 isParryable = true
 
 [node name="Bullet4" parent="." unique_id=979420319 instance=ExtResource("2_puxot")]
 position = Vector2(-39, 1167)
 speed = 500.0
 angle = 270.0
-groupID = 2
+groupID = 3
 isParryable = true
 
 [node name="Bullet5" parent="." unique_id=408648031 instance=ExtResource("2_puxot")]
 position = Vector2(6, 1067)
 speed = 500.0
 angle = 270.0
-groupID = 2
+groupID = 3
 isParryable = true
 
 [node name="Bullet6" parent="." unique_id=1988440734 instance=ExtResource("2_puxot")]
 position = Vector2(51, 1167)
 speed = 500.0
 angle = 270.0
-groupID = 2
+groupID = 3
 isParryable = true
 
 [node name="Bullet7" parent="." unique_id=664162399 instance=ExtResource("2_puxot")]
 position = Vector2(91, 1264)
 speed = 500.0
 angle = 270.0
-groupID = 2
+groupID = 3
 isParryable = true
 
 [node name="Bullet8" parent="." unique_id=1174926079 instance=ExtResource("2_puxot")]
 position = Vector2(-460, 1502)
 speed = 500.0
 angle = 270.0
+groupID = 2
 pointValue = 25
 
 [node name="Bullet9" parent="." unique_id=1795596981 instance=ExtResource("2_puxot")]
 position = Vector2(-420, 1405)
 speed = 500.0
 angle = 270.0
+groupID = 2
 pointValue = 25
 
 [node name="Bullet10" parent="." unique_id=363498568 instance=ExtResource("2_puxot")]
 position = Vector2(-375, 1305)
 speed = 500.0
 angle = 270.0
+groupID = 2
 pointValue = 25
 
 [node name="Bullet11" parent="." unique_id=1594148183 instance=ExtResource("2_puxot")]
 position = Vector2(-330, 1405)
 speed = 500.0
 angle = 270.0
+groupID = 2
 pointValue = 25
 
 [node name="Bullet12" parent="." unique_id=537022609 instance=ExtResource("2_puxot")]
 position = Vector2(-290, 1502)
 speed = 500.0
 angle = 270.0
+groupID = 2
 pointValue = 25
 
 [node name="Bullet18" parent="." unique_id=1608161722 instance=ExtResource("2_puxot")]
@@ -112,65 +118,70 @@ isParryable = true
 position = Vector2(682, 1759)
 speed = 500.0
 angle = 270.0
-groupID = 3
+groupID = 5
 isParryable = true
 
 [node name="Bullet24" parent="." unique_id=1684388086 instance=ExtResource("2_puxot")]
 position = Vector2(721, 1661)
 speed = 500.0
 angle = 270.0
-groupID = 3
+groupID = 5
 isParryable = true
 
 [node name="Bullet25" parent="." unique_id=1804517286 instance=ExtResource("2_puxot")]
 position = Vector2(766, 1561)
 speed = 500.0
 angle = 270.0
-groupID = 3
+groupID = 5
 isParryable = true
 
 [node name="Bullet26" parent="." unique_id=1084668599 instance=ExtResource("2_puxot")]
 position = Vector2(811, 1661)
 speed = 500.0
 angle = 270.0
-groupID = 3
+groupID = 5
 isParryable = true
 
 [node name="Bullet27" parent="." unique_id=1825161425 instance=ExtResource("2_puxot")]
 position = Vector2(851, 1758)
 speed = 500.0
 angle = 270.0
-groupID = 3
+groupID = 5
 isParryable = true
 
 [node name="Bullet13" parent="." unique_id=1371184856 instance=ExtResource("2_puxot")]
 position = Vector2(314, 1501)
 speed = 500.0
 angle = 270.0
+groupID = 4
 pointValue = 25
 
 [node name="Bullet14" parent="." unique_id=185561330 instance=ExtResource("2_puxot")]
 position = Vector2(354, 1404)
 speed = 500.0
 angle = 270.0
+groupID = 4
 pointValue = 25
 
 [node name="Bullet15" parent="." unique_id=665097021 instance=ExtResource("2_puxot")]
 position = Vector2(399, 1304)
 speed = 500.0
 angle = 270.0
+groupID = 4
 pointValue = 25
 
 [node name="Bullet16" parent="." unique_id=360003146 instance=ExtResource("2_puxot")]
 position = Vector2(444, 1404)
 speed = 500.0
 angle = 270.0
+groupID = 4
 pointValue = 25
 
 [node name="Bullet17" parent="." unique_id=1228645334 instance=ExtResource("2_puxot")]
 position = Vector2(484, 1501)
 speed = 500.0
 angle = 270.0
+groupID = 4
 pointValue = 25
 
 [connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

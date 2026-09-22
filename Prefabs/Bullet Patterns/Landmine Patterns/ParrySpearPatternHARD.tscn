@@ -7,7 +7,9 @@
 [node name="ParrySpearPatternHARD" type="Node2D" unique_id=448704251]
 script = ExtResource("1_cmetv")
 groupParryValue = 200
-spawnCooldown = 1.2
+spawnCooldown = 2.0
+allowedRotations = Array[float]([0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0])
+canBeMirrored = true
 
 [node name="Bullet" parent="." unique_id=1070001626 instance=ExtResource("2_v8148")]
 position = Vector2(1425, -1675)

@@ -9,6 +9,8 @@ script = ExtResource("1_1mqr5")
 orbitSpeed = 3.0
 groupParryValue = 400
 spawnCooldown = 2.5
+allowedRotations = Array[float]([0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0])
+canBeMirrored = true
 
 [node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_mrhwr")]
 position = Vector2(-1183, -1097)

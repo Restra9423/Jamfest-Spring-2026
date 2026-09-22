@@ -6,15 +6,17 @@
 [node name="HomingPattern1" type="Node2D" unique_id=1058599110]
 script = ExtResource("1_jt2lv")
 spawnCooldown = 5.0
+allowedRotations = Array[float]([0.0, 45.0, 90.0, 135.0, 180.0, 225.0, 270.0, 315.0])
+canBeMirrored = true
 
 [node name="HomingBullet" parent="." unique_id=979420319 instance=ExtResource("2_jt2lv")]
-position = Vector2(-1730, -1755)
+position = Vector2(-1230, -1255)
 pointValue = 200
 
 [node name="HomingBullet2" parent="." unique_id=1646522236 instance=ExtResource("2_jt2lv")]
-position = Vector2(3291, -2791)
+position = Vector2(2791, -2291)
 pointValue = 200
 
 [node name="HomingBullet3" parent="." unique_id=196391501 instance=ExtResource("2_jt2lv")]
-position = Vector2(152, 6540)
+position = Vector2(152, 5540)
 pointValue = 200

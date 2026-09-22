@@ -9,7 +9,9 @@ script = ExtResource("1_y3uja")
 fireRate = 1.0
 orbitSpeed = 3.0
 groupParryValue = 500
-spawnCooldown = 3.0
+spawnCooldown = 5.0
+patternType = "Sniper"
+allowedRotations = Array[float]([0.0, 90.0, 180.0, 270.0])
 
 [node name="LeadBullet" parent="." unique_id=979420319 instance=ExtResource("2_636bi")]
 position = Vector2(1200, 400)

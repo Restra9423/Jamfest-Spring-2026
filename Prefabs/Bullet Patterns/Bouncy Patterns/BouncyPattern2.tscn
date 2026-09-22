@@ -5,19 +5,21 @@
 
 [node name="BouncyPattern2" type="Node2D" unique_id=448704251]
 script = ExtResource("1_qvkcl")
-spawnCooldown = 5.0
+spawnCooldown = 10.0
+patternType = "Bouncy"
+allowedRotations = Array[float]([0.0, 45.0, 90.0, 135.0])
 
 [node name="BouncyBullet" parent="." unique_id=979420319 instance=ExtResource("2_oca32")]
-position = Vector2(-1000, 0)
+position = Vector2(-1400, 0)
 
 [node name="BouncyBullet3" parent="." unique_id=1839865891 instance=ExtResource("2_oca32")]
-position = Vector2(1000, 0)
+position = Vector2(1400, 0)
 angle = 180.0
 
 [node name="BouncyBullet5" parent="." unique_id=1786027134 instance=ExtResource("2_oca32")]
-position = Vector2(0, -1500)
+position = Vector2(0, -1900)
 angle = 90.0
 
 [node name="BouncyBullet6" parent="." unique_id=790568717 instance=ExtResource("2_oca32")]
-position = Vector2(0, 1500)
+position = Vector2(0, 1900)
 angle = 270.0
